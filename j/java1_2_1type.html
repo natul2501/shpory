@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+	<title>life</title>
+	<link rel="stylesheet" type="text/css" href="style/diarystyle.css">
+</head>
+<body>
+	<div id="container" style="width:1333px">
+	<header id="header">
+        <h2 style="margin-bottom:0; text-align: center">
+			ЩОДЕННИК
+		</h2>
+		<div style="width: 1000; float: right; margin: 5px">
+			<i style="font-weight: normal; color: black;">На вигляд більш-менш пристойний, в майбутньому планую додати функціоналу. Поки що наповнення на різну тематику і не структуроване</i>
+		</div>
+	</header>
+       
+	<nav id="menu">
+		<ul>
+			<li><a href="../index.html">Головна</a></li>
+			<li><a href="../daughter/nav_html.html">Шпори по HTML</a></li>
+			<li><a href="../daughter/nav_css.html">Шпори по CSS</a></li>
+			<li><a href="../daughter/nav_JS.html">Шпори по JS</a></li>
+			<li><a href="../daughter/nav_web.html">Шпори по web</a></li>
+			<li><a href="../daughter/nav_linux.html">Шпори по linux</a></li>
+			<li><a href="../daughter/nav_java.html">Шпори по java</a></li>
+			<li><a href="../daughter/nav_c.html">Шпори по c</a></li>
+			<li><a href="../daughter/nav_embed.html">Шпори по embed</a></li>
+			<li>Альбом</li>
+		</ul>
+	</nav> 
+	<div id="hashtag">
+		<b style="color: black;">Теги</b><br>
+		#diary,	#html, #css, #js, #c, #linux, #git, #LoNG, #arduino, #javaE, #DDT, #careerkhpi, #jobfair, #activecitizens, #kharkiv_eco_city, #life_others
+	</div>
+                           <!-- CONTENT-->
+	<div class="event" id="nav_java" style="width: 690px">
+	<div class="about">
+		<h3>Переменная</h3>
+		Переменная - это некоторый контейнер,  в котором может храниться значение для дальнейшего использования в программе:<br>
+		<img src="media/java1_2_1var.jpg" title="media/java1_2_1var.jpg" width="300">
+		<h3>
+		<a href="java1_3_2classes.html" class="def" title="java1_3_2casses.html">
+			Примитивные типы
+		</a></h3>
+		<article>
+			Примитивные типы в java: 
+			<img src="media/java1_2_1primitiveslist.jpg" title="media/java1_2_1primitiveslist.jpg" width="650">
+		</article>
+		<article>
+			При создании переменной без инициализации ей присваиваются значения по умолчанию в зависимости от типа данных массива:
+			<table align="center">
+				<tr><td width="120"></td><td width="50"></td></tr>
+				<tr>
+					<td>byte, int, long</td>
+					<td>0</td>
+				</tr>
+				<tr>
+					<td>float, double</td>
+					<td>0.0</td>
+				</tr>
+				<tr>
+					<td>char</td>
+					<td>\0</td>
+				</tr>
+				<tr>
+					<td>boolean</td>
+					<td>false</td>
+				</tr>
+				<tr>
+					<td>String</td>
+					<td>null</td>
+				</tr>
+			</table>
+		</article>
+		<article>
+			Точка в конце шестнадцатеричных целочисленных констант не допускается, вместо неё используют символ "d".
+		</article>
+		<article>
+			Автоматическое преобразование типов в java:<br>
+			<img src="media/java1_2_1primitives.png" title="media/java1_2_1primitives.png">
+			Штриховой линией отмечены разрешенные автоматические преобразования, которые при определенных значениях переменной могут выполняться с потерей информации.
+		</article>
+		<article>
+			Логический тип boolean не может быть преобразован к целочисленному, верно и обратное, целочисленный тип не может быть преобразован к логическому. 
+		</article>
+		<article>
+			Унарные операции «++» и «--»:<br>
+			<img src="media/java1_2_1unar.jpg" title="media/java1_2_1unar.jpg"><br>
+		</article>
+		<article>
+			Арифметические операции побитового сдвига как замена умножению и делению:<br>
+			<img src="media/java1_2_1sdvig.jpg" title="media/java1_2_1sdvig.jpg"><br>
+		</article>
+		<article>
+			Логические операции по краткой схеме ("||"):<br>
+			<img src="media/java1_2_1logkr.jpg" title="media/java1_2_1logkr.jpg"><br>
+			При вычислении результата операции OR по полной схеме ("|") всегда вычисляются оба операнда.
+		</article>
+		<article>
+			Если первый операнд логической операции AND по краткой схеме «&&» равен false (ложь) то и результат равен false без вычисления выражения, которое идет вторым операндом операции:<br>
+			<img src="media/java1_2_1logkrand.jpg" title="media/java1_2_1logkrand.jpg"><br>
+			Операция && очень часто применяется с целью избежать выполнения выражения, составляющего второй операнд, в том случае, когда его выполнение может выбросить исключение при определенном условии; это условие учитывается в первом операнде.<br>
+			<img src="media/java1_2_1logkrand.jpg" title="media/java1_2_1logkrand.jpg">
+		</article>
+
+		<h3>
+		<a href="java1_2_2wrap.html" class="def" title="java1_2_2wrap.html">
+			Классы-обёртки
+		</a></h3>
+		<article>
+			Каждый примитивный тип имеет соответствующий ему класс оболочку.
+		</article>
+
+		<h3>
+		<a href="java1_2_3mas.html" class="def" title="java1_2_3mas.html">
+			Массивы
+		</a></h3>
+		<article>
+			Массив - это простая переменная, которая может содержать не одно, а сразу несколько значений, в отличие от обычной переменной, содержащей единственное значение.
+		</article>
+
+		<h3><a href="java1_2_4str.html" class="def" title="java1_2_4str.html">
+			Строки
+		</a></h3>
+		<article>
+			Строки — представляют собой последовательность символов и являются объектами.
+		</article>
+
+		<h3 style="text-align: center"><em>--- ~LINKS~ ---<em></h3>
+		<a href="pptx/01_etlec1-v0.2.ppt" class="def" title="01_etlec1-v0.2.ppt">
+			1. Презентация: Data types, variables, operators.
+		</a>
+		
+	</div>
+	<br>   Теги: #java
+	</div>
+	<div class="cler" id="cler">
+		<div id="cl1"></div>
+		<div id="cl2"></div>
+		<div id="cl3"></div>
+		<div id="cl4"></div>
+		<div id="cl5"></div>
+		<div id="cl6"></div>
+		<div id="cl7"></div>
+		<div id="cl8"></div>
+		<div id="cl9"></div>
+		<div id="cl10"></div>
+		<div id="cl11"></div>
+		<div id="cl12"></div>
+		<div id="cl13"></div>
+		<div id="cl14"></div>
+		<div id="cl15"></div>
+		<div id="cl16"></div>
+		<div id="cl17"></div>
+		<div id="cl18"></div>
+		<div id="cl19"></div>
+		<div id="cl20"></div>
+	</div>
+	<div class="butfield">
+	<button class="but" type="button" onclick="clearr()" style="float: right;">
+		Clear
+	</button>
+	</div>
+	<div class="console" id="console">
+		<div id="co1"></div>
+		<div id="co2"></div>
+		<div id="co3"></div>
+		<div id="co4"></div>
+		<div id="co5"></div>
+		<div id="co6"></div>
+		<div id="co7"></div>
+		<div id="co8"></div>
+		<div id="co9"></div>
+		<div id="co10"></div>
+	</div>
+	
+</div>
+<div class="event" id="footer" style="top: 450px; z-index: 1">Copyright © 2011 www.puzzleweb.ru</div>
+</body>
+</html>

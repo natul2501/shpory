@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+	<title>life</title>
+	<link rel="stylesheet" type="text/css" href="style/diarystyle.css">
+	<script src="script/java1_4_1arrlist.js"></script>
+	<style type="text/css">
+		table{	margin-left: 0px;}
+		td{border: dotted 1px gray;}
+	</style>
+</head>
+<body>
+	<div id="container" style="width:1333px">
+	<header id="header">
+        <h2 style="margin-bottom:0; text-align: center">
+			ЩОДЕННИК
+		</h2>
+		<div style="width: 1000; float: right; margin: 5px">
+			<i style="font-weight: normal; color: black;">На вигляд більш-менш пристойний, в майбутньому планую додати функціоналу. Поки що наповнення на різну тематику і не структуроване</i>
+		</div>
+	</header>
+       
+	<nav id="menu">
+		<ul>
+			<li><a href="../index.html">Головна</a></li>
+			<li><a href="../daughter/nav_html.html">Шпори по HTML</a></li>
+			<li><a href="../daughter/nav_css.html">Шпори по CSS</a></li>
+			<li><a href="../daughter/nav_JS.html">Шпори по JS</a></li>
+			<li><a href="../daughter/nav_web.html">Шпори по web</a></li>
+			<li><a href="../daughter/nav_linux.html">Шпори по linux</a></li>
+			<li><a href="../daughter/nav_java.html">Шпори по java</a></li>
+			<li>Альбом</li>
+		</ul>
+	</nav> 
+	<div id="hashtag">
+		<b style="color: black;">Теги</b><br>
+		#diary,	#html, #css, #js, #c, #linux, #git, #LoNG, #arduino, #javaE, #DDT, #careerkhpi, #jobfair, #activecitizens, #kharkiv_eco_city, #life_others
+	</div>
+                           <!-- CONTENT-->
+	<div class="event" id="nav_java" style="width: 690px">
+	<div class="about">
+		<h4>List</h4>
+		<article>
+			Применяется для создания простых списков.
+		</article>
+		<article>
+			<b>Методы:</b>
+			<table align="auto">
+				<tr><td width="220"></td><td></td></tr>
+				<tr>
+					<td>void add(int index, E obj)</td>
+					<td>добавляет в список по индексу index объект obj</td>
+				</tr>
+				<tr>
+					<td>boolean addAll(int index, Collection&lt;? extends E&gt; col)</td>
+					<td>добавляет в список по индексу index все элементы коллекции col. Если в результате добавления список был изменен, то возвращается true, иначе возвращается false</td>
+				</tr>
+				<tr>
+					<td>E get(int index)</td>
+					<td>возвращает объект из списка по индексу index</td>
+				</tr>
+				<tr>
+					<td>int indexOf(Object obj)</td>
+					<td>возвращает индекс первого вхождения объекта obj в список. Если объект не найден, то возвращается -1</td>
+				</tr>
+				<tr>
+					<td>int lastIndexOf(Object obj)</td>
+					<td>возвращает индекс последнего вхождения объекта obj в список. Если объект не найден, то возвращается -1</td>
+				</tr>
+				<tr>
+					<td>ListIterator&lt;E&gt; listIterator ()</td>
+					<td>возвращает объект ListIterator для обхода элементов списка</td>
+				</tr>
+				<tr>
+					<td>static &lt;E&gt; List&lt;E&gt; of(элементы)</td>
+					<td>создает из набора элементов объект List</td>
+				</tr>
+				<tr>
+					<td>boolean remove (Object item)</td>
+					<td>E remove(int index): удаляет объект из списка по индексу index, возвращая при этом удаленный объект</td>
+				</tr>
+				<tr>
+					<td>E set(int index, E obj)</td>
+					<td>присваивает значение объекта obj элементу, который находится по индексу index</td>
+				</tr>
+				<tr>
+					<td>void sort(Comparator&lt;? super E&gt; comp)</td>
+					<td>сортирует список с помощью компаратора comp</td>
+				</tr>
+				<tr>
+					<td>List&lt;E&gt; subList(int start, int end)</td>
+					<td>получает набор элементов, которые находятся в списке между индексами start и end</td>
+				</tr>
+			</table>
+		</article>
+
+		<h3 style="text-align: center"><em>--- ~LINKS~ ---<em></h3>
+		<a href="https://metanit.com/java/tutorial/5.1.php" class="def" title="https://metanit.com/java/tutorial/">
+			1. Статья из самоучителя: Типы коллекций. Интерфейс Collection.
+		</a><br>
+
+	</div>
+	<br>   Теги: #java
+	</div>
+	<div class="cler" id="cler">
+		<div id="cl1"></div>
+		<div id="cl2"></div>
+		<div id="cl3"></div>
+		<div id="cl4"></div>
+		<div id="cl5"></div>
+		<div id="cl6"></div>
+		<div id="cl7"></div>
+		<div id="cl8"></div>
+		<div id="cl9"></div>
+		<div id="cl10"></div>
+		<div id="cl11"></div>
+		<div id="cl12"></div>
+		<div id="cl13"></div>
+		<div id="cl14"></div>
+		<div id="cl15"></div>
+		<div id="cl16"></div>
+		<div id="cl17"></div>
+		<div id="cl18"></div>
+		<div id="cl19"></div>
+		<div id="cl20"></div>
+		<div id="cl21"></div>
+		<div id="cl22"></div>
+		<div id="cl23"></div>
+	</div>
+	<div class="butfield">
+	<button class="but" type="button" onclick="clearr()" style="float: right;">
+		Clear
+	</button>
+	</div>
+	<div class="console" id="console">
+		<div id="co1"></div>
+		<div id="co2"></div>
+		<div id="co3"></div>
+		<div id="co4"></div>
+		<div id="co5"></div>
+		<div id="co6"></div>
+		<div id="co7"></div>
+		<div id="co8"></div>
+		<div id="co9"></div>
+		<div id="co10"></div>
+	</div>
+	
+</div>
+<div class="event" id="footer" style="top: 450px">Copyright © 2011 www.puzzleweb.ru</div>
+</body>
+</html>

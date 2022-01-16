@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+	<title>life.v3</title>
+	<link rel="stylesheet" type="text/css" href="diarystyle.css">
+	<style>
+		a.def{
+			color: #B98BBF;
+			margin-left: 4px;
+			font-weight:bold;
+			/*padding-left: 15px;*/
+		}
+		a.def:hover{
+			border: none;
+			color: #FD60BC;
+			text-decoration: underline;
+
+		}
+		h3{
+			color: #B98BBF;
+			background-color: rgba(105,95,100,0.6);
+			text-align: center
+		}
+		.hide				{display: none; }
+		.hide + label ~ div	{display: none; }
+		.hide + label 		{display: inline-block;
+							 padding: 0;
+							 cursor: pointer;
+							 border-bottom: 1px dotted;}
+		.hide:checked + label + div {
+			display: block;
+		}
+	</style>
+</head>
+<body>
+	<div id="container" style="width:1333px">
+	<header id="header">
+        <h2 style="margin-bottom:0; text-align: center">
+			ЩОДЕННИК
+		</h2>
+		<div style="width: 1000; float: right; margin: 5px">
+			<i>На вигляд більш-менш пристойний, в майбутньому планую додати функціоналу. Поки що наповнення на різну тематику і не структуроване</i>
+		</div>
+	</header>
+       
+	<nav id="menu">
+		<ul>
+			<li><a href="../index.html">Головна</a></li>
+			<li><a href="nav_html.html">Шпори по HTML</a></li>
+			<li><a href="nav_css.html">Шпори по CSS</a></li>
+			<li><a href="nav_JS.html">Шпори по JS</a></li>
+			<li><a href="nav_web.html">Шпори по web</a></li>
+			<li><a href="nav_linux.html">Шпори по linux</a></li>
+			<li><a href="nav_java.html">Шпори по java</a></li>
+			<li><a href="nav_c.html">Шпори по c</a></li>
+			<li><a href="nav_embed.html">Шпори по embed</a></li>
+			<li>Альбом</li>
+		</ul>
+	</nav> 
+	<div id="hashtag">
+		<b style="color: black;">Теги</b><br>
+		#diary,	#html, #css, #js, #c, #linux, #git, #LoNG, #arduino, #javaE, #DDT, #careerkhpi, #jobfair, #activecitizens, #kharkiv_eco_city, #life_others
+	</div>
+                           <!-- CONTENT-->
+	<div class="event" id="c7">
+		<time datetime="2019-10-20T21:05">20.10.2019 21:05</time><br>
+		<div class="about">
+			<h3>Шпори по linux</h3>
+			По матеріалам сайту <a href="https://linuxsurvival.com/" class="def" title="linuxsurvival.com">linuxsurvival.com</a><br>
+			<br>
+			<a href="../net/linux_comm.html" class="def" title="linux_comm.html">
+			Список базових команд</a> - 
+				<input type="checkbox" id="li1_1" class="hide"/>
+				<label for="li1_1">Базові команди linux</label>
+				<div>
+					<br>ls more pwd groups man finger find lpq df ps grep<br>
+					<br>mkdir mv cd cp rm rmdir chmod cat lpr lprm kill<br>
+				</div>, 
+				<input type="checkbox" id="li1_2" class="hide"/>
+				<label for="li1_2">їх атрибути</label>
+				<div>
+					<br>-l -r o+r -k -P aux -9<br>
+				</div>, 
+				<input type="checkbox" id="li1_3" class="hide"/>
+				<label for="li1_3">символи-команди і символи-ідентифікатори</label>
+				<div>
+					<br>.&#8195;..&#8195;~&#8195;/&#8195;|&#8195;>&#8195;>><br>
+				</div>, 
+				<br>
+			<br>
+			<a href="../net/linux_sequ.html" class="def" title="linux_sequ.html">Налаштування доступу</a> - 
+				<input type="checkbox" id="li2" class="hide"/>
+				<label for="li2">commands</label>
+				<div>
+					ls groups chmod
+				</div>, 
+				<input type="checkbox" id="li3" class="hide"/>
+				<label for="li3">wildcards</label>
+				<div>
+					ls -l; ls *; ls x?z
+				</div>, 
+				<input type="checkbox" id="li4" class="hide"/>
+				<label for="li4">any information about the security of the files</label>
+				<div>
+					-rw-r--r-- keeper prim 547 9:31 chimps
+				</div><br>
+
+		</div>
+		<br>   Теги: #linux
+	</div>
+	<div>	&nbsp;</div>
+</div>
+<div class="event" id="footer" style="top: 345px">Copyright © 2011 www.puzzleweb.ru</div>
+</body>
+</html>

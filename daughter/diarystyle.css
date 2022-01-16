@@ -1,0 +1,197 @@
+		body{
+			background-image : url(../media/index1.jpg);
+			background-attachment: fixed;
+			background-size: cover;
+			font-family: Consolas;
+			font-size: 16px; 
+		}
+		header{
+			background-image : url(../media/index2.jpg);
+			background-size: cover;
+			border: 1px outset #1C2926;
+			height: 120px;
+			position: fixed;
+			right: 0px;
+			left: 0px;
+			top: 0px;
+			z-index: 5;
+		}
+/*----------------------FOOTER------------------------*/
+		#footer{
+			width: 1331px;
+			background-color:#89787B;
+			border: 1px inset #BC8F8F;
+			text-align:center;
+			margin-top: 20px;
+			padding: 0px;
+			left: 0px;
+			/*z-index: 3;
+			bottom: 0px;*/
+		}
+/*------------------MENUS STYLES----------------------*/
+		#menu ul{
+			margin: 0;
+			padding: 0;
+			list-style-type: none;
+		}
+		#menu{
+			background-color:#89787B;
+			border: 1px inset #BC8F8F;
+			width:152px;
+			padding: 5px;
+			position: fixed;
+			top: 126px;
+		}
+		#hashtag{
+			background-color:#89787B;
+			border: 1px inset #BC8F8F;
+			width:152px;
+			padding: 5px;
+			position: fixed;
+			top: 348px;
+		}
+/*-------------------CONTENT STYLES------------------*/
+		.container{
+			width:1050px;
+			position: absolute;
+			top: 120px;
+			left: 140px;
+			z-index: 2;
+			float: left;
+		}
+		.event{
+			background: rgba(35, 33, 37, 0.8);
+			border: 1px solid #1C2926;
+			width:1025px;
+			margin: 5px;
+			font-family: Corbel;
+			color: #E5E3E6;
+			padding: 10px;
+			overflow: hidden;
+			position: relative;
+			top: 113px;
+			left: 162px;
+			right: 125px;
+			z-index: 2;
+			float: left;
+			clear: both;
+			overflow: hidden;
+		}
+		.eventt{
+			background: rgba(35, 33, 37, 0.8);
+			border: 1px solid #1C2926;
+			float:left;
+			margin: 5px;
+			font-family: Corbel;
+			color: #E5E3E6;
+			padding: 10px;
+			position: absolute;
+			top: 121px;
+			left: 172px;
+			z-index: 2;
+			float: left;
+			clear: both;
+			overflow: hidden;
+		}
+		.about{
+			padding-left: 25px;
+			margin: 5px;
+		}
+/*--------------ELEMENT'S STYLES-----------------*/
+		
+		/*article{
+			text-indent: 35px;
+			padding-bottom: 10px;
+		}*/
+		h3{
+			color: #B98BBF;
+			background-color: rgba(105,95,100,0.6);
+			text-align: center
+		}
+		h4{
+			color: #F982B9;
+			text-align: center;
+			font-size: 20px;
+			margin: 5px;
+		}
+		em.link{
+			text-align: center;
+		}
+		a{
+			color: #381943;
+			text-decoration: none;
+			font-weight:bold;
+		}
+		a.link{
+			padding-left: 25px;
+			color: #B98BBF;
+		}
+		a:hover{
+			color: #B98BBF;
+			background-color: rgba(65, 63, 67);
+			border: 2px solid #C5B6B9;
+			
+			text-decoration: none;
+		}
+		a.link:hover{
+			padding-left: 24px;
+			padding-right: 15px;
+			border-radius: 50%;
+			background-color: rgba(45, 43, 47);
+			border: 2px solid #89787B;
+		}
+		a.def:hover{
+			border: none;
+			color: #FD60BC;
+			text-decoration: underline;
+
+		}
+		a:active{
+			color: #FD60BC;
+		}
+/*-------------PROGRAMMING WINDOW-----------------*/
+		.cler{
+			position: fixed;
+			top: 126px;
+			left: 893px;
+			z-index: 3;
+			padding: 10px;
+			width:430px;
+			height: 320px;
+			background-color: #FFF5F9;
+			border: 1px solid black;
+			font-family: Corbel;
+			font-size: 12px;
+			overflow: scroll;
+			/*white-space: pre-wrap;*/
+		}
+		.butfield{
+			position: fixed;
+			top: 468px;
+			left: 893px;
+			z-index: 2;
+			padding: 3px;
+			width:445px;
+			height: 21px;
+			background: rgba(35, 33, 37, 0.5);	
+		}
+		.console{
+			position: fixed;
+			top: 495px;
+			left: 892px;
+			z-index: 2;
+			padding: 3px;
+			width:442px;
+			height: 120px;
+			background-color: black;
+			border: ridge;
+			font-family: Consolas;
+			color: white;
+			font-size: 12px;
+		}
+		.but{
+			font-family: Consolas;
+			font-size: 12px;
+			background-color: #E0B2E6;
+			border: 1px ridge gray;
+		}

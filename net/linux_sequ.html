@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Комманды linux</title>
+	<style type="text/css">
+		.fst{/*for commands applying*/
+			font-style: oblique;
+			font-color: #812B2B;
+		}
+		.com{/*for how command look like*/
+			font-weight:bold;
+			font-size: 110%;
+		}
+		.tabcap{/*for header-in-cell*/
+			font-weight:bold;
+			font-size: 110%;
+			font-style: oblique;
+			text-align: center;
+			background-color: #D2EDFF;
+		}
+		table, td, th{
+			border: 1px solid lightgray;
+       		border-collapse: collapse;
+       		line-height: 18px;
+       		padding: 0px 6px 0px 6px;
+       		z-index: 1;
+		}
+		table{
+			margin: 10px 0px 10px 0px;
+			float: left;
+			clear: left;
+		}
+		p{	text-indent: 55px;
+			font-style:oblique;
+			float: left;
+		}
+		h3{
+			clear: left;
+			color: #1D3131;
+		}
+		.pic{
+			position: relative;
+			z-index: 2;
+		}
+		/*for cut*/
+		.hide				{display: none; }
+		.hide + label ~ div	{display: none; }
+		.hide + label 		{display: inline-block;
+							 padding: 0;
+							 cursor: pointer;
+							 border-bottom: 1px dotted;}
+		.hide:checked + label + div {
+			display: block;
+		}
+	</style>
+</head>
+<body style="font-family: Calibri; font-size: 12px;">
+	<p>Unlike many other operating systems, Linux is case-sensitive</p>
+	<h3 style="text-align: center">Комманды linux</h3>
+<table align="left">
+	<tr>
+		<td width="15">1</td>
+		<td width="20" class="com">ls</td>
+		<td width="120"class="fst">ls</td>
+		<td width="500"> List directory contents</td>
+		<td width="500"><input type="checkbox" id="hd1_1" class="hide"/>
+				<label for="hd1_1">вікно терміналу</label>
+				<div>
+					<img src="n_media/1 comm ls.png"  alt="oops!" class="pic" 
+					title="вікно терміналу">
+				</div>
+				<input type="checkbox" id="hd1_2" class="hide"/>
+				<label for="hd1_2">структура директорії</label>
+				<div>
+					<img src="n_media/1 pic ls.png"  alt="oops!" class="pic" 
+					title="структура директорії">
+				</div>
+		</td>
+	</tr>
+		<tr>
+		<td>2</td>
+		<td class="com" colspan="2">groups</td>
+		<td>get a listing of your group memberships</td>
+		<td><input type="checkbox" id="hd15_1" class="hide"/>
+			<label for="hd15_1">вікно терміналу</label>
+			<div>
+				<img src="n_media/15 comm group.png"  alt="oops!" class="pic" 
+					title="вікно терміналу">
+			</div>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="5" class="tabcap">wildcards</td>
+	</tr>
+	<tr>
+		<td rowspan="3">3</td>
+		<td class="com">-l</td>
+		<td class="fst">ls -l</td>
+		<td>to execute "ls" with the "long listing" option: each file will be listed on a separate line in long format</td>
+		<td rowspan="3"><input type="checkbox" id="hd13_1" class="hide"/>
+			<label for="hd13_1">вікно терміналу</label>
+			<div>
+				<img src="n_media/12 comm ls -l.png"  alt="oops!" class="pic" 
+					title="вікно терміналу">
+			</div>
+			<input type="checkbox" id="hd13_2" class="hide"/>
+			<label for="hd13_2">wildcards</label>
+			<div>
+				<img src="n_media/14 comm wild.png"  alt="oops!" class="pic" 
+					title="вікно терміналу">
+			</div>
+		</td>
+	</tr>
+	<tr>
+		<td class="com">*</td>
+		<td class="fst">ls *ing</td>
+		<td>this wildcard matches any number of characters</td>
+	</tr>
+	<tr>
+		<td class="com">?</td>
+		<td class="fst">ls sp??t</td>
+		<td>this wildcard matches exactly one character</td>
+	</tr>
+	<tr>
+		<td colspan="5">when you use a wildcard with argument, you need to surround the argument in quotes ("poem*")</td>
+	</tr>
+	
+</table>
+<br><br>
+<h3 style="text-align: center;">Information about the security of the files</h3>
+<table align="left">
+	<tr>
+		<td width="15"></td>
+		<td width="20"></td>
+		<td width="120"></td>
+		<td width="500"></td>
+		<td width="500"></td>
+	</tr>
+	<tr>
+		<td colspan="5" style="text-align: center; padding: 5px">
+			-rw-r--r-- keeper prim 547 9:31 chimps
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2" rowspan="2" class="com">-</td>
+		<td class="frst">-</td>
+		<td> it's a file</td>
+		<td rowspan="10"><input type="checkbox" id="hd14_1" class="hide"/>
+			<label for="hd14_1">вікно терміналу</label>
+			<div>
+				<img src="n_media/12 comm ls -l.png"  alt="oops!" class="pic" 
+					title="вікно терміналу">
+			</div>
+			<input type="checkbox" id="hd14_2" class="hide"/>
+			<label for="hd14_2">структура директорії</label>
+			<div>
+				<img src="n_media/12 pic ls -l.png"  alt="oops!" class="pic" 
+					title="структура директорії">
+			</div>
+		</td>
+	</tr>
+	<tr>
+		<td class="frst">d</td>
+		<td>it's a directory</td>
+	</tr>
+	<tr>
+		<td colspan="2" rowspan="4" class="com">rw-</td>
+		<td class="frst">rwx</td>
+		<td>"rwx"-group (rwx rwx rwx):<br>
+			1) "rw-" - user (owner) ("u");<br>
+			2) "r--" - group ("g");<br>
+			3) "r--" - other ("o");
+		</td>
+	</tr>
+	<tr>
+		<td class="frst">r</td>
+		<td>means you can "read" the file's contents</td>
+	</tr>
+	<tr>
+		<td class="frst">w</td>
+		<td>means you can "write", or modify, the file's contents</td>
+	</tr>
+	<tr>
+		<td class="frst">x</td>
+		<td>means you can "execute" the file (only if the file is a program).<br>If any of the "rwx" characters is replaced by a '-', then that permission has been revoked.</td>
+	</tr>
+	<tr>
+		<td class="com" colspan="3">keeper</td>
+		<td> UserID</td>
+	</tr>
+	<tr>
+		<td class="com" colspan="3">prim</td>
+		<td> the group owner of the file</td>
+	</tr>
+	<tr>
+		<td class="com" colspan="3">547</td>
+		<td> the size of the file in bytes</td>
+	</tr>
+	<tr>
+		<td class="com" colspan="3">9:31</td>
+		<td>the time the file was last modified</td>
+	</tr>
+	<tr>
+		<td rowspan="5">3</td>
+		<td class="com" rowspan="5">chmod</td>
+		<td></td>
+		<td>= change mode; change the security permissions on files</td>
+		<td rowspan="5"><input type="checkbox" id="hd14_1" class="hide"/>
+			<label for="hd14_1">вікно терміналу</label>
+			<div>
+				<img src="n_media/13 comm chmod.png"  alt="oops!" class="pic" 
+					title="вікно терміналу">
+			</div>
+		</td>
+	</tr>
+	<tr>
+		<td class="frst">chmod o</td>
+		<td>if you want to give "rwx" permission to the world ("other")</td>
+	</tr>
+	<tr>
+		<td class="frst">chmod g+x</td>
+		<td>if you want to give "execute" permission to the group</td>
+	</tr>
+	<tr>
+		<td class="frst">chmod u+w gorillas</td>
+		<td>if you want to give "write" permission to the user ("owner") for file "gorillas"</td>
+	</tr>
+	<tr>
+		<td class="frst">chmod ugo-rwx gorillas</td>
+		<td>change multiple permissions at once</td>
+	</tr>
+
+	<tr>
+		<td>4</td>
+		<td class="com" colspan="2"></td>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>5</td>
+		<td class="com" colspan="2"></td>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>6</td>
+		<td class="com" colspan="2"></td>
+		<td></td>
+		<td></td>
+	</tr>
+</table>
+<br>
+<article style="clear: left;">ACLs (Access Control Lists) -  if you would like to give a different set of access privileges (such as read access) to another group of people</article style="clear: left;">
+
+</body>
+</html>

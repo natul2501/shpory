@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>My website</title>
+	<link rel="stylesheet" type="text/css" href="9.CSS.text.css">
+	<style>
+  /*Созданный шрифт*/
+    @font-face{
+      font-family: Created;
+      src: url(fonts/toony_loons_rus.ttf); 
+    }
+    body{
+      font-family: Calibri;
+      font-size: 10px: 
+    }
+    div p:first-child { color: green; }
+    div p:last-child { color: blue; }
+    /* скрываем чекбоксы и блоки с содержанием */
+    .hide               {display: none;}
+    .hide + label ~ div {display: none;}
+    /* оформляем текст label */
+    .hide + label {
+        border-bottom: 1px dotted;
+        padding: 0;
+        color: green;
+        cursor: pointer;
+        display: inline-block; 
+    }
+    /* вид текста label при активном переключателе */
+    .hide:checked + label {
+        color: gray;
+        border-bottom: 0;
+    }
+    /* когда чекбокс активен показываем блоки с содержанием  */
+    .hide:checked + label + div {
+        display: block; 
+        background: #efefef;
+        /*-moz-box-shadow: inset 3px 3px 10px #7d8e8f;*/
+        /*-webkit-box-shadow: inset 3px 3px 10px #7d8e8f;*/
+        box-shadow: inset 3px 3px 10px #7d8e8f;
+        padding: 10px; 
+    }
+  </style>
+</head>
+<body>
+    <p><h3>Стиль шрифта:</h3>
+        <span style="font-style:normal">обычный</span>, 
+        <span style="font-style:italic">курсивный</span>, 
+        <span style="font-style:oblique">наклонный</span>, 
+        <!--**наклонный создан путём наклона обычного стиля -->       
+        <span style="font-weight:bold">жирный</span>, 
+        <span style="font-style:normal, font-weight: bold">обычный</span>, 
+        <span style="text-decoration:line-through">перечёркнутый</span>, 
+        <span style="text-decoration:underline">подчёркнутый</span>, 
+        <span style="text-decoration:overline">с чертой сверху</span>, 
+  <!--  <span style="text-decoration:inherit">подчёркнутость наследуется от
+          родителей</span>,  -->
+  <!--  <span style="text-decoration:none">без подчёркиваний</span>,  -->
+        <span style="text-transform: capitalize">первая буква большая</span>, 
+        <span style="text-transform: lowercase">Нижний Регистр</span>, 
+        <span style="text-transform: uppercase">Верхний Регистр</span>, 
+        <span style="font-variant:small-caps">нижний регистр как уменьшенные заглавные</span> и  
+        <span style="font-variant:normal">по умолчанию</span>, 
+        <span style="line-height: 30px">междустрочный интервал</span>,
+        <span style="word-spacing: 10px">интервал между словами и </span>
+        <span style="letter-spacing: 5px">между буквами</span>, 
+        <span style="direction: ltr">слева направо</span>, 
+        <span style="direction: rtl">справа налево</span>, 
+        <span style="text-shadow: 2px">горизонтальная тень</span>, 
+        <span style="text-shadow: 1px 1px">диагональная тень</span>, 
+        <span style="text-shadow: 1px 1px 3px">немного размытая тень</span>, 
+        <span style="text-shadow: 1px 1px 2px red">красная тень</span>, 
+        <span style="color: red">красный текст</span>, 
+        <span style="font-size: 10px">изменение размера с помощью пикселей</span>, 
+        <span style="font-size: 80%">с помощью процентов</span>  
+        <span style="font-size: x-small">и с помощью ключевого слова</span>, 
+        <span style="font-family: verdana, arial, sans-serif">другой шрифт</span>, 
+        <span style="font-family: Created">созданный шрифт (см. head)</span>, 
+        <div style="text-indent: 15px">отступ первой строки</div>
+        <div style="text-align:left">левый край<div> 
+        <div style="text-align:center">центр</div>
+        <div style="text-align:right">правый край</div>
+        <div style="text-align:justify">по ширине</div> 
+
+    </p>
+    <h3>Маркеры</h3>
+      <ul >
+          <li>Пункт по умолчанию</li>
+          <li style="list-style-type: circle">Маркер - пустой кружочек</li>
+          <li style="list-style-type: disc">Маркер - закрашенный кружочек</li>
+          <li style="list-style-type: square">Маркер - квадрат</li>
+          <li style="list-style-type: decimal">Маркер - десятичные числа</li>
+          <li style="list-style-type: upper-roman">Маркер - большие римские числа</li>
+          <li style="list-style-type: lower-roman;">Маркер - маленькие римские числа</li>
+          <li style="list-style-type: upper-alpha">Маркер - большие буквы</li>
+          <li style="list-style-type: lower-alpha">Маркер - маленькие буквы</li>
+          <li style="list-style-type: lower-latin">Маркер - маленькие буквы латынь</li>
+          <li style="list-style-type: lower-greek">Маркер - маленькие буквы греческого алфавита</li>
+          <li style="list-style-type: lower-armenian">Маркер - маленькие буквы армейского алфавита</li>
+          <li style="list-style-type: lao">Маркер - маленькие буквы грузинского алфавита</li>
+          <li style="list-style-image: url('img/icon.png')">Маркер - картника</li>
+          <li style="list-style-type: none; padding-left: 50px">Кофе</li>
+          <li style="list-style-position: outside">Маркер располагается слева от содержимого</li>
+          <li style="list-style-position: inside">Маркер располагается внутри пункта вместе с содержимым</li>
+          <li style="list-style-position: inside; padding-left: 0">Чай</li>
+      </ul>
+
+    <h3>Раскрывающиеся блоки сo скрытым содержанием с помощью CSS3</h3>
+    <input type="checkbox" id="hd1" class="hide"/>
+    <label for="hd1" >Нажмите здесь, чтобы увидеть скрытый текст</label>
+    <div>
+        Реализовать всё это действо, стало возможным благодаря CSS3 псевдоклассу :checked, применяемым к элементам интерфейса, таким как переключатели (checkbox).
+    </div></div></div></p>
+
+  	<div>
+        <p>Первый дочерний абзац элемента div, он будет отображаться зеленого цвета.</p>
+        <p>Второй дочерний абзац элемента div, он будет отображаться черного цвета, поскольку никаких правил для него не задано.</p>
+        <p>Третий дочерний абзац элемента div, он же является последним дочерним абзацем. Цвет текста будет синим.</p>
+    </div>
+    
+
+</body>
+</html>

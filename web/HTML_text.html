@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Text</title>
+</head>
+
+<body>
+
+	<div id="header" style="background-color:#A3FFC2;">
+		<h1 style="margin-bottom:0;"><center>Форматування тексту</center></h1>
+    </div>
+    <div id="menu" style="background-color:#FFFFB8;width:500px;float:left;">
+		<br>&lt;center&gt; - <center>по центру</center>
+		<br>&lt;blockquote&gt; - <blockquote> Виділення об'ємних цитат окремим блоком (бажано вказати посилання в атрибутах)</blockquote>
+		<p>&lt;p&gt; - Новий розділ</p>
+		<br>Звичайний текст		
+		<br><comment tabindex="1">Незвичайний текст</comment>. Натиснувши &ltTab&gt, ви потрапите в це місце.
+		<br>&lt;br&gt; - З нового рядка
+		<br>&lt;span&gt; - <span>Тег, якщо потрібно застосувати до тексту css</span>
+		<br>&lt;q&gt; - <q>Виділення коротких цитат безпосередньо в тексті</q>
+		<br>&lt;b&gt; - <b>bold</b> - для ключових слів, назви продуктів, і т.п. згідно з традиціями
+		<br>&lt;strong&gt; - <strong>жирний</strong> - підкреслює важливість
+		<br>&lt;i&gt; - <i>italic</i> - для іноземних слів, технічних термінів, думок, і т.п. згідно з традиціями
+		<br>&lt;em&gt; - <em>emphasise</em> - для контекстуальної зміни значення слова
+		<br>&lt;cite&gt; - <cite>посилання на цитату</cite>
+		<br>&lt;dfn&gt; - <dfn>термін</dfn>
+		<br>&lt;address&gt; - <address>найчастіше використовується для виділення контактної інформації</address>
+		<br>&lt;b&gt;&lt;i&gt; - <b><i>жирний курсив</i></b>
+		<br>&lt;u&gt; - <u>underline</u> - для власних імен, орфографічних помилок, і т.п. згідно з традиціями
+		<br>&lt;ins&gt; - <ins>текст, який був вставлений</ins>
+		<br>Текст, написаний <u lang="uk">українською</u>
+		<br>&lt;del&gt; - <del>текст, який був видалений</del>
+		<br>&lt;s&gt; - <s>strike through</s>
+		<br>&lt;strike&gt; - <strike>modern strike</strike>
+		<br>&lt;big&gt; - <big>більший на 1</big>
+		<br>&lt;small&gt; - <small> менший на 1</small>
+		<br>Розмір тексту описаний в розділі Одиниці виміру CSS (https://puzzleweb.ru/css/css_units.php)
+		<br>&lt;sub&gt; - нижній індекс<sub>Z</sub>
+		<br>&lt;sup&gt; - верхній індекс<sup>3</sup>
+		<br>&lt;mark&gt; - <mark>маркер</mark>
+		<br>&lt;abbr&gt; - <abbr title="Підсказка, для аббревіатур">аббревіатура</abbr>
+		<br><time datetime="2016-01-20">20.01.2016</time>, 
+		<time datetime="2016-01">січень 2016</time>,
+		<time datetime="01-20">20 січня</time>, 
+		<time datetime="19:30">19:30</time>, 
+		<time datetime="19:30:01.856">19:30:01.856</time>, 
+		<time datetime="2016-01-20T19:30">7.30pm, 20 січня 2016</time>, 
+		<time datetime="2016-01-20T19:30+01:00">19:30 20.01.2016 is 8.30pm in France</time>, 
+		<time datetime="2016-W04">Четвертая неделя 2016</time>.
+		<br>&lt;wbr&gt; - Для дуже довгих слів може бути корисно вказувати місця допустимого переносу: метоксихлор<wbr>диетиламіно<wbr>метил<wbr>бутіл<wbr>аміно<wbr>акридін.
+		<br>&lt;nobr&gt; - <nobr>Якщо ми хочемо, щоб певну частину тексту, який не вміщається в один рядок браузера, не переносився на інший, то можемо використати спеціальний тег. Після цього у вікні браузера з'явиться горизонтальна смуга прокрутки.</nobr>
+	</div>
+
+	<div id="content" style="background-color: #fff;height:1010px;width:400px;float:left">
+		<h1 align="center" lang="uk">&lt;h1&gt; - Заголовок 1 рівня</h1>
+		<h2>&lt;h2&gt; - Заголовок 2 рівня</h2>
+		<h3>&lt;h3&gt; - Заголовок 3 рівня</h3>
+		<h4>&lt;h4&gt; - Заголовок 4 рівня</h4>
+		<h5>&lt;h5&gt; - Заголовок 5 рівня</h5>
+		<h6>&lt;h6&gt; - Заголовок 6 рівня</h6>
+
+
+		<!-- Списки
+		ul(li) - маркований, ol(li) - нуммерований, dl(dt,dd) - список визначень -->
+
+		<p>&lt;ul&gt; - Маркований список</p>
+		<!-- type = disc | circle | square -->
+		<ul >
+			<li>&lt;li&gt;element 1&lt;/li&gt;</li>
+			<li>&lt;li&gt;element 1&lt;/li&gt;</li>
+			<li>&lt;li&gt;element 1&lt;/li&gt;</li>
+		</ul>
+		<menu>
+	   		 <li>elemental 1</li>
+	   		 <li>elemental 2</li>
+	    </menu>
+
+		<ul type="circle">
+			<li>element 1</li>
+			<li>element 1</li>
+			<li>element 1</li>
+		</ul>	
+
+		<ul>
+			<li>element 1</li>
+				<ul>
+					<li>element 2</li>
+					<li>element 2</li>
+				</ul>	
+			<li>element 1</li>
+			<li>element 1</li>
+		</ul>
+		
+	<p>&lt;ol&gt; - Нумерований список, коли порядок елементів має значення</p>
+		<!-- type = A | a | I | i | 1
+			reversed
+			start -->
+		<ol start="6" reversed>
+			<li>punct 1</li>
+			<li>punct 1</li>
+			<li>punct 1</li>
+		</ol>
+			<ol type="I">
+			<li>punct 1</li>
+			<li>punct 1</li>
+			<li>punct 1</li>
+		</ol>
+		<p>&lt;dl&gt; - Список визначень</p>
+		<!-- <dl><dt><dd></dd></dt></dl> -->
+		<dl>
+			<dt>&lt;dt&gt;Термін&lt;/dt&gt;</dt>
+				<dd>&lt;dd&gt;Визначення&lt;/dd&gt;</dd>
+				<dd>&lt;dd&gt;Визначення&lt;/dd&gt;</dd>
+			<dt>Термін</dt>
+				<dd>Визначення</dd>
+				<dd>Визначення</dd>
+			<dt>Термін</dt>
+		</dl>
+	</div>
+	<div id="comment" style="background-color: #EABAA1;height:500px;width:400px;float:left">
+	 	<br>Для відображення коду на сторінці використовуються теги:
+		<br>&lt;code&gt; - <code>програмний код</code>,
+		<br>&lt;kbd&gt; - <kbd>введення з клавіатури</kbd>,
+		<br>&lt;samp&gt; - <samp>зразок коду</samp>,
+		<br>&lt;var&gt; - <var>виділення змінної</var>.
+		<br>
+		<br>&lt;tt&gt; - <tt>typewriter text</tt>
+		<br>&lt;bdo dir=&quot;rtl&quot;&gt; - <bdo dir="rtl">right to left</bdo>, 
+		<br>&lt;blink&gt; - <blink>мигаючий текст</blink>,
+		<br>&lt;acronym&gt; - <acronym>акронім</acronym>,	
+	    <br>&lt;comment&gt; - <comment>коментарій</comment>,
+	    <br>&nbsp; - неразрывный пробел, &#8195; - штрокий пробел
+		<br><ruby> <!-- Контейнер, призначений для додавання невеликої анотації зверху або знизу від заданого тексту -->
+		&lt;ruby&gt;
+	    汉<rt>hàn</rt>
+	    字<rt>zì</rt>
+	    &lt;/rubt&gt;
+	    <!-- <rp>...</rp> - для браузерів, які не підтримують ruby -->
+	   </ruby>
+	   <br>&lt, &gt, &quot
+	   	<br><p align="center" hspace="1">Смуга прокрутки</p>
+		<br>&lt;details&gt;
+		<br><details open="open">Деталі, які можна приховати</details>
+		<br><details>Деталі, які уже приховані, та їх можна ще раз приховати</details>	
+		<br><p contenteditable="true">Вміст цього тегу можна редагувати</p>
+	</div>
+	<div id="stylized" style="background-color: #fff;width:400px;float:left">
+		<font size="1" face="Arial" color="red">
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit,</font> <font color="green" size="2" face="Comic Sans MS"> sed do eiusmod
+			tempor incididunt ut labore et dolore magna aliqua.</font> <font color="maroon" size="3" face="Monotype Corsiva">Ut enim ad minim veniam,</font>
+			<font color="blue" size="4" face="Monotype Corsiva">quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+			consequat.
+		</font>
+			<!-- size 1 = 8px, size = 1-7
+				 face - шрифт
+				 color: 140 webcolors with their own names, another - hexidetional system-->
+	</div>
+
+	<style type="text/css">
+		body{
+			background-color: rgba(230, 200, 200, 0.5);
+		}
+	</style>
+
+	<br><marquee behavior="alternate" scrollamont="20" scrolldelay="50" truespeed>Цей тег не входить до спеифікації html, тому він може в деяких браузерах не відображатися.
+		<!-- behavior="alternate | scroll | slide,
+		direction = down | left | right | up,
+		bgcolor, height, width,
+		loop - задає, скільки разів прокручується вміст,
+		scrollamont - швидкість руху контенту,
+		scrolldelay - величина задержки в мс,
+		truespeed - відміняє вбудований обмежувач швидкості при низьких значеннях scrolldelay
+		hspace, vspace -->
+	</marquee>
+	
+	<hr color="rgbi(200,100,10,100)" width="1000" align="middle" size="5">
+
+	
+
+&lt;pre&gt;	
+<pre>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+	sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+		Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
+	eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+	sunt in culpa qui officia deserunt mollit anim id est laborum.
+		Іноді замість тегу &ltpre&gt використовують &ltplaintext&gt(не входить до специфікації html) або &ltxmp&gt</pre>
+
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>Media</title>
+						<!-- ІКОНКА -->
+	<link rel="icon" type="image/png" href="img/icon.png">
+	<style type="text/css">
+		.content{
+			background-color:#C9C9C9;
+			width:620px;
+			height: 700px;
+			padding: 5px;
+   			padding-left: 20px;
+   			border: solid 1px black;
+			float: left;
+		}
+		#pic{}#vid{}#aud{}#desc{}
+		#opaci:hover{opacity: 0.1;}
+	</style>
+</head>
+<body>
+<!------------------------------ ЗОБРАЖЕННЯ -------------------------------->
+<div class="content" id="pic">
+	<h4 class="titel" title="Наведите мышкой на изображение">Изображение</h4>
+		<img src="img/pwu.jpg" width="200">
+		<img src="img/pwu.jpg" width="200" title="Картинка со всплывающей надписью">
+		<img src="img/pwu.jpg" width="200" alt="Альтер" title="Картинка с альтернативным текстом">
+		<!--Текс отображается в случае, если картинка не загрузилась-->
+		<img src="img/pwu.jpg" width="200" draggable="false" title="Картинка, которую нельзя переместить">
+		<img src="img/pwu.jpg" width="200" draggable="true" title="Картинка, которую можно переместить">
+		<!--- align - визначає як малюнок буде вирівнюватися
+			- alt - альтернативний текст
+			- border - товщина рамки навколо зображення
+			- height - висота зображення
+			- width - ширина зображення
+			- src - шлях до файлу
+			- HSPACE и VSPACE - отступы в пикселях по горизонтали и по вертикали от картинки до других обьектов документа -->
+<!-- ***СТИЛЬ -->
+		<img src="img/pwu.jpg" width="200" title="Полупрозрачный стиль" style="opacity: 0.6">
+		<img src="img/pwu.jpg" width="200" title="Полупрозрачный стиль при наведении мышкой" id="opaci">
+		<a href="dt/map2.html">
+			<img src="img/on.jpg" width="200" ismap title="Картинка в качестве карты-изображения">
+		</a>	
+		<img src="img/on.jpg" width="200" usemap="#pinkwall" title="Картинка в качестве карты-изображения: жмакай выключатель">
+			<map name="pinkwall">
+  				<area shape="rect" coords="20,60,40,80" href="dt/map2.html">
+			</map>
+		<!--Карты-изображения позволяют привязывать ссылки к разным областям одного изображения.
+			- shape - форма області:
+		 		circle | default - вся область| poly - багатокутник| rect - прямокутник-->
+</div>
+<!------------------------------ ВІДЕО -------------------------------->
+<div class="content" id="vid">
+	<h4 class="titel">Видео</h4>
+	<video src="video/fcc.mp4" controls width="200" title="Просто видео">
+		Просто видео
+	</video>
+	<video src="video/fcc.mp4" controls width="200" poster="img/pwu.jpg" title="Видео с картинкой в качестве обложки">
+		Видео с картинкой в качестве обложки
+	</video>
+	<video src="video/fcc.mp4" controls width="200" poster="img/pwu.jpg" muted title="Видео, которое воспроизводится без звука по умолчанию">
+		Видео, которое воспроизводится без звука по умолчанию
+	</video>
+	<video src="video/fcc.mp4" controls width="200" poster="img/pwu.jpg" loop title="Видео, которое воспроизводится бесконечно">
+		Видео, которое воспроизводится бесконечно
+	</video>
+	<!--Підтримує ті ж атрибути, що й аудіо, а також height i width - висота і ширина-->
+	<video width="200" controls="controls" title="Видео с субтитрами">
+	    <source src="video/fcc.mp4" type="video/mp4" media="screen and (min-width:200px)" width="200">
+	    <track src="dt/fcc.vtt" kind="subtitles" srclang="en" label="English" default>
+	    Видео с субтитрами
+	  </video>
+	  <video width="200" controls="controls" title="Видео, добавленное с помощью тега source">
+	    <source src="video/fcc.mp4" type="video/mp4" media="screen and (min-width:200px)" width="200">
+	    <source src="video/fcc.ogg" type="video/ogg" media="screen and (min-width:200px)" width="200">
+	    Видео, добавленное с помощью тега source
+	  </video>
+	  <object data="video/fcc.mp4" width="200">
+  		Видео, добавленное с помощью тега object
+	  </object>
+	  <embed src="video/fcc.mp4" width="200"/> 
+</div>
+<!-------------------------------- ЛІНІЯ ---------------------------------->
+<hr color="rgbi(200,100,10,100)" width="1000" align="middle" size="5">
+<div class="content" id="aud">
+<!-------------------------------- АУДІО ---------------------------------->
+	<h4 class="titel">Аудио</h4>
+	<audio src="audio/pikapi.mp3">Аудио</audio>
+		- тег аудио<br>
+	<audio src="audio/pikapi.mp3" controls>Alt</audio>
+		<br>- аудио с отображенной стандартной панелью управления<br>
+	<audio controls><source src="audio/pikapi.mp3"></audio>
+		<br>- тоже аудио с отображенной стандартной панелью управления<br>
+	<audio src="audio/pikapi.mp3" controls loop>Alt</audio>
+		<br>- аудио с бесконечным воспроизведением<br>
+	<audio src="audio/pikapi.mp3" controls preload="auto">Alt</audio>
+		<br>- аудио с автоматическим воспроизведением после загрузки страницы
+		<!--Вместо preload="auto" можно использовать атрибут autoplay--><br>
+	<audio src="audio/pikapi.mp3" controls preload="none">Alt</audio>
+		<br>- загрузка аудио после щелчка мыши по "play"<br>
+	<audio src="audio/pikapi.mp3" controls preload="metadata">Alt</audio>
+		<br>- Сбор информации о аудиофайле: размер, первый кадр, список воспроизведения, длительность<br>
+</div>
+<!---------------------------- ІНШІ ОБ'ЄКТИ' ------------------------------>
+<div class="content" id="desc">
+	<h4 class="titel">Другие объекты</h4>
+	<iframe src="dt/media2.html" width="600" height="300">
+	  	Извините, но ваш браузер не может отобразить содержимое фрейма, но вы можете сами перейти на <a href="dt/media2.html">страницу</a>
+	</iframe>
+	<figure>
+		<img src="img/pwu.jpg" width="200">
+		<figcaption>Картинка, добавлена с помощью тега figure</figcaption>
+	</figure>
+						<!-- СТРОКА СТАНУ -->
+	<meter value="40" max="100" min="0" low="10" high="80" optimum="50">Optimum</meter><br>
+	<!-- value - встановлює значення
+		min, max - мін. і макс. можливе значення
+		low,high - межі досягнення
+		optimum - оптимальне значення -->
+
+						<!-- СТРОКА СТАНУ 2 -->
+	<progress value="90" max="100"><br>	
+</div>
+
+
+
+	<!--- type определяет MIME-тип медиа ресурса. Возможные значения атрибута
+			- для видео-файлов: video/ogg | video/mp4 | video/webm
+			- для звуковых файлов: audio/ogg | audio/mpeg
+		- media yказывает под какие типы устройств оптимизирован файл. Браузеры могут использовать этот атрибут для определения, возможно ли воспроизведение файла или нет-->
+</body>
+</html>

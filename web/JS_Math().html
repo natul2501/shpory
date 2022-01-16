@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Math</title>
+	<style type="text/css">
+		.fst{
+			font-style:oblique;
+			font-color: #812B2B;
+		}
+		table, td, th{
+			border: 1px solid lightgray;
+       		border-collapse: collapse;
+       		line-height: 18px;
+       		padding: 0px 6px 0px 6px;
+		}
+		p{	text-indent: 55px;
+			font-style:oblique;
+		}
+		h4{text-align: center;}
+	</style>
+</head>
+<body style="font-family: Calibri; font-size: 12px;">
+	<p>JavaScript объект Math позволяет решать различные математические задачи с числами</p>
+	<p>В отличие от других глобальных объектов, у объекта Math нет конструктора. Его методы и свойства являются статическими.</p>
+	<p>Все методы и свойства (константы) объекта Math можно использовать без предварительного создания самого объекта</p>
+
+
+	<h4>Свойства (константы) объекта Math</h4>
+
+<table align="center">
+	<tr>
+		<td class="fst">Math.PI</td>
+		<td><script>document.write(Math.PI);</script></td>
+		<td> - число ПИ</td>
+	</tr>
+	<tr>
+		<td class="fst">Math.E</td>
+		<td><script>document.write(Math.E);</script></td>
+		<td> - число Эйлера</td>
+	</tr>
+	<tr>
+		<td class="fst">Math.SQRT2</td>
+		<td><script>document.write(Math.SQRT2);</script></td>
+		<td> - квадратный корень из 2</td>
+	</tr>
+	<tr>
+		<td class="fst">Math.SQRT1_2</td>
+		<td><script>document.write(Math.SQRT1_2);</script></td>
+		<td> - квадратный корень из 1/2</td>
+	</tr>
+	<tr>
+		<td class="fst">Math.LN2</td>
+		<td><script>document.write(Math.LN2);</script></td>
+		<td> - натуральный логарифм из 2</td>
+	</tr>
+	<tr>
+		<td class="fst">Math.LN10</td>
+		<td><script>document.write(Math.LN10);</script></td>
+		<td> - натуральный логарифм из 10</td>
+	</tr>
+	<tr>
+		<td class="fst">Math.LOG2E</td>
+		<td><script>document.write(Math.LOG2E);</script></td>
+		<td> - логарифм по основанию 2 для числа E</td>
+	</tr>
+	<tr>
+		<td class="fst">Math.LOG10E</td>
+		<td><script>document.write(Math.LOG10E);</script></td>
+		<td> - логарифм по основанию 2 для числа E</td>
+	</tr>
+</table>
+
+
+	<h4>Методы объекта Math</h4>
+
+<table align="center">
+	<tr>
+		<td class="fst">Math.abs(-2.72)</td>
+		<td><script>
+			var e = 2.71828182846;
+			document.write(Math.abs(-2.72));
+		</script></td>
+		<td> - возвращает абсолютное значение от e</td>
+	</tr>
+	<tr>
+		<td class="fst">Math.round(Math.E)</td>
+		<td><script>document.write(Math.round(Math.E));</script></td>
+		<td> - возвращает округленное значение е</td>
+	</tr>
+	<tr>
+		<td class="fst">Math.ceil(Math.E)</td>
+		<td><script>document.write(Math.ceil(Math.E));</script></td>
+		<td> - приводит число е к ближайшему большему целому</td>
+	</tr>
+		<tr>
+		<td class="fst">Math.floor(Math.E)</td>
+		<td><script>document.write(Math.floor(Math.E));</script></td>
+		<td> - приводит число е к ближайшему меньшему целому</td>
+	</tr>
+	<tr>
+		<td class="fst">Math.exp(Math.E)</td>
+		<td><script>document.write(Math.exp(Math.E));</script></td>
+		<td> - возвращает экспоненту от е (Ex)</td>
+	</tr>
+	<tr>
+		<td class="fst">Math.log(Math.E)</td>
+		<td><script>document.write(Math.log(Math.E));</script></td>
+		<td> - возвращает натуральный логарифм (по основанию E) числа е</td>
+	</tr>
+	<tr>
+		<td class="fst">Math.pow(4,2)</td>
+		<td><script>document.write(Math.pow(4,2));</script></td>
+		<td> - возводит 4 в степень 2</td>
+	</tr>
+	<tr>
+		<td class="fst">Math.sqrt(4)</td>
+		<td><script>document.write(Math.sqrt(4));</script></td>
+		<td> - возвращает квадратный корень от 4</td>
+	</tr>
+	<tr>
+		<td class="fst">Math.cos(60 * Math.PI / 180)</td>
+		<td><script>document.write(Math.cos(60*Math.PI/180));</script></td>
+		<td> - возвращает косинус угла 60 градусов (значение угла должно быть в радианах)</td>
+	</tr>
+	<tr>
+		<td class="fst">Math.acos(0.5253)</td>
+		<td><script>document.write(Math.acos(0.52532198881));</script></td>
+		<td> - возвращает арккосинус угла 0.5 в радианах; в градусах - это 
+			<script>document.write(Math.round(Math.acos(0.52532198881)*180/Math.PI));</script> 
+		град.</td>
+	</tr>
+	<tr>
+		<td class="fst">Math.sin(30 * Math.PI / 180)</td>
+		<td><script>document.write(Math.sin(30*Math.PI/180));</script></td>
+		<td> - возвращает синус угла 30 градусов (значение угла должно быть в радианах)</td>
+	</tr>
+	<tr>
+		<td class="fst">Math.asin(0.5253)</td>
+		<td><script>document.write(Math.asin(0.52532198881));</script></td>
+		<td> - возвращает арксинус угла 0.5 в радианах; в градусах - это 
+			<script>document.write(Math.round(Math.asin(0.52532198881)*180/Math.PI));</script> 
+		град.</td>
+	</tr>
+	<tr>
+		<td class="fst">Math.tan(45 * Math.PI / 180)</td>
+		<td><script>document.write(Math.tan(45*Math.PI/180));</script></td>
+		<td> - возвращает тангенс угла 45 градусов (значение угла должно быть в радианах)</td>
+	</tr>
+	<tr>
+		<td class="fst">Math.atan(0.5253)</td>
+		<td><script>document.write(Math.atan(0.52532198881));</script></td>
+		<td> - возвращает арктангенс угла 0.5253, как числовое значение в диапазоне от -PI/2 до PI/2 в радианах; в градусах - это 
+			<script>document.write(Math.round(Math.atan(0.52532198881)*180/Math.PI));</script> 
+		град.</td>
+	</tr>
+	<tr>
+		<td class="fst">Math.atan2(2,4)</td>
+		<td><script>document.write(Math.atan2(2,4));</script></td>
+		<td> - возвращает арктангенс частного своих аргументов</td>
+	</tr>
+	<tr>
+		<td class="fst">Math.max(2, 4, 6, -6)</td>
+		<td><script>document.write(Math.max(2, 4, 6, -6));</script></td>
+		<td> - возвращает наибольшее значение в списке</td>
+	</tr>
+	<tr>
+		<td class="fst">Math.min(2, 4, 6, -6)</td>
+		<td><script>document.write(Math.min(2, 4, 6, -6));</script></td>
+		<td> - возвращает наименьшее значение в списке</td>
+	</tr>
+	<tr>
+		<td class="fst">Math.random()</td>
+		<td><script>document.write(Math.random());</script></td>
+		<td> - возвращает случайное число между 0 и 1</td>
+	</tr>
+	<tr>
+		<td class="fst">Math.floor(Math.random() * 100)</td>
+		<td><script>document.write(Math.floor(Math.random() * 100));</script></td>
+		<td> - возвращает случайное целое число между 0 и 100</td>
+	</tr>
+	<tr>
+		<td class="fst">Math.floor(Math.random() * 100)+1</td>
+		<td><script>document.write(Math.floor(Math.random() * 100)+1);</script></td>
+		<td> - возвращает случайное целое число между 1 и 100</td>
+	</tr>
+	<tr>
+		<td class="fst">Math.floor(Math.random() * (max - min) ) + min</td>
+		<td><script>function getRndInteger(min, max) {
+		    return Math.floor(Math.random() * (max - min) ) + min;
+			}</script></td>
+		<td> - функция возвращает случайное число от min (включительно) до max (не включительно)</td>
+	</tr>
+	<tr>
+		<td class="fst"></td>
+		<td><script></script></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td class="fst"></td>
+		<td><span id="L"></span></td>
+		<td></td>
+	</tr>
+</table>
+
+	<script type="text/javascript">
+		var pi = Math.PI/*, e = 2.71828182846*/;
+		document.getElementById("A").innerHTML = pi;
+		var ab = abs(2.71828182846);
+		document.getElementById("B").innerHTML = ab;
+		// document.getElementById("C").innerHTML = acos(0.5);
+		// document.getElementById("D").innerHTML = asin(0.5);
+		// document.getElementById("E").innerHTML = atan(0.5);
+		// document.getElementById("F").innerHTML = atan(2,4);
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JS array's methods</title>
+	<style type="text/css">
+		.fst{
+			font-style:oblique;
+			font-color: #812B2B;
+		}
+		table, td, th{
+			border: 1px solid lightgray;
+       		border-collapse: collapse;
+       		line-height: 18px;
+       		padding: 0px 6px 0px 6px;
+		}
+		p{	text-indent: 55px;
+			font-style:oblique;
+		}
+	</style>
+</head>
+<body style="font-family: Calibri; font-size: 12px;">
+	<p>- Массивы — это особый тип объектов с цифровой индексацией элементов</p>
+	<p>- Если при обращении к элементу массива использовать вместо индекса имя( как в ассоциативном массиве), то JavaScript переопределит такой массив в стандартный объект. После этого свойства и методы массива будут возвращать неверный результат.</p>
+	<h4 style="text-align: center">Методы объекта Array</h4>
+<table align="center">
+	<tr style="text-align: center; line-height: 20px">
+		<td colspan="4">var cars = ["Saab", "Volvo", "BMW"]</td>
+	</tr>
+	<tr>
+		<td>1</td>
+		<td class="fst">cars instanceof Array</td>
+		<td><script>
+			var a2 = cars instanceof Array;
+			document.write(a2);
+		</script></td>
+		<td> - вернет true, если cars - это массив</td>
+	</tr>
+	<tr>
+		<td>2</td>
+		<td class="fst">cars.length</td>
+		<td><span id="A1"></span></td>
+		<td> - количество элементов массива; на 1 больше, чем индекс последнего элемента массива</td>
+	</tr>
+	<tr>
+		<td>3</td>
+		<td class="fst">last = cars[cars.length - 1]</td>
+		<td><span id="B1"></span></td>
+		<td> - обращение к последнему элементу массива</td>
+	</tr>
+	<tr>
+		<td>4</td>
+		<td class="fst">cars.forEach(myFunction1);</td>
+		<td><span id="C1"> - обход всех элементов массива</span></td>
+		<td> - обход всех элеметов массива</td>
+	</tr>
+	<tr>
+		<td rowspan="2">5</td>
+		<td class="fst">cars.push("Ferari")</td>
+		<td><span id="D1"></span></td>
+		<td> - <em style="color: darkblue">добавляет</em> элемент в конец массива; если присвоить метод переменной, то ей присвоится новая длина массива</td>
+	</tr>
+	<tr>
+		<td class="fst">cars[5] = "Toyota";</td>
+		<td><span id="E1"></span></td>
+		<td> - <em style="color: darkblue">добавляет</em> элемент в массив после указанного значения; на месте 5-го элемента образовалась дыра</td>
+	</tr>
+	<tr>
+		<td>6</td>
+		<td class="fst">cars.pop()</td>
+		<td><span id="F1"></span></td>
+		<td> - <em style="color: darkred">удаляет</em> последний элемент массива;<br>- если присвоить метод переменной, то ей присвоится удалённый элемент</td>
+	</tr>
+	<tr>
+		<td>7</td>
+		<td class="fst">cars.shift();</td>
+		<td><span id="G1"></span></td>
+		<td> - <em style="color: darkred">удаляет</em> первый элемент массива и сдвигает оставшиеся элементы к меньшим индексам;<br>- если присвоить метод переменной, то ей присвоится удалённый элемент</td>
+	</tr>
+	<tr>
+		<td>8</td>
+		<td class="fst">cars.unshift("Audi")</td>
+		<td><span id="H1"></span></td>
+		<td> - <em style="color: darkblue">добавляет</em> новый элемент в начало массива и передвигает другие элементы; возвращает новую длину массива</td>
+	</tr>
+	<tr>
+		<td>9</td>
+		<td class="fst">delete cars[0]</td>
+		<td><span id="I1"></span></td>
+		<td> - <em style="color: darkred">удаляет</em> указанный элемент массива, образуя на его месте дыру</td>
+	</tr>
+	<tr>
+		<td rowspan="3">10</td>
+		<td class="fst">cars.splice(0,1)</td>
+		<td><span id="J1"></span></td>
+		<td> - <em style="color: darkred">удаляет</em> дыры</td>
+	</tr>
+	<tr>
+		<td class="fst">cars.splice(1,2,"Audi","Toyota")</td>
+		<td><span id="K1"></span></td>
+		<td> - определяет, куда, сколько и какие элементы нужно <em style="color: darkblue">добавить</em> в массив</td>
+	</tr>
+	<tr>
+		<td class="fst">cars.slice(1,3)</td>
+		<td><span id="M1"></span></td>
+		<td> - извлекает часть массива начиная с индекса 1 и заканчивая 3</td>
+	</tr>
+	<tr>
+		<td>11</td>
+		<td class="fst">car1.concat(car2, car3, ["Toyota"])</td>
+		<td><span id="L1"></span></td>
+		<td> - слияние массивов</td>
+	</tr>
+	<tr>
+		<td>12</td>
+		<td class="fst">cars.toString()</td>
+		<td><span id="N1"></span></td>
+		<td> - преобразует массив в строку; на самом деле при выводе массива он и так автоматически преобразуется в строку</td>
+	</tr>
+	<tr>
+		<td colspan="4" style="text-align: center">
+		<b style="text-decoration-color: maroon;">ECMAScript 5 (2009)</b></td>
+	</tr>
+	<tr>
+		<td>1</td>
+		<td class="fst">Array.isArray(cars)</td>
+		<td><span id="O1"></span></td>
+		<td> - проверяет, является ли объект массивом</td>
+	</tr>
+</table>
+
+<script type="text/javascript">
+	var cars = ["Saab", "Volvo", "BMW"];
+	var lan = cars.length;
+	document.getElementById("A1").innerHTML = lan;
+	var last = cars[cars.length - 1];
+	document.getElementById("B1").innerHTML = last;
+	var str;
+	function myFunction1(value) {str +=  ", " + value;}
+	cars.forEach(myFunction1);
+	document.getElementById("C1").innerHTML = str;
+	var el1 = cars.push("Ferari");
+	document.getElementById("D1").innerHTML = cars + "\n; новая длина массива - " + el1;
+	cars[5] = "Toyota";
+	document.getElementById("E1").innerHTML = cars;
+	var el2 = cars.pop();
+	document.getElementById("F1").innerHTML = cars + "\n; удалённый элемент - " + el2;
+	var el3 = cars.shift();
+	document.getElementById("G1").innerHTML = cars + "\n; удалённый элемент - " + el3;
+	var el4 = cars.unshift("Audi");
+	document.getElementById("H1").innerHTML = cars + "\n; новая длина массива - " + el4;
+	var el5 = delete cars[0];
+	document.getElementById("I1").innerHTML = cars;
+	var el6 = cars.splice(0,1);
+	document.getElementById("J1").innerHTML = cars;
+	cars.splice(3,1);
+	var el7 = cars.splice(1,2,"Audi","Toyota");
+	document.getElementById("K1").innerHTML = cars;
+	var car1 = "Saab", car2 = "Volvo", car3 = "BMV";
+	var carrs = car1.concat(car2, car3, ["Toyota"]);
+	document.getElementById("L1").innerHTML = carrs;
+	var cut = cars.slice(1,3);
+	document.getElementById("M1").innerHTML = cut;
+	document.getElementById("N1").innerHTML = cars.toString();
+	document.getElementById("O1").innerHTML = Array.isArray(cars);
+</script>
+
+
+<h4 style="text-align: center">Сортировка массива</h4>
+<table align="center">
+	<tr>
+		<td colspan="4" style="text-align: center; line-height: 20px">
+		var cars = ["Saab", "Volvo", "BMW"]</td>
+	</tr>
+	<tr>
+		<td>1</td>
+		<td class="fst">cars.sort()</td>
+		<td><span id="A2"></span></td>
+		<td> - сортирует массив в алфавитном порядке</td>
+	</tr>
+	<tr>
+		<td>2</td>
+		<td class="fst">cars.reverse()</td>
+		<td><span id="B2"></span></td>
+		<td> - сортирует массив в обратном алфавитном порядке</td>
+	</tr>
+	<tr>
+		<td colspan="4" style="text-align: center; line-height: 20px">
+		var numbers = [40, 100, 1, 5, 25, 10]</td>
+	</tr>
+	<tr>
+		<td rowspan="3">1</td>
+		<td class="fst">numbers.sort(function(a, b) { return a - b })</td>
+		<td><span id="C2"></span></td>
+		<td> - числовая сортировка по возрастанию</td>
+	</tr>
+	<tr>
+		<td class="fst">numbers.sort(function(a, b) { return b - a })</td>
+		<td><span id="D2"></span></td>
+		<td> - числовая сортировка по убыванию</td>
+	</tr>
+	<tr>
+		<td class="fst">numbers.sort(function(a, b){return 0.5 - Math.random()})</td>
+		<td><span id="E2"></span></td>
+		<td> - числовая сортировка в случайном порядке</td>
+	</tr>
+	<tr>
+		<td rowspan="2">2</td>
+		<td class="fst">Math.max.apply(null, numbers)</td>
+		<td><span id="F2"></span></td>
+		<td> -наибольшее значение массива</td>
+	</tr>
+	<tr>
+		<td class="fst">Math.min.apply(null, numbers)</td>
+		<td><span id="G2"></span></td>
+		<td> - наименьшее значение массива</td>
+	</tr>
+	<tr>
+		<td colspan="4" style="text-align: center; line-height: 20px">
+			var cars = [{type:"Volvo", year:2016},{type:"Saab", year:2001},{type:"BMW", year:2010}];
+		</td>
+	</tr>
+	<tr>
+		<td rowspan="2">1</td>
+		<td class="fst">cars.sort(function(a, b){return a.year - b.year})</td>
+		<td><script>
+			var carrs = [{type:"Volvo", year:2016},{type:"Saab", year:2001},{type:"BMW", year:2010}];
+			var sor6 = carrs.sort(function(a, b){return a.year - b.year});
+			document.write(sor6);
+		</script></td>
+		<td> - сортировка массивов объектов по значению</td>
+	</tr>
+	<tr>
+		<td class="fst"></td>
+		<td><script>
+			var sor7 = 	carrs.sort(function(a, b){
+							var x = a.type.toLowerCase();
+							var y = b.type.toLowerCase();
+							if (x == y) {return 1;}
+							return 0;
+						});
+			document.write(sor7);
+		</script></td>
+		<td> - сортировка массивов объектов по свойству строкового типа</td>
+	</tr>
+	<tr>
+		<td colspan="4" style="text-align: center; line-height: 20px">
+		<b style="text-decoration-color: maroon;">ECMAScript 5 (2009)</b></td>
+	</tr>
+	<tr>
+		<td>1</td>
+		<td class="fst">numbers.forEach(myFunction1)</td>
+		<td><span id="A3"></span></td>
+		<td> - единожды вызывает функцию обратного вызова для каждого элемента массива;<br>- myFunction1 - записывает значения элементов массива в строку, разделяя ";"</td>
+	</tr>
+	<tr>
+		<td>2</td>
+		<td class="fst">numbers.map(myFunction2)</td>
+		<td><span id="B3"></span></td>
+		<td> - выполняет функцию обратного вызова для каждого элемента массива;<br>- myFunction2 - умножает все элементы массива на 2</td>
+	</tr>
+	<tr>
+		<td>3</td>
+		<td class="fst">numbers.filter(myFunction3)</td>
+		<td><span id="C3"></span></td>
+		<td> - создает новый массив с элементами исходного массива, прошедшими заданную проверку;<br>- myFunction3 - выбирает элементы массива, которые больше 18</td>
+	</tr>
+	<tr>
+		<td rowspan="3">4</td>
+		<td class="fst">numbers.reduce(myFunction4)</td>
+		<td><span id="D3"></span></td>
+		<td>- выполняет функцию обратного вызова с каждым элементом массива слева направо для вычисления единого значения;<br>- myFunction4 - суммирует все элементы массива</td>
+	</tr>
+	<tr>
+		<td class="fst">numbers.reduceRight(myFunction4)</td>
+		<td><span id="E3"></span></td>
+		<td>- обрабатывает элементы массива справа налево</td>
+	</tr>
+	<tr>
+		<td class="fst">numbers.reduce(myFunction4, 100)</td>
+		<td><span id="F3"></span></td>
+		<td>- обрабатывает элементы массива с начальным значением 100</td>
+	</tr>
+	<tr>
+		<td>5</td>
+		<td class="fst">numbers.every(myFunction3)</td>
+		<td><span id="G3"></span></td>
+		<td> - проверяет, выполняют ли заданное условие все элементы массива</td>
+	</tr>
+	<tr>
+		<td>6</td>
+		<td class="fst">numbers.some(myFunction3)</td>
+		<td><span id="H3"></span></td>
+		<td> - проверяет, выполняет ли заданное условие хотя бы один элемент массива</td>
+	</tr>
+	<tr>
+		<td rowspan="3">7</td>
+		<td class="fst">numbers.indexOf(100)</td>
+		<td><span id="I3"></span></td>
+		<td>- ищет в массиве элемент с заданным значением и возвращает его индекс</td>
+	</tr>
+	<tr>
+		<td class="fst">numbers.indexOf(100, 2)</td>
+		<td><span id="J3"></span></td>
+		<td>-  ищет в массиве элемент с заданным значением, начиная с 3-го элемента; если элемент не найден - возвращает "-1"</td>
+	</tr>
+	<tr>
+		<td class="fst">numbers.lastIndexOf(100)</td>
+		<td><span id="K3"></span></td>
+		<td>- ищет в массиве элемент с заданным значением, начиная с конца массива, и возвращает его индекс</td>
+	</tr>
+	<tr style="text-align: center; line-height: 20px">
+		<td colspan="4"><b>ECMAScript 6 (2025)</b></td>
+	</tr>
+		<tr>
+		<td rowspan="2">1</td>
+		<td class="fst">numbers.find(myFunction3)</td>
+		<td><span id="L3"></span></td>
+		<td>- возвращает значение первого элемента массива, прошедшего заданную проверку в функции обратного вызова</td>
+	</tr>
+	<tr>
+		<td class="fst">numbers.findIndex(myFunction3)</td>
+		<td><span id="M3"></span></td>
+		<td>- возвращает индекс первого элемента массива, прошедшего заданную проверку в функции обратного вызова</td>
+	</tr>
+</table>
+
+<script type="text/javascript">
+	var cars = ["Saab", "Volvo", "BMW"];
+	document.getElementById("A2").innerHTML = cars.sort();
+	document.getElementById("B2").innerHTML = cars.reverse();
+	var numbers = [40, 100, 1, 5, 25, 10];
+	var sor1 = numbers.sort(function(a, b){return a - b });
+	document.getElementById("C2").innerHTML = sor1;
+	var numbers = [40, 100, 1, 5, 25, 10];
+	var sor2 = numbers.sort(function(a, b){return b - a });
+	document.getElementById("D2").innerHTML = sor2;
+	var numbers = [40, 100, 1, 5, 25, 10];
+	var sor3 = numbers.sort(function(a, b){return 0.5 - Math.random()});
+	document.getElementById("E2").innerHTML = sor3;
+	var sor4 = Math.max.apply(null, numbers);
+	document.getElementById("F2").innerHTML = sor4;
+	var sor5 = Math.min.apply(null, numbers);
+	document.getElementById("G2").innerHTML = sor5;
+		// function myArrayMax(arr){
+		// var len = arr.length;
+		// var max = -Infinity;
+		// while (len--) {
+		// 	if (arr[len] > max){
+		// 		max = arr[len];
+		// 	}
+		// }
+		// return max;
+		// }
+	var txt = "";
+	var numbers = [40, 100, 1, 5, 25, 10];
+	function myFunction1(value, index, array) {
+		txt = txt + value + "; ";}
+	var call1 = numbers.forEach(myFunction1);
+	document.getElementById("A3").innerHTML = call1;
+
+	var call2 = numbers.map(myFunction2);
+	function myFunction2(value, index, array) {
+	   return value * 2;}
+	document.getElementById("B3").innerHTML = call2;
+
+	var over18 =  numbers.filter(myFunction3);
+	function myFunction3(value, index, array) {
+  		return value > 18;}
+	document.getElementById("C3").innerHTML = over18;
+
+	var sum1 = numbers.reduce(myFunction4);
+	function myFunction4(total, value, index, array) {
+		return total + value;}
+	document.getElementById("D3").innerHTML = sum1;
+	var sum2 = numbers.reduceRight(myFunction4);
+	document.getElementById("E3").innerHTML = sum2;
+	var sum3 = numbers.reduce(myFunction4, 100);
+	document.getElementById("F3").innerHTML = sum3;
+
+	var allOver18 = numbers.every(myFunction3);
+	document.getElementById("G3").innerHTML = allOver18;
+	var someOver18 = numbers.some(myFunction3);
+	document.getElementById("H3").innerHTML = someOver18;
+	var ind1 = numbers.indexOf(100);
+	document.getElementById("I3").innerHTML = ind1;
+	var ind2 = numbers.indexOf(100, 2);
+	document.getElementById("J3").innerHTML = ind2;
+	var ind3 = numbers.lastIndexOf(100);
+	document.getElementById("K3").innerHTML = ind3;
+	var first1 = numbers.find(myFunction3);
+	document.getElementById("L3").innerHTML = first1;
+	var first2 = numbers.findIndex(myFunction3);
+	document.getElementById("M3").innerHTML = first2;
+</script>
+
+</body>
+</html>

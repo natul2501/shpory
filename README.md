@@ -1,2 +1,2 @@
 # shpory
-https://natul2501.github.io/index.html
+https://natul2501.github.io/shpory/index.html

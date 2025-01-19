@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<link rel="stylesheet" type="text/css" href="css/html_media_style.css">
+	<title>Відображення медіа html</title>
+						<!-- ІКОНКА -->
+	<link rel="icon" type="image/png" href="img/icon.png">
+</head>
+<body>
+<!------------------------------ ЗОБРАЖЕННЯ -------------------------------->
+<div id="content">
+	<font size="6"><center>ЗОБРАЖЕННЯ</center></font>
+	<center>Перелік основних властивостей</center>
+	<center><i>*При наведенні мишкою на зображення відобразиться синтаксис</i></center>
+	<table>
+		<tr>
+			<th><img src="img/pwu.jpg" width="200" title="<img src=&quot;img.jpg&quot; width=&quot;200&quot;>"></th>
+			<th><img src="img/pwu.jpg" width="200" title="<img src=&quot;img.jpg&quot; title=&quot;this&quot;>"></th>
+			<th><img src="img/pwu.jpg" width="200" alt="Альтер" title="<img src=&quot;img.jpg&quot; alt=&quot;text&quot;>"></th>
+		</tr>
+		<tr>
+			<td><xmp>width</xmp> та <xmp>height</xmp> - задають розмір</td>
+			<td><xmp>title</xmp> - вспливаючий напис</td>
+			<td><xmp title="Текст відображається у випадку, якщо зображення не завантажилося">alt*</xmp> - альтернативний текст</td>
+		</tr>
+		<tr>
+			<th><img src="img/pwu.jpg" width="200" draggable="false" title="<img src=&quot;img.jpg&quot; draggable=&quot;false&quot;>"></th>
+			<th><img src="img/pwu.jpg" width="200" draggable="true" title="<img src=&quot;img.jpg&quot; draggable=&quot;true&quot;>"></th>
+			<th><img src="img/pwu.jpg" width="200" style="opacity: 0.6" title="<img src=&quot;img.jpg&quot; style=&quot;opacity:0.6&quot;>"></th>
+		</tr>
+		<tr>
+			<td><xmp>draggable="false"</xmp> - не можна перемістити</td>
+			<td><xmp>draggable="true"</xmp> - можна перемістити</td>
+			<td><xmp>style="opacity: 0.6"</xmp> - задати прозорість css</td>
+		</tr>
+		<tr>
+			<th>
+				<img src="img/pwu.jpg" width="200" id="opaci" title="#picture_id : hover {opacity:0.6;}">
+				<style type="">#opaci:hover{opacity: 0.1;}</style>
+			</th>
+			<th>
+				<a href="dt/map2.html">
+					<img src="img/on.jpg" width="200" title="<a href=&quot;map.html&quot;> <img src=&quot;img.jpg&quot;> </a>">
+				</a>
+			</th>
+			<th>
+				<img src="img/on.jpg" width="200" usemap="#pinkwall"
+					title="		<img src=&quot;img.jpg&quot; usemap=&quot;#the_map&quot;>
+			<map name=&quot;the_map&quot;>
+  				<area shape=&quot;rect&quot; coords=&quot;x1,y1,x2,y2&quot; href=&quot;map.html&quot;>
+			</map>">
+					<map name="pinkwall">
+  						<area shape="rect" coords="20,60,40,80" href="dt/map2.html">
+					</map>
+			</th>
+		</tr>
+		<tr>
+			<td>напівпрозорість при наведенні мишкою css</td>
+			<td>картинка в якості посилання</td>
+			<td>частина картинки (вимикач) в якості карти зображення <xmp><map></xmp></td>
+		</tr>
+	</table>
+	
+	В залежності від форми області карти-зображення по-різному задаються її координати. Форми бувають:<br>
+		circle - коло | default - вся область| poly - багатокутник| rect - прямокутник
+
+		<!--- align - визначає як малюнок буде вирівнюватися
+			- border - товщина рамки навколо зображення
+			- HSPACE и VSPACE - отступы в пикселях по горизонтали и по вертикали от картинки до других обьектов документа -->
+
+			<figure>
+				<img src="img/pwu.jpg" width="200">
+				<figcaption>зображення з підписом, додане за допомогою тега <xmp title="<figure><img src=&quot;img.jpg&quot;><figcaption>підпис</figcaption></figure>"><figure></xmp></figcaption>
+			</figure>
+</div>
+
+<!------------------------------ ВІДЕО -------------------------------->
+<div id="content">
+	<font size="6"><center>ВІДЕО</center></font>
+	<center>Перелік основних властивостей</center>
+	<center><i>*При наведенні мишкою на відео відобразиться синтаксис</i></center>
+	<table>
+		<tr>
+			<th>
+				<video src="video/fcc.mp4" controls width="200"
+					title="				<video src=&quot;video.mp4&quot; controls>
+					Текст, який відображається, якщо не вдалося загрузити відео
+				</video>">
+					Here was video
+				</video>
+			</th>
+			<th>
+				<video src="video/fcc.mp4" controls width="200" poster="img/pwu.jpg"
+					title="<video src=&quot;video.mp4&quot; poster=&quot;poster.jpg&quot; controls></video>">
+				</video></th>
+			<th>
+				<video src="video/fcc.mp4" controls width="200" muted
+					title="<video src=&quot;video.mp4&quot; muted controls></video>">
+				</video>
+			</th>
+		</tr>
+		<tr>
+			<td><xmp>width</xmp> та <xmp>height</xmp> - задають розмір</td>
+			<td><xmp>poster</xmp> - задає посилання на прев'ю</td>
+			<td><xmp>muted</xmp> - беззвучний за замовчуванням</td>
+		</tr>
+		<tr>
+			<th>
+				<video src="video/fcc.mp4" controls width="200" loop
+					title="<video src=&quot;video.mp4&quot; loop controls></video>">
+				</video>
+			</th>
+			<th>
+				<video src="video/fcc.mp4" controls width="200" autoplay
+					title="<video src=&quot;video.mp4&quot; autoplay controls></video>">
+				</video>
+			</th>
+			<th>
+				<video src="video/fcc.mp4" width="200" controls
+				title="<video src=&quot;video.mp4&quot; loop controls>
+	<track src=&quot;subtitles.vtt&quot; kind=&quot;subtitles&quot; scrlang=&quot;en&quot; label=&quot;English&quot;>
+</video>">
+	    			<track src="dt/fcc.vtt" kind="subtitles" srclang="en" label="English">
+	  			</video>
+	  		</th>
+		</tr>
+		<tr>
+			<td><xmp>loop</xmp> - безкінечне відтворення</td>
+			<td><xmp>autoplay</xmp> - автовідтворення</td>
+			<td>відео з субтитрами</td>
+		</tr>
+		<tr>
+			<th><object data="video/fcc.mp4" width="200"></object></th>
+			<th><embed src="video/fcc.mp4" width="200"/></th>
+			<th>
+				<video width="200" controls 
+				title="<video controls>
+	<source src=&quot;video.mp4&quot; type=&quot;video/mp4&quot;>
+	<source src=&quot;video.ogg&quot; type=&quot;video/ogg&quot;>
+</video>">
+	    			<source src="video/fcc.mp4" type="video/mp4"  width="200">
+	    			<source src="video/fcc.ogg" type="video/ogg"  width="200">
+	  			</video>
+	  		</th>
+		</tr>
+		<tr>
+			<td>відео, додане за допомогою тега <xmp title="<object data=&quot;video.mp4&quot;></object>"><object></xmp></td>
+			<td>відео, додане за допомогою тега <xmp title="<embed src=&quot;video.mp4&quot;/>"><embed></xmp></td>
+			<td>так можна додавати декілька відео під ряд</td>
+		</tr>
+	</table>  
+</div>
+
+<!-------------------------------- АУДІО ---------------------------------->
+<div id="content" style="width:580px; height: 500px;">
+	<font size="6"><center>АУДІО</center></font>
+	<center>Перелік основних властивостей</center>
+	<center><i>*При наведенні мишкою на описання відобразиться синтаксис</i></center>
+
+	<!--<audio src="audio/pikapi.mp3" >Аудио</audio>
+		- тег аудио<br>-->
+
+	<audio src="audio/pikapi.mp3" controls>Here was audio</audio>
+		<br>- <span title="<audio src=&quot;audio.mp3&quot; controls>Текст, який відображається якщо не вдалося завантажити аудіо</audio>">стандартна аудіопанель</span><br>
+
+	<audio controls><source src="audio/pikapi.mp3"></audio>
+		<br>- <span title="<audio controls><source src=&quot;audio.mp3&quot;></audio>">
+			ще один спосіб виведення аудіо</span><br>
+
+	<audio src="audio/pikapi.mp3" controls loop></audio>
+		<br>- <span title="<audio src=&quot;audio.mp3&quot; controls loop></audio>">
+			аудіо з безкінечним відтворенням</span><br>
+
+	<audio src="audio/pikapi.mp3" controls autoplay></audio>
+		<br>- <span title="<audio src=&quot;audio.mp3&quot; controls autoplay></audio>">
+			аудіо з автовідтворенням</span><br>
+
+	<audio src="audio/pikapi.mp3" controls preload="auto"></audio>
+		<br>- <span title="<audio src=&quot;audio.mp3&quot; controls preload=&quot;auto&quot;></audio>">
+			аудіо з автоматичним відтворенням після завантаження сторінки</span><br>
+
+	<audio src="audio/pikapi.mp3" controls preload="none">Alt</audio>
+		<br>- <span title="<audio src=&quot;audio.mp3&quot; controls preload=&quot;none&quot;></audio>">
+			завантаження аудіо після натиснення "play"</span><br>
+
+	<audio src="audio/pikapi.mp3" controls preload="metadata">Alt</audio>
+		<br>- <span title="<audio src=&quot;audio.mp3&quot; controls preload=&quot;metadata&quot;></audio>">
+			збір інформації про аудіо: розмір, перший кадр, список відтворення, тривалість</span><br>
+</div>
+<!---------------------------- ІНШІ ОБ'ЄКТИ' ------------------------------>
+<div id="content" style="width:580px; height: 500px; float: right;">
+	<font size="6"><center>ІНШІ ОБ'ЄКТИ</center></font>
+	<center>Перелік основних властивостей</center>
+	<center><i>*При наведенні мишкою на тег відобразиться синтаксис</i></center>
+
+	<span>Строка прогресу <xmp title="<progress value=&quot;90&quot; max=&quot;100&quot;>90%</progress>"><progress></xmp></span> <progress value="90" max="100">90%</progress><br>
+
+	<span>Строка прогресу <xmp title="<meter value=&quot;40&quot; max=&quot;100&quot; min=&quot;0&quot; low=&quot;10&quot; high=&quot;80&quot; optimum=&quot;50&quot;>progress</meter>"><meter></xmp></span>
+	<meter value="40" max="100" min="0" low="10" high="80" optimum="50">progress</meter><br>
+
+	Іконка у назві вкладки браузера задається в &lthead&gt наступним чином: <xmp><link rel="icon" type="image/png" href="icon.png"></xmp><br>
+	
+	
+	<span>Тег <xmp title="<iframe src=&quot;content.html&quot;>Текст, що відображається, якщо не вдалося завантажити вебсторінку</iframe>"><iframe></xmp>:</span>
+	<iframe src="dt/media2.html" width="550" height="200">
+	  	Тут був контент із вебсторінки
+	</iframe>
+
+</div>
+
+
+	
+
+	
+						
+
+
+
+	<!--- type определяет MIME-тип медиа ресурса. Возможные значения атрибута
+			- для видео-файлов: video/ogg | video/mp4 | video/webm
+			- для звуковых файлов: audio/ogg | audio/mpeg
+		- media yказывает под какие типы устройств оптимизирован файл. Браузеры могут использовать этот атрибут для определения, возможно ли воспроизведение файла или нет-->
+</body>
+</html>

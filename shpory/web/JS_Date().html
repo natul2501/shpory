@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Date</title>
+		<style type="text/css">
+		.fst{
+			font-style:oblique;
+			font-color: #812B2B;
+		}
+		table, td, th{
+			border: 1px solid lightgray;
+       		border-collapse: collapse;
+       		line-height: 18px;
+       		padding: 0px 6px 0px 6px;
+		}
+		p{	text-indent: 55px;
+			font-style:oblique;
+			margin: 3px;
+		}
+	</style>
+</head>
+<body style="font-family: Calibri; font-size: 12px;">
+	<p>	По умолчанию, JavaScript будет использовать временную зону браузера и отображать дату в виде полной текстовой строки: <script type>document.write(new Date())</script>.</p>
+	<p>JavaScript хранит даты в виде количества миллисекунд, прошедших с 1 января 1970, 00:00:00 UTC (универсальные координаты времени).</p>
+	<br>
+	<h4 style="text-align: center"> Как вывести дату </h4>
+<table align="center">
+	<tr style="text-align: center; line-height: 20px">
+		<td colspan="4">var dat = new Date()</td>
+	</tr>
+	<tr>
+		<td rowspan="3">1</td>
+		<td class="fst">new Date()</td>
+		<td><span id="A1"></span></td>
+		<td> - создает новый объект даты с текущими датой и временем</td>
+	</tr>
+	<tr>
+		<td class="fst">new Date(0)</td>
+		<td><span id="B1"></span></td>
+		<td> - нулевая дата - это 1 января 1970 00:00:00 UTC</td>
+	</tr>
+	<tr>
+		<td class="fst">new Date(-1000000000)</td>
+		<td><span id="C1"></span></td>
+		<td> - нулевая дата минус 1 000 000 000 миллисекунд - это 20 декабря 1969 13:13:20 UTC</td>
+	</tr>
+	<tr>
+		<td rowspan="5">2</td>
+		<td class="fst">new Date(2018, 7, 7, 16, 30, 30, 0)</td>
+		<td><span id="D1"></span></td>
+		<td> - 7 числовых параметров определяют год, месяц, день, часы, минуты, секунды, миллисекунды</td>
+	</tr>
+	<tr>
+		<td class="fst">new Date(2018, 7, 7)</td>
+		<td><span id="E1"></span></td>
+		<td> - 3 числовых параметра определяют год, месяц, день</td>
+	</tr>
+	<tr>
+		<td class="fst">new Date(2018)</td>
+		<td><span id="F1"></span></td>
+		<td> - нельзя опускать параметр месяца: если задается один параметр, то он будет интерпретироваться как миллисекунды</td>
+	</tr>
+	<tr>
+		<td class="fst">new Date(8, 7, 7)</td>
+		<td><span id="G1"></span></td>
+		<td> - eсли год указан в виде одной или двух цифр, то он интерпретируется как 19xx</td>
+	</tr>
+	<tr>
+		<td class="fst">new Date("August 7, 2018 16:30:30")</td>
+		<td><span id="H1"></span></td>
+		<td> - дата, указанная в виде строки</td>
+	</tr>
+	<tr>
+		<td rowspan="2">3</td>
+		<td class="fst">dat.toUTCString()</td>
+		<td><span id="I1"></span></td>
+		<td> - преобразует дату в строку UTC (стандарт отображения даты)</td>
+	</tr>
+	<tr>
+		<td class="fst">dat.toDateString()</td>
+		<td><span id="J1"></span></td>
+		<td> - преобразует дату в более читабельный формат</td>
+	</tr>
+</table>
+
+<script type="text/javascript">
+		document.getElementById("A1").innerHTML = new Date();
+		document.getElementById("B1").innerHTML = new Date(0);
+		document.getElementById("C1").innerHTML = new Date(-1000000000);
+		var dat1  = new Date(2018, 7, 7, 16, 30, 30, 0);
+		document.getElementById("D1").innerHTML = dat1;
+		var dat2  = new Date(2018, 7, 7);
+		document.getElementById("E1").innerHTML = dat2;
+		var dat3 = new Date(2018);
+		document.getElementById("F1").innerHTML = dat3;
+		var dat4 = new Date(8, 7, 7);
+		document.getElementById("G1").innerHTML = dat4;
+		var dat5 = new Date("August 7, 2018 16:30:30");
+		document.getElementById("H1").innerHTML = dat5;
+		var dat = new Date();
+		document.getElementById("I1").innerHTML = dat.toUTCString();
+		document.getElementById("J1").innerHTML = dat.toDateString();
+		
+</script>
+
+<h4 style="text-align: center"> Форматы даты </h4>
+<table align="center">
+	<tr>
+		<td rowspan="4">1</td>
+		<td class="fst">new Date("2018-08-07")</td>
+		<td><span id="A2"></span></td>
+		<td> - <u>запись по ISO (Международный стандарт)</u></td>
+	</tr>
+	<tr>
+		<td class="fst">new Date("2018")</td>
+		<td><span id="B2"></span></td>
+		<td> - дата по стандарту ISO также может записываться без определения месяца и дня</td>
+	</tr>
+	<tr>
+		<td class="fst">new Date("2018-08-07T16:30:30Z")</td>
+		<td><span id="C2"></span></td>
+		<td> - дата по стандарту ISO с добавлением часов, минут и секунд</td>
+	</tr>
+	<tr>
+		<td class="fst">new Date("2018-08-07T16:30:00-06:00")</td>
+		<td><span id="D2"></span></td>
+		<td> - чтобы указать время относительно UTC, нужно убрать букву Z и добавить сдвиг в формате +ЧЧ:ММ или -ЧЧ:ММ</td>
+	</tr>
+	<tr>
+		<td>2</td>
+		<td class="fst">new Date("08/07/2018")</td>
+		<td><span id="E2"></span></td>
+		<td> - <u>короткая запись</u></td>
+	</tr>
+	<tr>
+		<td>3</td>
+		<td class="fst">new Date("August 7 2018")</td>
+		<td><span id="F2"></span></td>
+		<td> - <u>длинная запись</u>; - месяц и день могут быть в любом порядке; - месяц может записываться либо полностью (January), либо сокращенно (Jan); - запятые игнорируются; - имена регистронезависимы</td>
+	</tr>
+</table>
+
+<script type="text/javascript">
+	var dat5 = new Date("2018-08-07");
+	document.getElementById("A2").innerHTML = dat5;
+	var dat6 = new Date("2018");
+	document.getElementById("B2").innerHTML = dat6;
+	var dat7 = new Date("2018-08-07T16:30:30Z");
+	document.getElementById("C2").innerHTML = dat7;
+	var dat8 = new Date("2018-08-07T16:30:00-06:00");
+	document.getElementById("D2").innerHTML = dat8;
+	var dat9 = new Date("08/07/2018");
+	document.getElementById("E2").innerHTML = dat9;
+	var dat10 = new Date("August 7 2018");
+	document.getElementById("F2").innerHTML = dat10;
+</script>
+
+<h4 style="text-align: center"> Методы даты </h4>
+<table align="center">
+	<tr style="text-align: center; line-height: 20px">
+		<td colspan="4">var dat = new Date()</td>
+	</tr>
+	<tr>
+		<td rowspan="2">1</td>
+		<td class="fst" style="width: 170px">var msec = Date.parse("August 7, 2018")</td>
+		<td style="width: 200px"><span id="A3"></span></td>
+		<td> - возвращает количество миллисекунд, прошедших с 1 января 1970 до заданной даты</td>
+	</tr>
+	<tr>
+		<td class="fst">new Date(msec)</td>
+		<td><span id="B3"></span></td>
+		<td> - полученные миллисекунды можно преобразовать в объект даты</td>
+	</tr>
+	<tr>
+		<td>2</td>
+		<td class="fst">dat.getTime()</td>
+		<td><span id="C3"></span></td>
+		<td> - возвращает количество миллисекунд, прошедших с 1 января 1970 до сейчас</td>
+	</tr>
+	<tr>
+		<td rowspan="3">3</td>
+		<td class="fst">dat.getFullYear(); dat.getMonth(); dat.getDate()</td>
+		<td><span id="D3"></span></td>
+		<td> - возвращает год в формате четырех цифр; номер месяца (0-11); число месяца (1-31)</td>
+	</tr>
+	<tr>
+		<td class="fst">dat.getDay()</td>
+		<td><span id="E3"></span></td>
+		<td> - возвращает номер дня недели (0-6)</td>
+	</tr>
+	<tr>
+		<td class="fst">dat.getHours(); dat.getMinutes(); dat.getSeconds(); dat.getMilliseconds();</td>
+		<td><span id="F3"></span></td>
+		<td> - возвращает час (0-23); - минуты (0-59); - секунды (0-59); - миллисекунды (0-999)</td>
+	</tr>
+	<tr>
+		<td>4</td>
+		<td class="fst">months[dat.getMonth()]</td>
+		<td><span id="G3"></span></td>
+		<td> - чтобы возвращалось название месяца, можно создать массив "month" с именами месяцев</td>
+	</tr>
+	<tr>
+		<td>5</td>
+		<td class="fst">dat.getUTCDay(); dat.getUTCFullYear(); dat.getUTCMonth(); dat.getUTCDate(); dat.getUTCHours(); dat.getUTCMinutes(); dat.getUTCSeconds(); dat.getUTCMilliseconds();</td>
+		<td><span id="H3"></span></td>
+		<td> - есть также аналогичные методы, но возвращающие данные по UTC (Universal Time Zone)</td>
+	</tr>
+	<tr>
+		<td rowspan="7">6</td>
+		<td class="fst">dat.setFullYear(2018)</td>
+		<td><span id="I3"></span></td>
+		<td> -  устанавливает в объекте даты год; при помощи этого метода также можно установить месяц и день</td>
+	</tr>
+	<tr>
+		<td class="fst">dat.setMonth(6)</td>
+		<td><span id="J3"></span></td>
+		<td> - устанавливает в объекте даты месяц (0-11)</td>
+	</tr>
+	<tr>
+		<td class="fst">dat.setDate(6)</td>
+		<td><span id="K3"></span></td>
+		<td> - устанавливает в объекте даты день (1-31</td>
+	</tr>
+	<tr>
+		<td class="fst">dat.setHours(16)</td>
+		<td><span id="L3"></span></td>
+		<td> - устанавливает в объекте даты час (0-23)</td>
+	</tr>
+	<tr>
+		<td class="fst">dat.setMinutes(30)</td>
+		<td><span id="M3"></span></td>
+		<td> - устанавливает в объекте даты минуты (0-59)</td>
+	</tr>
+	<tr>
+		<td class="fst">dat.setSeconds(30)</td>
+		<td><span id="N3"></span></td>
+		<td> - устанавливает в объекте даты секунды (0-59)</td>
+	</tr>
+	<tr>
+		<td class="fst">dat.setMiliseconds(500)</td>
+		<td><span id="O3"></span></td>
+		<td> - устанавливает в объекте даты милисекунды</td>
+	</tr>
+	<tr>
+		<td>7</td>
+		<td class="fst">dat.setDate(dat.getDate() + 50)</td>
+		<td><span id="P3"></span></td>
+		<td> - метод setDate() может использоваться для добавления дней к дате</td>
+	</tr>
+	<tr>
+		<td>8</td>
+		<td class="fst">today и someday - объекты даты;
+		if (someday > today)</td>
+		<td><span id="Q3"></span></td>
+		<td> - даты можно сравнивать</td>
+	</tr>
+	<tr style="text-align: center">
+		<td colspan="3"><b>ECMAScript 5 (2009)</b></td>
+	</tr>
+	<tr>
+		<td>1</td>
+		<td class="fst">Date.now()</td>
+		<td><span id="R3"></span></td>
+		<td> - возвращает количество миллисекунд, прошедших с нулевой даты (то же, что и dat.getTime())</td>
+	</tr>
+</table>
+
+<script type="text/javascript">
+	var msec = Date.parse("August 7, 2018");
+	document.getElementById("A3").innerHTML = msec;
+	var dmsec = new Date(msec);
+	document.getElementById("B3").innerHTML = dmsec.toDateString();
+	document.getElementById("C3").innerHTML = dat.getTime();
+	var get1 = dat.getFullYear();
+	var get2 = dat.getMonth();
+	var get3 = dat.getDate();
+	document.getElementById("D3").innerHTML = get1+"; "+get2+"; "+get3;
+	var months = ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь",
+  "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"];
+  	document.getElementById("E3").innerHTML = months[dat.getMonth()];
+  	document.getElementById("G3").innerHTML = dat.getDay();
+  	var get4 = dat.getHours();
+  	var get5 = dat.getMinutes();
+  	var get6 = dat.getSeconds();
+  	var get7 = dat.getMilliseconds();
+  	document.getElementById("F3").innerHTML = get4+"; "+get5+"; "+get6+"; "+get7;
+  	var getu1 = dat.getUTCDay();
+  	var getu2 = dat.getUTCFullYear();
+  	var getu3 = dat.getUTCMonth();
+  	var getu4 = dat.getUTCDate();
+  	var getu5 = dat.getUTCHours();
+  	var getu6 = dat.getUTCMinutes();
+  	var getu7 = dat.getUTCSeconds();
+  	var getu8 = dat.getUTCMilliseconds();
+  	document.getElementById("H3").innerHTML = getu1+"; "+getu2+"; "+getu3+"; "+getu4+"; "+getu5+"; "+getu6+"; "+getu7+"; "+getu8;
+  	var daty = new Date();
+  	var setd2 = daty.setFullYear(2018);
+  	document.getElementById("I3").innerHTML = daty.toUTCString();
+  	var datm = new Date();
+  	var setd3 = datm.setMonth(6);
+  	document.getElementById("J3").innerHTML = datm.toUTCString();
+  	var datd = new Date();
+  	var setd4 = datd.setDate(6);
+  	document.getElementById("K3").innerHTML = datd.toUTCString();
+  	var dath = new Date();
+  	var setd5 = dath.setHours(16);
+  	document.getElementById("L3").innerHTML = dath.toUTCString();
+  	var datmi = new Date();
+  	var setd6 = datmi.setMinutes(30);
+  	document.getElementById("M3").innerHTML = datmi.toUTCString();
+  	var dats = new Date();
+  	var setd7 = dats.setSeconds(30);
+  	document.getElementById("N3").innerHTML = dats.toUTCString();
+  	var datms = new Date();
+  	var setd8 = datms.setMilliseconds(500);
+  	document.getElementById("O3").innerHTML = datms;
+  	var datd1 = new Date();
+  	var setd9 = datd1.setDate(datd1.getDate() + 50);
+  	document.getElementById("P3").innerHTML = datd1.toUTCString();
+  	var today, someday, text;
+	today = new Date();
+	someday = new Date();
+	someday.setFullYear(2100, 0, 14);
+	if (someday > today) {
+	    text = "14 января 2100 года еще не наступило.";
+	} else {
+	    text = "14 января 2100 года уже прошло.";
+	}
+	document.getElementById("Q3").innerHTML = text;
+	document.getElementById("R3").innerHTML = Date.now();
+	
+</script>
+
+<br>
+</body>
+</html>

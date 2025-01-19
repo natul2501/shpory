@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Семантична верстка</title>
+	<style type="text/css">
+		main{
+	     width:510px;
+	     border: solid 1px brown; 
+	    }
+	    header{
+	      background-color:#A3FFC2;
+	      border: solid 1px green;
+	      height:50px;
+	    }
+	    nav{
+	      border: solid 1px yellowgreen;
+	      background-color:#FFFFB8;
+	      height:30px;
+	      width:510px;
+	      float:left;
+	    }
+	    section{
+	      border: solid 1px greenyellow;
+	      background-color: #fff;
+	      height:500px;
+	      width:400px;
+	      float:left;
+	    }
+	    aside{
+	    	border: solid 1px darkseagreen;
+	    	height: 500px;
+	    }
+	    footer{
+	      background-color:#A3FFC2;
+	      clear:both;
+	      text-align:center;
+	      width:500px;
+	    }
+	    h1{
+	      margin-top:0;
+	    }
+	</style>
+</head>
+<body>
+	<main title="<main>...</main>">
+		<header title="<header>...</header>"><h1>Верстка семантична</h1></header>
+		<nav title="<nav>...</nav>">Меню, може бути як вертикальним, так і горизонтальним</nav>
+		<section title="<section>...</section>">Зона для контенту, що може бути розділена на частини тегами &lt;article&gt;
+				<article title="<article>...</article>">
+					<xmp><!DOCTYPE html>
+<html>
+<head>
+	<title>Семантична верстка</title>
+</head>
+<body>
+	<main>
+		<header>...</header>
+		<nav>...</nav>
+		<section>
+				<article>
+					...
+				</article>
+				<article>
+					...
+				</article>
+		</section>
+		<aside>
+			...
+		</aside>
+		<footer>
+			...
+		</footer>
+	</main>
+</body>
+</html></xmp>
+				</article>
+		</section>
+		<aside title="<aside>...</aside>">
+			Бічна панель, може бути справа, зліва та з обох боків
+		</aside>
+		<footer title="<footer>...</footer>">
+			Футер
+		</footer>
+	</main>
+</body>
+</html>

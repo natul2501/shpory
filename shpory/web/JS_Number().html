@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JS-methods of Number</title>
+	<style type="text/css">
+		.fst{
+			font-style:oblique;
+			font-color: #812B2B;
+		}
+		table, td, th{
+			border: 1px solid lightgray;
+       		border-collapse: collapse;
+       		line-height: 18px;
+		}
+		p{	text-indent: 55px;
+			font-style:oblique;
+		}
+	</style>
+
+</head>
+<body style="font-family: Calibri; font-size: 12px;">
+	<p><i>- В JavaScript числа всегда 64-битные с плавающей точкой</i></p>
+	<p><i>- Целые числа (без периода или экспоненциальной нотации) имеют точность до 15 цифр. Максимальное количество знаков после десятичной точки — 17.</i></p>
+	<p><i>- JavaScript будет стараться конвертировать строки в числа во всех арифметических операциях.</i></p>
+<h4 style="text-align: center">Методы объекта Number</h4>
+					<script type="text/javascript">
+						var int = 128, float = 9.656;
+					</script>
+<table>
+	<tr style="text-align: center">
+		<td colspan="3">var int = 128, float = 9.656</td>
+	</tr>
+	<tr>
+		<td class="fst">isNaN()</td>
+		<td><script>
+			var a1 = 100/10, a2 = 100 / "a";
+			document.write(a1);
+			document.write(" - ");
+			document.write(isNaN(a1));
+			document.write(", ");
+			document.write(a2);
+			document.write(" - ");
+			document.write(isNaN(a2));
+		</script></td>
+		<td> - определяет, корректно ли значение</td>
+	</tr>
+	<tr>
+		<td class="fst">int.toString(16)</td>
+		<td><script>
+			var def1 = int.toString(16);
+			document.write(def1);
+		</script></td>
+		<td> - переводит 128 в шестнадцатеричную систему</td>
+	</tr>
+	<tr>
+		<td class="fst">int.toString(2)</td>
+		<td><script>
+			var def2 = int.toString(2);
+			document.write(def2);
+		</script></td>
+		<td> - переводит 128 в двоичную систему</td>
+	</tr>
+	<tr>
+		<td class="fst">int.toString()</td>
+		<td><script>
+			var def3 = (128).toString();
+			document.write(def3);
+		</script></td>
+		<td> - возвращает 128 как строку</td>
+	</tr>
+	<tr>
+		<td class="fst">9.656.toExponential(2)</td>
+		<td><script>
+			var dec1 = 9.656.toExponential(2);
+			document.write(dec1);
+		</script></td>
+		<td> - возвращает 9.656 в округлённом виде в экспоненциальной нотации</td>
+	</tr>
+	<tr>
+		<td class="fst">float.toFixed(1)</td>
+		<td><script>
+			var dec2 = float.toFixed(1);
+			document.write(dec2);
+		</script></td>
+		<td> - округляет до указанного количества знаков после запятой</td>
+	</tr>
+	<tr>
+		<td class="fst">float.toPrecision(3)</td>
+		<td><script>
+			var dec3 = float.toPrecision(3);
+			document.write(dec3);
+		</script></td>
+		<td> - возвращает строку с числом заданной длины</td>
+	</tr>
+	<tr>
+		<td class="fst">float.valueOf()</td>
+		<td><script>
+			var dec4 = float.valueOf();
+			document.write(dec4);
+		</script></td>
+		<td> - возвращает число как число; используется, чтобы преобразовывать объект Number в примитивное значение</td>
+	</tr>
+	<tr>
+		<td class="fst">Number("10"), Number(true)</td>
+		<td><script>
+			document.write(Number("10"));
+			document.write(", ");
+			document.write(Number(true));
+		</script></td>
+		<td> - преобразовывает переменные в числа</td>
+	</tr>
+	<tr>
+		<td class="fst">Number(new Date("2019-08-01"))</td>
+		<td><script>
+			document.write(Number(new Date("2019-08-01")));
+		</script></td>
+		<td> - возвращает количество миллисекунд, прошедших с 01.08.2019</td>
+	</tr>
+	<tr>
+		<td class="fst">parseInt("10.5u 20")</td>
+		<td><script>
+			document.write(parseInt("10.5u 20"));
+		</script></td>
+		<td> - возвращает первоое целое число в строке</td>
+	</tr>
+	<tr>
+		<td class="fst">parseFloat("10.5u 20")</td>
+		<td><script>
+			document.write(parseFloat("10.5u 20"));
+		</script></td>
+		<td> - возвращает первоое число в строке, даже если оно не целое</td>
+	</tr>
+	<tr>
+		<td colspan="3" style="text-align: center"><i><b>Свойства числового типа</b></i></td>
+	</tr>
+	<tr>
+		<td class="fst">Number.MAX_VALUE</td>
+		<td><script>document.write(Number.MAX_VALUE);</script></td>
+		<td> - возвращает самое большое число, возможное в JavaScript</td>
+	</tr>
+	<tr>
+		<td class="fst">Number.MIN_VALUE</td>
+		<td><script>document.write(Number.MIN_VALUE);</script></td>
+		<td> - возвращает самое маленькое число, возможное в JavaScript</td>
+	</tr>
+	<tr>
+		<td class="fst">Number.NEGATIVE_INFINITY; Number.POSITIVE_INFINITY</td>
+		<td><script>
+			document.write(Number.NEGATIVE_INFINITY);
+			document.write("; ");
+			document.write(Number.POSITIVE_INFINITY);</script></td>
+		<td> - положительная и отрицательная бесконечности</td>
+	</tr>
+	<tr style="text-align: center; line-height: 20px">
+		<td colspan="3"><b>ECMAScript 6 (2025)</b></td>
+	</tr>
+	<tr>
+		<td class="fst">Number.EPSILON</td>
+		<td><script>document.write(Number.EPSILON);</script></td>
+		<td rowspan="2"> - разница между единицей и наименьшим значением, большим единицы, которое может быть представлено типом Number</td>
+	</tr>
+	<tr>
+		<td class="fst">Number.EPSILON + 2.1</td>
+		<td><script>document.write(Number.EPSILON + 2.1);</script></td>
+	</tr>
+	<tr>
+		<td class="fst">Number.MIN_SAFE_INTEGER; Number.MAX_SAFE_INTEGER</td>
+		<td><script>
+				document.write(Number.MIN_SAFE_INTEGER);
+				document.write("; ");
+				document.write(Number.MAX_SAFE_INTEGER);</script></td>
+		<td> - безопасное целое число — это число, которое может быть представлено в виде числа двойной точности</td>
+	</tr>
+	<tr>
+		<td class="fst">Number.isInteger(10); Number.isInteger(10.5)</td>
+		<td><script>
+				document.write(Number.isInteger(10));
+				document.write("; ");
+				document.write(Number.isInteger(10.5));</script></td>
+		<td> - возвращает true, если его параметр — целое число</td>
+	</tr>
+	<tr>
+		<td class="fst">Number.isSafeInteger(9007199254740991); Number.isSafeInteger(9007199254740992)</td>
+		<td><script>
+				document.write(Number.isSafeInteger(9007199254740991));
+				document.write("; ");
+				document.write(Number.isSafeInteger(9007199254740992));</script></td>
+		<td> - возвращает true, если его параметр — безопасное целое число</td>
+	</tr>
+</table>
+
+</body>
+</html>

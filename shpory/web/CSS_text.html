@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Стилізація тексту CSS</title>
+	<link rel="stylesheet" type="text/css" href="css/css_text_style.css">
+    <!-- Ссылки на наборы иконок в интернете, которые хотим подключить -->
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+</head>
+<body>
+    <font size="6"><center>ЗАДАННЯ СТИЛЮ ТЕКСТУ CSS</center></font>
+    <center>Навести курсором, щоб подивитися синтаксис</center>
+    <div id="content">
+        <h3 style="text-align:center">Стилізація тексту</h3>
+        <span style="font-style:normal" title="font-style:normal;">Звичайний</span>, 
+        <span style="font-style:italic" title="font-style:italic">курсивный</span>, 
+        <span style="font-style:oblique" title="font-style:oblique">похилий</span>, 
+        <!--**наклонный создан путём наклона обычного стиля -->       
+        <span style="font-weight:bold" title="font-weight:bold">жирный</span>, 
+        <span style="font-style:normal; font-weight: bold" title="font-style:normal; font-weight: bold">звичайний</span>, 
+        <span style="text-decoration:line-through" title="text-decoration:line-through">перекреслений</span>, 
+        <span style="text-decoration:underline" title="text-decoration:underline">підкреслений</span>, 
+        <span style="text-decoration:overline" title="text-decoration:overline">риска зверху</span>, 
+        <span style="text-decoration:inherit" title="text-decoration:inherit">підкресленість наслідується від батьківського елементу</span>,
+        <span style="text-decoration:none" title="text-decoration:none" title="">без підкреслень</span>,
+        <span style="text-transform: capitalize" title="text-transform: capitalize">перша буква велика</span>, 
+        <span style="text-transform: lowercase" title="text-transform: lowercase">Нижній регістр</span>, 
+        <span style="text-transform: uppercase" title="text-transform: uppercase">Верхній Регістр</span>, 
+        <span style="font-variant:small-caps" title="font-variant:small-caps">нижний регістр як зменшені головні літери</span>,  
+        <span style="font-variant:normal" title="font-variant:normal">за замовчуванням</span>, 
+        <span style="line-height: 30px" title="line-height: 30px">міжрядковий інтервал</span>,
+        <span style="word-spacing: 10px" title="word-spacing: 10px">інтервал між словами </span>,
+        <span style="letter-spacing: 5px" title="letter-spacing: 5px">інтервал між буквами</span>, 
+        <span style="direction: ltr" title="direction: ltr">зліва направо</span>, 
+        <span style="direction: rtl" title="direction: rtl">зправа наліво</span>, 
+        <span style="text-shadow: 4px" title="text-shadow: 4px">горизонтальна тінь</span>, 
+        <span style="text-shadow: 5px 5px" title="text-shadow: 5px 5px">діагональна тінь</span>, 
+        <span style="text-shadow: 1px 1px 3px" title="text-shadow: 1px 1px 3px">трохи розмита тінь</span>, 
+        <span style="text-shadow: 1px 1px 2px red" title="text-shadow: 1px 1px 2px red">червона тінь</span>, 
+        <span style="color: red" title="color: red">червоний текст</span>, 
+        <span style="font-size: 10px" title="font-size: 10px">зміна розміру  за допомогою пікселів</span>, 
+        <span style="font-size: 80%" title="font-size: 80%">за допомогою відсотків</span>  
+        <span style="font-size: x-small" title="font-size: x-small">і за допомогою ключового слова</span>, 
+        <span style="font-family: verdana, arial, sans-serif" title="font-family: verdana, arial, sans-serif">задання шрифту</span>, 
+        <span style="font-family: Created" title="font-family: Created
+<style>
+    @font-face{
+      font-family: Created;
+      src: url(fonts/toony_loons_rus.ttf); 
+    }
+</style>">
+                    кастомний шрифт</span>, 
+        <div style="text-indent: 15px" title="text-indent: 15px">Відступ першого рядка, працює лише із блочними об'єктами</div>
+        <div style="text-align:left" title="text-align:left">вирівнювання по лівому краю, працює лише із блочними об'єктами</div> 
+        <div style="text-align:center" title="text-align:center">вирівнювання по центру, працює лише із блочними об'єктами</div>
+        <div style="text-align:right" title="text-align:right">вирівнювання по правому краю, працює лише із блочними об'єктами</div>
+        <div style="text-align:justify" title="text-align:justify">вирівнювання по ширині, працює лише із блочними об'єктами</div>
+        <h3 style="text-align:center">Форматування абзаців</h3>
+        <div style="text-align: center">Навести курсором, щоб подивитися синтаксис</div>
+        <div>
+            <p title="div p:first-child { color: green; }">Перший дочірній абзац элементу div, він буде відображатися зеленого кольору</p>
+            <p title="">Другий дочірній абзац элементу div, він буде відображатися чорного кольору, оскільки ніяких правил для нього не задано</p>
+            <p title="div p:last-child { color: blue; }">Третій і останній дочірній абзац элементу div, він буде відображатися синього кольору.</p>
+        </div>
+
+    </div>
+    <div id="content">
+    <h3 style="text-align:center; height:85px">Маркери</h3>
+      <ul>
+          <li title="<ul>
+    <li>Пункт за замовчуванням</li>
+    <li>...</li>
+</ul>">
+            Пункт за замовчуванням</li>
+          <li style="list-style-type: circle">list-style-type: circle</li>
+          <li style="list-style-type: disc">list-style-type: disc</li>
+          <li style="list-style-type: square">list-style-type: square</li>
+          <li style="list-style-type: decimal">list-style-type: decimal</li>
+          <li style="list-style-type: upper-roman">list-style-type: upper-roman</li>
+          <li style="list-style-type: lower-roman;">list-style-type: lower-roman</li>
+          <li style="list-style-type: upper-alpha">list-style-type: upper-alpha</li>
+          <li style="list-style-type: lower-alpha">list-style-type: lower-alpha</li>
+          <li style="list-style-type: lower-latin">list-style-type: lower-latin</li>
+          <li style="list-style-type: lower-greek">list-style-type: lower-greek</li>
+          <li style="list-style-type: lower-armenian">list-style-type: lower-armenian</li>
+          <li style="list-style-type: lao">list-style-type: lao</li>
+          <li style="list-style-image: url('img/icon.png')">list-style-image: url('img/icon.png')</li>
+          <li style="list-style-type: none; padding-left: 50px">list-style-type: none; padding-left: 50px</li>
+          <li style="list-style-position: outside" title="list-style-position: outside">Маркер розміщується зліва від вмісту</li>
+          <li style="list-style-position: inside" title="list-style-position: inside">Маркер розміщується всередині пункта разом зі вмістом</li>
+          <li style="list-style-position: inside; padding-left: 30px">list-style-position: inside; padding-left: 30px</li>
+      </ul>
+    </div>
+
+    <div id="content" style="width: 75%;">
+        <h3 style="text-align:center">ІКОНКИ</h3>
+        1. Щоб додати іконку на сторінку, необхідно спочатку її знайти в інтернеті на одному із вебсайтів з іконками.<br>
+        2. Вставити в header посилання на відповідний css-файл. Нижче приведений перелік деяких вебсайтів і посилання на їх css-файли:
+        <table>
+            <tr>
+                <td>
+                    <a href="https://fontawesome.com/">fontawesome.com</a>
+                </td>
+                <td>
+                    <xmp><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></xmp>
+                </td>
+            </tr>
+            <tr>
+                <td><a href="https://fonts.google.com/icons">Google Material Design Icons</a></td>
+                <td><xmp><link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"></xmp></td>
+            </tr>
+            <tr>
+                <td><a href="https://icons.getbootstrap.com/">getbootstrap.com</a></td>
+                <td><xmp><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"></xmp></td>
+            </tr>
+        </table>
+        3. Із сайту скопіювати id або class бажаної іконки і вписати його у відповідний тег іконки.
+        <p>Приклади форматування:</p>
+        <table border="1">
+            <tr>
+                <td>
+                    <i class="fa fa-cloud" title="<i class=&quot;fa fa-cloud&quot;></i>"></i>
+                    <i class="fa fa-home" title="<i class=&quot;fa fa-home&quot;></i>"></i>
+                    <i class="fa fa-search" title="<i class=&quot;fa fa-search&quot;></i>"></i>
+                    <i class="fa fa-bars" title="<i class=&quot;fa fa-bars&quot;></i>"></i>
+                    <i class="fa fa-trash" title="<i class=&quot;fa fa-trash&quot;></i>"></i>
+                    <i class="fa fa-arrow-left" title="<i class=&quot;fa fa-arrow-left&quot;></i>"></i>
+                    <i class="fa fa-arrow-right" title="<i class=&quot;fa fa-arrow-right&quot;></i>"></i>
+                    <i class="fa fa-close" title="<i class=&quot;fa fa-closed&quot;></i>"></i>
+                </td>
+                <td>- так виглядають іконки на сторінці -</td>
+                <td><xmp><i class="fa fa-car"></i></xmp></td>
+            </tr>
+            <tr>
+                <td>
+                    <i class="ico fa fa-car" style="font-size: 50px"></i>
+                    <i class="ico fa fa-barcode" style="font-size: 50px"></i>
+                </td>
+                <td>- додаткова стилізація іконок css -</td>
+                <td><xmp><i class="ico fa fa-car"></i>
+<style>
+    ico{
+        color: red;
+        font-size: 100px;
+    }
+</style></xmp></td>
+            </tr>
+            <tr>
+                <td>
+                    <i class="material-icons" style="color:green; font-size: 80px" title="<i class=&quot;material-icons&quot;>android</i>">android</i>
+                </td>
+                <td>- заданий Текст буде відображатися у випадку якщо набір не підключений -</td>
+                <td><xmp><i class="fa fa-car">Текст</i></xmp></td>
+            </tr>
+        </table>
+    </div>
+
+    <div id="content" style="width:100%">
+        <h3 style="text-align:center">Блоки, що розкриваються</h3>
+        <table>
+            <tr>
+                <th>Стилі CSS для HTML об'єктів</th>
+                <th>HTML об'єкти</th>
+                <th>Результат</th>
+            <tr>
+                <td><xmp>/* приховуємо блоки із їх вмістом*/
+    .hide               {display: none;}
+    .hide + label ~ div {display: none;}
+    /* оформляємо текст label */
+    .hide + label {
+        border-bottom: 1px dotted;
+        padding: 0;
+        color: green;
+        cursor: pointer;
+        display: inline-block; 
+    }</xmp>
+                </td>
+                <td rowspan="2"><xmp><input type="checkbox" id="hd1" class="hide"/>
+ <label for="hd1" >Натисніть тут, щоб побачити прихований текст</label>
+ <div>
+    Прихований текст
+</div></xmp>
+                </td>
+                <td rowspan="2">
+                    <input type="checkbox" id="hd1" class="hide"/>
+                    <label for="hd1" >Натисніть тут, щоб побачити прихований текст</label>
+                    <div>
+                        Реалізувати це стало можливим завдяки CSS3 псевдокласу :checked, що застосовується до елементів інтерфейсу, таких як перемикачі (checkbox)
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><xmp>/*вид тексту label із відкритими блоками із їх вмістом*/
+    .hide:checked + label {
+        color: gray;
+        border-bottom: 0;
+    }
+    /*вид блоків із їх вмістом після відкриття*/
+    .hide:checked + label + div {
+        display: block; 
+        width: 300px;
+        background: #efefef;
+        box-shadow: inset 3px 3px 10px #7d8e8f;
+        /*Можливі ще такі ефекти:*/
+        /*-moz-box-shadow: inset 3px 3px 10px #7d8e8f;*/
+        /*-webkit-box-shadow: inset 3px 3px 10px #7d8e8f;*/
+        padding: 10px; 
+    }
+                </xmp>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,79 @@
+		body{
+			background-image : url(../img/old-cement-wall-texture.jpg);
+			background-size: 100%;
+			font-family: Calibri;
+			font-size: 14px; 
+		}
+		#content{
+			background-color:#C9C9C9;
+			padding: 5px;
+   			border: solid 1px black;
+			float: left;
+		}
+		#div{
+			margin: 5px;
+ 			float: left;
+ 			background-color: rgba(288, 288, 288, 0.3);;
+			border: solid 3px rgba(0, 0, 0, 0.3);
+		}
+		.ddisp{
+			height:28px;
+			width: 28px;
+			border: 2px solid #66343A;
+			background-color: #a5b0e8;
+			padding: 5px
+		}
+		.sdisp{
+			height:28px;
+			width: 28px;
+			border: 2px solid #66343A;
+			background-color: #DAA5E8;
+			padding: 5px
+		}
+		.ddd{
+			height: 50px;
+			width: 50px;
+			border: 2px solid #66343A;
+			background-color: pink;
+		}
+		.box{
+			width: 200px;
+			height: 200px;
+			background-color: pink;
+			position: relative;
+			left: 100px;
+			top: -100px;
+		}
+		.p{
+			width: 20px;
+			height: 20px;
+			position: absolute;
+		}
+		.p1{
+			background-color: black;
+			top: 0;
+			right: 0;}
+		.p2{
+			background-color: gray;
+			bottom: 0;
+			right: 0;}
+		.p3{
+			background-color: maroon;
+			top: 0;
+			left: 0;
+		}
+/*--------------ELEMENT'S STYLES-----------------*/
+		xmp{
+			color: brown;
+			font-weight: bold;
+			font-family: Consolas;
+			display: inline;
+			font-size: 13px;
+		}
+		h3{
+			text-align: center;
+			border: 8px outset #7E8ECC;
+			background-color: #BEBEF2;
+		}
+		
+		

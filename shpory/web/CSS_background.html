@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="css/css_background_style.css">
+	<title>Стилізація фону CSS</title>
+	
+</head>
+<body>
+	<header>
+		<font size="6"><center>СТИЛІЗАЦІЯ ФОНУ CSS</center></font>
+	</header>
+	
+		<table>
+			<tr>
+				<th colspan="7">Способи задання фону</th>
+			</tr>
+			<tr>
+				<td colspan="2"><div style="background-color : white; overflow: auto; height: 170px; width: 520px;">
+					<center>1. В тегу цільового об'єкта:</center>
+					<xmp><div style="background-color : #E6E6FA;"></div></xmp>
+				</div></td>
+				<td colspan="2"><div style="background-color : white; overflow: auto; height: 170px; width: 520px;">
+					<center>2. В тегу <xmp>style</xmp> у файлі даної вебсторінки:</center>
+					<xmp><header>
+	<style>
+		body{
+			background-color : #E6E6FA;
+		}
+	</style>
+</header></xmp>
+				</div></td>
+				<td colspan="2"><div style="background-color : white; overflow: auto; height: 170px; width: 520px;">
+					<center>3. В окремому файлі (style.css):</center>
+					<xmp>body{
+	background-color : #E6E6FA;
+}</xmp><br>
+				<center>Потім цей файл потрібно правильно імпортувати у файл сторінки:</center>
+				<xmp><header>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</header></xmp>
+				</div></td>
+				<td><div style="background-color : white; overflow: auto; height: 170px; width: 250px;">
+					Стилі можна задавати як до об'єктів html загалом (body, div, a), так і для класів (.class1{}) та id(#id1{}), присвоєних окремим об'єктам, а також для різних станів об'єктів (наприклад a{} та a:hover{} - вигляд посилань загалом та посилань при наведенні курсором на них)</div>
+				</td>
+			</tr>
+			<tr>
+				<th colspan="7">Параметри фону</th>
+			</tr>
+			<tr>
+				<td><div style="background-color : #E6E6FA;"><br>
+					<center><xmp>background-color : #E6E6FA;</xmp></center>
+				</div></td>
+				<td><div style="background-image : url(img/fl.jpg);"><br>
+					<center><xmp>background-image : url(img.jpg);</xmp></center>
+				</div></td>
+				<td><div style="background-image : url(img/fl.jpg); background-size: 100%;" ><br>
+					<center>
+						<xmp>background-image : url(img/fl.jpg);
+background-size: 100%;</xmp></center>
+				</div></td>
+				<td><div style="background-image : url(img/fl.jpg); background-position: bottom right;" ><br>
+					<center>
+						<xmp>background-image : url(img/fl.jpg);
+background-position: bottom right;</xmp></center>
+				</div></td>
+				<td><div style="background-image : url(img/fl.jpg);´background-position: top center;"><br>
+					<center>
+						<xmp>background-image : url(img/fl.jpg);
+background-position: top center;</xmp></center>
+				</div></td>
+				<td><div style="background-image : url(img/fl.jpg); background-position: top left;" ><br>
+					<center>
+						<xmp>background-image : url(img/fl.jpg);
+background-position: top left;</xmp></center>
+				</div></td>
+				<td><div style="background-image : url(img/fl.jpg); background-position: center center;" ><br>
+					<center>
+						<xmp>background-image : url(img/fl.jpg);
+background-position: center center;</xmp></center>
+				</div></td>
+			</tr>
+			<tr>
+				<td><div style="background-image : url(img/fl.jpg); background-size: 60%; background-repeat: repeat-y;" ><br>
+					<center>
+						<xmp>background-image : url(img/fl.jpg);
+background-repeat: repeat-y;</xmp></center>
+				</div></td>
+				<td><div style="background-image : url(img/fl.jpg); background-size: 60%; background-repeat: repeat-x;" ><br>
+					<center>
+						<xmp>background-image : url(img/fl.jpg);
+background-repeat: repeat-x;</xmp></center>
+				</div></td>
+				<td><div style="background-image : url(img/fl.jpg); background-size: 60%; background-repeat: repeat;" ><br>
+					<center>
+						<xmp>background-image : url(img/fl.jpg);
+background-repeat: repeat;</xmp></center>
+				</div></td>
+				<td><div style="background-image : url(img/fl.jpg); background-size: 60%; background-repeat: no-repeat;" ><br>
+					<center>
+						<xmp>background-image : url(img/fl.jpg);
+background-repeat: no-repeat;</xmp></center>
+				</div></td>
+				<td><div style="background-image : url(img/fl.jpg); overflow: auto; background-attachment: local;"><br>
+					<center>
+						<xmp>background-image : url(img/fl.jpg);
+background-attachment: scroll;</xmp><br>прокручує фон разом зі вмістом сторінки<br>*так працює відносно сторінки<br>-<br>-<br>-<br>-<br>-<br>-<br>-<br>-<br>-<br>-<br>-<br>-<br>-<br>-<br>-</center>
+				</div></td>
+				<td><div style="background-image : url(img/fl.jpg); overflow: auto; background-attachment: local;" ><br>
+					<center>
+						<xmp>background-image : url(img/fl.jpg);
+background-attachment: local;</xmp><br>прокручує фон разом із вмістом об'єкту<br>-<br>-<br>-<br>-<br>-<br>-<br>-<br>-<br>-<br>-<br>-<br>-<br>-<br>-</center>
+				</div></td>
+				<td><div style="background-image : url(img/fl.jpg); overflow: auto; background-attachment: fixed;" ><br>
+					<center>
+						<xmp>background-image : url(img/fl.jpg);
+background-attachment: fixed;</xmp><br>забороняє прокручування фону<br>-<br>-<br>-<br>-<br>-<br>-<br>-<br>-<br>-<br>-<br>-<br>-<br>-<br>-</center>
+				</div></td>
+			</tr>
+			<tr>
+				<td><div style="background-image : url(img/fl.jpg); overflow: auto; background-attachment: initial;" ><br>
+					<center>
+						<xmp>background-image : url(img/fl.jpg);
+background-attachment: initial;</xmp><br>повертає цю властивість до значення за замовчуванням<br>-<br>-<br>-<br>-<br>-<br>-<br>-<br>-<br>-<br>-<br>-<br>-<br>-<br>-</center>
+				</div></td><td><div style="background-image : url(img/fl.jpg); overflow: auto; background-attachment: inherit;" ><br>
+					<center>
+						<xmp>background-image : url(img/fl.jpg);
+background-attachment: inherit;</xmp><br>наслідує цю властивість від батьківського елементу<br>-<br>-<br>-<br>-<br>-<br>-<br>-<br>-<br>-<br>-<br>-<br>-<br>-<br>-</center>
+				</div></td>
+			</tr>
+		</table>
+	
+		<table border="1">
+		<tr>
+			<td><div id="one"></div></td>
+			<td><div id="two"></div></td>
+			<td><div id="three"></div></td>
+			<td><div id="four"></div></td>
+			<td><div id="five"></div></td>
+			<td><div id="six"></div></td>
+			<td><div id="seven"></div></td>
+			<td><div id="eight"></div></td>
+		</tr>
+		<tr>
+			<td style="background-color: rgba(288, 288, 288, 0.5);">
+				<center><xmp>background-image:</xmp></center>
+				<center><xmp>linear-gradient(to left, black,</xmp></center>
+				<center><xmp> red);</xmp></center>
+			</td>
+			<td style="background-color: rgba(288, 288, 288, 0.5);">
+				<center><xmp>background-image:</xmp></center>
+				<center><xmp>linear-gradient(to top left,</xmp></center>
+				<center><xmp>black, red, white);</xmp></center>
+			</td>
+			<td style="background-color: rgba(288, 288, 288, 0.5);">
+				<center><xmp>background-image:</xmp></center>
+				<center><xmp>linear-gradient(65deg, black,</xmp></center>
+				<center><xmp>red, yellow);</xmp></center>
+			</td>
+			<td style="background-color: rgba(288, 288, 288, 0.5);">
+				<center><xmp>background-image:</xmp></center>
+				<center><xmp>linear-gradient(to right bottom,</xmp></center>
+				<center><xmp>yellow 10%, white, red, black 90%);</xmp></center>
+			</td>
+			<td style="background-color: rgba(288, 288, 288, 0.5);">
+				<center><xmp>background-image:</xmp></center>
+				<center><xmp>linear-gradient(to right,</xmp></center>
+				<center><xmp>black 10%, yellow, black 90%);</xmp></center>
+			</td>
+			<td style="background-color: rgba(288, 288, 288, 0.5);">
+				<center><xmp>background-image:</xmp></center>
+				<center><xmp>linear-gradient(to left,</xmp></center>
+				<center><xmp>rgb(255,255,0),</xmp></center>
+				<center><xmp>rgba(255,255,0,0));</xmp></center>
+			</td>
+			<td style="background-color: rgba(288, 288, 288, 0.5);">
+				<center><xmp>background-image:</xmp></center
+				><center><xmp>radial-gradient(cyan, yellow,</xmp></center>
+				<center><xmp>indigo, white);</xmp></center>
+			</td>
+			<td style="background-color: rgba(288, 288, 288, 0.5);">
+				<center><xmp>background-image:</xmp></center>
+				<center><xmp>radial-gradient(cyan,</xmp></center>
+				<center><xmp>yellow 10%, indigo 30%, white 50%);</xmp></center>
+			</td>
+			<td><center><xmp></xmp></center><center><xmp></xmp></center></td>
+		</tr>
+		<tr>
+			<td><div id="nine"></div></td>
+			<td><div id="ten"></div></td>
+			<td><div id="eleven"></div></td>
+			<td><div id="twelve"></div></td>
+			<td><div id="oneone"></div></td>
+			<td><div id="onetwo"></div></td>
+			<td><div id="onethree"></div></td>
+			<td><div id="onefour"></div></td>
+		</tr>
+		<tr>
+			<td style="background-color: rgba(288, 288, 288, 0.5);">
+				<center><xmp>background-image:</xmp></center>
+				<center><xmp>radial-gradient(ellipse, cyan,</xmp></center>
+				<center><xmp>indigo);</xmp></center>
+			</td>
+			<td style="background-color: rgba(288, 288, 288, 0.5);">
+				<center><xmp>background-image:</xmp></center>
+				<center><xmp>radial-gradient(circle, cyan,</xmp></center>
+				<center><xmp>indigo);</xmp></center>
+			</td>
+			<td style="background-color: rgba(288, 288, 288, 0.5);">
+				<center><xmp>background-image:</xmp></center>
+				<center><xmp>radial-gradient(circle at 300px</xmp></center>
+				<center><xmp>50px, cyan, indigo, yellow);</xmp></center>
+			</td>
+			<td style="background-color: rgba(288, 288, 288, 0.5);">
+				<center><xmp>background-image:</xmp></center
+				><center><xmp>radial-gradient(circle at top </xmp></center>
+				<center><xmp>left, cyan, indigo, yellow);</xmp></center>
+			</td>
+			<td style="background-color: rgba(288, 288, 288, 0.5);">
+				<center><xmp>background-image:</xmp></center>
+				<center><xmp>radial-gradient(circle closest-side,</xmp></center>
+				<center><xmp>cyan, red, blue);</xmp></center>
+				closest-side - розмір градієнту залежить від відстані між центом градієнту і найбилжчої сторони об'єкта
+			</td>
+			<td style="background-color: rgba(288, 288, 288, 0.5);">
+				<center><xmp>background-image:</xmp></center>
+				<center><xmp>radial-gradient(circle</xmp></center>
+				<center><xmp>closest-corner, cyan, red, blue);</xmp></center>
+				closest-corner - розмір градієнту залежить від відстані між центом градієнту і найближчого кута об'єкта;
+			</td>
+			<td style="background-color: rgba(288, 288, 288, 0.5);">
+				<center><xmp>background-image:</xmp></center>
+				<center><xmp>radial-gradient(circle</xmp></center>
+				<center><xmp>farthest-side, cyan, red, blue);</xmp></center>
+				farthest-side - розмір градієнту залежить від відстані між центом градієнту і найдальшої сторони
+			</td>
+			<td style="background-color: rgba(288, 288, 288, 0.5);">
+				<center><xmp>background-image:</xmp></center>
+				<center><xmp>radial-gradient(circle</xmp></center>
+				<center><xmp>farthest-corner, cyan, red, blue);</xmp></center>
+				farthest-corner - розмір градієнту залежить від відстані між центом градієнту і найдальшого кута об'єкту
+			</td>
+		</tr>
+	</table>
+</body>
+
+</html>

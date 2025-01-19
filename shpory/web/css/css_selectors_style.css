@@ -1,0 +1,92 @@
+		body{
+			background-image : url(../img/old-cement-wall-texture.jpg);
+			background-size: 100%;
+			font-family: Calibri;
+			font-size: 14px;
+			background-attachment: fixed; 
+		}
+		#content{
+			background-color:#C9C9C9;
+			width: 98%;	
+			padding: 5px;
+   			padding-left: 20px;
+   			border: solid 1px black;
+			float: left;
+			margin-bottom: 20px;
+		}
+	/*Селектор по елементу*/
+		h5{text-transform: uppercase;}
+		p{font-style:oblique;}
+	/*Селектор по класу*/
+		.aaa{text-decoration:underline;}
+		p.aaa{color:green;}
+	/*Селектор по id*/
+		#bbb{font-variant:small-caps;}
+		h5#bbb{text-align: center; text-transform: lowercase;}
+	/*Контекстний селектор*/
+		p strong{text-shadow: 1px 1px 3px;}
+		td strong{font-size: 120%;}
+	/*Універсальний селектор*/
+		*{box-sizing: border-box;}
+		i, b {
+			color: Chocolate;
+		}
+	/*селектор1 селектор2*/
+		p span {color: blue;}
+	/*селектор1 + селектор2*/
+		.first + .second {color: PaleVioletRed;}
+	/*селектор1 ~ селектор2*/
+		p ~ p {word-spacing: 8px;}
+	/*селектор1 > селектор2*/
+		.father > p {color: Purple;}
+	/*Псевдокласи*/
+		samp:first-child {color: DarkSlateGray;}
+		samp:nth-child(2) {color: Teal;}
+		samp:last-child {color: SteelBlue;}
+		code:first-of-type {color: DarkOliveGreen;}
+		code:nth-of-type(2) {color: MediumSlateBlue;}
+		code:last-of-type {color: Chocolate;}
+		button:active{border:solid 3px PaleVioletRed;}
+		button:hover{background-color: LightPink;}
+		a:visited{color: Purple;}
+		input:focus{outline: solid 5px Aquamarine;}
+		input:empty{background-color: Lavender;}
+		input:disabled{background-color: CadetBlue;}
+		input:valid + .validity-icon::before {
+				  content: '✓';
+				  color: green;
+				}
+		input:invalid + .validity-icon::before {
+				  content: '✖';
+				  color: red;
+				}
+		
+	/*Псевдоелементи*/
+		/*Перша буква селектора*/
+		.ccc::first-letter{font-size: 150%;}
+		/*Пеший рядок селектора*/
+		.ccc::first-line{font-style:normal;}
+		.colorexample{
+			display: inline-block;
+			width: 13px;
+			height: 13px;
+			margin: 0px 0px 0px 10px;
+		}
+
+/*--------------ELEMENT'S STYLES-----------------*/
+		xmp{
+			color: brown;
+			font-weight: bold;
+			font-family: Consolas;
+			display: inline;
+			font-size: 13px;
+		}
+		td{
+			padding-left: 50px;
+		}
+		th{
+			font-size: 120%;
+		}
+		p{
+			margin: 3px;
+		}

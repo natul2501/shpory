@@ -1,0 +1,42 @@
+		body{
+			background-image : url(../img/old-cement-wall-texture.jpg);
+			background-size: 100%;
+			font-family: Calibri;
+			font-size: 14px; 
+		}
+		header{
+			background-color:#C9C9C9;
+			border: solid 1px black;
+		}
+
+		#container{
+			background-color:#C9C9C9;
+			border: solid 1px black;
+			width:900px;
+			height: 100%;
+			float:left;
+			padding: 4px;
+		}
+		.formes{
+			background-color:#FFFFB8;
+			width: 100%;
+			padding: 5px;
+			border: solid 1px black;
+		}
+		#textes{}
+		#spiski{height: 740px;}
+		#buttones{}
+		#alotoftext{height: 740px;}
+/*--------------ELEMENT'S STYLES-----------------*/
+		xmp{
+			color: brown;
+			font-weight: bold;
+			font-family: Consolas;
+			display: inline;
+			font-size: 13px;
+		}
+		td{
+			padding: 5px;
+			margin: 0px;
+			border: 1px solid rgb(128, 128, 128, 0.3);
+		}

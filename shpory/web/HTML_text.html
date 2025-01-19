@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Текст HTML</title>
+	<link rel="stylesheet" type="text/css" href="css/html_text_style.css">
+</head>
+
+<body>
+	<header>
+		<font size="6"><center>Форматування тексту</center></font>
+		<center>При наведенні мишкою відображається HTML-код</center>
+	</header>
+    <div id="menu1">
+		<br><xmp title="<center>по центру</center>"><center></xmp> - <center>по центру</center>
+		<br><xmp title="<blockquote>text</blockquote>"><blockquote></xmp> - <blockquote> Виділення об'ємних цитат окремим блоком (бажано вказати посилання в атрибутах)</blockquote>
+		<p><xmp title="<p>Новий розділ</p>"><p></xmp>; - Новий розділ</p>
+		<br>Звичайний текст		
+		<br><comment tabindex="1" title="<comment tabindex=&apos;&apos;1&apos;&apos;>Незвичайний текст</comment>">Незвичайний текст</comment>. Натиснувши &ltTab&gt, ви потрапите в це місце.
+		<br><xmp title="<br>З нового рядка"><br></xmp>		- З нового рядка
+
+		<br><xmp title="<span>text</span>"><span></xmp>	- <span>Тег, якщо потрібно застосувати до тексту css</span>
+
+		<br><xmp title="<q>text</q>"><q></xmp> - <q>Виділення коротких цитат безпосередньо в тексті</q>
+
+		<br><xmp title="<b>bold</b>"><b></xmp> - <b>bold</b> - для ключових слів, назви продуктів, і т.п. згідно з традиціями
+
+		<br><xmp title="<strong>жирний</strong>"><strong></xmp> - <strong>жирний</strong> - підкреслює важливість
+
+		<br><xmp title="<i>italic</i>"><i></xmp> - <i>italic</i> - для іноземних слів, технічних термінів, думок, і т.п. згідно з традиціями
+
+		<br><xmp title="<em>emphasise</em>"><em></xmp>; - <em>emphasise</em> - для контекстуальної зміни значення слова
+
+		<br><xmp title="<cite>text</cite>"><cite></xmp> - <cite>посилання на цитату</cite>
+
+		<br><xmp title="<dfn>термін</dfn>"><dfn></xmp> - <dfn>термін</dfn>
+
+		<br><xmp title="<adress>text</address>"><address></xmp> - <address>найчастіше використовується для виділення контактної інформації</address>
+
+		<br><xmp title="<b><i>жирний курсив</i></b>"><b><i></xmp> - <b><i>жирний курсив</i></b>
+
+		<br><xmp title="<u>underline</u>"><u></xmp> - <u>underline</u> - для власних імен, орфографічних помилок, і т.п. згідно з традиціями
+
+		<br><xmp title="<ins>text</ins>"><ins></xmp> - <ins>текст, який був вставлений</ins>
+
+		<br>Текст, написаний <u lang="uk" title="<u lang=&apos;&apos;uk&apos;&apos;>українською</u>">українською</u>
+
+		<br><xmp title="<del>text</del>"><del></xmp> - <del>текст, який був видалений</del>
+
+		<br><xmp title="<s>strike through</s>"><s></xmp> - <s>strike through</s>
+
+		<br><xmp title="<strike>modern strike</strike>"><strike></xmp> - <strike>modern strike</strike>
+
+		<br><xmp title="<big>більший на 1</big>"><big></xmp> - <big>більший на 1</big>
+
+		<br><xmp title="<small> менший на 1</small>"><small></xmp> - <small> менший на 1</small>
+
+		<br>Розмір тексту описаний в розділі Одиниці виміру CSS (https://puzzleweb.ru/css/css_units.php)
+
+		<br><xmp time="<sub>Z</sub>"><sub></xmp> - нижній індекс<sub>Z</sub>
+
+		<br><xmp title="<sup>3</sup>"><sup></xmp> - верхній індекс<sup>3</sup>
+
+		<br><xmp title="<mark>маркер</mark>"><mark></xmp> - <mark>маркер</mark>
+
+		<br><xmp title="<abbr title=&apos;&apos;Підсказка, для аббревіатур&apos;&apos;>аббревіатура</abbr>"><abbr></xmp> - <abbr title="Підсказка, для аббревіатур">аббревіатура</abbr>
+
+		<br><time datetime="2016-01-20"
+			title="<time datetime=&apos;&apos;2016-01-20&apos;&apos;>20.01.2016</time>">
+			20.01.2016,
+		</time>
+
+		<time datetime="2016-01"
+			title="<time datetime=&apos;&apos;2016-01&apos;&apos;>січень 2016</time>">
+			січень 2016,
+		</time>
+
+		<time datetime="01-20"
+			title="<time datetime=&apos;&apos;01-20&apos;&apos;>20 січня</time>">
+			20 січня,
+		</time> 
+
+		<time datetime="19:30"
+			title="<time datetime=&apos;&apos;19:30&apos;&apos;>19:30</time>">
+			19:30,
+		</time> 
+
+		<time datetime="19:30:01.856"
+			title="<time datetime=&apos;&apos;19:30:01.856&apos;&apos;>19:30:01.856</time>">
+			19:30:01.856,
+		</time> 
+
+		<time datetime="2016-01-20T19:30"
+			title="<time datetime=&apos;&apos;2016-01-20T19:30&apos;&apos;>7.30pm, 20 січня 2016</time>">
+			7.30pm, 20 січня 2016,
+		</time> 
+
+		<time datetime="2016-01-20T19:30+01:00"
+			title="<time datetime=&apos;&apos;2016-01-20T19:30+01:00&apos;&apos;>19:30 20.01.2016 is 8.30pm in France</time>">
+			19:30 20.01.2016 is 8.30pm in France,
+		</time> 
+
+		<time datetime="2016-W04"
+			title="<time datetime=&apos;&apos;2016-W04&apos;&apos;>Четвертая неделя 2016</time>">
+			Четвертая неделя 2016.
+		</time>
+
+		<br><xmp title="метоксихлор<wbr>диетиламіно<wbr>метил<wbr>бутіл<wbr>аміно<wbr>акридін"><wbr></xmp> - Для дуже довгих слів може бути корисно вказувати місця допустимого переносу: метоксихлор<wbr>диетиламіно<wbr>метил<wbr>бутіл<wbr>аміно<wbr>акридін.
+
+		<br><xmp title="<nobr>text</nobr>"><nobr></xmp> - <nobr>Якщо ми хочемо, щоб певну частину тексту, який не вміщається в один рядок браузера, не переносився на інший, то можемо використати спеціальний тег. Після цього у вікні браузера з'явиться горизонтальна смуга прокрутки.</nobr>
+	</div>
+
+	<div id="menu2">
+		<h1 align="center" lang="uk">&lt;h1&gt; - Заголовок 1 рівня</h1>
+		<h2><xmp title="<h2>text</h2>">h2</xmp> - Заголовок 2 рівня</h2>
+		<h3><xmp title="<h3>text</h3>">h3</xmp> - Заголовок 3 рівня</h3>
+		<h4><xmp title="<h4>text</h4>">h4</xmp> - Заголовок 4 рівня</h4>
+		<h5><xmp title="<h5>text</h5>">h5</xmp> - Заголовок 5 рівня</h5>
+		<h6><xmp title="<h6>text</h6>">h6</xmp> - Заголовок 6 рівня</h6>
+
+
+		<!-- Списки
+		ul(li) - маркований, ol(li) - нуммерований, dl(dt,dd) - список визначень -->
+
+		<p><xmp><ul></xmp> - Маркований список</p>
+		<!-- type = disc | circle | square -->
+		<i>Переважно заключається між тегами <xmp><ul></ul></xmp>:</i>
+		<ul
+		title="		<ul>
+			<li>element 1</li>
+			<li>element 2</li>
+			<li>element 3</li>
+		</ul>">
+			<li>element 1</li>
+			<li>element 2</li>
+			<li>element 3</li>
+		</ul>
+		<i>Для меню можна застосувати теги <xmp><menu></menu></xmp>:</i>
+		<menu
+		 title="		<menu>
+	   		 <li>elemental 1</li>
+	   		 <li>elemental 2</li>
+	    </menu>">
+	   		 <li>elemental 1</li>
+	   		 <li>elemental 2</li>
+	    </menu>
+	    <i>Можна змінювати форму маркера властивістю <xmp>type</xmp>:</i>
+		<ul type="circle"
+		title="		<ul type=&apos;&apos;circle&apos;&apos; | &apos;&apos;disc&apos;&apos; | &apos;&apos;square&apos;&apos;>
+			<li>element 1</li>
+			<li>element 1</li>
+			<li>element 1</li>
+		</ul>">
+			<li>element 1</li>
+			<li>element 1</li>
+			<li>element 1</li>
+		</ul>	
+
+		<ul 
+		title="		<ul>
+			<li>element 1</li>
+				<ul>
+					<li>element 2</li>
+					<li>element 2</li>
+				</ul>	
+			<li>element 1</li>
+			<li>element 1</li>
+		</ul>"	>
+			<li>element 1</li>
+				<ul>
+					<li>element 2</li>
+					<li>element 2</li>
+				</ul>	
+			<li>element 1</li>
+			<li>element 1</li>
+		</ul>
+
+		<xmp><ol></xmp> - Нумерований список
+		<!-- type = A | a | I | i | 1
+			reversed
+			start -->
+		
+		<ol type="I"
+		title="		<ol type=&apos;&apos;I&apos;&apos; | &apos;&apos;i&apos;&apos; | &apos;&apos;A&apos;&apos; | &apos;&apos;a&apos;&apos; | &apos;&apos;1&apos;&apos;>
+			<li>punct 1</li>
+			<li>punct 1</li>
+			<li>punct 1</li>
+		</ol>">
+			<li>punct 1</li>
+			<li>punct 1</li>
+			<li>punct 1</li>
+		</ol>
+		<i>Можна задавати початковий номер властивістю <xmp>start</xmp> та змінювати порядок відліку властивістю <xmp>reversed</xmp>:</i>
+		<ol start="6" reversed
+		title="		<ol start=&apos;&apos;6&apos;&apos; reversed>
+			<li>punct 1</li>
+			<li>punct 1</li>
+			<li>punct 1</li>
+		</ol>">
+			<li>punct 1</li>
+			<li>punct 1</li>
+			<li>punct 1</li>
+		</ol>
+
+
+		<xmp><dl></xmp> - Список визначень
+		<!-- <dl><dt><dd></dd></dt></dl> -->
+		<dl
+		title="		<dl>
+			<dt>Термін</dt>
+				<dd>Визначення</dd>
+				<dd>Визначення</dd>
+			<dt>Термін</dt>
+				<dd>Визначення</dd>
+				<dd>Визначення</dd>
+			<dt>Термін</dt>
+		</dl>">
+			<dt>Термін</dt>
+				<dd>Визначення</dd>
+				<dd>Визначення</dd>
+			<dt>Термін</dt>
+				<dd>Визначення</dd>
+				<dd>Визначення</dd>
+			<dt>Термін</dt>
+		</dl>
+	</div>
+
+	<div id="menu3">
+	 	<br>Для відображення коду на сторінці використовуються теги:
+		<br><xmp title="<code>програмний код</code>"><code></xmp> - <code>програмний код</code>,
+		<br><xmp title="<kbd>введення з клавіатури</kbd>"><kbd></xmp> - <kbd>введення з клавіатури</kbd>,
+		<br><xmp title="<samp>зразок коду</samp>"><samp></xmp> - <samp>зразок коду</samp>,
+		<br><xmp title="<var>виділення змінної</var>"><var></xmp> - <var>виділення змінної</var>,
+		<br><xmp title="<tt>typewriter text</tt>"><tt></xmp> - <tt>typewriter text</tt>,
+		<br><xmp title="<bdo dir=&quot;rtl&quot;>right to left</bdo>"><bdo dir="rtl"></xmp> - <bdo dir="rtl">right to left</bdo>, 
+		<br><xmp title="<blink>мигаючий текст</blink>"><blink></xmp> - <blink>мигаючий текст</blink>,
+		<br><xmp title="<acronym>акронім</acronym>"><acronym></xmp> - <acronym>акронім</acronym>,	
+	    <br><xmp title="<comment>коментарій</comment>"><comment></xmp> - <comment>коментарій</comment>.
+	    <br><i contenteditable="true">Властивість <xmp title="<i contenteditable=&quot;true&quot;>edited text</i>">contenteditable</xmp> дозволяє редагувати текст, до якого вона застосована</i>
+	    <br>&nbsp; - <xmp>&nbsp;</xmp> - нерозривний пробіл, &#8195; - <xmp>&#8195;</xmp> - широкий пробіл, &quot; - <xmp>&quot;</xmp>, &lt - <xmp>&lt</xmp>, &gt - <xmp>&gt</xmp>.
+		<br><xmp
+		title="	  <ruby>
+	    	汉<rt>hàn</rt>
+	    	字<rt>zì</rt>
+	    </ruby>"><ruby></xmp> - Контейнер, призначений для додавання невеликої анотації зверху або знизу від заданого тексту:<br>
+		<ruby>
+	    	汉<rt>hàn</rt>
+	    	字<rt>zì</rt>
+	    </ruby>
+	    <!-- <rp>...</rp> - для браузерів, які не підтримують ruby -->
+
+	    <p vspace="1"> <xmp
+	   		title="<p vspace=&quot;1&quot;>Задає відступ по вертикалі</p>">
+	   		<vspace></xmp> - Задає відступ по горизонталі</p>
+	   	<p hspace="1"> <xmp
+	   		title="<p hspace=&quot;1&quot;>Задає відступ по вертикалі</p>">
+	   		<hspace></xmp> - Задає відступ по вертикалі</p>
+		
+		<br><xmp><details></xmp>
+		<details open="open"
+			title="<details open=&quot;open&quot;>Деталі, які можна приховати</details>">
+			Деталі, які можна приховати
+		</details>
+		<details
+			title="<details>Деталі, які уже приховані, та їх можна ще раз приховати</details>">
+			Деталі, які уже приховані, та їх можна ще раз приховати
+		</details>
+		<details
+			title="<details>
+	<summary>Деталі із заданим заголовком</summary>
+		Та-да!
+</details>">
+	  		<summary>Деталі із заданим заголовком</summary>
+				Та-да!
+		</details>
+	</div>
+
+	<div id="menu4">
+		<i>Тег <xmp><font></xmp> надає широкі можливості редагування тексту: зміна розміру, кольору, шрифту:</i><br>
+		<font size="1" face="Arial" color="red"
+			title="<font size=&quot;1&quot; face=&quot;Arial&quot; color=&quot;red&quot;>text</font>">
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+		</font>
+		<font color="green" size="2" face="Comic Sans MS"
+		title="<font size=&quot;2&quot; face=&quot;Comic Sans MS&quot; color=&quot;green&quot;>text</font>">
+			sed do eiusmod
+			tempor incididunt ut labore et dolore magna aliqua.</font> <font color="maroon" size="3" face="Monotype Corsiva">Ut enim ad minim veniam,
+			</font>
+			<font color="#002eff" size="4" face="Monotype Corsiva"
+			title="<font size=&quot;4&quot; face=&quot;Monotype Corsiva&quot; color=&quot;#002eff&quot;>text</font>">
+				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+			consequat.
+		</font>
+			<!-- size 1 = 8px, size = 1-7
+				 face - шрифт
+				 color: 140 webcolors with their own names, another - hexidetional system-->
+		<br><br><i> Тегом <xmp title="<hr color=&quot;rgbi(200,100,10,100)&quot; width=&quot;300&quot; align=&quot;middle&quot; size=&quot;5&quot;>"><hr></xmp> можна вставити смугу в рандомному місці:</i>
+		<hr color="rgbi(200,100,10,100)" width="300" align="middle" size="5">
+	
+
+		<br><i>Тегом <xmp title="<marquee behavior=&quot;alternate&quot; scrollamont=&quot;20&quot; scrolldelay=&quot;50&quot; truespeed>Врумврум врум</marquee>"><marquee></xmp> можна задавати текст, що рухається. Цей тег не входить до спеифікації html, тому він може в деяких браузерах не відображатися:</i><marquee behavior="alternate" scrollamont="20" scrolldelay="50" truespeed>Врумврум врум</marquee>
+		<i>Цей тег має ряд цікавих параметрів:
+			<br>&nbsp; behavior="alternate" | "scroll" | "slide",
+			<br>&nbsp; direction = "down" | "left" | "right" | "up",
+			<br>&nbsp; bgcolor, height, width,
+			<br>&nbsp; loop - задає, скільки разів прокручується вміст,
+			<br>&nbsp; scrollamont - швидкість руху контенту,
+			<br>&nbsp; scrolldelay - величина затримки в мс,
+			<br>&nbsp; truespeed - відміняє вбудований обмежувач швидкості при низьких значеннях scrolldelay</i>
+		<br><br><i>Коли треба зберегти форматування абзаців тексту як у редакторі, використовують теги <xmp><pre></pre></xmp> або <xmp><xmp></xmp></xmp></xmp>, іноді <xmp><plaintext></plaintext></xmp> (не входить до специфікації html) </i>	
+<pre>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+	sed do eiusmod tempor incididunt ut labore
+	et dolore magna aliqua. Ut enim ad minim veniam,
+	quis nostrud exercitation ullamco laboris nisi
+ut aliquip ex ea commodo consequat.
+		Duis aute irure dolor in reprehenderit
+			in voluptate velit esse cillum dolore
+	eu fugiat nulla pariatur.
+</pre>
+
+	</div>	
+
+</body>
+</html>

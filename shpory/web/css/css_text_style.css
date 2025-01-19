@@ -1,0 +1,66 @@
+		body{
+			background-image : url(../img/old-cement-wall-texture.jpg);
+			background-size: 100%;
+			font-family: Calibri;
+			font-size: 15px; 
+		}
+		#content{
+			background-color:#C9C9C9;
+			padding: 5px;
+   			padding-left: 20px;
+   			border: solid 1px black;
+			float: left;
+		}
+        .ico{
+            color: red;
+            font-size: 100px;
+        }
+
+/*--------------ELEMENT'S STYLES-----------------*/
+		xmp{
+			color: brown;
+			font-weight: bold;
+			font-family: Consolas;
+			display: inline;
+			font-size: 13px;
+			padding: 3px;
+		}
+		td{
+			border: 1px solid rgba(0, 0, 0, 0.3);;
+		}
+
+		/*Созданный шрифт*/
+    @font-face{
+      font-family: Created;
+      font-size: 18px;
+      src: url(fonts/toony_loons_rus.ttf); 
+    }
+    div p:first-child { color: green; }
+    div p:last-child { color: blue; }
+    /* скрываем чекбоксы и блоки с содержанием */
+    .hide               {display: none;}
+    .hide + label ~ div {display: none;}
+    /* оформляем текст label */
+    .hide + label {
+        border-bottom: 1px dotted;
+        padding: 0;
+        color: green;
+        cursor: pointer;
+        display: inline-block; 
+    }
+    /* вид текста label при активном переключателе */
+    .hide:checked + label {
+        color: gray;
+        border-bottom: 0;
+    }
+    /* когда чекбокс активен показываем блоки с содержанием  */
+    .hide:checked + label + div {
+        display: block; 
+        width: 300px;
+        background: #efefef;
+        /*-moz-box-shadow: inset 3px 3px 10px #7d8e8f;*/
+        /*-webkit-box-shadow: inset 3px 3px 10px #7d8e8f;*/
+        box-shadow: inset 3px 3px 10px #7d8e8f;
+        padding: 10px; 
+    }
+

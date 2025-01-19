@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Keywords</title>
+	<style>
+		p{	text-indent: 55px;
+			margin: 3px;
+			text-align: center;
+		}
+		table, td, th{
+			border: 1px solid lightgray;
+       		border-collapse: collapse;
+       		line-height: 18px;
+       		padding: 0px 6px 0px 6px;
+		}
+		.fst{
+			font-color: #555555;
+			font-size: 12px;
+			margin: 2px;
+		}
+		.red{
+			color: #703737;
+			font-weight:bold;
+			font-style:oblique;
+		}
+	</style>
+</head>
+<body style="font-family: Calibri; font-size: 12px;">
+<h3 style="text-align: center">this</h3>
+<p><i>this указывает на владельца функции, внутри которой он обозначен</i></p>
+<table style="margin-top: 20px">
+	<tr>
+		<td>1</td>
+		<td>
+<pre class="fst">function myFunction() {
+return this;
+}</pre>
+    	</td>
+		<td><span id="A1"></span></td>
+		<td> - внутри функции this указывает на владельца функции, которым является глобальный объект</td>
+	</tr>
+	<tr><td colspan="4"></td></tr>
+	<tr>
+		<td>2</td>
+		<td style="background-color: #F9F6FF">
+<pre class="fst">var person = {
+	firstName: "John",
+	lastName "Doe",
+	fullName: function() {
+		return this.firstName + " " + this.lastName;
+	}
+}
+document.write(person.fullName());</pre>
+		</td>
+		<td><span id="B1"></span></td>
+		<td> - владельцем функции является объект person: используется для связывания методов и свойств объекта</td>
+	</tr>
+	<tr><td colspan="4"></td></tr>
+	<tr>
+		<td>3</td>
+		<td>
+<pre class="fst">var person1 = {
+	fullName: function() {
+		return this.firstName + " " + this.lastName;
+	}
+}
+var person2 = {
+	firstName:"John",
+	lastName: "Doe",
+}
+var text = person1.fullName.call(person2);
+document.write(text);</pre>
+		</td>
+		<td><span id="C1"></span></td>
+		<td> - при вызове person1.fullName с объектом person2 в качестве параметра с помощью метода call(), this будет обращаться к объекту person2</td>
+	</tr>
+	<tr><td colspan="4"></td></tr>
+		<td>4</td>
+		<td style="background-color: #F9F6FF">
+<pre class="fst">&lt;button onclick="this.style.display='none'"&gt;
+	Нажми на меня, и я исчезну!
+&lt;/button&gt;</pre>
+		</td>
+		<td><button onclick="this.style.display='none'">
+ 				Нажми на меня, и я исчезну!
+			</button>
+		</td>
+		<td> - в обработчике события HTML this указывает на HTML элемент, получивший это событие</td>
+	</tr>
+</table><br>
+
+<script>
+	var f1;
+	f1 = function myFunction() {
+    	return this;}
+    document.getElementById("A1").innerHTML = f1();
+
+    var person = {
+		    firstName: "John",
+			lastName : "Doe",
+			fullName : function() {return this.firstName + " " + this.lastName;}
+		}
+	document.getElementById("B1").innerHTML = person.fullName();
+
+	var person1 = {
+		fullName: function(){return this.firstName + " " + this.lastName;}
+		}
+	var person2 = {firstName:"John",lastName: "Doe"}
+	document.getElementById("C1").innerHTML = person1.fullName.call(person2);
+</script>
+
+
+
+<h3 style="text-align: center">let</h3>
+<p><i>позволяeт декларировать переменные с областью видимости внутри блока</i></p>
+<table align="center" style="margin-top: 20px">
+	<tr style="text-indent: 15px; line-height: 20px">
+		<td colspan="2" style="background-color: #E4D1E3; border-color: #A08D9E">
+			1. Область видимости внутри блока { }</td>
+	</tr>
+	<tr>
+		<td>
+<pre class="fst">{ var x = 2; }
+document.write("Результат: " + x);</pre>
+    	</td>
+    	<td>
+<pre class="fst">{ let x = 2; }
+document.write("Результат: " + x);</pre>
+    	</td>
+    </tr>
+    <tr>
+		<td class="red"><script>
+				{var a1 = 2;}
+				document.write("Результат: " + a1);
+		</script></td>
+		<td class="red"><script>
+			{let a2 = 2;}
+			document.write("Результат: " + a2);
+		</script></td>
+	</tr>
+	<tr style="text-indent: 15px; line-height: 20px">
+		<td colspan="2" style="background-color: #E4D1E3; border-color: #A08D9E">
+			2. Область видимости внутри цикла</td>
+	</tr>
+	<tr>
+		<td>
+<pre class="fst">var i = 2;
+document.write("Внутри цикла: ");
+for(var i = 0; i < 5; i++){
+	document.write(i + ", ");
+}
+document.write("Вне цикла: " + i);</pre>
+    	</td>
+    	<td>
+<pre class="fst">var i = 2;
+document.write("Внутри цикла: ");
+for(let i = 0; i < 5; i++){
+	document.write(i + ", ");
+}
+document.write("Вне цикла: " + i);</pre>
+    	</td>
+    </tr>
+    <tr>
+		<td class="red"><script>
+			var i = 2;
+			document.write("Внутри цикла: ");
+			for(var i = 0; i < 5; i++){
+				document.write(i + ", ");
+			}
+			document.write("Вне цикла: " + i);
+		</script></td>
+		<td class="red"><script>
+			var j = 2;
+			document.write("Внутри цикла: ");
+			for(let j = 0; j < 5; j++){
+				document.write(j + ", ");
+			}
+			document.write("Вне цикла: " + j);
+		</script></td>
+	</tr>
+	<tr style="text-indent: 15px; line-height: 20px">
+		<td colspan="2" style="background-color: #E4D1E3; border-color: #A08D9E">
+			3. Передекларирование переменных</td>
+	</tr>
+	<tr>
+		<td>
+<pre class="fst">var x = 10;
+{ var x = 2; }
+document.write("Результат: " + x);</pre>
+    	</td>
+    	<td>
+<pre class="fst">var x = 10;
+{ let x = 2; }
+document.write("Результат: " + x);</pre>
+    	</td>
+    </tr>
+    <tr>
+		<td class="red"><script>
+			var b1 = 10;
+			{var b1 = 2;}
+			document.write("Результат: " + b1);
+		</script></td>
+		<td class="red"><script>
+			var b2 = 10;
+			{let b2 = 2;}
+			document.write("Результат: " + b2);
+		</script></td>
+	</tr>
+	<tr>
+		<td>
+<pre class="fst">var x = 10;	// Можно
+let x = 2;	// Нельзя
+</pre>
+    	</td>
+    	<td>
+<pre class="fst">let x = 10;	// Можно
+var x = 2;	// Нельзя
+</pre>
+    	</td>
+    </tr>
+    <tr>
+		<td colspan="2">
+<pre class="fst">let x = 10;	// Можно
+let x = 2;	// Нельзя
+</pre>
+    	</td>
+    </tr>
+    <tr style="text-indent: 15px; line-height: 20px">
+		<td colspan="2" style="background-color: #E4D1E3; border-color: #A08D9E">
+			4. Поднятие переменных</td>
+	</tr>
+	<tr>
+		<td>
+<pre class="fst">x = 2;
+var x;
+document.write("Результат: " + typeof(x));</pre>
+    	</td>
+    	<td>
+<pre class="fst">x = 2;
+let x;
+document.write("Результат: " + typeof(x));</pre>
+    	</td>
+    </tr>
+    <tr>
+		<td class="red"><script>
+			x = 2;
+			var x;
+			document.write("Результат: " + typeof(x));
+		</script></td>
+		<td class="red"><script>
+			y = 2;
+			let y;
+			document.write("Результат: " + typeof(y));
+		</script></td>
+	</tr>	
+</table>
+
+
+
+<h3 style="text-align: center">const</h3>
+<p><i>позволяeт декларировать константы с областью видимости внутри блока</i></p>
+<table align="center" style="margin-top: 20px">
+	<tr style="text-indent: 15px; line-height: 20px">
+		<td colspan="2" style="background-color: #E4D1E3; border-color: #A08D9E">
+			1. Область видимости внутри блока { }</td>
+	</tr>
+	<tr>
+		<td>
+<pre class="fst">{ var x = 2; }
+document.write("Результат: " + x);</pre>
+    	</td>
+    	<td>
+<pre class="fst">{ const x = 2; }
+document.write("Результат: " + x);</pre>
+    	</td>
+    </tr>
+    <tr>
+		<td class="red"><script>
+				{var a1 = 2;}
+				document.write("Результат: " + a1);
+		</script></td>
+		<td class="red"><script>
+			{const a2 = 2;}
+			document.write("Результат: " + a2);
+		</script></td>
+	</tr>
+	<tr style="text-indent: 15px; line-height: 20px">
+		<td colspan="2" style="background-color: #E4D1E3; border-color: #A08D9E">
+			2. Присваивание во время декларации</td>
+	</tr>
+	<tr>
+		<td>
+<pre class="fst">const PI = 3.14;
+document.write("Результат: " + PI);</pre>
+    	</td>
+    	<td>
+<pre class="fst">const PI;
+PI = 3.14;
+document.write("Результат: " + PI);</pre>
+    	</td>
+    </tr>
+    <tr>
+		<td class="red"><script>
+				const PI = 3.14;
+				document.write("Результат: " + PI);
+		</script></td>
+		<td class="red"><script>
+			const PI;
+			PI = 3.14;
+			document.write("Результат: " + PI);
+		</script></td>
+	</tr>
+	<tr style="text-indent: 15px; line-height: 20px">
+		<td colspan="2" style="background-color: #E4D1E3; border-color: #A08D9E">
+			3. Можно изменять свойства константных объектов, но нельзя присвоить новое значение</td>
+	</tr>
+	<tr>
+		<td>
+<pre class="fst">const car = {type:"Fiat", color:"white"};
+car.color = "red";
+document.write("Результат: " + car.color);</pre>
+    	</td>
+    	<td>
+<pre class="fst">const car = {type:"Fiat", color:"white"};
+car = {type:"Volvo", color:"red"};
+document.write("Результат: " + car.color);</pre>
+    	</td>
+    </tr>
+    <tr>
+		<td class="red"><script>
+				const car = {type:"Fiat", model:"500", color:"white"};
+				car.color = "red";
+				document.write("Результат: " + car.color);
+		</script></td>
+		<td class="red"><script>
+			const car = {type:"Fiat", color:"white"};
+			car = {type:"Volvo", color:"red"};
+			document.write("Результат: " + car.color);
+		</script></td>
+	</tr>
+	<tr style="text-indent: 15px; line-height: 20px">
+		<td colspan="2" style="background-color: #E4D1E3; border-color: #A08D9E">
+			4. Можно изменять константные массивы, но нельзя присвоить им новый массив</td>
+	</tr>
+	<tr>
+		<td>
+<pre class="fst">const cars = ["Saab", "Volvo", "BMW"];
+cars[0] = "Toyota";
+document.write("Результат: " + cars[0]);</pre>
+    	</td>
+    	<td>
+<pre class="fst">const cars = ["Saab", "Volvo", "BMW"];
+cars = ["Toyota", "Volvo", "Audi"];
+document.write("Результат: " + cars[0]);</pre>
+    	</td>
+    </tr>
+    <tr>
+		<td class="red"><script>
+				const cars = ["Saab", "Volvo", "BMW"];
+				cars[0] = "Toyota";
+				document.write("Результат: " + cars[0]);
+		</script></td>
+		<td class="red"><script>
+			const cars = ["Saab", "Volvo", "BMW"];
+			cars = ["Toyota", "Volvo", "Audi"];
+			document.write("Результат: " + cars[0]);
+		</script></td>
+	</tr>
+	<tr style="text-indent: 15px; line-height: 20px">
+		<td colspan="2" style="background-color: #E4D1E3; border-color: #A08D9E">
+			4. Передекларирование констант</td>
+	</tr>
+	<tr>
+		<td>
+<pre class="fst">var x = 10;	// Можно
+const x = 2;	// Нельзя
+</pre>
+    	</td>
+    	<td>
+<pre class="fst">const x = 10;	// Можно
+var x = 2;	// Нельзя
+</pre>
+    	</td>
+    </tr>
+    <tr>
+		<td colspan="2">
+<pre class="fst">const x = 10;	// Можно
+const x = 2;	// Нельзя
+</pre>
+    	</td>
+    </tr>
+    <tr style="text-indent: 15px; line-height: 20px">
+		<td colspan="2" style="background-color: #E4D1E3; border-color: #A08D9E">
+			5. Поднятие констант</td>
+	</tr>
+	<tr>
+		<td>
+<pre class="fst">x = 2;
+var x;
+document.write("Результат: " + typeof(x));</pre>
+    	</td>
+    	<td>
+<pre class="fst">x = 2;
+const x;
+document.write("Результат: " + typeof(x));</pre>
+    	</td>
+    </tr>
+    <tr>
+		<td class="red"><script>
+			x = 2;
+			var x;
+			document.write("Результат: " + typeof(x));
+		</script></td>
+		<td class="red"><script>
+			y = 2;
+			const y;
+			document.write("Результат: " + typeof(y));
+		</script></td>
+	</tr>
+</table><br>
+
+
+</body>
+</html>

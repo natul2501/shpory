@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Стилізація рамок і полів CSS</title>
+	<link rel="stylesheet" type="text/css" href="css/css_borders_style.css">
+	<style type="text/css">
+		
+	</style>
+</head>
+<body>
+	<div id="content">
+		<h3>Рамки</h3>
+		<div class="aaa3" align="left" style="border-style: solid ">
+			<xmp>border-style: solid;
+border-width: 12px;
+border-color: #BC8F8F;</xmp><br>
+			<span>Сплошна лінія</span><br>
+			<span>Можна задати одним рядком:</span><br>
+			<xmp>border: solid 12px #BC8F8F </xmp></div>
+		<div class="aaa" align="left" style="border-style: double">
+			<xmp>border-style: double </xmp>
+			<span>Подвійна сплошна лінія</span></div>
+		<div class="aaa" align="left" style="border-style: dashed">
+			<xmp>border-style: dashed </xmp>
+			<span>Пунктирна</span></div>
+		<div class="aaa" align="left" style="border-style: dotted">
+			<xmp>border-style: dotted </xmp>
+			<span>Точечна</span></div>
+		<div class="aaa" align="left" style="border-style: groove">
+			<xmp>border-style: groove </xmp>
+			<span>Вдавлена лінія</span></div>
+		<div class="aaa" align="left" style="border-style: ridge ">
+			<xmp>border-style: ridge</xmp>
+			<span>Випукла лінія</span></div>
+		<div class="aaa" align="left" style="border-style: inset ">
+			<xmp>border-style: inset</xmp>
+			<span>Вдавлений блок</span></div>
+		<div class="aaa" align="left" style="border-style: outset">
+			<xmp>border-style: outset</xmp>
+			<span>Випуклий блок</span></div>
+			<div class="aaa" align="left" style="border-style: solid; border-radius: 40%; text-align: center">
+			<xmp>border-radius: 40%</xmp>
+			<span>Напівкругла</span></div>
+		<div class="aaa" align="left" id="aaa1">
+			<xmp>border-top-style: dotted;
+border-left-style: dashed;
+border-bottom-style: solid;
+border-right-style: dashed;
+</xmp>
+		<span>Форматування меж кожну окремо</span></div>
+		<div class="aaa2" align="left">
+			<xmp>border: 12px solid #BC8F8F;</xmp><br>
+			<xmp>outline-style: solid;
+outline-width: 5px;
+outline-color: #29699D;</xmp><br>
+			<span>Внутрішня сплошна border і зовнішня сплошна outline</span><br>
+			<span>(можна задати одним рядком - outline: 5px solid #29699D)</span>
+		</div>
+	</div>
+
+	<div id="content">
+		<h3>Поля</h3>
+		<div><div class="bbb" style="margin: 12px; padding: 8px">
+			<xmp>margin: 12px; padding: 8px</xmp><br>
+			Поля всередині блоку і ззовні
+		</div></div>
+		<div><div class="bbb" style="margin-top: 12px; padding: 8px">
+			<xmp>margin-top: 12px; padding: 8px</xmp><br>
+			Поля всередині блоку і ззовні зверху
+		</div></div>
+		<div><div class="bbb" style="margin-top: 12px; padding-top: 8px">
+			<xmp>margin-top: 12px; padding-top: 8px</xmp><br>
+			Поля всередині зверху і ззовні зверху
+		</div></div>
+		<div><div class="bbb" style="margin-bottom: 12px; padding: 8px">
+			<xmp>margin-bottom: 12px; padding: 8px</xmp><br>
+			Поля всередині і ззовні знизу
+		</div></div>
+		<div><div class="bbb" style="margin-bottom: 12px; padding-bottom: 8px">
+			<xmp>margin-bottom: 12px; padding-bottom: 8px</xmp><br>
+			Поля всередині знизу і ззовні знизу
+		</div></div>
+		<div><div class="bbb" style="margin-left: 12px; padding-left: 12px">
+			<xmp>margin-left: 12px; padding-left: 12px</xmp><br>
+			Поля всередині зліва і ззовні зліва
+		</div></div>
+		<div><div class="bbb" style="margin-right: 12px; padding: 8px">
+			<xmp>margin-right: 12px; padding: 8px</xmp><br>
+			Поля всередині блоку і ззовні справа
+		</div></div>
+		<div><div class="bbb" style="margin: 6px 0px 6px 4px; padding: 8px 0px 4px 16px">
+			<xmp>margin: 6px 0px 6px 4px; padding: 8px 0px 4px 16px</xmp><br>
+			Поля всередині блоку і ззовні по-різному</div></div>
+	</div>
+	<!--.e{display: inline-table;}
+		.f{display: list-item;}-->
+</body>
+</html>

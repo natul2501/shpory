@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="css/html_form_style.css">
+	<title>Форми TML</title>
+	<style type="text/css">
+		
+</style>
+</head>
+<body>
+<header>
+	<font size="6"><center>ФОРМИ</center></font>
+</header>
+<div class="formes">
+	<table>
+			<tr>
+				<td><xmp
+					title="Атрибути форм:
+	- action - адреса програми або документа, який обробляє дані
+	- name - ім'я форми'
+	- method - метод протокола HTTP"
+					><form method="POST" action="adres.obrabotchika" id="myForm" name="usrname">
+	Ім'я: <input type="text">
+	<input type="submit">
+</form></xmp></td>
+				<td><form method="POST" action="adres.obrabotchika" id="myForm" name="usrname">
+		Ім'я: <input type="text">
+		<input type="submit">
+	</form></td>
+			</tr>
+		</table>
+</div>
+<div class="inputs" id="container">
+		<table>
+			<tr>
+				<th colspan="3">Поля вводу</th>
+			</tr>
+			<tr>
+				<td colspan="3">тег input підтримує атрибути name, reqired, placeholder</td>
+			</tr>
+			<tr>
+				<td><xmp><input/></xmp></td>
+				<td><input/></td>
+				<td> - просто поле input</td>
+			</tr>
+			<tr>
+				<td><xmp><input type="text"/></xmp></td>
+				<td><input type="text"/></td>
+				<td> - стандартне текстове поле</td>
+			</tr>
+			<tr>
+				<td><xmp><input type="text" required/></xmp></td>
+				<td><input type="text" required/></td>
+				<td> - текстове поле с обов'язковим заповненням</td>
+			</tr>
+			<tr>
+				<td><xmp><input type="text" placeholder="AAA" /></xmp></td>
+				<td><input type="text" placeholder="AAA" /></td>
+				<td> - текстове поле c плейсхолдером</td>
+			</tr>
+			<tr>
+				<td><xmp><input type="text" value="BBB"/></xmp></td>
+				<td><input type="text" value="BBB"/></td>
+				<td> - текстове поле з текстом за замовчуванням</td>
+			</tr>			
+			<tr>
+				<td><xmp><input type="password"/></xmp></td>
+				<td><input type="password"/></td>
+				<td> - текстовое поле з прихованими символами вводу</td>
+			</tr>
+			<tr>
+				<td><xmp><input type="number"/></xmp></td>
+				<td><input type="number"/></td>
+				<td> - цифровой лічильник, можна вводити з клавіатури</td>
+			</tr>
+			<tr>
+				<td><xmp><input type="search"/></xmp></td>
+				<td><input type="search"/></td>
+				<td> - текстове поле пошуку</td>
+			</tr>
+			<tr>
+				<td><xmp><input type="date"/></xmp></td>
+				<td><input type="date"/></td>
+				<td> - текстове поле з датою</td>
+			</tr>
+			<tr>
+				<td><xmp><input type="email"></xmp></td>
+				<td><input type="email"></td>
+				<td> - текстове поле для введення емейлу</td>
+			</tr>
+			<tr>
+				<td><xmp><input type="tel"/></xmp></td>
+				<td><input type="tel"/></td>
+				<td> - текстове поле для введення номеру телефону</td>
+			</tr>
+			<tr>
+				<td><xmp><input type="datetime"/></xmp></td>
+				<td><input type="datetime"/></td>
+				<td> - текстове поле для введення дати і часу</td>
+			</tr>
+			<tr>
+				<td><xmp><input type="hidden" value="F"/></xmp></td>
+				<td><input type="hidden" value="F"/></td>
+				<td><details><summary>поле, яке не відображається у вікні браузера</summary>
+					воно використовується для передачі різної допоміжної інформації, наприклад, імені сторінки, на якій знаходиться користувач, або електронна адреса, куди має пересилатися форма
+				</details></td>
+			</tr>
+		</table>
+	</div>
+
+	<div id="container">
+		<table>
+			<tr>
+				<th colspan="2">Області вводу</th>
+			</tr>
+			<tr>
+				<td colspan="2">Як і тег input, textarea підтримує атрибути name, reqired, placeholder</td>
+			</tr>
+			<tr>
+				<td><xmp><textarea></textarea></xmp></td>
+				<td><textarea></textarea></td>
+			</tr>
+			<tr>
+				<td><xmp><textarea> ТекстТекст </textarea></xmp></td>
+				<td><textarea>Область вводу с текстом</textarea></td>
+			</tr>
+			<tr>
+				<td><xmp><textarea rows="3"> ТекстТекст </textarea></xmp></td>
+				<td><textarea rows="3">Кількість рядків rows = 3</textarea></td>
+			</tr>
+			<tr>
+				<td><xmp><textarea cols="50"> ТекстТекст </textarea></xmp></td>
+				<td><textarea cols="50">Кількість символів (ширина) cols = 50</textarea></td>
+			</tr>
+			<tr>
+				<td><xmp><textarea autofocus> ТекстТекст </textarea></xmp></td>
+				<td><textarea autofocus cols = 50>Курсор автоматично з'являється тут</textarea></td>
+			</tr>
+			<tr>
+				<td><xmp><textarea maxlength="30"> ТекстТекст </textarea></xmp></td>
+				<td><textarea maxlength="30" cols = 50>Макс. к-кість введених символів = 30</textarea></td>
+			</tr>
+			<tr>
+				<td><xmp><textarea disabled> ТекстТекст </textarea></xmp></td>
+				<td><textarea disabled cols = 50>Відключена текстова область вводу</textarea></td>
+			</tr>
+			<tr>
+				<td><xmp><textarea readonly> ТекстТекст </textarea></xmp></td>
+				<td><textarea readonly cols = 50>Текстова область тільки для читання</textarea></td>
+			</tr>
+			<tr>
+				<td><xmp><textarea required> ТекстТекст </textarea></xmp></td>
+				<td><textarea required cols = 50>Текстова область, яку обов'язково заповнити перед відправкою</textarea></td>
+			</tr>
+			<tr>
+				<td><xmp><textarea pattern> ТекстТекст </textarea></xmp></td>
+				<td><textarea cols="50" pattern>Текстова область з певним шаблоном значеннь елементів вводу</textarea></td>
+			</tr>
+			<tr>
+				<td><xmp><textarea form="myForm"> ТекстТекст </textarea></xmp></td>
+				<td><textarea cols="50" form="myForm">Текстова область, яка відноситься до форми</textarea></td>
+			</tr>
+		</table>
+	</div>
+
+	<div id="container">
+		<table>
+			<tr>
+				<th colspan="3">Випадаючі списки</th>
+			</tr>
+			<tr>
+				<td><xmp><input list="CCC">
+	<datalist id="CCC">
+		<option value="CCC1"></option>
+		<option value="CCC2"></option>
+		<option value="CCC3"></option>
+	</datalist></xmp></td>
+				<td><input list="CCC">
+					<datalist id="CCC">
+						<option value="CCC1"></option>
+						<option value="CCC2"></option>
+						<option value="CCC3"></option>
+					</datalist></td>
+				<td> - поле input з випадаючим списком варіантів, можна вводити з клавіатури</td>
+			</tr>
+			<tr>
+				<td><xmp><select name="D1">
+		<option value="D11">DDD1</option>
+		<option value="D12">DDD2</option>
+	</select></xmp></td>
+				<td><select name="D1">
+					<option value="D11">DDD1</option>
+					<option value="D12">DDD2</option>
+				</select></td>
+				<td> - поле select з випадаючим списком варіантів, можна вводити з клавіатури</td>
+			</tr>
+			<tr>
+				<td><xmp><select name="D2" size="2">
+		<option value="D21">DDD3</option>
+		<option value="D22" selected="">DDD4</option>
+		<option value="D23">DDD5</option>
+	</select></xmp></td>
+				<td><select name="D2" size="2">
+					<option value="D21">DDD3</option>
+					<option value="D22" selected="">DDD4</option>
+					<option value="D23">DDD5</option>
+				</select></td>
+				<td> - поле select, в якому задане число видимих рядків; пункт DDD4 вибраний за замовчуванням</td>
+			</tr>
+			<tr>
+				<td><xmp><select name="D3" size="2" multiple>
+		<option value="D31">DDD6</option>
+		<option value="D32">DDD7</option>
+		<option value="D33">DDD8</option>
+	</select></xmp></td>
+				<td><select name="D3" size="2" multiple>
+					<option value="D31">DDD6</option>
+					<option value="D32">DDD7</option>
+					<option value="D33">DDD8</option>
+				</select></td>
+				<td> - поле select з можливістю вибору декількох варіантів з утриманням клавіші Ctrl</td>
+			</tr>
+			<tr>
+				<td><xmp><select name="E">
+   	<optgroup label="E1">
+		<option value="E11">E11</option>
+		<option value="E12">E12</option>
+	</optgroup>
+	<optgroup label="E2">
+		<option value="E21">E21</option>
+		<option value="E22">E22</option>
+	</optgroup>
+	</select></xmp></td>
+				<td><select name="E">
+		   			<optgroup label="E1">
+					    <option value="E11">E11</option>
+					    <option value="E12">E12</option>
+					</optgroup>
+					<optgroup label="E2">
+						<option value="E21">E21</option>
+						<option value="E22">E22</option>
+					</optgroup>
+					</select></td>
+				<td> - поле select з випадаючим списком варіантів, розбитих по категоріям</td>
+			</tr>
+		</table>
+	</div>
+
+<div id="container">
+		<table>
+			<tr>
+				<th colspan="2">Кнопки</th>
+			</tr>
+			<tr>
+				<td><xmp><button type="button" onclick="funktion()">Кнопка</button></xmp></td>
+				<td><button type="button" onclick="funktion()">Кнопка</button></td>
+			</tr>
+			<tr>
+				<td><xmp><button type="submit" onclick="funktion()">Кнопка відправки</button></xmp></td>
+				<td><button type="submit" onclick="funktion()">Кнопка відправки</button></td>
+			</tr>
+			<tr>
+				<td><xmp><button type="reset" onclick="funktion()">Кнопка reset</button></xmp></td>
+				<td><button type="reset" onclick="funktion()">Кнопка reset</button></td>
+			</tr>
+			<tr>
+				<td><xmp><button type="image" onclick="funktion()" src="img.jpg">Кнопка-картинка</button></xmp></td>
+				<td><button type="image" onclick="funktion()" src="img/ap.jpg" width="100" height="30">Кнопка-картинка</button></td>
+			</tr>
+			<tr>
+				<td><xmp><input type="file"/></xmp></td>
+				<td><input type="file"/></td>
+			</tr>
+			<tr>
+				<td><xmp><input type="submit"/></xmp></td>
+				<td><input type="submit" title="кнопка відправки даних форми на обробку програмі"/></td>
+			</tr>
+			<tr>
+				<td><xmp><input type="submit" value="GGG"/></xmp></td>
+				<td><input type="submit" value="GGG" title="кнопка відправки даних форми на обробку програмі із заданим написом" /></td>
+			</tr>
+			<tr>
+				<td><xmp><input type="reset" value="HHH"/></xmp></td>
+				<td><input type="reset" value="HHH" title="кнопкa, яка після натискання повертає всі поля форми до значень за замовчуванням" /></td>
+			</tr>
+			<tr>
+				<td><xmp><input type="image" src="img.jpg"/></xmp></td>
+				<td><input type="image" src="img/ap.jpg" width="100" height="30" title="кнопка відправки, в якості якої використовується зображення" /></td>
+			</tr>
+			<tr>
+				<td><xmp><input type="color" name="III"/></xmp></td>
+				<td><input type="color" name="III" title="кнопка выбору кольору" /></td>
+			</tr>
+			<tr>
+				<td><xmp><input type="range"/></xmp></td>
+				<td><input type="range" title="бігунок для регулювання величини" /></td>
+			</tr>
+		</table>
+	</div>
+
+	<div id="container">
+		<table>
+			<tr>
+				<th colspan="3">Перемикачі і прапорці</th>
+			</tr>
+			<tr>
+				<td><xmp><input type="checkbox"><label>JJJ1</label><br>
+<input type="checkbox"><label>JJJ2</label><br>
+<input type="checkbox"><label>JJJ3</label></xmp></td>
+				<td style="width:80px"><input type="checkbox"><label>JJJ1</label><br>
+			<input type="checkbox"><label>JJJ2</label><br>
+			<input type="checkbox"><label>JJJ3</label></td>
+				<td>Поле вимикачів (checkbox) або прапорців: можна або увімкнути або вимкнути</td>
+			</tr>
+			<tr>
+				<td><xmp><input type="radio">KKK1<br>
+<input type="radio">KKK2<br>
+<input type="radio"><label>KKK3</label></xmp></td>
+				<td><input type="radio">KKK1<br>
+			<input type="radio">KKK2<br>
+			<input type="radio"><label>KKK3</label></td>
+				<td>Поле перемикачів: можна вибрати лише один об'єкт у групі</td>
+			</tr>
+			<tr>
+				<td><xmp><input type="radio" checked><label>KKK5</label></xmp></td>
+				<td><input type="radio" checked><label>KKK5</label></td>
+				<td>задає початкове значення перемикача "увімкнений"</td>
+			</tr>
+			<tr>
+				<td><xmp><fieldset>
+	<legend>Найменування групи</legend>
+	<input type="radio"/>LLL1
+	<input type="radio"/>LLL2
+	<input type="radio"/>LLL3
+ 	- пояснення
+ </fieldset></xmp></td>
+				<td colspan="2"><fieldset>
+				<legend>Найменування групи</legend>
+				<input type="radio"/>LLL1
+				<input type="radio"/>LLL2
+				<input type="radio"/>LLL3
+					- поле перемикачів, згрупованих за допомогою fieldset.
+			</fieldset></td>
+			</tr>
+			<tr>
+				<td><xmp><fieldset form="myForm">
+   	<input type="radio" value="N1">N1
+	<input type="radio" value="N2">N2
+	<input type="radio" value="N3">N3
+	<input type="submit" value="Send">
+	- пояснення
+</fieldset></xmp></td>
+				<td colspan="2"><fieldset form="myForm">
+   				<input type="radio" value="N1">N1
+				<input type="radio" value="N2">N2
+				<input type="radio" value="N3">N3
+				<input type="submit" value="Send">
+					- поле, що пов'язує групу з формою по id
+  			</fieldset></td>
+			</tr>
+			<tr>
+				<td><xmp><fieldset disabled>
+	<legend accesskey="s">Заголовок</legend>
+	<input type="radio"/>OOO1
+	<input type="radio"/>OOO2
+	<input type="radio"/>OOO3
+	 - пояснення
+</fieldset></xmp></td>
+				<td colspan="2"><fieldset disabled>
+  				<legend title="Натисніть Alt+S, щоб перейти до цього заголовку" accesskey="s">Заголовок</legend>
+				<input type="radio"/>OOO1
+				<input type="radio"/>OOO2
+				<input type="radio"/>OOO3
+					- доступ до елементів заблокований
+			</fieldset></td>
+			</tr>
+		</table>
+
+</div>
+
+</body>
+</html>

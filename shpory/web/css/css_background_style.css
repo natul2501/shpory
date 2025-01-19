@@ -1,0 +1,53 @@
+		body{
+			background-image : url(../img/old-cement-wall-texture.jpg);
+			background-size: 100%;
+			font-family: Calibri;
+			font-size: 14px; 
+		}
+		#content{
+			background-color:#C9C9C9;
+			width:620px;
+			
+			padding: 5px;
+   			padding-left: 20px;
+   			border: solid 1px black;
+			float: left;
+		}
+		/*Класи градієнтів:*/
+		#one { background-image: linear-gradient(to left, black, red); }
+		#two { background-image: linear-gradient(to top left, black, red, white); }
+		#three { background-image: linear-gradient(65deg, black, red,  yellow); }
+		#four { background-image: linear-gradient(to right bottom, yellow 10%, white, red, black 90%);}
+		#five { background-image: linear-gradient(to right, black 10%, yellow, black 90%); }
+		#six { background: linear-gradient(to left, rgb(255,255,0), rgba(255,255,0,0)); }
+		#seven { background-image: radial-gradient(cyan, yellow, indigo, white); }
+		#eight { background-image: radial-gradient(cyan, yellow 10%, indigo 30%, white 50%); }
+		#nine { background-image: radial-gradient(ellipse, cyan, indigo); }
+		#ten { background-image: radial-gradient(circle, cyan, indigo); }
+		#eleven { background-image: radial-gradient(circle at 300px 50px, cyan, indigo, yellow); }
+		#twelve { background-image: radial-gradient(circle at top left, cyan, indigo, yellow); }
+		#oneone { background-image: radial-gradient(circle closest-side, cyan, red, blue); }
+		#onetwo { background-image: radial-gradient(circle closest-corner, cyan, red, blue); }
+		#onethree { background-image: radial-gradient(circle farthest-side, cyan, red, blue); }
+		#onefour { background-image: radial-gradient(circle farthest-corner, cyan, red, blue); }
+
+/*--------------ELEMENT'S STYLES-----------------*/
+		xmp{
+			color: brown;
+			font-weight: bold;
+			font-family: Consolas;
+			display: inline;
+			font-size: 13px;
+			background-color: rgba(288, 288, 288, 0.7);
+			padding: 3px;
+			line-height: 21px;
+		}
+		td{
+			border: 1px solid rgba(0, 0, 0, 0.3);;
+		}
+		div{
+			height: 250px;
+			width: 250px;
+			margin: 5px;
+			border: solid 3px rgba(0, 0, 0, 0.3);
+		}

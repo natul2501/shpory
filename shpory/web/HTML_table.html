@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="css/html_form_style.css">
+	<title>Таблиці HTML</title>
+</head>
+<body>
+	<!-- -->
+		<header>
+			<font size="6"><center>ТАБЛИЦІ</center></font>
+		</header>
+
+		<div id="container">
+			Перелік властивостей таблиць:<br>
+			&#8195- align - вирівнювання таблиці<br>
+			&#8195- bgcolor - колір фону таблиці<br>
+			&#8195- border - товщина ліній межі навколо таблиці (також відображаються межі між клітинками)<br>
+			&#8195- cellpadding - відстань між межею клітинки і її вмістом<br>
+			&#8195- cellspacong - відстань між зовнішніми межами клітинок<br>
+			&#8195- width - ширина<br>
+			&#8195- caption - заголовок<br>
+			&#8195- colspan - об'єднання клітинок по горизонталі, rowspan - по вертикалі<br>
+			&#8195- valign - вертикальне вирівнювання<br>
+			&#8195- Cthrl+Shift+D - скопіювати рядок<br>
+		</div>
+
+		<div id="container">
+			<table>
+				<tr>
+					<td><xmp><table cellspacing="6" border="1" bgcolor="paleGreen">
+	<caption>cellspacing</caption>
+	<tr>
+		<th> Шапка 1 </th>
+		<th> Шапка 2 </th>
+	</tr>
+	<tr>
+		<td> 1.1 </td>
+		<td> 1.2 </td>
+	</tr>
+	<tr>
+		<td> 2.1 </td>
+		<td> 2.2 </td>
+	</tr>
+</table></xmp></td>
+		<td style="width: 200px;"><table cellspacing="6" border="1" bgcolor="paleGreen">
+			<caption>cellspacing</caption>
+			<tr>
+				<th> Шапка 1 </th>
+				<th> Шапка 2 </th>
+			</tr>
+			<tr>
+				<td> 1.1 </td>
+				<td> 1.2 </td>
+			</tr>
+			<tr>
+				<td> 2.1 </td>
+				<td> 2.2 </td>
+			</tr>
+		</table></td>
+				</tr>
+				<tr>
+					<td><xmp><table align="right" cellpadding="20" border="1" bgcolor="PeachPuff">
+	<caption>cellpadding, align</caption>
+		<tr>
+			<th>1.1</th>
+			<th>1.2</th>
+		</tr>
+		<tr>
+			<td>2.1</td>
+			<td>2.2</td>
+		</tr>
+		<tr>
+			<td>3.1</td>
+			<td>3.2</td>
+		</tr>
+</table></xmp></td>
+					<td><table align="right" cellpadding="20" border="1" bgcolor="PeachPuff">
+							<caption>cellpadding, align</caption>
+							<tr>
+								<th>1.1</th>
+								<th>1.2</th>
+							</tr>
+							<tr>
+								<td>2.1</td>
+								<td>2.2</td>
+							</tr>
+							<tr>
+								<td>3.1</td>
+								<td>3.2</td>
+							</tr>
+						</table></td>
+				</tr>
+				<tr>
+					<td><xmp><table border="1" bgcolor="PaleGoldenRod" width="100%">
+		<caption>width</caption>
+		<tr>
+			<th>1.1</th>
+			<th>1.2</th>
+		</tr>
+		<tr>
+			<td>2.1</td>
+			<td>2.2</td>
+		</tr>
+		<tr>
+			<td>3.1</td>
+			<td>3.2</td>
+		</tr>
+	</table></xmp></td>
+					<td><table border="1" bgcolor="PaleGoldenRod" width="100%">
+						<caption>width</caption>
+						<tr>
+							<th>1.1</th>
+							<th>1.2</th>
+						</tr>
+						<tr>
+							<td>2.1</td>
+							<td>2.2</td>
+						</tr>
+						<tr>
+							<td>3.1</td>
+							<td>3.2</td>
+						</tr>
+					</table></td>
+				</tr>
+				<tr>
+					<td><xmp><table rules="rows" border="1" width="100%" bgcolor="white">
+		<caption>rules="rows"</caption>
+		<thead>
+			<tr>
+				<th>1.1</th>
+				<th>1.2</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>2.1</td>
+				<td>2.2</td>
+			</tr>
+		</tbody>
+		<tfoot>
+			<tr>
+				<td>3.1</td>
+				<td>3.2</td>
+			</tr>
+		</tfoot>
+	</table></xmp></td>
+					<td><table rules="rows" border="1" width="100%" bgcolor="white">
+						<caption>rules="rows"</caption>
+						<thead>
+							<tr>
+								<th>1.1</th>
+								<th>1.2</th>
+								<th>1.3</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>2.1</td>
+								<td>2.2</td>
+								<td>2.3</td>
+							</tr>
+							<tr>
+								<td>3.1</td>
+								<td>3.2</td>
+								<td>3.3</td>
+							</tr>
+						</tbody>
+						<tfoot>
+							<tr>
+								<td>4.1</td>
+								<td>4.2</td>
+								<td>4.3</td>
+							</tr>
+						</tfoot>
+					</table></td>
+				</tr>
+				<tr>
+					<td><xmp><table rules="cols" border="1" width="100%" bgcolor="white">
+		<caption>rules="cols"</caption>
+		<thead>
+			<tr>
+				<th>1.1</th>
+				<th>1.2</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>2.1</td>
+				<td>2.2</td>
+			</tr>
+		</tbody>
+		<tfoot>
+			<tr>
+				<td>4.1</td>
+				<td>4.2</td>
+			</tr>
+		</tfoot>
+	</table>
+					</xmp></td>
+					<td><table rules="cols" border="1" width="100%" bgcolor="white">
+							<caption>rules="cols"</caption>
+							<thead>
+								<tr>
+									<th>1.1</th>
+									<th>1.2</th>
+									<th>1.3</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>2.1</td>
+									<td>2.2</td>
+									<td>2.3</td>
+								</tr>
+								<tr>
+									<td>3.1</td>
+									<td>3.2</td>
+									<td>3.3</td>
+								</tr>
+							</tbody>
+							<tfoot>
+								<tr>
+									<td>4.1</td>
+									<td>4.2</td>
+									<td>4.3</td>
+								</tr>
+							</tfoot>
+						</table></td>
+				</tr>
+				<tr>
+					<td><xmp><table rules="groups" border="1" width="100%" bgcolor="white">
+		<caption>rules="groups"</caption>
+		<thead>
+			<tr>
+				<th>1.1</th>
+				<th>1.2</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>2.1</td>
+				<td>2.2</td>
+			</tr>
+		</tbody>
+		<tfoot>
+			<tr>
+				<td>4.1</td>
+				<td>4.2</td>
+			</tr>
+		</tfoot>
+	</table></xmp></td>
+					<td><table rules="groups" border="1" width="100%" bgcolor="white">
+						<caption>rules="groups"</caption>
+						<thead>
+							<tr>
+								<th>1.1</th>
+								<th>1.2</th>
+								<th>1.3</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>2.1</td>
+								<td>2.2</td>
+								<td>2.3</td>
+							</tr>
+							<tr>
+								<td>3.1</td>
+								<td>3.2</td>
+								<td>3.3</td>
+							</tr>
+						</tbody>
+						<tfoot>
+							<tr>
+								<td>4.1</td>
+								<td>4.2</td>
+								<td>4.3</td>
+							</tr>
+						</tfoot>
+					</table></td>
+				</tr>
+				<tr>
+					<td><xmp><table rules="none" border="1" width="100%" bgcolor="white">
+		<caption>rules="none"</caption>
+		<thead>
+			<tr>
+				<th>1.1</th>
+				<th>1.2</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>2.1</td>
+				<td>2.2</td>
+			</tr>
+		</tbody>
+		<tfoot>
+			<tr>
+				<td>4.1</td>
+				<td>4.2</td>
+			</tr>
+		</tfoot>
+	</table></xmp></td>
+					<td><table rules="none" border="1" width="100%" bgcolor="white">
+						<caption>rules="none"</caption>
+						<thead>
+							<tr>
+								<th>1.1</th>
+								<th>1.2</th>
+								<th>1.3</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>2.1</td>
+								<td>2.2</td>
+								<td>2.3</td>
+							</tr>
+							<tr>
+								<td>3.1</td>
+								<td>3.2</td>
+								<td>3.3</td>
+							</tr>
+						</tbody>
+						<tfoot>
+							<tr>
+								<td>4.1</td>
+								<td>4.2</td>
+								<td>4.3</td>
+							</tr>
+						</tfoot>
+					</table></td>
+				</tr>
+				<tr>
+					<td><xmp><table border="1" width="100%" bgcolor="white">
+		<caption>align, valign, height</caption>
+		<tr>
+			<th>1.1</th>
+			<th>1.2</th>
+			<th>1.3</th>
+		</tr>
+		<tr>
+			<td align="left" valign="top">2.1</td>
+			<td align="center">2.2</td>
+			<td align="right" height="40" valign="bottom">2.3</td>
+		</tr>
+		<tr>
+			<td align="left">3.1</td>
+			<td align="center">3.2</td>
+			<td align="right">3.3</td>
+		</tr>
+	</table>
+					</xmp></td>
+					<td><table border="1" width="100%" bgcolor="white">
+							<caption>align, valign, height</caption>
+							<tr> <!-- Рядок із "шапкою" -->
+								<th>1.1</th>
+								<th>1.2</th>
+								<th>1.3</th>
+							</tr>
+							<tr> <!-- Рядок зі звичайними ячейками -->
+								<td align="left" valign="top">2.1</td>
+								<td align="center">2.2</td>
+								<td align="right" height="40" valign="bottom">2.3</td>
+							</tr>
+							<tr>
+								<td align="left">3.1</td>
+								<td align="center">3.2</td>
+								<td align="right">3.3</td>
+							</tr>
+						</table></td>
+				</tr>
+				<tr>
+					<td><xmp><table border="1" bgcolor="white" width="100%" bgcolor="white">
+		<caption>colspan, rowspan</caption>
+		<tr>
+			<th>1.1</th>
+			<th>1.2</th>
+			<th>1.3</th>
+			<th>1.4</th>
+		</tr>
+		<tr>
+			<td colspan="3">Об'єднання по горизонталі</td>
+			<td>2.4</td>
+		</tr>
+		<tr>
+			<td rowspan="2" valign="top">Об'єднання по вертикалі</td>
+			<td>3.2</td>
+			<td>3.3</td>
+			<td>3.4</td>
+		</tr>
+		<tr>
+			<td>4.2</td>
+			<td>4.3</td>
+			<td>4.4</td>
+		</tr>
+	</table></xmp></td>
+					<td><table border="1" bgcolor="white" width="100%" bgcolor="white">
+		<caption>colspan, rowspan</caption>
+		<tr>
+			<th>1.1</th>
+			<th>1.2</th>
+			<th>1.3</th>
+			<th>1.4</th>
+		</tr>
+		<tr>
+			<td colspan="3">Об'єднання по горизонталі</td>
+			<td>2.3</td>
+		</tr>
+		<tr>
+			<td rowspan="2" valign="top">Об'єднання по вертикалі</td>
+			<td>3.2</td>
+			<td>3.3</td>
+			<td>3.4</td>
+		</tr>
+		<tr>
+			<td>4.2</td>
+			<td>4.3</td>
+			<td>4.4</td>
+		</tr>
+	</table></td>
+				</tr>
+				<tr>
+					<td><xmp><table border="1" bgcolor="white">
+  <tr><th>Первый заголовок</th><th>Второй заголовок</th></tr>
+  <tr><td>строка 1, ячейка 1</td><td>строка 1, ячейка 2</td></tr>
+  <tr><td>строка 2, ячейка 1</td>
+    <td>строка 2, ячейка 2
+      <table border="1">
+        <tr><th>Первый заголовок</th><th>Второй заголовок</th></tr>
+        <tr><td>строка 1, ячейка 1</td><td>строка 1, ячейка 2</td></tr>
+        <tr><td>строка 2, ячейка 1</td><td>строка 2, ячейка 2</td></tr>
+      </table>
+    </td>
+  </tr>
+</table></xmp></td>
+					<td><table border="1" bgcolor="white">
+  <tr><th>Первый заголовок</th><th>Второй заголовок</th></tr>
+  <tr><td>строка 1, ячейка 1</td><td>строка 1, ячейка 2</td></tr>
+  <tr><td>строка 2, ячейка 1</td>
+    <td>строка 2, ячейка 2
+      <table border="1">
+        <tr><th>Первый заголовок</th><th>Второй заголовок</th></tr>
+        <tr><td>строка 1, ячейка 1</td><td>строка 1, ячейка 2</td></tr>
+        <tr><td>строка 2, ячейка 1</td><td>строка 2, ячейка 2</td></tr>
+      </table>
+    </td>
+  </tr>
+</table></td>
+				</tr>
+			</table>
+
+		</div>
+
+</body>
+</html>

@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Селектори і псевдокласи</title>
+	<link rel="stylesheet" type="text/css" href="css/css_selectors_style.css">
+</head>
+<body>
+	<div id="content">
+		<font size="6"><center>СЕЛЕКТОРИ CSS</center></font>
+		<center><strong title="<strong>Селектор</strong>">Селектор</strong> - це група об'єктів, об'єднаних певними особливостями, до яких можна застосувати спільний стиль. На даній сторінці застосовані наступні стилі:</center><br>
+		<table border="1" width="98%">
+			<tr>
+				<th>Селектор по елементу</th>
+				<th>Селектор по класу</th>
+				<th>Селектор по id</th>
+				<th>Контекстний селектор</th>
+				<th>Універсальний селектор *</th>
+			</tr>
+			<tr>
+				<td><xmp>h5{text-transform: uppercase;}</xmp></td>
+				<td><xmp>.aaa{text-decoration: underline;}</xmp></td>
+				<td><xmp>#bbb{font-variant: small-caps;}</xmp></td>
+				<td><xmp>p strong{text-shadow: 1px 1px 3px;}</xmp></td>
+				<td><xmp>*{box-sizing: border-box;}</xmp></td>
+			</tr>
+			<tr>
+				<td><span title="<h5> Всі літери верхнім регістром для заголовків 5 </h5>"><h5>Всі літери верхнім регістром для заголовків 5</h5></span></td>
+				<td><div class="aaa" title="<div class=&quot;aaa&quot;>У об'єктах (в даному випадку - div) із класом &quot;aaa&quot; текст підкреслений</div>">У об'єктах (в даному випадку - div) із класом "aaa" текст підкреслений</div></td>
+				<td><div id="bbb" title="<div id=&quot;bbb&quot;>У об'єктах (в даному випадку - div) із id &quot;bbb&quot; всі літери - маленьким капсом</div>">У об'єктах (в даному випадку - div) із id "bbb" всі літери - маленьким капсом</div></td>
+				<td><span title="<p>Всі <strong>жирні</strong> слова (а <strong>конкретно</strong> - ті, що знаходяться в тегах &lt;strong&gt;) в абзацах будуть із <strong>тінню</strong></p>"><p>Всі <strong>жирні</strong> слова (а <strong>конкретно</strong> - ті, що знаходяться в тегах &lt;strong&gt;) в абзацах будуть із <strong>тінню</strong></p></span></td>
+				<td>Застосовується до всіх об'єктів; <a href="https://doka.guide/css/box-sizing/">даний стиль змінює розрахунок загального розміру об'єктів</a></td>
+			</tr>
+			<tr>
+				<td><xmp>p {font-style: oblique;}</xmp></td>
+				<td><xmp>p.aaa {color: green;}</xmp></td>
+				<td><xmp>h5#bbb {text-align: center; text-transform: lowercase;}</xmp></td>
+				<td><xmp>td strong{font-size: 120%;}</xmp></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td title="<p> Похилий текст для абзаців </p>"><p>Похилий текст для абзаців</p></td>
+				<td>
+					<p class="aaa" title="p class=&quot;aaa&quot;> У абзаців із класом &quot;ааа&quot; текст зелений </p>">У абзаців із класом "ааа" текст зелений</p>
+				</td>
+				<td>
+					<span title="<h5 id=&quot;bbb&quot;>Всім заголовкам 5 із id=&quot;bbb&quot; присвоюється нижній регістр і вирівнювання по центру</h5>"><h5 id="bbb">Всім заголовкам 5 із id="bbb" присвоюється нижній регістр і вирівнювання по центру</h5></span>
+				</td>
+				<td><span title="Всі <strong>жирні</strong> слова (а <strong>конкретно</strong> - ті, що знаходяться в тегах &lt;strong&gt;) у звичайних комірках таблиць будуть мати <strong>трохи</strong> більший розмір (на 120%)</span>">
+					Всі <strong>жирні</strong> слова (а <strong>конкретно</strong> - ті, що знаходяться в тегах &lt;strong&gt;) у звичайних комірках таблиць будуть мати <strong>трохи</strong> більший розмір (на 120%)</span>
+				</td>
+				<td></td>
+			</tr>
+		</table>
+
+		<br><center>Селектори можна комбінувати різними способами (навести курсор на результат, щоб подивитися синтаксис):</center><br>
+
+		<table border="1" width="98%">
+			<tr>
+				<th>селектор1, селектор2</th>
+				<th>селектор1 селектор2</th>
+				<th>селектор1 + селектор2</th>
+				<th>селектор1 ~ селектор2</th>
+				<th>селектор1 > селектор2</th>
+			</tr>
+			<tr>
+				<td>Спільний стиль для кількох селекторів</td>
+				<td>Цей спосіб застосований в контекстному селекторі. Знаходить усі нащадки елемента, який підходить під селектор1, та застосовує до них стилі</td>
+				<td>Вибирає елемент, який підходить під селектор2, перед яким розташований елемент, що підходить під селектор1</td>
+				<td>Вибирає елемент, який підходить під селектор2, перед яким розташований елемент, що підходить під селектор1, але за умови, що обидва мають спільного предка</td>
+				<td>Вибирає елементи, які є прямими нащадками елемента, що підходить під селектор1</td>
+			</tr>
+			<tr>
+				<td><xmp>i, b {color: Chocolate;}</xmp></td>
+				<td><xmp>p span {color: blue;}</xmp></td>
+				<td><xmp>.first + .second {color: PaleVioletRed;}</xmp></td>
+				<td><xmp>p ~ p {word-spacing: 8px;}</xmp></td>
+				<td><xmp>.father > p {color: Purple;}</xmp></td>
+			</tr>
+			<tr>
+				<td><i>&lt;i&gt;Курсивний текст&lt;/i&gt;</i>, <b>&lt;b&gt;жирний текст&lt;/b&gt;</b>, <strong>&lt;strong&gt;жирний текст&lt;/strong&gt;</strong></td>
+				<td>
+					<span title="<p>Цей стиль буде застосовуватися <span>тільки до тексту із селектором span </span> всередині абзацу.</p> А ось <span>текст із селектором span</span>, що не знаходиться у абзаці">
+						<p>Цей стиль буде застосовуватися <span>тільки до тексту із селектором span </span> всередині абзацу.</p> А ось <span>текст із селектором span</span>, що не знаходиться у абзаці.
+						</span>
+					
+					</td>
+				<td><span title="<p class=&quot;first&quot;>Абзац1</p>
+<p class=&quot;second&quot;>Абзац2</p>
+<p class=&quot;second&quot;>Абзац3</p>">
+					<p class="first">Нехай у нас є абзац тексту Абзац 1 із класом first.</p>
+  					<p class="second">Відразу за ним іде Абзац 2 із класом second, до якого і застосується стиль.</p>
+  					<p class="second">Для прикладу іще Абзац 3 із класом second, що йде слідом за абзацом із класом second.</p></span>
+				</td>
+				<td><div title="<div>
+	<p>Абзац1</p>
+	<p>Абзац2</p>
+</div>
+<p>Абзац3</p>">
+						<p>Наприклад, Абзац 1 предка div.</p>
+	  					<p>Абзац 2 слідує за першим, отже до нього застосовується стиль.</p>
+					</div>
+					<p>Слідом іде Абзац 3, але розташований уже поза div, а отже до нього стиль не застосовується.</p>
+				</td>
+				<td>
+					<div class="father" title="<div class=&quot;father&quot;
+	<p>Абзац 1</p>
+	<div>
+		<p>Абзац 2</p>
+	</div>
+	<p>Абзац 3</p>
+</div>">
+					  <p>Абзац 1 розташований безпосередньо у блоці div із класом "father", а отже являється його прямим потомком і до нього застосовується стиль</p>
+						<div>
+					    	<p>Слідом в цьому ж блоці розташований іще один блок без класу, всередині якого теж знаходиться Абзац 2. Та цей абзац є не безпосереднім потомком, тому до нього стиль не застосовується</p>
+					  </div>
+					  <p>А ось Абзац 3 знову прямий потомок. Складна схема, краще просто подивитися у вспливаюче віконце</p>
+					</div>
+				</td>
+			</tr>
+		</table>
+	</div>
+	
+
+	
+	<div id="content">
+		<font size="6"><center>ПСЕВДОКЛАСИ CSS</center></font>
+
+		<br><center>Для групи об'єктів, що слідують один за одним, можуть бути актуальні наступні псевдокласи:</center><br>
+		<table border="1" width="98%">
+			<tr>
+				<th>:first-child, :last-child, :nth-child(n)</th>
+				<th>:first-of-type, :last-of-type, :nth-of-type(n)</xmp></th>
+			</tr>
+			<tr>
+				<td>Застосовується до відповідно першого, останнього та n-го дочірнього об'єкту, всього один раз на сторінці</td>
+				<td>Застосовується до відповідно першого, останнього та n-го дочірнього об'єкту, для кожного блоку окремо</td>
+			</tr>
+			<tr>
+				<td><xmp>samp:first-child {color: DarkSlateGray;}</xmp><div class="colorexample" style="background-color: DarkSlateGray;"></div><br>
+					<xmp>samp:nth-child(2) {color: Teal;}</xmp><div class="colorexample" style="background-color: Teal;"></div><br>
+					<xmp>samp:last-child {color: SteelBlue;}</xmp><div class="colorexample" style="background-color: SteelBlue;"></div><br>
+				</td>
+				<td><xmp>code:first-of-type {color: DarkOliveGreen;}</xmp><div class="colorexample" style="background-color: DarkOliveGreen;"></div><br>
+					<xmp>code:nth-of-type(2) {color: MediumSlateBlue;}</xmp><div class="colorexample" style="background-color: MediumSlateBlue;"></div><br>
+					<xmp>code:last-of-type {color: Chocolate;}</xmp><div class="colorexample" style="background-color: Chocolate;"></div><br>
+				</td>
+			</tr>
+			<tr>
+				<td><div style="border: dotted 1px black; width: 40%; padding-left: 15px;">
+						<samp>Об'єкт 1 samp всередині блоку, </samp><br>
+						<code>Об'єкт 2 code всередині блоку, </code><br>
+						<samp>Об'єкт 3 samp всередині блоку, </samp><br>
+						<samp>Об'єкт 4 samp всередині блоку, </samp><br>
+					</div>
+					<samp>Об'єкт 5 samp поза блоком, </samp><br>
+					<samp>Об'єкт 6 samp поза блоком, </samp><br>
+					<code>Об'єкт 7 code поза блоком, </code><br>
+					<samp>Об'єкт 8 samp поза блоком </samp>
+				</td>
+				<td>
+					<div style="border: dotted 1px black; width: 40%; padding-left: 15px;">
+						<code>Об'єкт 1 code всередині блоку, </code><br>
+						<samp>Об'єкт 2 samp всередині блоку, </samp><br>
+						<code>Об'єкт 3 code всередині блоку, </code><br>
+						<code>Об'єкт 4 code всередині блоку, </code><br>
+					</div>
+					<code>Об'єкт 5 code поза блоком, </code><br>
+					<code>Об'єкт 7 code поза блоком, </code><br>
+					<samp>Об'єкт 6 samp поза блоком, </samp><br>
+					<code>Об'єкт 8 code поза блоком </code>
+				</td>
+			</tr>
+		</table>
+		Є ще псевдокласи :not, :is, :where, :has. Детальніше <a href="https://www.w3.org/TR/selectors-4/#overview" title="https://www.w3.org/TR/selectors-4/#overview">за посиланням</a>.
+
+		<br><center>Для активних об'єктів, таких як кнопки та посилання, можуть знадобитися псевдокласи (навести курсор на об'єкт, щоб подивитися синтаксис):</center><br>
+		<table border="1" width="98%">
+			<tr>
+				<th>:active</th>
+				<th>:hover</th>
+				<th>:visited</th>
+			</tr>
+			<tr>
+				<td>Задає стиль при натисканні на об'єкт</td>
+				<td>Задає стиль при наведенні на об'єкт</td>
+				<td>Для посилань: задає стиль відвіданим посиланням</td>
+			</tr>
+			<tr>
+				<td><xmp>button:active{border:solid 3px PaleVioletRed;}</xmp></td>
+				<td><xmp>button:hover{background-color: LightPink;}</xmp></td>
+				<td><xmp>a:visited{color: Purple;}</xmp></td>
+			</tr>
+			<tr>
+				<td><button type="button" title="<button type=&quot;button&quot;>Кнопка</button>">Кнопка</button></td>
+				<td><button type="button" title="<button type=&quot;button&quot;>Кнопка</button>">Кнопка</button></div></td>
+				<td><a href="https://colorflip.com/" title="<a href=&quot;https://colorflip.com/&quot;>Посилання</a>">Посилання</a></td>
+			</tr>
+		</table>
+
+		<br><center>Дані псевдокласи можна застосувати по відношенню до полів вводу (навести курсор на поле, щоб подивитися синтаксис):</center><br>
+		<table border="1" width="98%">
+			<tr>
+				<th colspan="6" style="font-size: 100%;">Нехай у нас є поле, в яке необхідно ввести значення з діапазону від 100 до 300:<br><xmp><input id="id1" type="number" min="100" max="300"></xmp></th>
+			</tr>
+			<tr>
+				<th>:focus</th>
+				<th>:empty</th>
+				<th>:disabled</th>
+				<th>:valid</th>
+				<th>:invalid</th>
+			</tr>
+			<tr>
+				<td>Задає стиль, коли курсор знаходиться в полі</td>
+				<td>Задає стиль об'єктам, що не містять дочірніх об'єктів, наприклад пустим полям</td>
+				<td>Задає стиль об'єктам із параметром <a href="file:///D:/life/shpory/web/HTML_forms.html" title="Форми HTML">disable</a></td>
+				<td>Задає стиль правильно заповненому полю</td>
+				<td>Задає стиль неправильно заповненому полю</td>
+			</tr>
+			<tr>
+				<td><xmp>input:focus{outline: solid 5px Aquamarine;}</xmp></td>
+				<td><xmp>input:empty{background-color: Lavender;}</xmp></td>
+				<td><xmp>input:disabled{background-color: CadetBlue;}</xmp></td>
+				<td><xmp>input:valid + .validity-icon::before {
+	content: '✓';
+	color: green;
+}</xmp>
+				</td>
+				<td><xmp>input:invalid + .validity-icon::before {
+	content: '✖';
+	color: red;
+}</xmp>
+				</td>
+			</tr>
+			<tr>
+				<td><input id="id1" type="number" min="100" max="300" title="<input type=&quot;number&quot; min=&quot;100&quot; max=&quot;300&quot;>"></td>
+				<td><input id="id1" type="number" min="100" max="300" title="<input type=&quot;number&quot; min=&quot;100&quot; max=&quot;300&quot;>"></td>
+				<td><input id="id1" type="number" min="100" max="300" disabled title="<input type=&quot;number&quot; min=&quot;100&quot; max=&quot;300&quot; disabled>"></td>
+				<td>
+					<input id="id1" type="number" min="100" max="300"
+						title="<input type=&quot;number&quot; min=&quot;100&quot; max=&quot;300&quot;>
+<span class=&quot;validity-icon&quot;></span>">
+					<span class="validity-icon"></span>
+				</td>
+				<td>
+					<input id="id1" type="number" min="100" max="300"
+						title="<input type=&quot;number&quot; min=&quot;100&quot; max=&quot;300&quot;>
+<span class=&quot;validity-icon&quot;></span>">
+					<span class="validity-icon"></span>
+				</td>
+			</tr>
+		</table>
+		Ще є такі псевдокласи, як :read-write, :read-only, :placeholder-shown, :checked, :indeterminate, :in-range, :out-of-range, :required, :optional, :blank. Детальніше <a href="https://www.w3.org/TR/selectors-4/#overview" title="https://www.w3.org/TR/selectors-4/#overview">за посиланням</a>.
+
+	</div>
+	
+	<div id="content">
+		<font size="6"><center>ПСЕВДОЕЛЕМЕНТИ CSS</center></font>
+		<xmp>.ccc::first-letter{font-size: 150%;}
+.ccc::first-line{font-style:normal;}</xmp><br>
+		<p class="ccc" style="clear: left">Це - абзац тексту із класом "ссс", а отже до нього застосовуються приведені вище псевдоелементи. Псевдо-елементи дозволяють стилізувати певні частини документа. Подвійна двокрапка була введена в CSS3 для візуальної відмінності псевдо-класів і псевдо-елементів. Однак, псевдо-елементи, які були додані ще в CSS2 (такі як: first-letter, first-line, before і after), можуть бути записані з однією двокрапкою, такий синтаксис використовувався до появи специфікації CSS3 і підтримується всіма браузерами. Синтаксис з подвійною двокрапкою підтримується тільки в нових версіях браузерів і в обов'язковому порядку повинен застосовуватися тільки до псевдо-елементу ::selection, доданого до CSS3.</p>
+		<p>Ще популярними являються псевдоелементи <xmp>::before</xmp> і <xmp>::after</xmp>, за допомогою яких можна додавати контент до і після об'єкту, наприклад, лапки до і після цитати.</p>
+		<p>Ще є такі псевдоелементи, як ::prefix, ::postfix, ::selection, ::target-text, ::spelling-error, ::marker, ::placeholder, ::file-selector-button. Детальніше <a href="https://www.w3.org/TR/css-pseudo-4/" title="https://www.w3.org/TR/css-pseudo-4/">за посиланням</a>.</p>
+	</div>
+
+</body>
+</html>

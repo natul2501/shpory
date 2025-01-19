@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Forms JS</title>
+	<style type="text/css">
+		.fst{
+			font-style: italic;
+			font-color: #812B2B;
+		}
+		table, td, th{
+			border: 1px solid lightgray;
+       		border-collapse: collapse;
+       		line-height: 18px;
+       		padding: 0px 6px 0px 6px;
+		}
+		button{
+			background-color: #D9EEFF;
+			border: solid #7390A1 1px;
+			border-radius: 30%;
+			font-style: italic;
+			color: #590A3B;
+		}
+		p{	text-indent: 55px;
+			font-style: italic;
+			margin: 3px;
+		}
+		i{	background-color: #FFDFE4;
+		}
+		h3{
+			margin: 5px;
+			text-align: center;
+		}
+		h4{
+			margin: 2px;
+			text-align: center;
+		}
+		#contbor{
+			border: dotted #955283 1px;
+			background-color: #F9F4F8;
+			margin: 5px;
+			padding: 5px;
+		}
+	</style>
+	<script>
+	let form = document.forms.my;
+	var txt1 = "";
+	function fa1(f){
+		txt1 = f.elements[0].value;
+		document.getElementById('for_A1').innerHTML = "Значение первого элемента формы \"my\": " + txt1;
+	}
+	function fb1(f){
+		txt1 = f.length;
+		document.getElementById('for_A1').innerHTML = "Размер массива элементов формы \"my\": " + txt1;
+	}
+	function fc1(f){
+		f.elements[0].value = 3;
+		txt1 = f.elements.one.value;
+		document.getElementById('for_A1').innerHTML = "Значение первого элемента формы \"my\": " + txt1;
+	}
+	function fcc1(f){
+		txt1 = one.forma;
+		document.getElementById('for_A1').innerHTML = "Обратная ссылка элемента формы \"my\": " + txt1;
+	}
+	function fd1(f){
+		txt1 = f.action;
+		document.getElementById('for_A1').innerHTML = "значение атрибута action формы \"my\": " + txt1;
+	}
+	function fe1(f){
+		txt1 = f.target;
+		document.getElementById('for_A1').innerHTML = "значение атрибута target формы \"my\": " + txt1;
+	}
+	function ff1(f){
+		txt1 = f.method;
+		document.getElementById('for_A1').innerHTML = "значение атрибута method формы \"my\": " + txt1;
+	}
+	function fg1(f){
+		txt1 = f.encoding;
+		document.getElementById('for_A1').innerHTML = "значение атрибута enctype формы \"my\": " + txt1;
+	}
+	function fa2(f){
+		var txt2 = "";
+		txt2 = f.elements.three.value;
+		let fields = form.elements.userFields;
+		// let a = alert(fieldset.elements.login == form.elements.login);
+		document.getElementById('for_A2').innerHTML = "fields.elements.three == form.elements.three: " + txt2;
+	}
+</script>
+</head>
+<body style="font-family: Calibri; font-size: 12px;">
+	<p>Если в HTML-документе определена форма, то она доступна сценарию JavaScript как объект, входящий в объект <i>document</i> с именем, заданным атрибутом <i>NAME</i> тега <i>FORM</i>.</p>
+
+<h3>Form</h3>
+<div id="contbor">
+<pre>	&lt;form name="my" id="forma"&gt;
+		&lt;input name="one" value="1"&gt;
+		&lt;input name="two" value="2"&gt;
+	&lt;/form&gt;
+</pre>
+	<form name="my" id="forma">
+		<input name="one" value="1">
+		<input name="two" value="2">
+	</form>
+	<span id="for_A1"></span>
+</div>
+
+<table>
+	<tr>
+		<td>1</td>
+		<td class="fst">document.forms.my;</td>
+		<td> - доступ к форме с именем "my"</td>
+		<td><button onclick="fa1(my)">check</button></td>
+	</tr>
+	<tr>
+		<td>2</td>
+		<td class="fst">document.forms[0];</td>
+		<td> - доступ к первой форме в документе</td>
+		<td><button onclick="fb1(my)">check</button></td>
+	</tr>
+	<tr>
+		<td>3</td>
+		<td class="fst">form.elements.one;</td>
+		<td> - доступ к элементу формы с именем "one"<br> * может быть несколько элементов с одним и тем же именем, это часто бывает с кнопками-переключателями</td>
+		<td><button onclick="fc1(my)">check</button></td>
+	</tr>
+	<tr>
+		<td>4</td>
+		<td class="fst">form.one;</td>
+		<td> - сокращённая форма доступа к элементу формы с именем "one"</td>
+		<td><button onclick="fc1(my)">check</button></td>
+	</tr>
+	<tr>
+		<td>5</td>
+		<td class="fst">one.form;</td>
+		<td> - обратная ссылка</td>
+		<td><button onclick="fcc1(my)">check</button></td>
+	</tr>
+	<tr>
+		<td colspan="4"><h4>Свойства формы</h4></td>
+	</tr>
+	<tr>
+		<td>1</td>
+		<td class="fst">form.action;</td>
+		<td> - значение атрибута action: имя программы, которая будет обрабатывать форму</td>
+		<td><button onclick="fd1(my)">check</button></td>
+	</tr>
+	<tr>
+		<td>2</td>
+		<td class="fst">form.target;</td>
+		<td> - значение атрибута target: фрейм, куда отправить полученную информацию (задается во фреймосодержащих документах)</td>
+		<td><button onclick="fe1(my)">check</button></td>
+	</tr>
+	<tr>
+		<td>3</td>
+		<td class="fst">form.method;</td>
+		<td> - значение атрибута method: метод передачи данных от формы обрабатывающей программе; может принимать значения get или post</td>
+		<td><button onclick="ff1(my)">check</button></td>
+	</tr>
+	<tr>
+		<td>4</td>
+		<td class="fst">form.encoding;</td>
+		<td> - значение атрибута enctype: тип содержимого (метод кодирования)</td>
+		<td><button onclick="fg1(my)">check</button></td>
+	</tr>
+	<tr>
+		<td>5</td>
+		<td class="fst">form.elements;</td>
+		<td> - массив всех элементов формы</td>
+		<td><button onclick="fa1(my)">check</button></td>
+	</tr>
+	<tr>
+		<td>6</td>
+		<td class="fst">form.length;</td>
+		<td> - размер массива elements</td>
+		<td><button onclick="fb1(my)">check</button></td>
+	</tr>
+</table>
+
+
+<h3>&lt;fieldset&gt; как «подформа»</h3>
+<div id="contbor">
+<pre>	&lt;form name="my2"&gt;
+		&lt;fieldset name="userFields"&gt;
+			&lt;input name="three" 	value="3"&gt;
+			&lt;input name="four"	value="4"&gt;
+		&lt;/fieldset&gt;
+	&lt;/form&gt;
+</pre>
+	<form name="my2">
+		<fieldset name="userFields">
+			<input name="three" value="3">
+			<input name="four" 	value="4">
+		</fieldset>
+	</form>
+	<span id="for_A2"></span>
+</div>
+
+<table>
+	<tr>
+		<td>1</td>
+		<td class="fst">form.elements.userFields.elements.three;</td>
+		<td> - доступ к элементу через fieldset</td>
+		<td><button onclick="fa2(my2)">check</button></td>
+	</tr>
+	<tr>
+		<td>2</td>
+		<td class="fst">form.elements.three;</td>
+		<td> - доступ к элементу через form</td>
+		<td><button onclick="fa2(my2)">check</button></td>
+	</tr>
+</table>
+
+
+<h3>Элементы формы</h3>
+<div id="contbor">
+<pre>	&lt;form id="my2"&gt;
+		&lt;fieldset name="userFields"&gt;
+			&lt;input name="three" 	value="3"&gt;
+			&lt;input name="four"	value="4"&gt;
+		&lt;/fieldset&gt;
+	&lt;/form&gt;
+</pre>
+	<form id="my3">
+		<fieldset name="userFields">
+			<input name="three" value="3">
+			<input name="four" 	value="4">
+		</fieldset>
+	</form>
+	<span id="for_A3"></span>
+</div>
+
+<table>
+	<tr>
+		<td>1</td>
+		<td class="fst">form.elements.userFields.elements.three;</td>
+		<td> - доступ к элементу через fieldset</td>
+		<td><button onclick="fa3(my3)">check</button></td>
+	</tr>
+
+
+</body>
+</html>

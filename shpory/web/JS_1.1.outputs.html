@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Вивід даних за допомогою JS</title>
+	<link rel="stylesheet" type="text/css" href="css/css_flw_style.css">
+</head>
+<body>
+	<div id="content">
+		<font size="6"><center>Способи виводу даних Java Script</center></font>
+		<table border="1" width="98%" id="css-table">
+			<tr>
+				<th>Випливаюче вікно з повідомленням</th>
+				<th>В HTML-об'єкт, отримавши до нього доступ через id</th>
+				<th>Прямо на сторінку</th>
+				<th>Після натискання на кнопку</th>
+				<th>В консоль браузера (для відладки)</th>
+			</tr>
+			<tr>
+				<td colspan="5" style="text-align: center;">
+					JS-скрипт(можна записувати як між тегами &lt;script&gt; в html-файлі сторінки, так і в окремому файлі з розширенням .js, підключивши його в &lt;head&gt;: &lt;script src="script.js"&gt;&lt;/script&gt;
+						
+				</td>
+			</tr>
+			<tr>
+				<td><xmp>window.alert("Текст вікна");</xmp></td>
+				<td>
+					<xmp>document.getElementById("bbb").innerHTML = "5 + 6 =";</xmp>
+					<xmp>document.getElementById("bbb1").innerHTML = 5 + 6;</xmp>
+				</td>
+				<td>
+					<xmp>document.write(5 + 6 =);</xmp>
+					<xmp>document.write(5 + 6);</xmp>
+				</td>
+				<td><xmp></xmp></td>
+				<td><xmp>console.log(6 + 6);</xmp></td>
+			</tr>
+			<tr>
+				<td colspan="5" style="text-align: center;">HTML-теги</td>
+			</tr>
+			<tr>
+				<td><xmp></xmp></td>
+				<td>
+					<xmp><span id="bbb"></span></xmp>
+					<xmp><span id="bbb1"></span></xmp>
+				</td>
+				<td><xmp></xmp></td>
+				<td><xmp><button type="button" onclick="document.write(5 + 6)">Текст кнопки</button></xmp></td>
+				<td><xmp></xmp></td>
+			</tr>
+			<tr>
+				<td colspan="5" style="text-align: center;">Результат</td>
+			</tr>
+			<tr>
+				<td><script>window.alert("Випливаюче вікно. Натисніть \"ОК\", щоб побачити решту");</script></td>
+				<td>
+					<span id="bbb"></span>
+					<span id="bbb1"></span>
+				</td>
+				<td>
+					<script>document.write("5 + 6 =");
+					document.write(5 + 6);</script>
+				</td>
+				<td><button type="button" onclick="document.write(5 + 6)">Після натискання виведеться результат обчислення, але весь інший вміст сторінки зітреться</button></td>
+				<td><script>console.log(6 + 6);</script></td>
+			</tr>
+		</table>
+			
+
+	</div>
+
+	<script>
+		document.getElementById("aaa");
+		document.getElementById("bbb").innerHTML = "5 + 6 =";
+		document.getElementById("bbb1").innerHTML = 5 + 6;
+		// Блок кода:
+		function myFunction() {
+			     document.getElementById("demo1").innerHTML = "Привет!";
+			     document.getElementById("demo2").innerHTML = "Как дела?";
+		}
+	</script>
+</body>
+</html>

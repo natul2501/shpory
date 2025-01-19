@@ -1,0 +1,73 @@
+		body{
+			background-image : url(../img/old-cement-wall-texture.jpg);
+			background-size: 100%;
+			font-family: Calibri;
+			font-size: 14px; 
+		}
+		#content{
+			background-color:#C9C9C9;
+			padding: 5px;
+   			padding-left: 20px;
+   			border: solid 1px black;
+			float: left;
+			width: 98%;
+		}
+		#t1 {
+			border: 2px solid green;
+			width: 30%;
+		}
+		#t2 tr:hover{
+			background-color: pink;
+		}
+		#t3 td{
+			height: 20px;
+			border: 2px solid gray;
+		}
+		#t4 td{
+			height: 30px;
+			text-align: right;
+		}
+		#t5 td{
+			height: 30px;
+			vertical-align: bottom;
+		}
+		#t6 tr:last-child{
+			color: red;
+		}
+		#t7 td:first-child{
+			border: 2px solid gray;
+		}
+		#t8 td{
+			border: 2px solid gray;
+			text-align: center;
+		}
+		#t8{
+			border-collapse: collapse;
+		}
+		#t9 td{
+			border: 2px solid gray;
+			text-align: center;
+		}
+		#t9{
+			border-collapse: separate;
+		}
+		#t10 tr:nth-child(odd){
+			 background-color: RosyBrown;
+		}
+		#t11 tr:nth-child(even){
+			 background-color: RosyBrown;
+		}
+/*--------------ELEMENT'S STYLES-----------------*/
+		xmp{
+			color: brown;
+			font-weight: bold;
+			font-family: Consolas;
+			display: inline;
+			font-size: 13px;
+		}
+		div{
+			float:left;
+			width: 19%;
+		}
+		
+		

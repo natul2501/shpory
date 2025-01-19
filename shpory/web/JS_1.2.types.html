@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JS-types</title>
+	<link rel="stylesheet" type="text/css" href="css/css_table_style.css">
+	<style type="text/css">
+		h2{
+			margin: 3px;
+		}
+	</style>
+</head>
+<body>
+	<div id="content">
+		<font size="6"><center>Типи даних JavaScript</center></font>
+
+		<table border="1" align="center">
+			<tr>
+				<th colspan="3"><h2>Примітивні</h2></th>
+			</tr>
+			<tr>
+				<th colspan="3" style="background-color: PowderBlue;">1. Число:</th>
+			</tr>
+			<tr>
+				<td>document.write(1005)</td>
+				<td><script>document.write(1005);</script></td>
+				<td> - записано у вигляді константи</td>
+			</tr>
+			<tr>
+				<td>document.write(10 + 0.5)</td>
+				<td><script>document.write(10 + 0.5);</script></td>
+				<td> - записано у вигляді сумми констант</td>
+			</tr>
+			<tr>
+				<td>document.write(a1)</td>
+				<td><script>
+					var a1 = 10.5;
+					document.write(a1);
+				</script></td>
+				<td> - записано за допомогою змінної а1</td>
+			</tr>
+			<tr>
+				<td>document.write(2/0);</td>
+				<td><script>document.write(2/0);</script></td>
+				<td> - нескінченність теж число</td>
+			</tr>
+			<tr>
+				<th colspan="3" style="background-color: PowderBlue;">2. Рядок</th>
+			</tr>
+			<tr>
+				<td>document.write("10 + 0.5")</td>
+				<td><script>document.write("10 + 0.5");</script></td>
+				<td> - записано в подвійных лапках</td>
+			</tr>
+			<tr>
+				<td>document.write('10 + 0.5')</td>
+				<td><script>document.write('10 + 0.5');</script></td>
+				<td> - записано в одинарних лапках</td>
+			</tr>
+			<tr>
+				<td>document.write(a2)</td>
+				<td><script>
+					var a2 = "10 + 0.5";
+					document.write(a2);
+				</script></td>
+				<td> - записано за допомогою змінної а2</td>
+			</tr>
+			<tr>
+				<td>document.write("10 " + "+ 0.5")</td>
+				<td><script>document.write("10 " + "+ 0.5");</script></td>
+				<td> - записано у вигляді суми двох рядків</td>
+			</tr>
+			<tr>
+				<th colspan="3" style="background-color: PowderBlue;">3. Логічні:</th>
+			</tr>
+			<tr>
+				<td>document.write(10 > 0.5);</td>
+				<td><script>document.write(10 > 0.5);</script></td>
+				<td> - записано в найпростішому вигляді</td>
+			</tr>
+			<tr>
+				<td>document.write(Boolean(10 > 0.5));</td>
+				<td><script>document.write(Boolean(10 > 0.5));</script></td>
+				<td> - записано за допомогою функиції Boolean()</td>
+			</tr>
+			<tr>
+				<td>document.write(Boolean(-15)+"; "+Boolean("false"));</td>
+				<td><script>document.write(Boolean(-15)+"; "+Boolean("false"));</script></td>
+				<td> - будь-яке значення відмінне від 0 має логічне значення true</td>
+			</tr>
+			<tr>
+				<td>document.write(Boolean(-0));</td>
+				<td><script>document.write(Boolean(-0));</script></td>
+				<td> - значеня false мають: false; 0; -0; ""; undefined; null; NaN</td>
+			</tr>
+			<tr>
+				<td >document.write(2 < "12");</td>
+				<td><script>document.write(2 < "12");</script></td>
+				<td> - при порівнянні рядка та числа JavaScript буде перетворювати рядок на числове значення</td>
+			</tr>
+			<tr>
+				<td>document.write("2" < "12");</td>
+				<td><script>document.write("2" < "12");</script></td>
+				<td> - "2" не менше "12", тому що в алфавітній послідовності 1 менше 2</td>
+			</tr>
+			<tr>
+				<td>document.write(0 == "John");</td>
+				<td><script>document.write(0 == "John");</script></td>
+				<td> - не числовий рядок перетворюється на значення NaN</td>
+			</tr>
+			<tr>
+				<td>(12 < 2) ? "да" : "нэт"</td>
+				<td><script>document.write((20<18)?"да":"нэт");</script></td>
+				<td> - yмовний (тернарний) оператор: true -> "так", false -> "ні"</td>
+			</tr>
+			<tr>
+				<th colspan="3" style="line-height: 20px"><i>Нехай var x = false, var y = new Boolean(false), var z = new Boolean(false)</i></th>
+			</tr>
+			<tr>
+				<td>document.write(x == y);</td>
+				<td><script>
+					var x = false, y = new Boolean(false), z = new Boolean(false);
+					document.write(x == y);</script></td>
+				<td> - при використанні оператора порівняння == однакові значення типу Boolean рівні</td>
+			</tr>
+			<tr>
+				<td>x === y</td>
+				<td><script>document.write(x === y);</script></td>
+				<td> - не рівні, тому що оператор === очікує збігу як за значенням, так і за типом</td>
+			</tr>
+			<tr>
+				<td >y == z</td>
+				<td><script>document.write(y == z);</script></td>
+				<td> - Порівняння двох об'єктів JavaScript завжди повертає false</td>
+			</tr>
+			<tr>
+				<th colspan="3" style="background-color: PowderBlue;">4. Функція. По суті це константне значення</th>
+			</tr>
+			<tr>
+				<td>document.getElementById("temp1").innerHTML = toCelsius;</td>
+				<td><span id="temp1"></span></td>
+				<td> - виклик функції без скобок</td>
+			</tr>
+			<tr>
+				<td>document.getElementById("temp2").innerHTML = toCelsius();</td>
+				<td><span id="temp2"></span></td>
+				<td> - виклик функції зі скобками</td>
+			</tr>
+			<tr>
+				<td>
+					var temperature = toCelsius(40);<br>
+					var itIs = "The temperature is " + temperature + "F";<br>
+					document.getElementById("temp3").innerHTML = itIs;
+				</td>
+				<td><span id="temp3"></span></td>
+				<td> - виклик функції як значення змінної</td>
+			</tr>
+			<tr style="line-height: 20px">
+				<th colspan="3">ECMAScript 6 (2015)</th>
+			</tr>
+			<tr>
+				<td>function myFunction(x, y = 10) {<br>
+						return x + y;}<br>
+					myFunction(5);</td>
+				<td><script>
+					function myFunc(i1, i2 = 10) {
+						return i1 + i2;
+					}
+					document.write( myFunc(5) );
+				</script></td>
+				<td> - y дорівнює 10 якщо не передано значення або undefined</td>
+			</tr>
+			<tr>
+				<td>const x = (x, y = 10) => x + y;</td>
+				<td><script>
+					const i3 = (i3, i4 = 10) => i3 + i4;
+					document.write(i3(5));
+				</script></td>
+				<td> - "стрілочні" функції надають короткий запис для виразів-функцій; якщо функція складається з більш ніж одного виразу, потрібні фігурні дужки</td>
+			</tr>
+			<tr>
+				<td>const x = (x, y) => {return x + y};</td>
+				<td><script>document.write(i3(5));</script></td>
+				<td> - гарною звичкою буде писати так</td>
+			</tr>
+			<tr>
+				<th colspan="3" style="background-color: PowderBlue;">5. null</th>
+			</tr>
+			<tr>
+				<th colspan="3" style="background-color: PowderBlue;">6. undefined</th>
+			</tr>
+		</table>
+
+		<script type="text/javascript">
+			function toCelsius(fahrenheit) {
+					return (5/9) * (fahrenheit-32);
+			}
+			document.getElementById("temp1").innerHTML = toCelsius;
+			document.getElementById("temp2").innerHTML = toCelsius();
+			var temperature = toCelsius(40);
+			var itIs = "The temperature is " + temperature + "F";
+			document.getElementById("temp3").innerHTML = itIs;
+		</script>
+
+		<table border="1" align="center" width="1600px">
+			<tr>
+				<th colspan="3"><h2>Змінні</h2></th>
+			</tr>
+			<tr>
+				<th colspan="3" style="background-color: PowderBlue;">1. Змінні</th>
+			</tr>
+			<tr>
+				<td>var x = 10.05;<br>
+					document.write(x);
+				</td>
+				<td><script>
+					var d = 10.05;
+					document.write(d);
+				</script></td>
+				<td> - привласнення значення змінній</td>
+			</tr>
+			<tr>
+				<th colspan="3" style="background-color: PowderBlue;">2. Об'єкт</th>
+			</tr>
+			<tr>
+				<td>var object = {<br>
+					firstName: "Ivan",<br>
+					lastName: "Ivanov"<br>
+					fullName : 	function(){<br>
+					&#8195;&#8195;&#8195;&#8195;return this.firstName + " " + this.lastName;<br>
+					&#8195;&#8195;&#8195;}<br>
+					};<br>
+					document.write(object.firstName + " " + object.lastName);
+				</td>
+				<td><script>
+					var object = {
+						firstName: "Ivan",
+						lastName: "Ivanov",
+						fullName : 	function(){
+									return this.firstName + " " + this.lastName;
+					        		}
+						};
+					document.write(object.firstName + " " + object.lastName);
+				</script></td>
+				<td> - створення об'єкта за допомогою об'єктного літералу</td>
+			</tr>
+			<tr>
+				<td>var object = new Object();<br>
+					object.firstName = "Ivan";<br>
+					object.lastName = "Ivanov";
+				</td>
+				<td>
+					<script>document.write(object.firstName + " " + object.lastName);</script>
+				</td>
+				<td>- створення об'єкта за допомогою ключового слова new</td>
+			</tr>
+			<tr>
+				<td>var x = object;<br>
+					x.firstName = "Petro";<br>
+					document.write(object.firstName);
+				</td>
+				<td>
+					<script>
+						var ob = object;
+						ob.firstName = "Petro";
+						document.write(object.firstName);
+					</script>
+				</td>
+				<td> - Об'єкт x це не копія об'єкта object. Це і об'єкт object. І x, і object – один і той самий об'єкт</td>
+			</tr>
+			<tr>
+				<td>object.firstName</td>
+				<td><script>ob.firstName = "Ivan";
+							document.write(object.firstName);
+					</script>
+				</td>
+				<td rowspan="2"> - звернення до елементів об'єкта;<br>
+								 - доступ до властивостей объекта</td>
+			</tr>
+			<tr>
+				<td>object["lastName"]</td>
+				<td><script>document.write(object["lastName"]);</script></td>
+			</tr>
+			<tr>
+				<td>object.firstName + " " + object.lastName</td>
+				<td><script>
+					document.write(object.firstName + " " + object.lastName);
+				</script></td>
+				<td> - <u>Властивість об'єкта</u> - це пари "ім'я:значення"</td>
+			</tr>
+			<tr>
+				<td>object.fullName()</td>
+				<td><script>document.write(object.fullName());</script></td>
+				<td> - <u>Метод об'єкта</u> - це функція, записана як властивість об'єкта;
+					<br> - це дії, які можна виконати з об'єктами</td>
+			</tr>
+			<tr style="text-align: center">
+				<th colspan="3">ECMAScript 5 (2009)<br>
+									<i>Нехай var person = {firstName: "Ivan", lastName: "Ivanov", language: "NO"}</i>
+				</th>
+			</tr>
+			<tr>
+				<td>
+					Object.create(){<br>
+					&#8195;firstName: "Ivan",<br>
+					&#8195;lastName : "Ivanov"<br>
+					}
+				</td>
+				<td><script>var f1 = Object.create(){
+										firstName: "Ivan",
+							 			lastName : "Ivanov"}
+					document.write(f1);</script>
+				</td>
+				<td> - створення об'єкта за допомогою функції</td>
+			</tr>
+			<tr>
+				<td>
+					get fullName(){<br>
+					&#8195;return this.firstName + " " + this.lastName;<br>
+					}
+				</td>
+				<td><script>var person = {
+							 	firstName: "Ivan",
+							 	lastName : "Ivanov",
+							 	get fullName() {
+							 		return this.firstName + " " + this.lastName;
+								}
+							};
+							document.write(person.fullName);</script></td>
+				<td> - створення в об'єкті геттера з ім'ям fullName</td>
+			</tr>
+			<tr>
+				<td>set lang(value){<br>
+					&#8195;this.language = value.toUpperCase();<br>
+					}</td>
+				<td><script>var person = {
+							 	firstName: "Ivan",
+							 	lastName : "Ivanov",
+							 	language : "NO",
+							 	set lang(value) {
+									this.language = value.toUpperCase();
+								}
+							};
+							person.lang = "en"; //задание свойства объекта с пом. сеттера
+							document.write(person.language);</script></td>
+				<td> - створення в об'єкті сеттера з ім'ям lang, який допомагає ставити одну з властивостей цього об'єкта</td>
+			</tr>
+			<tr>
+				<td>get lang() {<br>
+					&#8195;return this.language;<br>
+					},<br>
+					set lang(value) {<br>
+					&#8195;this.language = value;<br>
+					}</td>
+				<td><script>var person = {
+							 	firstName: "Ivan",
+							 	lastName : "Ivanov",
+							 	language : "NO",
+							 	get lang() {
+									return this.language;
+								},
+								set lang(value) {
+									this.language = value;
+								}
+							};
+							person.lang = "en"; //задание свойства объекта с пом. сеттера
+							document.write(person.lang);</script></td>
+				<td> - створення в об'єкті сеттера та геттера з ім'ям lang</td>
+			</tr>
+			<tr>
+				<td>Object.defineProperty(person, "language", {<br>
+					&#8195;value: "EN",<br>
+					&#8195;writable : true});
+					</td>
+				<td><script>Object.defineProperty(person, "language", {
+								value: "EN",
+								writable : true,
+								enumerable : false, // закрыто от перечисления, попробуй тру
+								configurable : true
+							});
+									// Перечисляем свойства
+							var txt = "";
+							for (var x in person) {
+								txt += person[x] + "; ";
+							}
+							document.write(txt);</script></td>
+				<td> - визначення властивості об'єкта та/або зміна значення властивості та/або його метаданих</td>
+			</tr>
+			<tr>
+				<td>Object.getOwnPropertyDescriptor(person, "language")</td>
+				<td><script>var sv = Object.getOwnPropertyDescriptor(person, "language");
+							document.write(sv);</script></td>
+				<td> - доступ до властивостей</td>
+			</tr>
+			<tr>
+				<td>Object.getPrototypeOf(person)</td>
+				<td><script>var proto = Object.getPrototypeOf(person);
+							document.write(proto);</script></td>
+				<td> - доступ до прототипу</td>
+			</tr>
+			<tr>
+				<td>Object.getOwnPropertyNames(person)</td>
+				<td><script>var mass = Object.getOwnPropertyNames(person);
+							document.write(mass);</script></td>
+				<td> - повертає всі властивості у вигляді масиву</td>
+			</tr>
+			<tr>
+				<td>Object.keys(person)</td>
+				<td><script>var keyw = Object.keys(person);
+							document.write(keyw);</script></td>
+				<td> - - повертає всі перераховані властивості у вигляді масиву</td>
+			</tr>
+			
+		</table>
+
+
+		<table align="center" border="1">
+			<tr>
+				<th colspan="3" style="background-color: PowderBlue;"><h2>Перетворення типів JavaScript</h2></td>
+			</tr>
+			<tr>
+				<td colspan="3">В рядок</td>
+			</tr>
+			<tr>
+				<td>document.write(String(123)+"; "+typeof(String(123)));</td>
+				<td>
+					<script>document.write(String(123)+"; "+typeof(String(123)));</script>
+				</td>
+				<td> - перетворює в рядок константу 123</td>
+			</tr>
+			<tr>
+				<td>String(100+23)</td>
+				<td><script>document.write(String(100+23)+"; "+typeof(String(100+23)));</script>
+				</td>
+				<td> - перетворює в рядок результат виразу</td>
+			</tr>
+			<tr>
+				<td>String(x)</td>
+				<td>
+					<script>
+						var c = 120;
+						document.write(String(c)+"; "+typeof(String(c)));
+					</script>
+				</td>
+				<td> - перетворює в рядок числову змінну x</td>
+			</tr>
+			<tr>
+				<th colspan="3">В число</th>
+			</tr>
+			<tr>
+				<td >Number("3.14")</td>
+				<td>
+					<script>document.write(Number("3.14")+"; "+typeof(Number("3.14")));</script>
+				</td>
+				<td> - перетворює рядок, що містить числа, в число</td>
+			</tr>
+			<tr>
+				<td>Number("99 88"); Number(" ")</td>
+				<td>
+					<script>document.write(Number("99 88")+"; "+Number(" "));</script>
+				</td>
+				<td> - перетворює рядок, який містить нечислові символи або який порожній, на число</td>
+			</tr>
+			<tr>
+				<td>Number(true)</td>
+				<td>
+					<script>document.write(Number(true)+"; "+typeof(Number(true)));</script>
+				</td>
+				<td> - перетворення логічних значень у числа</td>
+			</tr>
+			<tr>
+				<td>Number(new Date())</td>
+				<td>
+					<script>document.write(Number(new Date())+"; "+typeof(Number(new Date())));</script>
+				</td>
+				<td> - перетворення значення дати (тип Date) у числа</td>
+			</tr>
+		</table>
+
+		<table align="center" border="1">
+			<tr>
+				<th colspan="3" style="background-color: PowderBlue;"><h2>Арифметика JavaScript</h2></th>
+			</tr>
+			<tr>
+				<td>document.write(4 + 6 + 0.5)</td>
+				<td><script>document.write(4 + 6 + 0.5)</script></td>
+				<td> - сума чисел</td>
+			</tr>
+			<tr>
+				<td>document.write("4 +" + " 6 +" + ' 0.5')</td>
+				<td><script>document.write("4 +" + " 6 +" + ' 0.5')</script></td>
+				<td> - сума рядків</td>
+			</tr>
+			<tr>
+				<td>document.write(4 + " + 6 +" + ' 0.5')</td>
+				<td><script>document.write(4 + " + 6 +" + ' 0.5')</script></td>
+				<td> - сума чисел і рядків</td>
+			</tr>
+			<tr>
+				<td>document.write(a1 + " + " + a2 + " + " + a3)</td>
+				<td><script>
+						var a1 = "4", a2 = "6", a3 = '0.5';
+						document.write(a1 + " + " + a2 + " + " + a3)
+					</script></td>
+				<td> - сума змінних</td>
+			</tr>
+			<tr>
+				<td>document.write(a1 + " + " + a2 + " + " + a3)</td>
+				<td><script>
+						var a1 = "4", a2 = "6", a3 = '0.5';
+						document.write(a1 + " + " + a2 + " + " + a3)
+					</script></td>
+				<td> - більш точна сума чисел із плаваючою комою</td>
+			</tr>
+			<tr>
+				<td>document.write(b1!==b2); document.write(b1==b2)</td>
+				<td><script>
+						var b1 = 10, b2 = 0.5;
+						document.write(b1!==b2);
+						document.write(", ");
+						document.write(b1==b2);
+					</script></td>
+				<td> - порівняння</td>
+			</tr>
+			<tr>
+				<th colspan="3">ECMAScript 6 (2015)</th>
+			</tr>
+			<tr>
+				<td>document.write(5 ** 2)</td>
+				<td><script>document.write(5 ** 2);</script></td>
+				<td> - Оператор зведення в ступінь; дає той же результат, що і використання методу Math.pow(x,y)</td>
+			</tr>
+		</table>
+
+		<table align="center" border="1">
+			<tr>
+				<th colspan="4" style="background-color: PowderBlue;">Побітові операції<br>
+					<i>5 = 0101; 1 = 0001</i>
+				</th>
+			</tr>
+			<tr>
+				<td>&</td>
+				<td style="width: 55px"><script>document.write("5 & 1 = " + (5 & 1))</script></td>
+				<td style="width: 95px"><script>document.write("0101 & 0001 = " + (5 & 1).toString(2))
+					</script></td>
+				<td> - побітове "і" - повертає 1, яущо обидва біти дорівнюють 1</td>
+			</tr>
+			<tr>
+				<td>|</td>
+				<td><script>document.write("5 | 1 = " + (5 | 1))</script></td>
+				<td><script>document.write("0101 | 0001 = " + (5 | 1).toString(2));
+					</script></td>
+				<td> - побітове "або" - повертає 1, якщо хоча б один іх двох бітів дорівнює 1</td>
+			</tr>
+			<tr>
+				<td>^</td>
+				<td><script>document.write("5 ^ 1 = " + (5 ^ 1))</script></td>
+				<td><script>var bo1 = (5 ^ 1).toString(2);
+					document.write("0101 ^ 0001 = " + bo1)</script></td>
+				<td> - виключне "і" - повертає 1, якщо тільки один із двох бітів дорівнює 1, але не обидва</td>
+			</tr>
+			<tr>
+				<td class="fst">~</td>
+				<td><script>document.write("~ 5 = " + (~ 5))</script></td>
+				<td><script>document.write("~ 0101 = " + (~ 5).toString(2))
+					</script></td>
+				<td> - побітове "ні" - інвертує всі біти</td>
+			</tr>
+			<tr>
+				<td class="fst"><<</td>
+				<td><script>document.write("5 << 1 = " + (5<<1))</script></td>
+				<td><script>document.write("0101 << 1  =  " + (5<<1).toString(2))
+					</script></td>
+				<td> - зрушення вліво із заповненням молодших (праворуч) бітів нулями</td>
+			</tr>
+			<tr>
+				<td class="fst">>></td>
+				<td><script>document.write("9 >> 1 = " + (9 >> 1))</script></td>
+				<td><script>document.write("1001 >> 1 = " + (9 >> 1).toString(2))
+					</script></td>
+				<td> - зсув праворуч з копіюванням знака (арифметичний зсув праворуч); порожні біти заповнюються копією крайнього лівого біта</td>
+			</tr>
+			<tr>
+				<td class="fst">>>></td>
+				<td><script>document.write("9 >>> 1 = " + (9 >>> 1))</script></td>
+				<td><script>document.write("1001 >>> 1 = " + (9 >>> 1).toString(2))
+					</script></td>
+				<td> - зсув вправо із заповненням старших (ліворуч) бітів нулями</td>
+			</tr>
+
+		</table>
+
+
+		<table align="center" border="1">
+			<tr>
+				<th colspan="3" style="background-color: PowderBlue;">Оператори JavaScript</th>
+			</tr>
+			<tr>
+				<td colspan="2"><script>
+					document.write("+, -, *, /, %, ++, --")</script></td>
+				<td> - Арифметичні</td>
+			</tr>
+			<tr>
+				<td colspan="2"><script>document.write("&&, ||, !")</script></td>
+				<td> - Логічні</td>
+			</tr>
+			<tr>
+				<td colspan="2"><script>
+					document.write("&, |, ^, ~, <<, >>>")</script></td>
+				<td> - Побітові</td>
+			</tr>
+			<tr>
+				<td colspan="2"><script>
+					document.write("=, +=, -+, *=, /=, %=")</script></td>
+				<td> - Присвоєння</td>
+			</tr>
+			<tr>
+				<td colspan="2"><script>
+					document.write("==, !=, >, >=, ?, ===(равно по значению и типу)")
+				</script></td>
+				<td> - Порівняння</td>
+			</tr>
+			<tr>
+				<th colspan="3" style="background-color: PowderBlue;"><h2>Оператори типів</h2></th>
+			</tr>
+			<tr>
+				<td>typeof(6)</td>
+				<td><script>document.write(typeof(6));</script></td>
+				<td> - тип = число</td>
+			</tr>
+			<tr>
+				<td>typeof('a')</td>
+				<td><script>document.write(typeof('a'));</script></td>
+				<td> - тип = рядок</td>
+			</tr>
+			<tr>
+				<td>typeof(object)</td>
+				<td><script>document.write(typeof(object));</script></td>
+				<td> - тип = об'єкт</td>
+			</tr>
+			<tr>
+				<td>typeof(true)</td>
+				<td><script>document.write(typeof(true));</script></td>
+				<td> - тип = логічний</td>
+			</tr>
+			<tr>
+				<td>typeof(function myFunc(){})</td>
+				<td><script>document.write(typeof(function myFunc(){}));</script></td>
+				<td> - тип = функція</td>
+			</tr>
+			<tr>
+				<td>typeof(em)</td>
+				<td><script>document.write(typeof(em));</script></td>
+				<td> - у невизначеної змінної тип = undefined</td>
+			</tr>
+			<tr>
+				<td>typeof(null)</td>
+				<td><script>document.write(typeof(null));</script></td>
+				<td> - у "null" тип = об'єкт</td>
+			</tr>
+			<tr>
+				<td>typeof(Infinity)</td>
+				<td><script>document.write(typeof(Infinity));</script></td>
+				<td> - у нескінченності тип = число</td>
+			</tr>
+			<tr>
+				<td>typeof(NaN)</td>
+				<td><script>document.write(typeof(NaN));</script></td>
+				<td> - NaN теж число</td>
+			</tr>
+			<tr>
+				<td>typeof(new String())</td>
+				<td><script>
+					var ns = new String();
+					document.write(typeof(ns));
+				</script></td>
+				<td> - у рядків, масивів та іншого, що створене за допомогою "new", тип = об'єкт</td>
+			</tr>
+			<tr>
+				<td>"John".constructor</td>
+				<td><script>document.write("John".constructor);</script></td>
+				<td rowspan="7"> - повертає функцію-конструктор у всіх змінних JavaScript</td>
+			</tr>
+			<tr>
+				<td>(3.14).constructor</td>
+				<td><script>document.write((3.14).constructor);</script></td>
+			</tr>
+			<tr>
+				<td>false.constructor</td>
+				<td><script>document.write(false.constructor);</script></td>
+			</tr>
+			<tr>
+				<td>[0,1,2].constructor</td>
+				<td><script>document.write([0,1,2].constructor);</script></td>
+			</tr>
+			<tr>
+				<td>{name:"John", age: 34}.constructor</td>
+				<td><script>document.write({name:"John", age: 34}.constructor);</script></td>
+			</tr>
+			<tr>
+				<td>new Date().constructor</td>
+				<td><script>document.write(new Date().constructor);</script></td>
+			</tr>
+			<tr>
+				<td>function(){}.constructor</td>
+				<td><script>document.write(function(){}.constructor);</script></td>
+			</tr>
+			<tr>
+				<td>instanceof(d)</td>
+				<td><script>
+					var d = 6;
+					document.write(instanceof(d));
+				</script></td>
+				<td> - instanceof</td>
+			</tr>
+			<tr style="text-align: center; line-height: 20px">
+				<td colspan="3"><b>ECMAScript 6 (2025)</b></td>
+			</tr>
+			<tr>
+				<td>isFinite(Infinity); isFinite(-0.5)</td>
+				<td><script>
+					document.write(isFinite(Infinity));
+					document.write("; ");
+					document.write(isFinite(-0.5));
+				</script></td>
+				<td> - повертає false, якщо його параметр має тип Infinity чи NaN</td>
+			</tr>
+			<tr>
+				<td>isNaN("Hello"); isNaN(5); isNaN("5")</td>
+				<td><script>
+					document.write(isNaN("Hallo"));
+					document.write("; ");
+					document.write(isNaN(5));
+					document.write("; ");
+					document.write(isNaN("5"));
+				</script></td>
+				<td> - повертає true, якщо параметр має тип NaN</td>
+			</tr>
+		</table>
+
+		<table border="1" align="center">
+			<tr>
+				<th>ECMAScript 5 (2009). Строгий режим</th>
+			</tr>
+			<tr>
+				<td>"use strict";<br>
+					x = 3.14;<br>
+					document.write(typeof(x));
+				</td>
+				<td><script>
+					"use strict";
+					e1 = 3.14;
+					document.write(typeof(e1));
+				</script></td>
+				<td> - декларування строгого режиму; у строгому режимі недекларовані змінні не створюються автоматично</td>
+			</tr>
+			<tr>
+				<td>x = 3.14;<br>
+					function myFunc(){<br>
+						"use strict";<br>
+						y = 3.14;
+					}<br>
+					document.write(typeof(x) + "; " + typeof(y));
+				</td>
+				<td><script>
+					e2 = 3.14;
+					function myFunc(){
+						"use strict";
+						e3 = 3.14;
+					}
+					document.write(typeof(e2) + "; ");
+					document.write(typeof(e3));
+				</script></td>
+				<td> - декларування строгого режиму усередині блоку</td>
+			</tr>
+		</table>
+	</div>
+</body>
+</html>

@@ -1,0 +1,59 @@
+		body{
+			background-image : url(../img/old-cement-wall-texture.jpg);
+			background-size: 100%;
+			font-family: Calibri;
+			font-size: 14px; 
+		}
+		header{
+			background-color:#C9C9C9;
+			border: solid 1px black;
+
+		}
+
+		#container{
+			position: absolute;
+			top: 110px;
+		}
+		#menu1 {
+			background-color:#C9C9C9;
+			border: solid 1px black;
+			width:500px;
+			height: 100%;
+			float:left;
+			padding: 4px;
+		}
+		#menu2{
+			background-color:#C9C9C9;
+			border: solid 1px black;
+			height:1040px;
+			width:400px;
+			float:left;
+			padding: 4px
+		}
+		#menu3{
+			background-color:#C9C9C9;
+			border: solid 1px black;
+			width:400px;
+			height: 100%;
+			float:left;
+			padding: 4px
+		}
+		#menu4{
+			background-color:#C9C9C9;
+			border: solid 1px black;
+			width:500px;
+			height: 100%;
+			float:left;
+			padding: 4px
+		}
+/*--------------ELEMENT'S STYLES-----------------*/
+		xmp{
+			color: brown;
+			font-weight: bold;
+			font-family: Arial;
+			display: inline;
+			font-size: 13px;
+		}
+		h1{
+			margin-bottom:0;
+		}

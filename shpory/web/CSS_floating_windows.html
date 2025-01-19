@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Випливаючі віконця CSS</title>
+	<link rel="stylesheet" type="text/css" href="css/css_flw_style.css">
+
+<!-------------------------- ВИПЛИВАЮЧЕ ВІКОНЦЕ 1---------------------------->
+	<script type="text/javascript">alert('Hello')</script>
+</head>
+
+<body>
+	<div id="content">
+		<table border="1" width="100%">
+			<tr>
+				<th>Віконце, що з'являється при відкритті сторінки</th>
+			</tr>
+			<tr>
+				<td><center>Скрипт прописаний в &lt;header&gt;</center></td>
+			</tr>
+			<tr>
+				<td><xmp><script type="text/javascript">alert('Hello')</script></xmp></td>
+			</tr>
+		</table>
+		<table border="1" width="100%" id="css-table">
+			<tr>
+				<th>Віконце, що викликається через посилання</th>
+				<th>Віконце із кнопкою, що викликається через посилання</th>
+			</tr>
+			<tr>
+				<td colspan="2"><center>Стилі</center></td>
+			</tr>
+			<tr>
+				<td>
+						/*1. Позиционуємо і центрируємо випливаюче віконце
+							приховування віконця наслідується від батьківського елементу &lt;a&gt;*/
+					<xmp>	#window1-style_after{</xmp>
+					<xmp>		position: absolute;</xmp>
+					<xmp>		top: 0;</xmp>
+					<xmp>		right: 0;</xmp>
+					<xmp>		bottom: 0;</xmp>
+					<xmp>		left: 0;</xmp>
+					<xmp>		margin: auto;</xmp>
+					<xmp>	}</xmp>
+						/*2. Приховуємо посилання з віконцем, позиціонуємо і розтягуємо на всю ширину вікна браузера*/
+					<xmp>	#window1-style-before{</xmp>
+					<xmp>		display: none;</xmp>
+					<xmp>		position: absolute;</xmp>
+					<xmp>		top: 0;</xmp>
+					<xmp>		left: 0;</xmp>
+					<xmp>		width: 100%;</xmp>
+					<xmp>		height: 100%;</xmp>
+					<xmp>	}</xmp>
+						/*3. Відображення випливаючого віконця після переходу до нього за посиланням*/
+					<xmp>	#window1-style-before:target {display: block;}</xmp>
+				</td>
+				<td>
+					/*1. Позиционуємо і центрируємо випливаюче віконце
+							приховування віконця наслідується від батьківського елементу <a>*/
+					<xmp>	#window2-style-after{</xmp>
+					<xmp>		position: absolute;</xmp>
+					<xmp>		top: 0;</xmp>
+					<xmp>		right: 0;</xmp>
+					<xmp>		bottom: 0;</xmp>
+					<xmp>		left: 0;</xmp>
+					<xmp>		margin: auto;</xmp>
+					<xmp>	}</xmp>
+						/*2. Стиль кнопки*/
+					<xmp>	.button2-style{</xmp>
+					<xmp>		border: 1px solid #0000cc;</xmp>
+					<xmp>		padding: 0 12px;</xmp>
+					<xmp>		margin: 10px;</xmp>
+					<xmp>		text-decoration: none;</xmp>
+					<xmp>		background: #f2f2f2;</xmp>
+					<xmp>	}</xmp>
+					<xmp>	.button2-style:hover{background: #e6e6ff;}</xmp>
+						/*3. Приховуємо посилання з віконцем, позиціонуємо і розтягуємо на всю ширину вікна браузера*/
+					<xmp>	#window2-style-before{</xmp>
+					<xmp>		display: none;</xmp>
+					<xmp>		width: 100%;</xmp>
+					<xmp>		height: 100%;</xmp>
+					<xmp>		position: absolute;</xmp>
+					<xmp>		top: 0;</xmp>
+					<xmp>		left: 0;</xmp>
+						/***для затемнення сторінки:	*/
+					<xmp>		background: rgba(102, 102, 102, 0.5);</xmp>
+					<xmp>	}</xmp>
+						/*4. Відображення випливаючого віконця після переходу до нього за посиланням*/
+					<xmp>	#window2-style-before:target {display: block;}</xmp>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2"><center>HTML-теги</center></td>
+			</tr>
+			<tr>
+				<td>
+					<xmp>		<a href="#window1-style-before">Посилання для виклику випливаючого віконця</a></xmp>
+					<xmp>		<a href="#" id="window1-style-before"></xmp>
+					<xmp>			<div id="window1-style_after" class="window">Текст віконця.<br>Щоб приховати, натисніть на будь-яке місце у вікні браузера</div></xmp>
+					<xmp>		</a></xmp>
+				</td>
+				<td>
+					<xmp>	<div id="window2-style-before"></xmp>
+					<xmp>		<div id="window2-style-after" class="window"></xmp>
+					<xmp>			Текст віконця. Якщо хочете закрити - натисніть на кнопку</xmp>
+					<xmp>			<a href="#" class="button2-style">Кнопка</a></xmp>	
+					<xmp>		</div></xmp>
+					<xmp>	</div></xmp>
+					<xmp>	<a href="#window2-style-before">Посилання для виклику випливаючого віконця з текстом і кнопкою</a></xmp>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2"><center>Результат</center></td>
+			</tr>
+			<tr>
+				<td><a href="#window1-style-before">Посилання для виклику випливаючого віконця</a>
+					<a href="#" id="window1-style-before">
+						<div id="window1-style_after" class="window">Текст віконця.<br>Щоб приховати, натисніть на будь-яке місце у вікні браузера</div>
+					</a>
+				</td>
+				<td>
+					<div id="window2-style-before">
+						<div id="window2-style-after" class="window">
+							Текст віконця. Якщо хочете закрити - натисніть на кнопку
+							<a href="#" class="button2-style">Кнопка</a>	
+						</div>
+					</div>
+					<a href="#window2-style-before">Посилання для виклику випливаючого віконця з текстом і кнопкою</a>
+				</td>
+			</tr>
+		</table>
+	</div>
+
+</body>
+</html>

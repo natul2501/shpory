@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Позиціонування</title>
+	<link rel="stylesheet" type="text/css" href="css/css_position_style.css">
+</head>
+<body>
+	<div id="content" style="width:98%;">
+		<table width="98%" border="1">
+			<tr>
+				<th colspan="6">Зміст</th>
+			</tr>
+			<tr>
+				<td><center><a href="#A1">position</a></center></td>
+				<td><center><a href="#A2">display</a></center></td>
+				<td><center><a href="#A7">visibility</a></center></td>
+				<td><center><a href="#A3">float</a></center></td>
+				<td><center><a href="#A4">clear</a></center></td>
+				<td><center><a href="#A5">overflow</a></center></td>
+				<td><center><a href="#A6">z-index</a></center></td>
+			</tr>
+		</table>
+	</div>
+	<div id="content">
+		<h3 id="A1">Властивість POSITION - задає розміщення на сторінці</h3>
+		<table width="100%">
+			<tr>
+				<td><div id="div" style="overflow: scroll; width: 490px; height: 300px;">
+					<h4>За замовчуванням (position: static)</h4>
+					<img src="img/pix.jpg" width="150" align="right" title="position: static" style="position: static">
+					<xmp><img src="img.jpg" width="150" align="right" style="position: static"></xmp><br>
+					 Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet</div>
+				</td>
+				<td><div id="div" style="overflow: scroll; width: 430px; height: 300px;">
+					<h4>Відносно поточного місцезнаходження (position: relative)</h4>
+					Координати на відміну від абсолютного позиціонування, відраховуються від попереднього стану блоку.
+					<img src="img/pix.jpg" width="150" align="right" title="position: relative" style="position: relative; top: 160px; right: 50px">
+					<xmp><img src="img.jpg" id="image" width="150" align="right">
+#image{
+	position: relative;
+	top: 50px;
+	right: 50px"
+}</xmp><br>
+					Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet</div>
+				</td>
+				<td><div id="div" style="overflow: scroll; width: 430px; height: 300px;">
+					<h4>Абсолютне позиціонування (position: absolute)</h4>
+					Зазвичай для позиціонування застосовують саме цей тип. використовуючи ключові слова top, right, bottom,left вказують необхідні координати, які відраховуються від країв вікна браузера.
+					<img src="img/pix.jpg" width="150" align="right" title="position: absolute" style="position: absolute; top: 30%; left: 67%">
+					<xmp><img src="img.jpg" id="image" width="150" align="right">
+#image{
+	position: absolute;
+	top: 30%;
+	left: 67%"
+}</xmp><br>
+					 Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet<br></div>
+				</td>
+				<td><div id="div" style="overflow: scroll; width: 430px; height: 300px;">
+					<h4>Прив'язане до точки на екрані (position: fixed)</h4>
+					Якщо потрібно зафіксувати блок, тобто щоб він не скролився, то необхідно вказати значення FIXED.
+					<img src="img/pix.jpg" width="150" align="right" title="position: fixed" style="position: fixed; top: 20px; right: 10px">
+					<xmp><img src="img.jpg" id="image" width="150" align="right">
+#image{
+	position: fixed;
+	top: 20px;
+	right: 10px"
+}</xmp><br>
+					 Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet</div>
+				</td>
+			</tr>
+		</table>
+	</div>
+
+	<div id="content" style="width:98%">
+		<h3 id="A2">Властивість DISPLAY - налаштовує відображення одного об'єкта подібно іншому об'єкту</h3>
+		<table width="98%" border="1">
+			<tr>
+				<th colspan="2">Нехай об'єкту &lt;div&gt; задані наступні властивості:</th>
+				<th colspan="2">Нехай об'єкту &lt;span&gt; задані наступні властивості:</th>
+				<th><a name="A7">Властивість <xmp>visibility</xmp></a></th>
+			</tr>
+			<tr>
+				<td><xmp>			div{
+					height:28px;
+					width: 28px;
+					border: 2px solid #66343A;
+					background-color: #a5b0e8;
+				}</xmp></td>
+				<td align="center"><div class="ddisp"></div></td>
+				<td><xmp>			span{
+					border: 2px solid #66343A;
+					background-color: #DAA5E8;
+				}</xmp></td>
+				<td align="center"><span class="sdisp"></span></td>
+				<td>Має параметри:<br>
+					- <b>visible</b> - за замовчуванням<br>
+					- <b>hidden</b> - прихований<br>
+					- <b>collapse</b> - використовується для груп об'єктів<br>
+					- <b>initial</b> - встановлює значення за замовчуванням<br>
+					- <b>inherit</b> - наслідує від предка</td>
+			</tr>
+			<tr>
+				<th>Блочний елемент в строчний</th>
+				<th>Блочний елемент в строчний, але зі збереженням блочних можливостей </th>
+				<th>Строчний елемент в блочний </th>
+				<th>Прихований</th>
+				<th><xmp>visibility: hidden</xmp></th>
+			</tr>
+			<tr>
+				<td>Присвоємо об'єкту <b>3.div</b> властивість <xmp>display: inline</xmp> і він буде відображатися як &lt;span&gt;:</td>
+				<td>Присвоємо об'єкту <b>3.div</b> властивість <xmp>display: inline-block</xmp> і він буде відображатися як &lt;span&gt;, але мати зовнішній вигляд як &lt;div&gt;:</td>
+				<td>Присвоємо об'єкту <b>2.span</b> властивість <xmp>display: block</xmp> і він буде відображатися як &lt;div&gt;, але мати зовнішній вигляд як &lt;span&gt;:</td>
+				<td>Присвоємо об'єкту <b>3.div</b> властивість <xmp>display: none</xmp> і таким чином приховаємо будь-які сліди його присутності:</td>
+				<td>Присвоємо об'єкту <b>3.div</b> властивість <xmp>visibility: hidden</xmp> і він стане невидимим, та сусідні блоки всеодно будуть його обтікати:</td>
+			</tr>
+			<tr>
+				<td align="center">
+					<span class="sdisp">1.span</span>
+					<span class="sdisp">2.span</span>
+					<div class="ddisp" style="display: inline;">3.div</div>
+					<span class="sdisp">4.span</span>
+					<span class="sdisp">5.span</span>
+				</td>
+				<td align="center">
+					<span class="sdisp">1.span</span>
+					<span class="sdisp">2.span</span>
+					<div class="ddisp" style="display: inline-block;">3.div</div>
+					<span class="sdisp">4.span</span>
+					<span class="sdisp">5.span</span>
+				</td>
+				<td align="center">
+					<span class="sdisp">1.span</span>
+					<span class="sdisp" style="display: block;">2.span</span>
+					<span class="sdisp">3.span</span>
+					<span class="sdisp">4.span</span>
+					<div class="ddisp">5.div</div></td>
+				<td align="center">
+					<span class="sdisp">1.span</span>
+					<span class="sdisp">2.span</span>
+					<div class="ddisp" style="display: none;">3.div</div>
+					<span class="sdisp">4.span</span>
+					<span class="sdisp">5.span</span>
+				</td>
+				<td><span class="sdisp">1.span</span>
+					<span class="sdisp">2.span</span>
+					<div class="ddisp" title="visibility: hidden" style="visibility: hidden;">3.div</div>
+					<span class="sdisp">4.span</span>
+					<span class="sdisp">5.span</span></td>
+			</tr>
+		</table>
+
+
+		<!--display:
+			block|inline|inline-block|inline-table|list-item|none|run-in|
+			table|table-caption|table-cell|table-column-group|table-column|
+			table-footer-group|table-header-group|table-row|table-row-group -->
+	</div>
+
+	<div id="content" style="width:98%">
+		<h3 id="A3">Властивість FLOAT - налаштовує розміщення блоку щодо інших блоків</h3>
+		<table border="1">
+			<tr>
+				<th>Обтікання справа</th>
+				<th>Обтікання зліва</th>
+				<th>Відсутність обтікання (значення за замовчуванням)</th>
+				<th>Відсутність обтікання</th>
+			</tr>
+			<tr>
+				<td>Присвоємо об'єктам <b>1.div</b>, <b>2.div</b> і <b>4.div</b> властивість <xmp>float: right;</xmp>, в результаті блоки будуть відображатися послідовно один за одним починаючи з лівого боку і перекривати блоки без заданої властивості обтікання:</td>
+				<td>Присвоємо об'єктам <b>1.div</b>, <b>2.div</b> і <b>4.div</b> властивість <xmp>float: left;</xmp>, в результаті блоки будуть відображатися послідовно один за одним і перекривати блоки без заданої властивості обтікання:</td>
+				<td>Присвоємо об'єктам <b>1.div</b>, <b>2.div</b> і <b>4.div</b> властивість <xmp>float: none;</xmp> (значення за замовчуванням), а об'єкту <b>3.div</b> властивість <xmp>float: right;</xmp>:</td>
+				<td>Присвоємо об'єктам <b>1.div</b>, <b>2.div</b> і <b>4.div</b> властивість <xmp>float: inherit;</xmp>, а об'єкту <b>3.div</b> властивість <xmp>float: right;</xmp>:</td>
+			</tr>
+			<tr>
+				<td>
+					<div class="ddd" style="float: left"><br>1.div</div>
+					<div class="ddd" style="float: left"><br>2.div</div>
+					<div class="ddd">3.div</div>
+					<div class="ddd" style="float: left"><br>4.div</div>
+				</td>
+				<td>
+					<div class="ddd" style="float: right"><br>1.div</div>
+					<div class="ddd" style="float: right"><br>2.div</div>
+					<div class="ddd">3.div</div>
+					<div class="ddd" style="float: right"><br>4.div</div>
+				</td>
+				<td>
+					<div class="ddd" style="float: none"><br>1.div</div>
+					<div class="ddd" style="float: none"><br>2.div</div>
+					<div class="ddd" style="float: right"><br>3.div</div>
+					<div class="ddd" style="float: none"><br>4.div</div>
+				</td>
+				<td>
+					<div class="ddd" style="float: inherit"><br>1.div</div>
+					<div class="ddd" style="float: inherit"><br>2.div</div>
+					<div class="ddd" style="float: right"><br>3.div</div>
+					<div class="ddd" style="float: inherit"><br>4.div</div>
+				</td>
+			</tr>
+		</table>
+	</div>
+
+	<div id="content" style="width:98%">
+		<h3 id="A4">Властивість CLEAR - знадобиться, якщо необхідно розмістити блок нижче сусідніх блоків</h3>
+		<table border="1">
+			<tr>
+				<th>Розміщення блоку нижче всіх лівосторонніх плаваючих блоків</th>
+				<th>Розміщення блоку нижче всіх правосторонніх плаваючих блоків</th>
+				<th>Розміщення блоку нижче всіх плаваючих блоків</th>
+				<th>Ніяких особливостей розміщення блоку щодо інших блоків</th>
+			</tr>
+			<tr>
+				<td>Всім блокам присвоєна властивість <xmp>float: left;</xmp>, а блоку <b>3.div</b> присвоєна також властивість <xmp>clear: left;</xmp>:</td>
+				<td>Всім блокам присвоєна властивість <xmp>float: right;</xmp>, а блоку <b>3.div</b> присвоєна також властивість <xmp>clear: right;</xmp>:</td>
+				<td>Присвоємо блокам <b>1.div</b>, <b>2.div</b> і <b>6.div</b> властивість <xmp>float: left;</xmp>, блокам <b>3.div</b>, <b>4.div</b> і <b>5.div</b> - властивість <xmp>float: right;</xmp>, а блоку <b>4.div</b> - властивість <xmp>clear: both;</xmp>:</td>
+				<td>Присвоємо блокам <b>1.div</b> і <b>2.div</b> властивість <xmp>float: left;</xmp>, блокам <b>3.div</b>, <b>4.div</b> і <b>5.div</b> - властивість <xmp>float: right;</xmp>, а блоку <b>4.div</b> - властивість <xmp>clear: none;</xmp>:</td>
+			</tr>
+			<tr>
+				<td>
+					<div class="ddd" style="float: left">1.div</div>
+					<div class="ddd" style="float: left">2.div</div>
+					<div class="ddd" style="float: left; clear: left; background-color: tomato">3.div</div>
+					<div class="ddd" style="float: left">4.div</div>
+				</td>
+				<td>
+					<div class="ddd" style="float: right">1.div</div>
+					<div class="ddd" style="float: right">2.div</div>
+					<div class="ddd" style="float: right; clear: right; background-color: tomato">3.div</div>
+					<div class="ddd" style="float: right">4.div</div>
+				</td>
+				<td>
+					<div class="ddd" style="float: left">1.div</div>
+					<div class="ddd" style="float: left">2.div</div>
+					<div class="ddd" style="float: right">3.div</div>
+					<div class="ddd" style="float: right; clear: both; background-color: tomato; width: 80px">4.div</div>
+					<div class="ddd" style="float: right">5.div</div>
+					<div class="ddd" style="float: left">6.div</div>
+				</td>
+				<td>
+					<div class="ddd" style="float: left">1.div</div>
+					<div class="ddd" style="float: left">2.div</div>
+					<div class="ddd" style="float: right">3.div</div>
+					<div class="ddd" style="float: right; clear: none; background-color: tomato">4.div</div>
+					<div class="ddd" style="float: right">5.div</div>
+				</td>
+			</tr>
+			<tr>
+				<td>Цю властивість зручно застосовувати, наприклад коли нам необхідно, щоб блок із текстом починався з правого рядка</td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+		</table>
+	</div>
+
+	<div id="content" style="width:98%">
+		<h3 id="A5">Властивість OVERFLOW - визначає спосіб відображення об'єкту, якщо він вийшов за межі батьківського об'єкту</h3>
+		<table border="1">
+			<tr>
+				<td><xmp>				<div style="overflow: hidden">
+						<img src="img.jpg">
+					</div></xmp></td>
+				<td><xmp>				<div style="overflow: scroll">
+						<img src="img.jpg">
+					</div></xmp></td>
+				<td><xmp>				<div style="overflow: auto">
+						<img src="img.jpg">
+					</div></xmp></td>
+				<td><xmp>				<div style="overflow: visible">
+						<img src="img.jpg">
+					</div></xmp></td>
+			</tr>
+			<tr>
+				<td>
+					<div style="width: 400px; margin: 10px; overflow: hidden">
+					<img src="img/pix.jpg" width="600px"></div>
+				</td>
+				<td>
+					<div style="width: 400px; margin: 10px; overflow: scroll">
+					<img src="img/pix.jpg" width="600px"></div>
+				</td>
+				<td>
+					<div style="width: 400px; margin: 10px; overflow: auto">
+					<img src="img/pix.jpg" width="600px"></div>
+				</td>
+				<td>
+					<div style="width: 400px; margin: 10px; overflow: visible">
+					<img src="img/pix.jpg" width="600px"></div>
+				</td>
+			</tr>
+			<tr>
+				<td>Зображення просто обрізається</td>
+				<td>Додаються смуги прокрутки</td>
+				<td>Додаються смуги прокрутки у разі необхідності</td>
+				<td>Зображення всеодно буде відображатися повністю</td>
+			</tr>
+		</table>
+	</div>
+
+	<div id="content" style="width:98%;">
+		<h3 id="A6">Властивість Z-INDEX - визначає порядок розміщення об'єктів один за одним</h3>
+			<table border="1">
+				<tr>
+					<td>
+						<div style="width:800px; height:300px; position: relative;">
+							<xmp>						<div style="position: relative;">
+							<img src="img.png" style="position: absolute; right: 50px; top: 50px; z-index: 1;">
+							<img src="img.png" style="position: absolute; right: 65px; top: 65px; z-index: 2;">
+							<img src="img.png" style="position: absolute; right: 80px; top: 80px; z-index: 3;">
+							<img src="img.png" style="position: absolute; right:110px; top:110px; z-index: 4;">
+							<img src="img.png" style="position: absolute; right: 95px; top: 95px; z-index: 5;">
+						</div></xmp>
+						</div>
+					</td>
+					<td>
+						<div style="width:500px; height:300px; position: relative;">
+							<img src="img/ap2.png" title="z-index: 1;" 
+								style="position: absolute; right: 50px; top: 50px; z-index: 1; border: solid 1px black;">
+							<img src="img/ap2.png" title="z-index: 2;"
+								style="position: absolute; right: 65px; top: 65px; z-index: 2; border: solid 1px black;">
+							<img src="img/ap2.png" title="z-index: 3;"
+								style="position: absolute; right: 80px; top: 80px; z-index: 3; border: solid 1px black;">
+							<img src="img/ap2.png" title="z-index: 4;"
+								style="position: absolute; right:110px; top:110px; z-index: 4; border: solid 1px black;">
+							<img src="img/ap2.png" title="z-index: 5;"
+								style="position: absolute; right: 95px; top: 95px; z-index: 5; border: solid 1px black;">
+						</div>
+					</td>
+				</tr>
+			</table>
+			
+	</div>
+
+</body>
+</html>

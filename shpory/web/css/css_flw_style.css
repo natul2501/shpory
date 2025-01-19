@@ -1,0 +1,97 @@
+		body{
+			background-image : url(../img/old-cement-wall-texture.jpg);
+			background-size: 100%;
+			font-family: Calibri;
+			font-size: 14px; 
+		}
+		#content{
+			background-color:#C9C9C9;
+			padding: 5px;
+   			padding-left: 20px;
+   			border: solid 1px black;
+			float: left;
+			width: 98%;
+		}
+		/*--------------------------- ВИПЛИВАЮЧЕ ВІКОНЦЕ 2--------------------------*/
+		/*стиль віконця*/
+		.window{
+			width: 300px;
+			height: 50px;
+			background-color: white;
+			border: solid 3px ;
+			border-radius: 10px 10px;
+			text-align: center;
+			padding: 15px;
+		}
+		/*1. Позиционуємо і центрируємо випливаюче віконце
+			приховування віконця наслідується від батьківського елементу <a>*/
+		#window1-style_after{
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			margin: auto;
+		}
+		/*2. Приховуємо посилання з віконцем, позиціонуємо і розтягуємо на всю ширину вікна браузера*/
+		#window1-style-before{
+			display: none;
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+		/*3. Відображення випливаючого віконця після переходу до нього за посиланням*/
+		#window1-style-before:target {display: block;}
+/*---------------------ВИПЛИВАЮЧЕ ВІКОНЦЕ 3 (із кнопкою)------------------*/
+		/*1. Позиционуємо і центрируємо випливаюче віконце
+			приховування віконця наслідується від батьківського елементу <a>*/
+		#window2-style-after{
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			margin: auto;
+		}
+		/*2. Стиль кнопки*/
+		.button2-style{
+			border: 1px solid #0000cc;
+			padding: 0 12px;
+			margin: 10px;
+			text-decoration: none;
+			background: #f2f2f2;
+		}
+		.button2-style:hover{background: #e6e6ff;}
+		/*3. Приховуємо посилання з віконцем, позиціонуємо і розтягуємо на всю ширину вікна браузера*/
+		#window2-style-before{
+			display: none;
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			top: 0;
+			left: 0;
+		/***для затемнення сторінки:	*/
+			background: rgba(102, 102, 102, 0.5);
+		}
+		/*4. Відображення випливаючого віконця після переходу до нього за посиланням*/
+		#window2-style-before:target {display: block;}
+/*--------------ELEMENT'S STYLES-----------------*/
+		xmp{
+			color: brown;
+			font-weight: bold;
+			font-family: Consolas;
+			font-size: 13px;
+			line-height: 2px;
+		}
+		tr:last-child{
+			text-align: center;
+		}
+		tr:nth-child(odd){
+			vertical-align: top;
+		}
+		#css-table tr:nth-child(even){
+			background-color: PowderBlue;
+		}
+		

@@ -1,0 +1,81 @@
+	function colld(){
+		var s1 = "<pre><i>public interface</i> Iterator&lt;E&gt;{/*...*/}</pre>";
+		var s2 = "<pre><i>public interface</i> IIterable&lt;T&gt;{/*...*/}</pre><br>";
+		var s3 = "<pre><i>public interface</i> Collection <i>extends</i> Iterable&lt;E&gt;{/*...*/}</pre>";
+		var s4 = "<pre><i>public interface</i> List <i>extends</i> Collection&lt;E&gt;{/*...*/}</pre>";
+		document.getElementById("cl1").innerHTML = s1;
+		document.getElementById("cl2").innerHTML = s2;
+		document.getElementById("cl3").innerHTML = s3;
+		document.getElementById("cl4").innerHTML = s4;
+		document.getElementById("cl5").innerHTML = "";
+		document.getElementById("cl6").innerHTML = "";
+		document.getElementById("cl7").innerHTML = "";
+		document.getElementById("cl8").innerHTML = "";
+		document.getElementById("cl9").innerHTML = "";
+		document.getElementById("cl10").innerHTML = "";
+		document.getElementById("cl11").innerHTML = "";
+		document.getElementById("cl12").innerHTML = "";
+		document.getElementById("cl13").innerHTML = "";
+		document.getElementById("cl14").innerHTML = "";
+		document.getElementById("cl15").innerHTML = "";
+		document.getElementById("cl16").innerHTML = "";
+		document.getElementById("cl17").innerHTML = "";
+		document.getElementById("cl18").innerHTML = "";
+		document.getElementById("cl19").innerHTML = "";
+		document.getElementById("cl20").innerHTML = "";
+		document.getElementById("cl21").innerHTML = "";
+		document.getElementById("cl22").innerHTML = "";
+		document.getElementById("cl23").innerHTML = "";
+	}
+	// function colld(){
+	// 	document.getElementById("cl1").innerHTML = s1;
+	// 	document.getElementById("cl2").innerHTML = s2;
+	// 	document.getElementById("cl3").innerHTML = s3;
+	// 	document.getElementById("cl4").innerHTML = s4;
+	// 	document.getElementById("cl5").innerHTML = s5;
+	// 	document.getElementById("cl6").innerHTML = s6;
+	// 	document.getElementById("cl7").innerHTML = s7;
+	// 	document.getElementById("cl8").innerHTML = s8;
+	// 	document.getElementById("cl9").innerHTML = s9;
+	// 	document.getElementById("cl10").innerHTML = s10;
+	// 	document.getElementById("cl11").innerHTML = s11;
+	// 	document.getElementById("cl12").innerHTML = s12;
+	// 	document.getElementById("cl13").innerHTML = s13;
+	// 	document.getElementById("cl14").innerHTML = s14;
+	// 	document.getElementById("cl15").innerHTML = s15;
+	// 	document.getElementById("cl16").innerHTML = s16;
+	// 	document.getElementById("cl17").innerHTML = s17;
+	// 	document.getElementById("cl18").innerHTML = s18;
+	// 	document.getElementById("cl19").innerHTML = s19;
+	// 	document.getElementById("cl20").innerHTML = s20;
+	// }
+
+	function clearr(){
+		document.getElementById("cl1").innerHTML = "";
+		document.getElementById("cl2").innerHTML = "";
+		document.getElementById("cl3").innerHTML = "";
+		document.getElementById("cl4").innerHTML = "";
+		document.getElementById("cl5").innerHTML = "";
+		document.getElementById("cl6").innerHTML = "";
+		document.getElementById("cl7").innerHTML = "";
+		document.getElementById("cl8").innerHTML = "";
+		document.getElementById("cl9").innerHTML = "";
+		document.getElementById("cl10").innerHTML = "";
+		document.getElementById("cl11").innerHTML = "";
+		document.getElementById("cl12").innerHTML = "";
+		document.getElementById("cl13").innerHTML = "";
+		document.getElementById("cl14").innerHTML = "";
+		document.getElementById("cl15").innerHTML = "";
+		document.getElementById("cl16").innerHTML = "";
+		document.getElementById("cl17").innerHTML = "";
+		document.getElementById("cl18").innerHTML = "";
+		document.getElementById("cl19").innerHTML = "";
+		document.getElementById("cl20").innerHTML = "";
+		document.getElementById("cl21").innerHTML = "";
+		document.getElementById("cl22").innerHTML = "";
+		document.getElementById("cl23").innerHTML = "";
+		document.getElementById("co1").innerHTML = "";
+		document.getElementById("co2").innerHTML = "";
+		document.getElementById("co3").innerHTML = "";
+		document.getElementById("co4").innerHTML = "";
+	}

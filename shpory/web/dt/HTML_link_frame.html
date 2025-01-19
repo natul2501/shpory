@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="../css/html_link_style.css">
+	<title>Link</title>
+</head>
+<body link="blueviolet" vlink="darkslategray" alink="salmon">
+	<div id="content" style="width: 800px">
+		<font size="6"><center>ПОСИЛАННЯ, ЩО ЗАВАНТАЖУЮТЬСЯ У ФРЕЙМ</center></font>
+		<table>
+			<tr>
+				<th colspan="2"> Способи задання посилань, які я знаю</th>
+			</tr>
+			<tr>
+				<td><xmp><a href="http://www.google.com" target ="_blank">Текст посилання</a></xmp></td>
+				<td> - <a href="http://www.google.com" title="<a href=&quot;http://www.google.com&quot; target=&quot;_blank&quot;>це посилання відкриється в новому вікні</a>" target ="_blank">це посилання відкриється в новому вікні</a></td>
+			</tr>
+			<tr>
+				<td><xmp><a href="http://www.google.com" target ="_self">Текст посилання</a></xmp></td>
+				<td> - <a href="http://www.google.com" target ="_self" title="<a href=&quot;http://www.google.com&quot; target=&quot;_self&quot;>це посилання відкриється в поточному вікні</a>" target ="_blank">це посилання відкриється в поточному вікні</a></td>
+			</tr>
+			<tr>
+				<td><xmp><a href="http://www.google.com" target ="_parent">Текст посилання</a></xmp></td>
+				<td> - <a href="http://www.google.com" title="<a href=&quot;http://www.google.com&quot; target=&quot;_parent&quot;>це посилання відкриється в поточному вікні</a>" target ="_parent">це посилання завантажиться так само як завантажувався батьківський файл</a>,
+				<details style="display: inline;">
+		  			<summary>але*</summary>
+					якщо фреймів немає, то значення працює як "_self"
+				</details>
+				</td>
+			</tr>
+			<tr>
+				<td><xmp><a href="http://www.google.com" target ="_top">Текст посилання</a></xmp></td>
+				<td> - <a href="http://www.google.com" title="<a href=&quot;http://www.google.com&quot; target=&quot;_top&quot;>це посилання відкриється в поточному вікні</a>" target ="_top">це посилання буде відкриватися як найперший батьківський файл. Якщо батьківських файлів немає, то поведінка аналогічна _self</a>
+				</td>
+			</tr>
+		</table>
+	</div>
+
+</body>
+</html>

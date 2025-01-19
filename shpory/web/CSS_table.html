@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Стилізація таблиць CSS</title>
+	<link rel="stylesheet" type="text/css" href="css/css_table_style.css">
+</head>
+<body>
+	<div id="content">
+		<font size="6"><center>СТИЛІЗАЦІЯ ТАБЛИЦЬ CSS</center></font>
+		<div>
+			<table id="t1">
+				<caption>Задання стилю таблиці в цілому</caption>
+				<tr>
+					<td colspan="3">
+						<xmp>table {border: 2px solid green; width: 100%;}</xmp>
+					</td>
+				</tr>
+				<tr>
+					<td>1</td>
+					<td>2</td>
+					<td>3</td>
+				</tr>
+				<tr>
+					<td>1</td>
+					<td>2</td>
+					<td>3</td>
+				</tr>
+				<tr>
+					<td>1</td>
+					<td>2</td>
+					<td>3</td>
+				</tr>
+			</table>
+		</div>
+
+		<div>
+			<table id="t2">
+				<caption>Задання стилю рядку</caption>
+				<tr>
+					<td colspan="3">
+						<xmp>tr:hover {background-color: pink;}</xmp>
+					</td>
+				</tr>
+				<tr>
+					<td>1</td>
+					<td>2</td>
+					<td>3</td>
+				</tr>
+				<tr>
+					<td>1</td>
+					<td>2</td>
+					<td>3</td>
+				</tr>
+				<tr>
+					<td>1</td>
+					<td>2</td>
+					<td>3</td>
+				</tr>
+			</table>
+		</div>
+
+		<div>
+			<table id="t3">
+				<caption>Задання стилю коміркам</caption>
+				<tr>
+					<td colspan="3">
+						<xmp>td {height: 20px; border: 2px solid gray;}</xmp>
+					</td>
+				</tr>
+				<tr>
+					<td>1</td>
+					<td>2</td>
+					<td>3</td>
+				</tr>
+				<tr>
+					<td>1</td>
+					<td>2</td>
+					<td>3</td>
+				</tr>
+				<tr>
+					<td>1</td>
+					<td>2</td>
+					<td>3</td>
+				</tr>
+			</table>
+		</div>
+
+		<div>
+			<table id="t4" border="1">
+				<caption>Вирівнювання тексту по горизонталі</caption>
+				<tr>
+					<td colspan="3">
+						<xmp>td {height: 30px; text-align: right;}</xmp>
+					</td>
+				</tr>
+				<tr>
+					<td>left</td>
+					<td>center</td>
+					<td>right</td>
+				</tr>
+				<tr>
+					<td>1</td>
+					<td>2</td>
+					<td>3</td>
+				</tr>
+				<tr>
+					<td>1</td>
+					<td>2</td>
+					<td>3</td>
+				</tr>
+			</table>
+		</div>
+
+		<div>
+			<table id="t5" border="1">
+				<caption>Вирівнювання тексту по вертикалі</caption>
+				<tr>
+					<td colspan="3">
+						<xmp>td {height: 30px; vertical-align: bottom;}</xmp>
+					</td>
+				</tr>
+				<tr>
+					<td>top</td>
+					<td>middle</td>
+					<td>bottom</td>
+				</tr>
+				<tr>
+					<td>1</td>
+					<td>2</td>
+					<td>3</td>
+				</tr>
+				<tr>
+					<td>1</td>
+					<td>2</td>
+					<td>3</td>
+				</tr>
+			</table>
+		</div>
+
+		<div>
+			<table id="t6">
+				<caption>Задання стилю останньому рядку</caption>
+				<tr>
+					<td colspan="3">
+						<xmp>tr:last-child {color: red;}</xmp>
+					</td>
+				</tr>
+				<tr>
+					<td>1</td>
+					<td>2</td>
+					<td>3</td>
+				</tr>
+				<tr>
+					<td>1</td>
+					<td>2</td>
+					<td>3</td>
+				</tr>
+				<tr>
+					<td>1</td>
+					<td>2</td>
+					<td>3</td>
+				</tr>
+			</table>
+		</div>
+
+		<div>
+			<table id="t7">
+				<caption>Задання стилю першому стовпчику</caption>
+				<tr>
+					<td colspan="3">
+						<xmp>td:first-child {border: 2px solid gray;}</xmp>
+					</td>
+				</tr>
+				<tr>
+					<td>1</td>
+					<td>2</td>
+					<td>3</td>
+				</tr>
+				<tr>
+					<td>1</td>
+					<td>2</td>
+					<td>3</td>
+				</tr>
+				<tr>
+					<td>1</td>
+					<td>2</td>
+					<td>3</td>
+				</tr>
+			</table>
+		</div>
+
+		<div>
+			<table id="t10">
+				<caption>Cтиль для непарних рядків</caption>
+				<tr>
+					<td colspan="3">
+						<xmp>tr:nth-child(odd){background-color: RosyBrown;}</xmp>
+					</td>
+				</tr>
+				<tr>
+					<td>1</td>
+					<td>2</td>
+					<td>3</td>
+				</tr>
+				<tr>
+					<td>1</td>
+					<td>2</td>
+					<td>3</td>
+				</tr>
+				<tr>
+					<td>1</td>
+					<td>2</td>
+					<td>3</td>
+				</tr>
+				<tr>
+					<td>1</td>
+					<td>2</td>
+					<td>3</td>
+				</tr>
+			</table>
+		</div>
+		
+		<div>
+			<table id="t11">
+				<caption>Cтиль для парних рядків</caption>
+				<tr>
+					<td colspan="3">
+						<xmp>tr:nth-child(even){background-color: RosyBrown;}</xmp>
+					</td>
+				</tr>
+				<tr>
+					<td>1</td>
+					<td>2</td>
+					<td>3</td>
+				</tr>
+				<tr>
+					<td>1</td>
+					<td>2</td>
+					<td>3</td>
+				</tr>
+				<tr>
+					<td>1</td>
+					<td>2</td>
+					<td>3</td>
+				</tr>
+				<tr>
+					<td>1</td>
+					<td>2</td>
+					<td>3</td>
+				</tr>
+			</table>
+		</div>
+
+		<div>
+			<table id="t8">
+				<caption>Задання меж таблиці суцільною лінією</caption>
+				<tr>
+					<td colspan="3">
+						<xmp>td{border: 2px solid gray;}
+table {border-collapse: collapse;}</xmp>
+					</td>
+				</tr>
+				<tr>
+					<td>1</td>
+					<td>2</td>
+					<td>3</td>
+				</tr>
+				<tr>
+					<td>1</td>
+					<td>2</td>
+					<td>3</td>
+				</tr>
+				<tr>
+					<td>1</td>
+					<td>2</td>
+					<td>3</td>
+				</tr>
+			</table>
+		</div>
+
+		<div>
+			<table id="t9">
+				<caption>Для кожної клітинки - окрема межа</caption>
+				<tr>
+					<td colspan="3">
+						<xmp>td{border: 2px solid gray;}
+table {border-collapse: separate;}</xmp>
+					</td>
+				</tr>
+				<tr>
+					<td>1</td>
+					<td>2</td>
+					<td>3</td>
+				</tr>
+				<tr>
+					<td>1</td>
+					<td>2</td>
+					<td>3</td>
+				</tr>
+				<tr>
+					<td>1</td>
+					<td>2</td>
+					<td>3</td>
+				</tr>
+			</table>
+		</div>
+
+	</div>
+
+</body>
+</html>

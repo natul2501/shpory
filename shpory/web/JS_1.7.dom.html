@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>DOM JS</title>
+	<link rel="stylesheet" type="text/css" href="css/js_dom_style.css">
+	<script src="script/JS_1.7.dom.js"></script>
+</head>
+<body>
+	<div id="content">
+		<font size="6"><center>DOM = Document object model = Об'єктна модель документа</center></font>
+		DOM описує структуру веб-сторінки деревоподібному вигляді і надає розробнику спосіб отримати доступ до окремих елементів веб-сторінки, таких як document, element (html-елемент), text (текст html-елемента), attr (атрибут html-елемента), processingInstruction (інструкція обробки веб-сторінки) та ін.<br>
+		Для роботи зі структурою DOM JavaScript призначений об'єкт <b>document</b>, який визначений у глобальному об'єкті window.<br>
+		<nav>Розділи: <a href="#A1">доступ до елементів сторінки</a> | <a href="#A2">способи пошуку елементів</a> | <a href="#A4">отримання елементів та інформації про них</a> | <a href="#A5">отримання властивостей елементів</a> | <a href="#A6">додавання, редагування і видалення елементів і їх властивостей</a></nav>
+		<table border="1" width="48%">
+			<tr>
+				<th colspan="3" id="A1">Для доступу до елементів сторінки існують наступні методи об'єкту document:</th>
+			</tr>
+			<tr>
+				<td><xmp>document.title</xmp></td>
+				<td><script>document.write(document.title);</script></td>
+				<td> - доступ до заголовку документу</td>
+			</tr>
+			<tr>
+				<td><xmp>document.lastModified</xmp></td>
+				<td><script>document.write(document.lastModified);</script></td>
+				<td> - коли були внесені останні зміни</td>
+			</tr>
+			<tr>
+				<td><xmp>document.URL</xmp></td>
+				<td><script>document.write(document.URL);</script></td>
+				<td> - посилання на поточний документ</td>
+			</tr>
+			<tr>
+				<td><xmp>document.domain</xmp></td>
+				<td><script>document.write(document.domain);</script></td>
+				<td> - відображає домен, до якого належить веб-сторінка документу</td>
+			</tr>
+			<tr>
+				<td><xmp>document.documentElement</xmp></td>
+				<td><script>document.write(document.documentElement);</script></td>
+				<td> - отримання корінного елементу &lt;html&gt; даного документу</td>
+			</tr>
+			<tr>
+				<td><xmp>document.body</xmp></td>
+				<td><script>document.write(document.body);</script></td>
+				<td> - отримання елементу &lt;body&gt; даного документу</td>
+			</tr>
+			<tr>
+				<td><xmp>document.head</xmp></td>
+				<td><script>document.write(document.head);</script></td>
+				<td> - отримання елементу &lt;head&gt; даного документу</td>
+			</tr>
+			<tr>
+				<td><xmp>document.cookie</xmp></td>
+				<td><script>document.write(document.cookie);</script></td>
+				<td> - отримання колекції куків даного документу</td>
+			</tr>
+			<tr>
+				<td><xmp>document.images</xmp></td>
+				<td><script>document.write(document.images);</script></td>
+				<td> - отримання колекції зображень документу</td>
+			</tr>
+			<tr>
+				<td><xmp>document.forms</xmp></td>
+				<td><script>document.write(document.forms);</script></td>
+				<td> - отримання колекції форм на сторінці</td>
+			</tr>
+			<tr>
+				<td><xmp>document.links</xmp></td>
+				<td><script>document.write(document.links);</script></td>
+				<td> - отримання колекції посилань із визначеним атрибутом href</td>
+			</tr>
+			<tr>
+				<td><xmp>document.anchors</xmp></td>
+				<td><script>document.write(document.anchors);</script></td>
+				<td> - отримання колекції посилань із визначеним атрибутом name</td>
+			</tr>
+		</table>
+
+			<table width="48%">
+				<tr>
+					<th>Для прикладу:</th>
+				</tr>
+				<tr>
+					<td><h4>Кубик</h4></td>
+				</tr>
+				<tr>
+					<td><div class="cube">&lt;div class=&quot;cube&quot;&gt;&lt;/div&gt;</div></td>
+				</tr>
+				<tr>
+					<td><h4>Стаття із трьома абзацами</h4></td>
+				</tr>
+				<tr>
+					<td>
+						<xmp><article id="article"></xmp>
+						<xmp>	<p id="p-one" style="color: maroon;">Абзац 1</p></xmp>
+						<xmp>	<p id="p-two">Абзац 2</p></xmp>
+						<xmp>	<p id="p-three">Абзац 3</p></xmp>
+						<xmp></article></xmp>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<article id="article">
+							<p id="p-one" style="color: maroon;">Абзац 1</p>
+							<p id="p-two">Абзац 2</p>
+							<p id="p-three">Абзац3</p>
+						</article>
+					</td>
+				</tr>
+				<tr>
+					<td><h4>Форма із трьома полями</h4></td>
+				</tr>
+				<tr>
+					<td>
+						<xmp><form name="my" id="forma"></xmp>
+						<xmp>	<input name="one" value="1" id="inputone"></xmp>
+						<xmp>	<input name="two" value="2" id="inputtwo"></xmp>
+						<xmp>	<input name="three" value="3" id="inputthree"></xmp>
+						<xmp></form></xmp>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<form name="my" id="forma">
+							<input name="one" value="1" id="inputone">
+							<input name="two" value="2" id="inputtwo">
+							<input name="three" value="3" id="inputthree">
+						</form>
+						<span id="for_A1"></span>
+					</td>
+				</tr>
+			</table>
+
+		<table width="48%">
+			<tr>
+				<th colspan="3" id="A2">Для пошуку елементів у отриманих об'єктах:</th>
+			</tr>
+			<tr>
+				<td><xmp>document.getElementById("forma")</xmp></td>
+				<td><script>document.write(document.getElementById("forma"));</script></td>
+				<td> - вибирає елемент із заданим id</td>
+			</tr>
+			<tr>
+				<td><xmp>document.getElementsByTagName("input")</xmp></td>
+				<td><script>document.write(document.getElementsByTagName("input"));</script></td>
+				<td> - повертає список типу NodeList із усіма елементами із заданим тегом</td>
+			</tr>
+			<tr>
+				<td><xmp>document.getElementsByClassName("cube")</xmp></td>
+				<td><script>document.write(document.getElementsByClassName("cube"));</script></td>
+				<td> - повертає список типу NodeList із усіма елементами із заданим class</td>
+			</tr>
+			<tr>
+				<td><xmp>document.getElementsByName("td")</xmp></td>
+				<td><script>document.write(document.getElementsByName("td"));</script></td>
+				<td> - повертає список типу NodeList із усіма елементами із заданим name </td>
+			</tr>
+			<tr>
+				<td><xmp>document.getElementsByTagName("center")</xmp></td>
+				<td><script>document.write(document.getElementsByTagName("center"));</script></td>
+				<td> - отримання колекції посилань із визначеним атрибутом name</td>
+			</tr>
+			<tr>
+				<td><xmp>document.querySelector("form input")</xmp></td>
+				<td><script>document.write(document.querySelector("form input"));</script></td>
+				<td> - вибирає перший елемент, що відповідає заданому селектору</td>
+			</tr>
+			<tr>
+				<td><xmp>document.querySelectorAll("form input")</xmp></td>
+				<td><script>document.write(document.querySelectorAll("form input"));</script></td>
+				<td> - повертає список типу NodeList із усіма елементами, що відповідають заданому селектору</td>
+			</tr>
+		</table>
+		<table width="48%">
+			<tr>
+				<th colspan="2">Для пошуку можна застосовувати наступні селектори:</th>
+			</tr>
+			<tr>
+				<td>document.querySelector("*")</td>
+				<td> - вибирає всі елементи</td>
+			</tr>
+			<tr>
+				<td>document.querySelector("a")</td>
+				<td> - вибирає всі елементи типу а</td>
+			</tr>
+			<tr>
+				<td>document.querySelector(".class")</td>
+				<td> - вибирає всі елементи із класом "class"</td>
+			</tr>
+			<tr>
+				<td>document.querySelector("#id")</td>
+				<td> - вибирає всі елементи із id "id"</td>
+			</tr>
+			<tr>
+				<td>document.querySelector("not(а)")</td>
+				<td> - вибирає всі елементи крім тих, що відповідають селектору а</td>
+			</tr>
+			<tr>
+				<td>document.querySelector("[a]")</td>
+				<td> - вибирає всі елементи із атрибутом а</td>
+			</tr>
+			<tr>
+				<td>document.querySelector("[a="b"]")</td>
+				<td> - вибирає всі елементи, у яких атрибут a має значення b</td>
+			</tr>
+			<tr>
+				<td>document.querySelector("[a~="b"]")</td>
+				<td> - вибирає всі елементи, у яких атрибут a має список значеннь, одне із яких b</td>
+			</tr>
+			<tr>
+				<td>document.querySelector("[a^="b"]")</td>
+				<td> - вибирає всі елементи, у яких значення атрибуту a починається на b</td>
+			</tr>
+			<tr>
+				<td>document.querySelector("[a$="b"]")</td>
+				<td>- вибирає всі елементи, у яких значення атрибуту a закінчується на b</td>
+			</tr>
+			<tr>
+				<td>document.querySelector("[a*="b"]")</td>
+				<td>- вибирає всі елементи, у яких значення атрибуту a містить підрядок b</td>
+			</tr>
+			<tr>
+				<td>document.querySelector("[a|="b"]")</td>
+				<td>- вибирає всі елементи, у яких значення атрибуту a складається зі слів, записаних через дефіс, перше слово із яких дорівнює b</td>
+			</tr>
+			<tr>
+				<td>document.querySelector(":hover")</td>
+				<td> - вибирає всі посилання, над якими в даний момент знаходиться курсор</td>
+			</tr>
+			<tr>
+				<td>document.querySelector(":checked")</td>
+				<td> - вибирає всі відмічені чекбокси та радіокнопки</td>
+			</tr>
+		</table>
+
+		<table width="48%" id="A4">
+			<tr>
+				<th colspan="4">Об'єкт <b>Node</b>("вузол") надає ряд властивостей, за допомогою яких ми можемо дістати інформацію про отриманий елемент:</th>
+			</tr>
+			<tr>
+				<td><xmp>document.getElementById("p-one").parentElement</xmp></td>
+				<td><script>document.write(document.getElementById("p-one").parentElement)</script></td>
+				<td><script>document.write(document.getElementById("p-one").parentElement.tagName)</script></td>
+				<td> - повертає батьківський вузол-елемент</td>
+			</tr>
+			<tr>
+				<td><xmp>document.getElementById("p-one").parentNode</xmp></td>
+				<td><script>document.write(document.getElementById("p-one").parentNode)</script></td>
+				<td><script>document.write(document.getElementById("p-one").parentNode.tagName)</script></td>
+				<td> - повертає батьківський вузол</td>
+			</tr>
+			<tr>
+				<td><xmp>document.getElementById("p-one").nextElementSibling</xmp></td>
+				<td><script>document.write(document.getElementById("p-one").nextElementSibling)</script></td>
+				<td><script>document.write(document.getElementById("p-one").nextElementSibling.tagName)</script></td>
+				<td> - повертає наступний вузол-елемент, що знаходиться на одному рівні із поточним</td>
+			</tr>
+			<tr>
+				<td><xmp>document.getElementById("p-one").nextSibling</xmp></td>
+				<td><script>document.write(document.getElementById("p-one").nextSibling)</script></td>
+				<td><script>document.write(document.getElementById("p-one").nextSibling.tagName)</script></td>
+				<td> - повертає наступний вузол, що знаходиться на одному рівні із поточним</td>
+			</tr>
+			<tr>
+				<td><xmp>document.getElementById("p-one").previousElementSibling</xmp></td>
+				<td><script>document.write(document.getElementById("p-one").previousElementSibling)</script></td>
+				<td><script>document.write(document.getElementById("p-one").previousElementSibling.tagName)</script></td>
+				<td> - повертає попередній вузол-елемент, що знаходиться на одному рівні із поточним</td>
+			</tr>
+			<tr>
+				<td><xmp>document.getElementById("p-one").previousSibling</xmp></td>
+				<td><script>document.write(document.getElementById("p-one").previousSibling)</script></td>
+				<td><script>document.write(document.getElementById("p-one").previousSibling.tagName)</script></td>
+				<td> - повертає попередній вузол, що знаходиться на одному рівні із поточним</td>
+			</tr>
+			<tr>
+				<td><xmp>document.getElementById("article").lastElementChild</xmp></td>
+				<td><script>document.write(document.getElementById("article").lastElementChild)</script></td>
+				<td><script>document.write(document.getElementById("article").lastElementChild.tagName)</script></td>
+				<td> - повертає останній дочерній вузол-елемент</td>
+			</tr>
+			<tr>
+				<td><xmp>document.getElementById("article").lastChild</xmp></td>
+				<td><script>document.write(document.getElementById("article").lastChild)</script></td>
+				<td><script>document.write(document.getElementById("article").lastChild.tagName)</script></td>
+				<td> - повертає останній дочерній вузол</td>
+			</tr>
+			<tr>
+				<td><xmp>document.getElementById("article").firstElementChild</xmp></td>
+				<td><script>document.write(document.getElementById("article").firstElementChild)</script></td>
+				<td><script>document.write(document.getElementById("article").firstElementChild.tagName)</script></td>
+				<td> - повертає перший дочерній вузол-елемент</td>
+			</tr>
+			<tr>
+				<td><xmp>document.getElementById("article").firstChild</xmp></td>
+				<td><script>document.write(document.getElementById("article").firstChild)</script></td>
+				<td><script>document.write(document.getElementById("article").firstChild.innerText)</script></td>
+				<td> - повертає перший дочерній вузол</td>
+			</tr>
+			<tr>
+				<td><xmp>document.getElementById("article").children</xmp></td>
+				<td><script>document.write(document.getElementById("article").children)</script></td>
+				<td><script>document.write(document.getElementById("article").children(0).tagName)</script></td>
+				<td> - повертає колекцію дочірніх вузлів-елементів</td>
+			</tr>
+			<tr>
+				<td><xmp>document.getElementById("article").childNodes</xmp></td>
+				<td><script>document.write(document.getElementById("article").childNodes)</script></td>
+				<td><script>document.write(document.getElementById("article").childNodes(0).tagName)</script></td>
+				<td> - повертає колекцію дочірніх вузлів</td>
+			</tr>
+			<tr>
+				<td><xmp>document.getElementById("article").ownerDocument</xmp></td>
+				<td><script>document.write(document.getElementById("article").ownerDocument)</script></td>
+				<td><script>document.write(document.getElementById("article").ownerDocument.tagName)</script></td>
+				<td> - повертає корінний файл документу</td>
+			</tr>
+		</table>
+
+		<table width="48%" id="A5">
+			<tr>
+				<th colspan="3">Отримані вузли мають наступні властивості:</th>
+			</tr>
+			<tr>
+				<td><xmp>document.getElementById("article").nodeName</xmp></td>
+				<td><script>document.write(document.getElementById("article").nodeName)</script></td>
+				<td> - повертає ім'я вузла</td>
+			</tr>
+			<tr>
+				<td><xmp>document.getElementById("article").nodeType</xmp></td>
+				<td><script>document.write(document.getElementById("article").nodeType)</script></td>
+				<td> - повертає тип вузла у вигляді числа</td>
+			</tr>
+			<tr>
+				<td><xmp>document.getElementById("p-one").nodeValue</xmp></td>
+				<td><script>document.write(document.getElementById("p-one").nodeValue)</script></td>
+				<td> - повертає текст текстового вузла</td>
+			</tr>
+			<tr>
+				<td><xmp>document.getElementById("p-one").tagName</xmp></td>
+				<td><script>document.write(document.getElementById("p-one").tagName)</script></td>
+				<td> - повертає тег елементу</td>
+			</tr>
+			<tr>
+				<td><xmp>document.getElementById("p-one").textContent</xmp></td>
+				<td><script>document.write(document.getElementById("p-one").textContent)</script></td>
+				<td> - повертає текстовий вміст елементу</td>
+			</tr>
+			<tr>
+				<td><xmp>document.getElementById("p-one").innerText</xmp></td>
+				<td><script>document.write(document.getElementById("p-one").innerText)</script></td>
+				<td> - повертає текстовий вміст елементу,<br>дозволяє також отримати стилі</td>
+			</tr>
+			<tr>
+				<td><xmp>document.getElementById("p-one").innerHTML</xmp></td>
+				<td><script>document.write(document.getElementById("p-one").innerHTML)</script></td>
+				<td> - представляє html-код елементу</td>
+			</tr>
+			<tr>
+				<td><xmp>document.getElementById("article").firstElementChild.getAttribute("style")</xmp></td>
+				<td><script>document.write(document.getElementById("article").firstElementChild.getAttribute("style"))</script></td>
+				<td rowspan="2"> - повертає значення атрибуту вузла</td>
+			</tr>
+			<tr>
+				<td><xmp>document.getElementById("article").firstElementChild.style</xmp></td>
+				<td><script>document.write(document.getElementById("article").firstElementChild.style)</script></td>
+			</tr>
+		</table>
+		<table>
+			<tr>
+				<th colspan="5" id="A6">Створення елементів</th>
+			</tr>
+			<tr>
+				<td><b>.createElement()</b></td>
+				<td><xmp>document.getElementById('b_createElement').innerHTML = document.createElement("h1");</xmp></td>
+				<td> - створити html-елемент</td>
+				<td><button onclick="b_createElement()">Подивитися результат</button></td>
+				<td><span id="b_createElement">&lt;span id="b_createElement"&gt;&lt;/span&gt;</span></td>
+			</tr>
+			<tr>
+				<td><b>.createTextNode()</b></td>
+				<td><xmp>document.getElementById('b_createTextNode').innerHTML = document.createTextNode("text");</xmp></td>
+				<td> - створити текстовий вузол</td>
+				<td><button onclick="b_createTextNode()">Подивитися результат</button></td>
+				<td><span id="b_createTextNode">&lt;span id="b_createTextNode"&gt;&lt;/span&gt;</span></td>
+			</tr>
+			<tr>
+				<td><b>.appendChild()</b></td>
+				<td>
+					<xmp>const header = document.createElement("h4");</xmp>
+					<xmp>const headerText = document.createTextNode("text");</xmp>
+					<xmp>header.appendChild( headerText);</xmp>
+					<xmp>document.getElementById('b_appendChild').appendChild(header);</xmp>
+				</td>
+				<td> - додає новий вузол в кінець колекції дочірніх вузлів</td>
+				<td><button onclick="b_appendChild()">Подивитися результат</button></td>
+				<td id="b_appendChild">&lt;td id="b_appendChild"&gt;&lt;/td&gt;</td>
+			</tr>
+			<tr>
+				<td><b>.textcontent</b></td>
+				<td>
+					<xmp>const header = document.createElement("h4");</xmp>
+					<xmp>header.textContent = "text";</xmp>
+					<xmp>document.getElementById('b_textcontent').appendChild(header);</xmp>
+				</td>
+				<td> - додати текст у створений (чи існуючий) елемент</td>
+				<td><button onclick="b_textcontent()">Подивитися результат</button></td>
+				<td id="b_textcontent">&lt;td id="b_textcontent"&gt;&lt;/td&gt;</td>
+			</tr>
+			<tr>
+				<td><b>.insertBefore(new-element, existing-element)</b></td>
+				<td>
+					<xmp>const header = document.createElement("h4");</xmp>
+					<xmp>header.textContent = "text";</xmp>
+					<xmp>const firstP = document.getElementById('b_beforeSpan');</xmp>
+					<xmp>document.getElementById('b_insertBefore').insertBefore(header, firstP);</xmp>
+				</td>
+				<td> - додає новий вузол перед іншим елементом</td>
+				<td><button onclick="b_insertBefore()">Подивитися результат</button></td>
+				<td id="b_insertBefore"><span id="b_beforeSpan">&lt;td id="b_insertBefore"&gt; &lt;span id="b_beforeSpan"&gt;&lt;/span&gt; &lt;/td&gt;</span></td>
+			</tr>
+			<tr>
+				<td><b>.cloneNode(true)</b></td>
+				<td>
+					<xmp>const article = document.getElementById("article");</xmp>
+					<xmp>const lastP = article.lastElementChild;</xmp>
+					<xmp>const newLastP = lastP.cloneNode(true);</xmp>
+					<xmp>newLastP.textContent += " Копія";</xmp>
+					<xmp>document.getElementById('b_cloneNode').appendChild(newLastP);</xmp>
+				</td>
+				<td> - скопіювати вузол<br><i>true</i> - разом із усіма дочірніми вузлами<br><i>false</i> - без дочірніх вузлів</td>
+				<td><button onclick="b_cloneNode()">Подивитися результат</button></td>
+				<td id="b_cloneNode">&lt;td id="b_cloneNode"&gt;&lt;/td&gt;</td>
+			</tr>
+			<tr>
+				<td><b>.replaceChild(newNode, oldNode)</b></td>
+				<td>
+					<xmp>const Parent = document.getElementById("b_replaceChild");</xmp>
+					<xmp>const oldNode = Parent.firstElementChild;</xmp>
+					<xmp>const newNode = document.createElement("h4");</xmp>
+					<xmp>newNode.textContent = "Текст результату";</xmp>
+					<xmp>Parent.replaceChild(newNode, oldNode);</xmp>
+				</td>
+				<td> - замінити вузол</td>
+				<td><button onclick="b_replaceChild()">Подивитися результат</button></td>
+				<td id="b_replaceChild"><h4>&lt;td id="b_replaceChild"&gt; &lt;h4&gt;Текст&lt;/h4&gt; &lt;/td&gt;</h4></td>
+			</tr>
+			<tr>
+				<td><b>.removeChild()</b></td>
+				<td>
+					<xmp>const Parent = document.getElementById("b_removeChild");</xmp>
+					<xmp>const oldNode = Parent.firstElementChild;</xmp>
+					<xmp>Parent.removeChild(oldNode);</xmp>
+				</td>
+				<td> - видалити вузол</td>
+				<td><button onclick="b_removeChild()">Подивитися результат</button></td>
+				<td id="b_removeChild"><h4>&lt;td id="b_removeChild"&gt; &lt;h4&gt;Текст&lt;/h4&gt; &lt;/td&gt;</h4></td>
+			</tr>
+			<tr>
+				<td><b>.setAttribute(attr, value)</b></td>
+				<td>
+					<xmp>const element = document.getElementById("b_setAttribute");</xmp>
+					<xmp>element.setAttribute("style", "color:FireBrick;");</xmp>
+				</td>
+				<td> - додати атрибут до вузла</td>
+				<td><button onclick="b_setAttribute()">Подивитися результат</button></td>
+				<td><span id="b_setAttribute">&lt;span id="b_setAttribute"&gt;&lt;/span&gt;</span></td>
+			</tr>
+			<tr>
+				<td><b>.createAttribute(attr)</b></td>
+				<td>
+					<xmp>const element = document.getElementById("b_createAttribute");</xmp>
+					<xmp>const attr = element.createAttribute("style");</xmp>
+					<xmp>attr.value = "color:FireBrick;";</xmp>
+					<xmp>element.setAttributeNode(attr);</xmp>
+				</td>
+				<td> - створити атрибут</td>
+				<td><button onclick="b_createAttribute()">Подивитися результат</button></td>
+				<td><span id="b_createAttribute">&lt;span id="b_createAttribute"&gt;&lt;/span&gt;</span></td>
+			</tr>
+			<tr>
+				<td><b>.removeAttribute(attr)</b></td>
+				<td>
+					<xmp>const element = document.getElementById("b_removeAttribute");</xmp>
+					<xmp>element.removeAttribute("style");</xmp>
+				</td>
+				<td> - видалити атрибут</td>
+				<td><button onclick="b_removeAttribute()">Подивитися результат</button></td>
+				<td><span id="b_removeAttribute" style="color:FireBrick;">&lt;span id="b_removeAttribute" style="color:FireBrick;"&gt;&lt;/span&gt;</span></td>
+			</tr>
+			<tr>
+				<td><b>element.style.attribute</b></td>
+				<td>
+					<xmp>const element = document.getElementById("b_changeAttribute");</xmp>
+					<xmp>element.style.color = "navy";</xmp>
+				</td>
+				<td> - змінити атрибут,<br><a href="https://metanit.com/web/javascript/8.7.php">детальніше про редагування атрибутів "class"</a> </td>
+				<td><button onclick="b_changeAttribute()">Подивитися результат</button></td>
+				<td><span id="b_changeAttribute" style="color:FireBrick;">&lt;span id="b_changeAttribute" style="color:FireBrick;"&gt;&lt;/span&gt;</span></td>
+			</tr>
+		</table>
+	</div>	
+
+
+</body>
+</html>

@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>DOM JS</title>
+	<link rel="stylesheet" type="text/css" href="css/js_bom_style.css">
+	<script src="script/JS_1.8.bom.js"></script>
+</head>
+<body>
+	<div id="content">
+		<font size="6"><center>DOM = Browser Object Model = Об'єктна модель браузера</center></font>
+		Призначена для роботи із веб-браузером, а саме з його деякими об'єктами, його поточним станом (чи він розширений на весь екран чи ні і т.п.), на якій операційній системі він установлений, по якій веб-адресі розміщений, а також із самою веб-сторінкою (об'єкт document являється його дочірнім об'єктом)ю
+		Для роботи зі структурою BOM JavaScript призначений об'єкт <b>window</b>.<br>
+		<table>
+			<tr>
+				<td>
+					<table width="100%">
+						<tr>
+							<th colspan="3">Властивості вікна браузера</th>
+						</tr>
+						<tr>
+							<td><xmp>window.innerHeight</xmp></td>
+							<td><script>document.write(window.innerHeight);</script></td>
+							<td> - висота вікна включно із горизонтальними смугами прокрутки</td>
+						</tr>
+						<tr>
+							<td><xmp>window.innerWidth</xmp></td>
+							<td><script>document.write(window.innerWidth);</script></td>
+							<td> - ширина вікна включно із вертикальними смугами прокрутки</td>
+						</tr>
+						<tr>
+							<td><xmp>window.outerHeight</xmp></td>
+							<td><script>document.write(window.outerHeight);</script></td>
+							<td> - висота вікна браузерм включно із усіма смугами прокрутки</td>
+						</tr>
+						<tr>
+							<td><xmp>window.outerWidth</xmp></td>
+							<td><script>document.write(window.outerWidth);</script></td>
+							<td> - ширина вікна браузерм включно із усіма смугами прокрутки</td>
+						</tr>
+						<tr>
+							<td><xmp>window.pageXOffset</xmp></td>
+							<td><script>document.write(window.pageXOffset);</script></td>
+							<td> - псевдонім для для window.scrollX</td>
+						</tr>
+						<tr>
+							<td><xmp>window.pageYOffset</xmp></td>
+							<td><script>document.write(document.title);</script></td>
+							<td> - псевдонім для для window.scrollY</td>
+						</tr>
+						<tr>
+							<td><xmp>window.screenX</xmp></td>
+							<td><script>document.write(window.screenX);</script></td>
+							<td> - позиція вікна браузера по осі Х, т.е. відстань від вікна браузера до лівого краю екрану</td>
+						</tr>
+						<tr>
+							<td><xmp>window.screenY</xmp></td>
+							<td><script>document.write(window.screenY);</script></td>
+							<td> - позиція вікна браузера по осі У, т.е. відстань від вікна браузера до верхнього краю екрану</td>
+						</tr>
+						<tr>
+							<td><xmp>window.scrollX</xmp></td>
+							<td><script>document.write(window.scrollX);</script></td>
+							<td> - кількість пікселів веб-сторінки, прокручених по горизонталі</td>
+						</tr>
+						<tr>
+							<td><xmp>window.scrollY</xmp></td>
+							<td><script>document.write(window.scrollY);</script></td>
+							<td> - кількість пікселів веб-сторінки, прокручених по вертикалі</td>
+						</tr>
+						<tr>
+							<td><xmp>screen.availTop</xmp></td>
+							<td><script>document.write(screen.availTop);</script></td>
+							<td> - висота фіксованих компонентів, що прилягають до верхньої сторони браузера (верхні панелі тощо)</td>
+						</tr>
+						<tr>
+							<td><xmp>screen.availLeft</xmp></td>
+							<td><script>document.write(screen.availLeft);</script></td>
+							<td> - висота фіксованих компонентів, що прилягають до лівої сторони браузера (ліві панелі тощо)</td>
+						</tr>
+						<tr>
+							<td><xmp>screen.availHeight</xmp></td>
+							<td><script>document.write(screen.availHeight);</script></td>
+							<td> - максимально доступна висота в пікселях мінус висота верхніх і нижніх панелей</td>
+						</tr>
+						<tr>
+							<td><xmp>screen.availWidth</xmp></td>
+							<td><script>document.write(screen.availWidth);</script></td>
+							<td> - максимально доступна ширина в пікселях мінус ширина лівих і правих панелей</td>
+						</tr>
+						<tr>
+							<td><xmp>screen.colorDepth</xmp></td>
+							<td><script>document.write(screen.colorDepth);</script></td>
+							<td> - глибина кольору екрану</td>
+						</tr>
+						<tr>
+							<td><xmp>screen.height</xmp></td>
+							<td><script>document.write(screen.height);</script></td>
+							<td> - висота екрану в пікселях</td>
+						</tr>
+						<tr>
+							<td><xmp>screen.orientation</xmp></td>
+							<td><script>document.write(screen.orientation);</script></td>
+							<td> - містить об'єкт типу ScreenOrientation, що надає інформацію про орієнтацію пристрою</td>
+						</tr>
+						<tr>
+							<td><xmp>screen.pixelDepth</xmp></td>
+							<td><script>document.write(screen.pixelDepth);</script></td>
+							<td> - глибина пікселя екрану</td>
+						</tr>
+						<tr>
+							<td><xmp>screen.width</xmp></td>
+							<td><script>document.write(screen.width);</script></td>
+							<td> - ширина екрану в пікселях</td>
+						</tr>
+					</table>
+					<table id="flw" width="100%">
+						<tr>
+							<th colspan="4">Діалогові вікна та взаємодія із вмістом сторінки</th>
+						</tr>
+						<tr>
+							<td colspan="4">id комірок і кнопок відображається при наведенні курсором</td>
+						</tr>
+						<tr>
+							<td><xmp>alert()</xmp></td>
+							<td>
+								<button onclick="b_alert()" title="button onclick=&quot;b_alert()&quot;>Подивитися результат</button>">Подивитися результат</button>
+							</td>
+							<td>
+								<details>
+									<summary>Подивитися текст коду</summary>
+										<xmp>function b_alert(){</xmp>
+										<xmp>	alert("Текст повідомлення");</xmp>
+										<xmp>}</xmp>
+								</details>
+							</td>
+							<td> - вікно з повідомленням</td>
+						</tr>
+						<tr>
+							<td><xmp>confirm()</xmp></td>
+							<td id="b_confirm" title="<td id=&quot;b_confirm&quot;></td>">
+								<button onclick="b_confirm()" title="<button onclick=&quot;b_confirm()&quot;>Подивитися результат</button>">Подивитися результат</button>
+							</td>
+							<td>
+								<details>
+									<summary>Подивитися текст коду</summary>
+										<xmp>function b_confirm(){</xmp>
+										<xmp>	const result = confirm("Текст повідомлення");</xmp>
+										<xmp>	const td1 = document.getElementById('b_confirm');</xmp>
+										<xmp>	const child1 = td1.firstElementChild;</xmp>
+										<xmp>	td1.removeChild(child1);</xmp>
+										<xmp>	const span1 = document.createElement("span");</xmp>
+										<xmp>	if(result===true)</xmp>
+										<xmp>		span1.textContent = "Ви вибрали ОК";</xmp>
+										<xmp>	else</xmp>
+										<xmp>		span1.textContent = "Ви вибрали відмінити";</xmp>
+										<xmp>	document.getElementById('b_confirm').appendChild(span1);</xmp>
+										<xmp>}</xmp>
+								</details>
+							</td>
+							<td> - вікно з повідомленням і кнопками "Ок" і "Відмінити"</td>
+						</tr>
+						<tr>
+							<td><xmp>prompt()</xmp></td>
+							<td id="b_prompt" title="<td id=&quot;b_prompt&quot;></td>">
+								<button onclick="b_prompt()" title="<button onclick=&quot;b_prompt()&quot;>Подивитися результат</button>">Подивитися результат</button>
+							</td>
+							<td>
+								<details>
+									<summary>Подивитися текст коду</summary>
+										<xmp>function b_prompt(){</xmp>
+										<xmp>	const result = prompt("Введіть номер карточки");</xmp>
+										<xmp>	const td2 = document.getElementById('b_prompt');</xmp>
+										<xmp>	const child2 = td2.firstElementChild;</xmp>
+										<xmp>	td2.removeChild(child2);</xmp>
+										<xmp>	const span2 = document.createElement("span");</xmp>
+										<xmp>	span2.textContent = result;</xmp>
+										<xmp>	document.getElementById('b_prompt').appendChild(span2);</xmp>
+										<xmp>}</xmp>
+								</details>
+							</td>
+							<td> - вікно з повідомленням і полем вводу</td>
+						</tr>
+						<tr>
+							<td><xmp>find()</xmp></td>
+							<td id="td_find" title="">
+								Введіть будь-яке слово,<br>що знаходиться на даній сторінці:<br>
+								<input id="in_find"/><br>
+								<button id="btn_find" onclick="b_find()">Подивитися результат</button><br>
+								<span id="s_find"></span>
+							</td>
+							<td>
+								<details>
+									<summary>Подивитися текст коду</summary>
+										<xmp>function b_find(){</xmp>
+										<xmp>	const btn = document.getElementById("btn_find");</xmp>
+										<xmp>	const keyField = document.getElementById("in_find");</xmp>
+										<xmp>	const result = find(keyField.value);</xmp>
+										<xmp>   const span3 = document.getElementById('s_find');</xmp>
+										<xmp>    if(result===true)</xmp>
+										<xmp>        span3.textContent = "Таке слово є";</xmp>
+										<xmp>    else</xmp>
+										<xmp>        span3.textContent = "Такого слова немає";</xmp>
+										<xmp>    document.getElementById('td_find').appendChild(span2);</xmp>
+										<xmp>}</xmp>
+								</details>
+							</td>
+							<td> - пошук слів на сторінці</td>
+						</tr>
+						<tr>
+							<td><xmp>print()</xmp></td>
+							<td><button onclick="print()">Роздрукувати сторінку</button></td>
+							<td>
+								<details>
+									<summary>Подивитися текст коду</summary>
+										<xmp><button onclick="print()">Роздрукувати сторінку</button></xmp>
+								</details>
+							</td>
+							<td> - друк сторінки</td>
+						</tr>
+					</table>
+					<table width="100%">
+						<tr>
+							<th colspan="2">Способи відкриття веб-сторінки</th>
+						</tr>
+						<tr>
+							<td><xmp>window.open("https://google.com");</xmp></td>
+							<td> - відкрити посилання</td>
+						</tr>
+						<tr>
+							<td><xmp>window.open("https://google.com", "_self");</xmp></td>
+							<td> - відкрити посилання в поточній вкладці</td>
+						</tr>
+						<tr>
+							<td><xmp>window.open("https://google.com", "_blank");</xmp></td>
+							<td> - відкрити посилання в поточній вкладці або в окремому вікні</td>
+						</tr>
+						<tr>
+							<td><xmp>window.open("https://google.com", "_blank", "popup=yes");</xmp></td>
+							<td> - відкрити посилання в окремому вікні</td>
+						</tr>
+						<tr>
+							<td>
+								<xmp>window.open("https://google.com", "_blank", "width=100");</xmp>
+								<xmp>window.open("https://google.com", "_blank", "innerWidth=100");</xmp>
+							</td>
+							<td> - ширина вікна в пікселях</td>
+						</tr>
+						<tr>
+							<td>
+								<xmp>window.open("https://google.com", "_blank" "height=100");</xmp>
+								<xmp>window.open("https://google.com", "_blank" "innerHeight=100");</xmp>
+							</td>
+							<td> - висота вікна в пікселях</td>
+						</tr>
+						<tr>
+							<td>
+								<xmp>window.open("https://google.com", "_blank", "left=100");</xmp>
+								<xmp>window.open("https://google.com", "_blank", "screenX=100");</xmp>
+							</td>
+							<td> - координата Х відносно початку екрану в пікселях</td>
+						</tr>
+						<tr>
+							<td>
+								<xmp>window.open("https://google.com", "_blank", "top=100");</xmp>
+								<xmp>window.open("https://google.com", "_blank", "screenY=100");</xmp>
+							</td>
+							<td> - координата У відносно початку екрану в пікселях</td>
+						</tr>
+						<tr>
+							<td><xmp>window.open("https://google.com", "_blank", "lokation=yes");</xmp></td>
+							<td> - відображати адресну строку</td>
+						</tr>
+						<tr>
+							<td><xmp>window.open("https://google.com", "_blank", "menubar=yes");</xmp></td>
+							<td> - відображати панель меню</td>
+						</tr>
+						<tr>
+							<td><xmp>window.open("https://google.com", "_blank", "scrollbar=yes");</xmp></td>
+							<td> - відображати полоси прокрутки</td>
+						</tr>
+						<tr>
+							<td><xmp>window.open("https://google.com", "_blank", "status=yes");</xmp></td>
+							<td> - відображати строку стану (внизу)</td>
+						</tr>
+						<tr>
+							<td><xmp>window.open("https://google.com", "_blank", "toolbar=yes");</xmp></td>
+							<td> - відображати панель інструментів</td>
+						</tr>
+						<tr>
+							<td><xmp>window.close();</xmp></td>
+							<td> - закрити вікно</td>
+						</tr>
+						<tr>
+							<td><xmp>window.moveBy(200, 100);</xmp></td>
+							<td> - переміщує поточне вікно браузера по горизонталі та вертикалі на вказану кількість пікселів</td>
+						</tr>
+						<tr>
+							<td><xmp>window.moveTo(200, 150);</xmp></td>
+							<td> - переміщує поточне вікно браузера по горизонталі та вертикалі до вказаної точку</td>
+						</tr>
+						<tr>
+							<td><xmp>window.resizeBy(200, 100);</xmp></td>
+							<td> - масштабує поточне вікно браузера по горизонталі та вертикалі на вказану кількість пікселів</td>
+						</tr>
+						<tr>
+							<td><xmp>window.resizeBy(-200, -100);</xmp></td>
+							<td> - масштабує поточне вікно браузера по горизонталі та вертикалі до заданого розміру</td>
+						</tr>
+						<tr>
+							<td><xmp>window.scrollBy(100, 200);</xmp></td>
+							<td> - прокручує вміст вікна на вказаний коефіцієнт</td>
+						</tr>
+						<tr>
+							<td><xmp>window.scrollTo(100, 200);</xmp></td>
+							<td> - прокручує вміст вікна до вказаної позиції</td>
+						</tr>
+					</table>
+				</td>
+				<td>
+					<table width="100%">
+					<tr>
+						<th colspan="3">Взаємодія із компонентами браузера</th>
+					</tr>
+					<tr>
+						<td><xmp>window.locationbar.visible</xmp></td>
+						<td><script>document.write(window.locationbar.visible);</script></td>
+						<td> - чи відображається адресна строка</td>
+					</tr>
+					<tr>
+						<td><xmp>window.menubar.visible</xmp></td>
+						<td><script>document.write(window.menubar.visible);</script></td>
+						<td> - чи відображається панель меню</td>
+					</tr>
+					<tr>
+						<td><xmp>window.personalbar.visible</xmp></td>
+						<td><script>document.write(window.personalbar.visible);</script></td>
+						<td> - чи відображається персональна панель (із закладками тощо)</td>
+					</tr>
+					<tr>
+						<td><xmp>window.scrollbars.visible</xmp></td>
+						<td><script>document.write(window.scrollbars.visible);</script></td>
+						<td> - чи відображаються полоси прокрутки</td>
+					</tr>
+					<tr>
+						<td><xmp>window.statusbar.visible</xmp></td>
+						<td><script>document.write(window.statusbar.visible);</script></td>
+						<td> - чи відображається строка стану (внизу)</td>
+					</tr>
+					<tr>
+						<td><xmp>window.toolbar.visible</xmp></td>
+						<td><script>document.write(window.toolbar.visible);</script></td>
+						<td> - чи відображається панель інструментів</td>
+					</tr>
+				</table>
+				<table width="100%">
+					<tr>
+						<th colspan="3">Інформація про розміщення веб-сторінки</th>
+					</tr>
+					<tr>
+						<td><xmp>location.href</xmp></td>
+						<td><script>document.write(location.href);</script></td>
+						<td> - повна адреса веб-сторінки</td>
+					</tr>
+					<tr>
+						<td><xmp>location.protocol</xmp></td>
+						<td><script>document.write(location.protocol);</script></td>
+						<td> - протокол</td>
+					</tr>
+					<tr>
+						<td><xmp>location.pathname</xmp></td>
+						<td><script>document.write(location.pathname);</script></td>
+						<td> - шлях до ресурсу</td>
+					</tr>
+					<tr>
+						<td><xmp>location.origin</xmp></td>
+						<td><script>document.write(location.origin);</script></td>
+						<td> - загальна схема запиту</td>
+					</tr>
+					<tr>
+						<td><xmp>location.port</xmp></td>
+						<td><script>document.write(location.port);</script></td>
+						<td> - порт, який використовує ресурс</td>
+					</tr>
+					<tr>
+						<td><xmp>location.host</xmp></td>
+						<td><script>document.write(location.host);</script></td>
+						<td> - хост</td>
+					</tr>
+					<tr>
+						<td><xmp>location.hostname</xmp></td>
+						<td><script>document.write(location.hostname);</script></td>
+						<td> - домен, аналогічний хосту, за виключенням порту</td>
+					</tr>
+					<tr>
+						<td><xmp>location.hash</xmp></td>
+						<td><script>document.write(location.hash);</script></td>
+						<td> - ідентифікатор фрагменту - та частина адреси, яка йде після символу # (за його наявності)</td>
+					</tr>
+					<tr>
+						<td><xmp>location.search</xmp></td>
+						<td><script>document.write(location.search);</script></td>
+						<td> - рядок запиту – та частина адреси, яка йде після символу ? (за його наявності)</td>
+					</tr>
+					<tr>
+						<td><xmp>location.username</xmp></td>
+						<td><script>document.write(location.username);</script></td>
+						<td> - ім'я користувача, якщо воно вказане в адресі</td>
+					</tr>
+					<tr>
+						<td><xmp>location.password</xmp></td>
+						<td><script>document.write(location.password);</script></td>
+						<td> - пароль, якщо він вказаний в адресі</td>
+					</tr>
+				</table>
+				<table width="100%">
+					<tr>
+						<th colspan="3">Інформація про браузер і операційну систему</th>
+					</tr>
+					<tr>
+						<td><xmp>navigator.appCodeName</xmp></td>
+						<td><script>document.write(navigator.appCodeName);</script></td>
+						<td> - внутрішнє кодове ім'я браузера</td>
+					</tr>
+					<tr>
+						<td><xmp>navigator.appName</xmp></td>
+						<td><script>document.write(navigator.appName)</script></td>
+						<td> - офіційне ім'я браузера</td>
+					</tr>
+					<tr>
+						<td><xmp>navigator.appVersion</xmp></td>
+						<td><script>document.write(navigator.appVersion)</script></td>
+						<td> - номер версії браузера</td>
+					</tr>
+					
+					<tr>
+						<td><xmp>navigator.product</xmp></td>
+						<td><script>document.write(navigator.product)</script></td>
+						<td> - назва продукта поточного браузера</td>
+					</tr>
+					<tr>
+						<td><xmp>navigator.productSub</xmp></td>
+						<td><script>document.write(navigator.productSub)</script></td>
+						<td> - вкладена мітка браузера</td>
+					</tr>
+					<tr>
+						<td><xmp>navigator.vendor</xmp></td>
+						<td><script>document.write(navigator.vendor)</script></td>
+						<td> - ким був браузер виготовлений</td>
+					</tr>
+					<tr>
+						<td><xmp>navigator.vendorSub</xmp></td>
+						<td><script>document.write(navigator.vendorSub)</script></td>
+						<td> - призначений для отримання додаткової інформації про того, хто виготовив браузер</td>
+					</tr>
+					<tr>
+						<td><xmp>navigator.userAgent</xmp></td>
+						<td><script>document.write(navigator.userAgent)</script></td>
+						<td> - містить строку, що ідентифікує браузер</td>
+					</tr>
+					<tr>
+						<td><xmp>navigator.platform</xmp></td>
+						<td><script>document.write(navigator.platform)</script></td>
+						<td> - інформація про опкраційну систему, на якій запущений браузер</td>
+					</tr>
+					<tr>
+						<td><xmp>navigator.language</xmp></td>
+						<td><script>document.write(navigator.language)</script></td>
+						<td> - містить строку, що вказує на бажані мови користувача</td>
+					</tr>
+					<tr>
+						<td><xmp>navigator.languages</xmp></td>
+						<td><script>document.write(navigator.languages)</script></td>
+						<td> - містить список строк, що вказують на бажані мови користувача</td>
+					</tr>
+					<tr>
+						<td><xmp>navigator.plugins</xmp></td>
+						<td><script>document.write(navigator.plugins)</script></td>
+						<td> - список плагініів, які підтримує браузер</td>
+					</tr>
+					<tr>
+						<td><xmp>navigator.battery</xmp></td>
+						<td><script>document.write(navigator.battery)</script></td>
+						<td> - представляє об'єкт типу BatteryManager, який дозволяє застосовувати Battery Status API для взаємодії зі статусом батареї</td>
+					</tr>
+					<tr>
+						<td><xmp>navigator.cookieEnabled</xmp></td>
+						<td><script>document.write(navigator.cookieEnabled)</script></td>
+						<td> - інформація про те, чи увімкнені файли кукі</td>
+					</tr>
+					<tr>
+						<td><xmp>navigator.geolocation</xmp></td>
+						<td><script>document.write(navigator.geolokation)</script></td>
+						<td> - представляє об'єкт типу Geolocation, який дозволяє застосовувати Geolocation API для роботи з геолокацією</td>
+					</tr>
+					<tr>
+						<td><xmp>navigator.onLine</xmp></td>
+						<td><script>document.write(navigator.onLine)</script></td>
+						<td> - інформація про те, чи підключений браузер до інтернету</td>
+					</tr>
+				</table>
+				</td>
+			</tr>
+		</table>	
+	</div>	
+
+
+</body>
+</html>

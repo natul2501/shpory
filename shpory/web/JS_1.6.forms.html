@@ -1,241 +1,659 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta charset="utf-8" />
 	<title>Forms JS</title>
-	<style type="text/css">
-		.fst{
-			font-style: italic;
-			font-color: #812B2B;
-		}
-		table, td, th{
-			border: 1px solid lightgray;
-       		border-collapse: collapse;
-       		line-height: 18px;
-       		padding: 0px 6px 0px 6px;
-		}
-		button{
-			background-color: #D9EEFF;
-			border: solid #7390A1 1px;
-			border-radius: 30%;
-			font-style: italic;
-			color: #590A3B;
-		}
-		p{	text-indent: 55px;
-			font-style: italic;
-			margin: 3px;
-		}
-		i{	background-color: #FFDFE4;
-		}
-		h3{
-			margin: 5px;
-			text-align: center;
-		}
-		h4{
-			margin: 2px;
-			text-align: center;
-		}
-		#contbor{
-			border: dotted #955283 1px;
-			background-color: #F9F4F8;
-			margin: 5px;
-			padding: 5px;
-		}
-	</style>
-	<script>
-	let form = document.forms.my;
-	var txt1 = "";
-	function fa1(f){
-		txt1 = f.elements[0].value;
-		document.getElementById('for_A1').innerHTML = "Значение первого элемента формы \"my\": " + txt1;
-	}
-	function fb1(f){
-		txt1 = f.length;
-		document.getElementById('for_A1').innerHTML = "Размер массива элементов формы \"my\": " + txt1;
-	}
-	function fc1(f){
-		f.elements[0].value = 3;
-		txt1 = f.elements.one.value;
-		document.getElementById('for_A1').innerHTML = "Значение первого элемента формы \"my\": " + txt1;
-	}
-	function fcc1(f){
-		txt1 = one.forma;
-		document.getElementById('for_A1').innerHTML = "Обратная ссылка элемента формы \"my\": " + txt1;
-	}
-	function fd1(f){
-		txt1 = f.action;
-		document.getElementById('for_A1').innerHTML = "значение атрибута action формы \"my\": " + txt1;
-	}
-	function fe1(f){
-		txt1 = f.target;
-		document.getElementById('for_A1').innerHTML = "значение атрибута target формы \"my\": " + txt1;
-	}
-	function ff1(f){
-		txt1 = f.method;
-		document.getElementById('for_A1').innerHTML = "значение атрибута method формы \"my\": " + txt1;
-	}
-	function fg1(f){
-		txt1 = f.encoding;
-		document.getElementById('for_A1').innerHTML = "значение атрибута enctype формы \"my\": " + txt1;
-	}
-	function fa2(f){
-		var txt2 = "";
-		txt2 = f.elements.three.value;
-		let fields = form.elements.userFields;
-		// let a = alert(fieldset.elements.login == form.elements.login);
-		document.getElementById('for_A2').innerHTML = "fields.elements.three == form.elements.three: " + txt2;
-	}
-</script>
+	<link rel="stylesheet" type="text/css" href="css/js_forms_style.css">
+	<script src="script/JS_1.6.forms.js"></script>
 </head>
-<body style="font-family: Calibri; font-size: 12px;">
-	<p>Если в HTML-документе определена форма, то она доступна сценарию JavaScript как объект, входящий в объект <i>document</i> с именем, заданным атрибутом <i>NAME</i> тега <i>FORM</i>.</p>
+<body>
+	<header>
+		<font size="6"><center>Робота з формами Java Script</center></font>
+		<p>Якщо в HTML-документі визначено форму, то вона доступна сценарію JavaScript як об'єкт, що входить в об'єкт <i>document</i> з ім'ям, заданим атрибутом <i>NAME</i> тега <i>FORM</i>.</p>
+			<table id="formExampleDiv">
+				<tr>
+					<th colspan="2">Нехай у нас є наступна форма:</th>
+				</tr>
+				<tr>
+					<td>
+						<form name="my" id="forma" action="https://www.google.com/search" method="post">
+							<input name="one" value="1">
+							<input name="two" value="2">
+							<span id="status"></span>
+						</form>
+						<span id="for_A1"></span>
+					</td>
+					<td>
+						<xmp><form name="my" id="forma" action="https://www.google.com/search" method="post"></xmp><br>
+						<xmp>	<input name="one" value="1"></xmp><br>
+						<xmp>	<input name="two" value="2"></xmp><br>
+						<xmp></form></xmp><br>
+						<xmp><span id="for_A1"></span></xmp>
+					</td>
+			</tr>
+		</table>
+	</header>
+	<div id="content">
+		<table>
+			<tr>
+				<th colspan="4">Отримання форми:</th>
+			</tr>
+			<tr>
+				<td class="fst">document.my;</td>
+				<td>
+					<button onclick="f_getform()" title="<button onclick=&quot;f_getform()&quot;>Подивитися результат</button>">
+						Подивитися результат
+					</button>
+				</td>
+				<td>
+					<details>
+						<summary>Подивитися текст коду</summary><br>
+							<xmp>function f_getform(){</xmp><br>
+							<xmp>	const txt = document.my;</xmp><br>
+							<xmp>	document.getElementById('for_A1').innerHTML = </xmp><br>
+							<xmp>		"Отримання форми за ім'ям:<br>" + txt;</xmp><br>
+							<xmp>}</xmp>
+					</details>
+				</td>
+				<td> - доступ до форми з ім'ям "my"</td>
+			</tr>
+			<tr>
+				<td class="fst">document.my;</td>
+				<td>
+					<button onclick="f_getformDoc()" title="<button onclick=&quot;f_getformDoc()&quot;>Подивитися результат</button>">
+						Подивитися результат
+					</button>
+				</td>
+				<td>
+					<details>
+						<summary>Подивитися текст коду</summary><br>
+							<xmp>function f_getformDoc(){</xmp><br>
+							<xmp>	const txt = document.forms["my"];</xmp><br>
+							<xmp>	document.getElementById('for_A1').innerHTML =</xmp><br>
+							<xmp>		"Отримання форми за ім'ям зі списку форм:<br>" + txt;</xmp><br></xmp>
+							<xmp>}</xmp>
+					</details>
+				</td>
+				<td> - доступ до форми з ім'ям "my"</td>
+			</tr>
+			<tr>
+				<td class="fst">document.forms[0];</td>
+				<td>
+					<button onclick="f_getformList()" title="<button onclick=&quot;f_getformList()&quot;>Подивитися результат</button>">
+						Подивитися результат
+					</button>
+				</td>
+				<td>
+					<details>
+						<summary>Подивитися текст коду</summary><br>
+							<xmp>function f_getformList(){</xmp><br>
+							<xmp>	const txt = document.forms[0];</xmp><br>
+							<xmp>	document.getElementById('for_A1').innerHTML =</xmp><br>
+							<xmp>		"Перша форма зі списку форм на сторінці:<br>" + txt;</xmp><br>
+							<xmp>}</xmp>
+					</details>
+				</td>
+				<td> - доступ до першої форми зі списку форм на сторінці</td>
+			</tr>
+			<tr>
+				<td>
+					document.getElementById("forma");<br>
+					document.getElementsByName("my")[0];<br>
+					document.querySelector("form");
+				</td>
+				<td>
+					<button onclick="f_getformSearch()" title="<button onclick=&quot;f_getformSearch()&quot;>Подивитися результат</button>">
+						Подивитися результат
+					</button>
+				</td>
+				<td>
+					<details>
+						<summary>Подивитися текст коду</summary><br>
+							<xmp>function f_getformSearch(){</xmp><br>
+							<xmp>	const formId = document.getElementById("forma");</xmp><br>
+							<xmp>	const formName = document.getElementsByName("my")[0];</xmp><br>
+							<xmp>	const formTag = document.querySelector("form");</xmp><br>
+							<xmp>	document.getElementById('for_A1').innerHTML =</xmp><br>
+							<xmp>		"Форма по id: " + formId + </xmp><br>
+							<xmp>		"<br> Форма за ім'ям: " + formName + </xmp><br>
+							<xmp>		"<br> Форма за тегом: " + formTag;</xmp><br>
+							<xmp>}</xmp>
+					</details>
+				</td>
+				<td> - способи доступу аналогічні способам доступу до інших елементів на сторінці</td>
+			</tr>
+			<tr>
+				<th colspan="4"><h4>Доступ до властивостей форми:</h4></th>
+			</tr>
+			<tr>
+				<td class="fst">form.action</td>
+				<td>
+					<button onclick="f_action()" title="<button onclick=&quot;f_action()&quot;>Подивитися результат</button>">
+						Подивитися результат
+					</button>
+				</td>
+				<td>
+					<details>
+						<summary>Подивитися текст коду</summary><br>
+							<xmp>function f_action(){</xmp><br>
+							<xmp>	const form = document.my;</xmp><br>
+							<xmp>	document.getElementById('for_A1').innerHTML = form.action;</xmp><br>
+							<xmp>}</xmp>
+					</details>
+				</td>
+				<td> - значення атрибуту action: адреса відправки форми</td>
+			</tr>
+			<tr>
+				<td class="fst">form.target</td>
+				<td>
+					<button onclick="f_target()" title="<button onclick=&quot;f_target()&quot;>Подивитися результат</button>">
+						Подивитися результат
+					</button>
+				</td>
+				<td>
+					<details>
+						<summary>Подивитися текст коду</summary><br>
+							<xmp>function f_target(){</xmp><br>
+							<xmp>	const form = document.my;</xmp><br>
+							<xmp>	document.getElementById('for_A1').innerHTML = form.target;</xmp><br>
+							<xmp>}</xmp>
+					</details>
+				</td>
+				<td> - значення атрибута target: фрейм, куди відправити отриману інформацію (задається у документах, що містять фрейми)</td>
+			</tr>
+			<tr>
+				<td class="fst">form.method</td>
+				<td>
+					<button onclick="f_method()" title="<button onclick=&quot;f_method()&quot;>Подивитися результат</button>">
+						Подивитися результат
+					</button>
+				</td>
+				<td>
+					<details>
+						<summary>Подивитися текст коду</summary><br>
+							<xmp>function f_method(){</xmp><br>
+							<xmp>	const form = document.my;</xmp><br>
+							<xmp>	document.getElementById('for_A1').innerHTML = form.method;</xmp><br>
+							<xmp>}</xmp>
+					</details>
+				</td>
+				<td> - метод HTTP, що застосовується для відправки</td>
+			</tr>
+			<tr>
+				<td class="fst">form.name</td>
+				<td>
+					<button onclick="f_name()" title="<button onclick=&quot;f_name()&quot;>Подивитися результат</button>">
+						Подивитися результат
+					</button>
+				</td>
+				<td>
+					<details>
+						<summary>Подивитися текст коду</summary><br>
+							<xmp>function f_name(){</xmp><br>
+							<xmp>	const form = document.my;</xmp><br>
+							<xmp>	document.getElementById('for_A1').innerHTML = form.name;</xmp><br>
+							<xmp>}</xmp>
+					</details>
+				</td>
+				<td> - ім'я форми</td>
+			</tr>
+			<tr>
+				<td class="fst">form.length</td>
+				<td>
+					<button onclick="f_length()" title="<button onclick=&quot;f_length()&quot;>Подивитися результат</button>">
+						Подивитися результат
+					</button>
+				</td>
+				<td>
+					<details>
+						<summary>Подивитися текст коду</summary><br>
+							<xmp>function f_length(){</xmp><br>
+							<xmp>	const form = document.my;</xmp><br>
+							<xmp>	document.getElementById('for_A1').innerHTML = form.length;</xmp><br>
+							<xmp>}</xmp>
+					</details>
+				</td>
+				<td> - кількість елементів форми</td>
+			</tr>
+			<tr>
+				<td class="fst">form.elements</td>
+				<td>
+					<button onclick="f_elements()" title="<button onclick=&quot;f_elements()&quot;>Подивитися результат</button>">
+						Подивитися результат
+					</button>
+				</td>
+				<td>
+					<details>
+						<summary>Подивитися текст коду</summary><br>
+							<xmp>function f_elements(){</xmp><br>
+							<xmp>	const form = document.my;</xmp><br>
+							<xmp>	document.getElementById('for_A1').innerHTML = form.elements;</xmp><br>
+							<xmp>}</xmp>
+					</details>
+				</td>
+				<td> - колекція елементів форми</td>
+			</tr>
+			<tr>
+				<th colspan="4"><h4>Доступ до елементів форми:</h4></th>
+			</tr>
+			<tr>
+				<td colspan="4">Окрім стандартних методів getElementById(), getElementsByClassName(), getElementsByTagName(), getElementsByName(), querySelector() і querySelectorAll() доступні також наступні спеціальні методи:</td>
+			</tr>
+			<tr>
+				<td class="fst">form.elements[0]</td>
+				<td>
+					<button onclick="f_getElementsIndex()" title="<button onclick=&quot;f_getElementsIndex()&quot;>Подивитися результат</button>">
+						Подивитися результат
+					</button>
+				</td>
+				<td>
+					<details>
+						<summary>Подивитися текст коду</summary><br>
+							<xmp>function f_getElementsIndex(){</xmp><br>
+							<xmp>	const form = document.my;</xmp><br>
+							<xmp>	document.getElementById('for_A1').innerHTML =</xmp><br>
+							<xmp>		"Елемет по id: " + form.elements[0];</xmp><br>
+							<xmp>}</xmp>
+					</details>
+				</td>
+				<td> - отримання елементу зі списку по індексу</td>
+			</tr>
+			<tr>
+				<td class="fst">form.elements["one"]</td>
+				<td>
+					<button onclick="f_getElementsName()" title="<button onclick=&quot;f_getElementsName()&quot;>Подивитися результат</button>">
+						Подивитися результат
+					</button>
+				</td>
+				<td>
+					<details>
+						<summary>Подивитися текст коду</summary><br>
+							<xmp>function f_getElementsName(){</xmp><br>
+							<xmp>	const form = document.my;</xmp><br>
+							<xmp>	document.getElementById('for_A1').innerHTML =</xmp><br>
+							<xmp>		"Елемент по імені " + form.elements["one"];</xmp><br>
+							<xmp>}</xmp>
+					</details>
+				</td>
+				<td> - отримання елементу зі списку по імені</td>
+			</tr>
+			<tr>
+				<td class="fst">document.my.one</td>
+				<td>
+					<button onclick="f_getElementsPath()" title="<button onclick=&quot;f_getElementsPath()&quot;>Подивитися результат</button>">
+						Подивитися результат
+					</button>
+				</td>
+				<td>
+					<details>
+						<summary>Подивитися текст коду</summary><br>
+							<xmp>function f_getElementsPath(){</xmp><br>
+							<xmp>	const form = document.my;</xmp><br>
+							<xmp>	document.getElementById('for_A1').innerHTML =</xmp><br>
+							<xmp>		"Елемент через об'єкт форми:<br> " + document.my.one;</xmp><br>
+							<xmp>}</xmp>
+					</details>
+				</td>
+				<td> - отримання елементу через об'єкт форми</td>
+			</tr>
+			<tr>
+				<th colspan="4"><h4>Властивості елементів форми:</h4></th>
+			</tr>
+			<tr>
+				<td class="fst">document.my.one.type</td>
+				<td>
+					<button onclick="f_elementsType()" title="<button onclick=&quot;f_elementsType()&quot;>Подивитися результат</button>">
+						Подивитися результат
+					</button>
+				</td>
+				<td>
+					<details>
+						<summary>Подивитися текст коду</summary><br>
+							<xmp>function f_elementsType(){</xmp><br>
+							<xmp>	const elementOne = document.my.one;</xmp><br>
+							<xmp>	document.getElementById('for_A1').innerHTML =</xmp><br>
+							<xmp>		"Тип елементу: " + elementOne.type;</xmp><br>
+							<xmp>}</xmp>
+					</details>
+				</td>
+				<td> - тип елементу або значення атрибуту type у поля input</td>
+			</tr>
+			<tr>
+				<td class="fst">document.my.one.value</td>
+				<td>
+					<button onclick="f_elementsValue()" title="<button onclick=&quot;f_elementsValue()&quot;>Подивитися результат</button>">
+						Подивитися результат
+					</button>
+				</td>
+				<td>
+					<details>
+						<summary>Подивитися текст коду</summary><br>
+							<xmp>function f_elementsValue(){</xmp><br>
+							<xmp>	const elementOne = document.my.one;</xmp><br>
+							<xmp>	const oldValue = elementOne.value;</xmp><br>
+							<xmp>	elementOne.value = "3";</xmp><br>
+							<xmp>	document.getElementById('for_A1').innerHTML =</xmp><br>
+							<xmp>		"Попереднє значення поля: " + oldValue +</xmp><br>
+							<xmp>		"<br>Нове значення поля: " + elementOne.value;</xmp><br>
+							<xmp>}</xmp>
+					</details>
+				</td>
+				<td> - значення текстового поля форми</td>
+			</tr>
+			<tr>
+				<td class="fst">document.my.one.focus()</td>
+				<td>
+					<button onclick="f_elementsFokus()" title="<button onclick=&quot;f_elementsFokus()&quot;>Подивитися результат</button>">
+						Подивитися результат
+					</button>
+				</td>
+				<td>
+					<details>
+						<summary>Подивитися текст коду</summary><br>
+							<xmp>function f_elementsFokus(){</xmp><br>
+							<xmp>	document.my.one.focus();</xmp><br>
+							<xmp>}</xmp>
+					</details>
+				</td>
+				<td> - курсор на полі форми</td>
+			</tr>
+			<tr>
+				<td class="fst">document.my.one.blur()</td>
+				<td>
+					<button onclick="f_elementsBlur()" title="<button onclick=&quot;f_elementsBlur()&quot;>Подивитися результат</button>">
+						Подивитися результат
+					</button>
+				</td>
+				<td>
+					<details>
+						<summary>Подивитися текст коду</summary><br>
+							<xmp>function f_elementsBlur(){</xmp><br>
+							<xmp>	document.my.one.focus();</xmp><br>
+							<xmp>}</xmp>
+					</details>
+				</td>
+				<td> - прибирає курсор із поля форми</td>
+			</tr>
+			<tr>
+				<td class="fst">document.my.reset()</td>
+				<td>
+					<button onclick="f_elementsReset()" title="<button onclick=&quot;f_elementsReset()&quot;>Подивитися результат</button>">
+						Подивитися результат
+					</button>
+				</td>
+				<td>
+					<details>
+						<summary>Подивитися текст коду</summary><br>
+							<xmp>function f_elementsReset(){</xmp><br>
+							<xmp>	document.my.one.focus();</xmp><br>
+							<xmp>}</xmp>
+					</details>
+				</td>
+				<td> - видаляє введені значення полів форми</td>
+			</tr>
+		</table>
 
-<h3>Form</h3>
-<div id="contbor">
-<pre>	&lt;form name="my" id="forma"&gt;
-		&lt;input name="one" value="1"&gt;
-		&lt;input name="two" value="2"&gt;
-	&lt;/form&gt;
-</pre>
-	<form name="my" id="forma">
-		<input name="one" value="1">
-		<input name="two" value="2">
-	</form>
-	<span id="for_A1"></span>
-</div>
+		<table id="buttonTable">
+			<tr>
+				<th colspan="4"><h4>Кнопки:</h4></th>
+			</tr>
+			<tr>
+				<td colspan="4">Для відправки форм можна використовувати наступні кнопки:</td>
+			</tr>
+			<tr>
+				<td>
+					<xmp><button name="send">Відправити</button></xmp><br>
+					<button name="send">Відправити</button>
+				</td>
+				<td> - кнопка &lt;button&gt;</td>
+				<td>
+					<xmp><input type="submit" name="send" value="Відправити"/></xmp><br>
+					<input type="submit" name="send" value="Відправити"/>
+				</td>
+				<td>
+					 - кнопка відправки форм &lt;input type="submit"/&gt;, має знаходитися у формі
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<xmp><button type="reset">Очистити</button></xmp><br>
+					<button type="reset">Очистити</button>
+				</td>
+				<td> - кнопка button очистки форм</td>
+				<td>
+					<xmp><input type="reset" value="Очистити"/></xmp><br>
+					<input type="reset" value="Очистити"/>
+				</td>
+				<td> - кнопка input очистки форм</td>
+			</tr>
+			<tr>
+				<th colspan="4"><h4>Способи обробки натискань:</h4></th>
+			</tr>
+			<tr>
+				<td class="fst"><xmp><button onclick="f_onclick()"></button></xmp></td>
+				<td>
+					<button onclick="f_onclick()" title="<button onclick=&quot;f_onclick()&quot;>Подивитися результат</button>">
+						Подивитися результат
+					</button>
+				</td>
+				<td>
+					<details>
+						<summary>Подивитися текст коду</summary><br>
+							<xmp>function f_onclick(){</xmp><br>
+							<xmp>	document.getElementById('for_A1').innerHTML = "Натиснули button";</xmp><br>
+							<xmp>}</xmp>
+					</details>
+				</td>
+				<td> - з використанням властивості onclick кнопки &lt;button&gt;</td>
+			</tr>
+			<tr>
+				<td class="fst">&lt;input type="submit"<br>name="sendButton" value="Подивитися результат"/&gt;</td>
+				<td><iframe id="buttonFrame" src="dt/JS_forms_ButtonEvent.html"></iframe></td>
+				<td>
+					<details>
+						<summary>Подивитися текст коду</summary><br>
+							<xmp>function f_onevent(){</xmp><br>
+							<xmp>    alert("Натиснули кнопку input");</xmp><br>
+							<xmp>}</xmp><br>
+							<xmp>const sendButton = document.search.sendButton;</xmp><br>
+							<xmp>sendButton.addEventListener("click", f_onevent);</xmp>
+					</details>
+				</td>
+				<td> - з використанням обробчика подій</td>
+			</tr>
+		</table>
 
-<table>
-	<tr>
-		<td>1</td>
-		<td class="fst">document.forms.my;</td>
-		<td> - доступ к форме с именем "my"</td>
-		<td><button onclick="fa1(my)">check</button></td>
-	</tr>
-	<tr>
-		<td>2</td>
-		<td class="fst">document.forms[0];</td>
-		<td> - доступ к первой форме в документе</td>
-		<td><button onclick="fb1(my)">check</button></td>
-	</tr>
-	<tr>
-		<td>3</td>
-		<td class="fst">form.elements.one;</td>
-		<td> - доступ к элементу формы с именем "one"<br> * может быть несколько элементов с одним и тем же именем, это часто бывает с кнопками-переключателями</td>
-		<td><button onclick="fc1(my)">check</button></td>
-	</tr>
-	<tr>
-		<td>4</td>
-		<td class="fst">form.one;</td>
-		<td> - сокращённая форма доступа к элементу формы с именем "one"</td>
-		<td><button onclick="fc1(my)">check</button></td>
-	</tr>
-	<tr>
-		<td>5</td>
-		<td class="fst">one.form;</td>
-		<td> - обратная ссылка</td>
-		<td><button onclick="fcc1(my)">check</button></td>
-	</tr>
-	<tr>
-		<td colspan="4"><h4>Свойства формы</h4></td>
-	</tr>
-	<tr>
-		<td>1</td>
-		<td class="fst">form.action;</td>
-		<td> - значение атрибута action: имя программы, которая будет обрабатывать форму</td>
-		<td><button onclick="fd1(my)">check</button></td>
-	</tr>
-	<tr>
-		<td>2</td>
-		<td class="fst">form.target;</td>
-		<td> - значение атрибута target: фрейм, куда отправить полученную информацию (задается во фреймосодержащих документах)</td>
-		<td><button onclick="fe1(my)">check</button></td>
-	</tr>
-	<tr>
-		<td>3</td>
-		<td class="fst">form.method;</td>
-		<td> - значение атрибута method: метод передачи данных от формы обрабатывающей программе; может принимать значения get или post</td>
-		<td><button onclick="ff1(my)">check</button></td>
-	</tr>
-	<tr>
-		<td>4</td>
-		<td class="fst">form.encoding;</td>
-		<td> - значение атрибута enctype: тип содержимого (метод кодирования)</td>
-		<td><button onclick="fg1(my)">check</button></td>
-	</tr>
-	<tr>
-		<td>5</td>
-		<td class="fst">form.elements;</td>
-		<td> - массив всех элементов формы</td>
-		<td><button onclick="fa1(my)">check</button></td>
-	</tr>
-	<tr>
-		<td>6</td>
-		<td class="fst">form.length;</td>
-		<td> - размер массива elements</td>
-		<td><button onclick="fb1(my)">check</button></td>
-	</tr>
-</table>
+		<table>
+			<tr>
+				<th colspan="4"><h4>Події полів input:</h4></th>
+			</tr>
+			<tr>
+				<td colspan="4">Нехай у нас є форма із полем:</td>
+			</tr>
+			<tr>
+				<td colspan="2"><iframe id="inputFrame" src="dt/JS_forms_InputEvent.html"></iframe></td>
+				<td colspan="2">
+					<xmp class="example"><form name="inputForm"></xmp><br>
+				    <xmp class="example">    <input type="text" name="inputField" value="type here" /></xmp><br>
+				    <xmp class="example">    <button type="reset"> clean </button></xmp><br>
+				    <xmp class="example">    <span id="symbol"> </span></xmp><br>
+				    <xmp class="example"></form></xmp><br>
+				    <xmp class="example"><div id="printBlock"> </div></xmp>
+				</td>
+			</tr>
+			<tr>
+				<td class="fst">focus</td>
+				<td>
+					<details>
+						<summary>Подивитися текст коду</summary><br>
+							<xmp>const field = document.inputForm.inputField;</xmp><br>
+					        <xmp>function i_focus(e){</xmp><br>
+					        <xmp>    field.style.backgroundColor = "MintCream";</xmp><br>
+					        <xmp>}</xmp><br>
+					        <xmp>field.addEventListener("focus", i_focus);</xmp>
+					</details>
+				</td>
+				<td colspan="2"> - коли курсор знаходиться в полі</td>
+			</tr>
+			<tr>
+				<td class="fst">blur</td>
+				<td>
+					<details>
+						<summary>Подивитися текст коду</summary><br>
+							<xmp>const field = document.inputForm.inputField;</xmp><br>
+        					<xmp>const resetOutline = field.style.outline;</xmp><br>
+							<xmp>function i_blur(e){</xmp><br>
+				            <xmp>field.style.backgroundColor = "WhiteSmoke";</xmp><br>
+				            <xmp>const text = field.value.trim();</xmp><br>
+				            <xmp>if(text==="")</xmp><br>
+				            <xmp>    field.style.outline = "solid 3px red";</xmp><br>
+				            <xmp>else</xmp><br>
+				            <xmp>    field.style.outline = resetOutline;</xmp><br>
+				        	<xmp>}</xmp><br>
+				        	<xmp>field.addEventListener("blur", i_blur);</xmp>
+					</details>
+				</td>
+				<td colspan="2"> - курсор знаходиться поза полем<br>зручно використовувати для відновлення стилів</td>
+			</tr>
+			<tr>
+				<td class="fst">change</td>
+				<td>
+					<details>
+						<summary>Подивитися текст коду</summary><br>
+							<xmp>const field = document.inputForm.inputField;</xmp><br>
+							<xmp>function i_change(e){</xmp><br>
+					        <xmp>    field.style.border = "solid 4px PaleVioletRed";</xmp><br>
+					        <xmp>}</xmp><br>
+					        <xmp>field.addEventListener("change", i_change);</xmp>
+					</details>
+				</td>
+				<td colspan="2"> - змінене значення поля value</td>
+			</tr>
+			<tr>
+				<td class="fst">input</td>
+				<td>
+					<details>
+						<summary>Подивитися текст коду</summary><br>
+							<xmp>const field = document.inputForm.inputField;</xmp><br>
+							<xmp>function i_input(e){</xmp><br>
+					        <xmp>    field.style.outline = "solid 4px MediumAquamarine";</xmp><br>
+					        <xmp>}</xmp><br>
+					        <xmp>field.addEventListener("input", i_input);</xmp>
+					</details>
+				</td>
+				<td colspan="2"> - відбувається введення тексту в поле</td>
+			</tr>
+			<tr>
+				<td class="fst">select</td>
+				<td>
+					<details>
+						<summary>Подивитися текст коду</summary><br>
+							<xmp>const field = document.inputForm.inputField;</xmp><br>
+							<xmp>function i_select(e){
+				            <xmp>	field.style.backgroundColor = "Lavender";
+					        <xmp>}
+					        <xmp>field.addEventListener("select", i_select);</xmp>
+					</details>
+				</td>
+				<td colspan="2"> - виділення тексту поля</td>
+			</tr>
+			<tr>
+				<td class="fst">keydown</td>
+				<td>
+					<details>
+						<summary>Подивитися текст коду</summary><br>
+							<xmp>const field = document.inputForm.inputField;</xmp><br>
+							<xmp>function i_keydown(e){</xmp><br>
+					        <xmp>    const symbolSpan = document.getElementById("symbol");</xmp><br>
+					        <xmp>    symbolSpan.textContent = "✎";</xmp><br>
+					        <xmp>}</xmp><br>
+					        <xmp>field.addEventListener("keydown", i_keydown);</xmp>
+					</details>
+				</td>
+				<td colspan="2"> - натискання клавіші клавіатури</td>
+			</tr>
+			<tr>
+				<td class="fst">keyup</td>
+				<td>
+					<details>
+						<summary>Подивитися текст коду</summary><br>
+							<xmp>const field = document.inputForm.inputField;</xmp><br>
+							<xmp>function i_keyup(e){</xmp><br>
+					        <xmp>    const symbolSpan = document.getElementById("symbol");</xmp><br>
+					        <xmp>    symbolSpan.textContent = " ";</xmp><br>
+					        <xmp>}</xmp><br>
+					        <xmp>field.addEventListener("keyup", i_keyup);</xmp>
+					</details>
+				</td>
+				<td colspan="2"> - відпускання попередньо натиснутої клавіші клавіатури</td>
+			</tr>
+			<tr>
+				<td class="fst">keypress</td>
+				<td>
+					<details>
+						<summary>Подивитися текст коду</summary><br>
+							<xmp>const field = document.inputForm.inputField;</xmp><br>
+							<xmp>function i_keypress(e){</xmp><br>
+					        <xmp>    const printBlock = document.getElementById("printBlock");</xmp><br>
+					        <xmp>    const val = e.target.value;</xmp><br>
+					        <xmp>    printBlock.textContent = val;</xmp><br>
+					        <xmp>}</xmp><br>
+					        <xmp>field.addEventListener("keypress", i_keypress);</xmp>
+					</details>
+				</td>
+				<td colspan="2"> - натискання клавіші клавіатури із символами вводу</td>
+			</tr>
+			<tr>
+				<th colspan="4"><h4>Події прапорців і перемикачів:</h4></th>
+			</tr>
+			<tr>
+				<td class="fst">checked</td>
+				<td>
+					<input type="checkbox" id="myCheck" onclick="ch_checked()" title="<input type=&quot;checkbox&quot; id=&quot;myCheck&quot; onclick=&quot;ch_checked()&quot;>">
+					<span id="ch_text" title="<span id=&quot;ch_text&quot;></span>"></span>
+				</td>
+				<td>
+					<details>
+						<summary>Подивитися текст коду</summary><br>
+							<xmp>function ch_checked() {</xmp><br>
+							<xmp>	var checkBox = document.getElementById("myCheck");</xmp><br>
+							<xmp>	var text = document.getElementById("ch_text");</xmp><br>
+							<xmp>	if (checkBox.checked == true)</xmp><br>
+							<xmp> 		text.innerHTML = "★";</xmp><br>
+							<xmp>	else</xmp><br>
+							<xmp>    	text.innerHTML = "✩";</xmp><br>
+							<xmp>}</xmp>
+					</details>
+				</td>
+				<td> - введені дані отримуємо в незашифрованому вигляді</td>
+			</tr>
+		</table>
 
+		<table>
+			<tr>
+				<th colspan="4"><h4>Робота з текстовими полями:</h4></th>
+			</tr>
+			<tr>
+				<td class="fst">Поле вводу паролю</td>
+				<td><iframe id="passFrame" src="dt/JS_forms_InputPasswort.html"></iframe></td>
+				<td>
+					<details>
+						<summary>Подивитися текст коду</summary><br>
+							<xmp>const field = document.inputForm.inputField;</xmp><br>
+					        <xmp>function oninput(e){</xmp><br>
+					        <xmp>    const printBlock = document.getElementById("printBlock");</xmp><br>
+					        <xmp>    printBlock.textContent = e.target.value;</xmp><br>
+					        <xmp>} </xmp><br>
+					        <xmp>field.addEventListener("input", oninput); </xmp>
+					</details>
+				</td>
+				<td> - введені дані отримуємо в незашифрованому вигляді</td>
+			</tr>
 
-<h3>&lt;fieldset&gt; как «подформа»</h3>
-<div id="contbor">
-<pre>	&lt;form name="my2"&gt;
-		&lt;fieldset name="userFields"&gt;
-			&lt;input name="three" 	value="3"&gt;
-			&lt;input name="four"	value="4"&gt;
-		&lt;/fieldset&gt;
-	&lt;/form&gt;
-</pre>
-	<form name="my2">
-		<fieldset name="userFields">
-			<input name="three" value="3">
-			<input name="four" 	value="4">
-		</fieldset>
-	</form>
-	<span id="for_A2"></span>
-</div>
-
-<table>
-	<tr>
-		<td>1</td>
-		<td class="fst">form.elements.userFields.elements.three;</td>
-		<td> - доступ к элементу через fieldset</td>
-		<td><button onclick="fa2(my2)">check</button></td>
-	</tr>
-	<tr>
-		<td>2</td>
-		<td class="fst">form.elements.three;</td>
-		<td> - доступ к элементу через form</td>
-		<td><button onclick="fa2(my2)">check</button></td>
-	</tr>
-</table>
-
-
-<h3>Элементы формы</h3>
-<div id="contbor">
-<pre>	&lt;form id="my2"&gt;
-		&lt;fieldset name="userFields"&gt;
-			&lt;input name="three" 	value="3"&gt;
-			&lt;input name="four"	value="4"&gt;
-		&lt;/fieldset&gt;
-	&lt;/form&gt;
-</pre>
-	<form id="my3">
-		<fieldset name="userFields">
-			<input name="three" value="3">
-			<input name="four" 	value="4">
-		</fieldset>
-	</form>
-	<span id="for_A3"></span>
-</div>
-
-<table>
-	<tr>
-		<td>1</td>
-		<td class="fst">form.elements.userFields.elements.three;</td>
-		<td> - доступ к элементу через fieldset</td>
-		<td><button onclick="fa3(my3)">check</button></td>
-	</tr>
-
-
+		</table>
+	</div>
+	
+<p>&nbsp;</p>
+	<footer>По матеріалам сайту <a href="https://metanit.com/web/javascript/7.1.php">metanit.com</a></footer>
 </body>
 </html>

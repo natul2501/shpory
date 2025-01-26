@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <style type="text/css">
+        button{
+            width: 40px;
+        }
+        #printBlock{
+            font-family: Calibri;
+            font-size: 12px;
+            margin-top: 2px;
+        }
+    </style>
+</head>
+<body>
+    <form name="inputForm" style="display: inline;">
+        <input type="password" name="inputField" title="<input type=&quot;password&quot; name=&quot;inputField&quot;/>" />
+    </form>
+    <div id="printBlock" title="<div id=&quot;printBlock&quot;></div>"></div>
+    <script>
+        const field = document.inputForm.inputField;
+        function oninput(e){
+            const printBlock = document.getElementById("printBlock");
+            printBlock.textContent = e.target.value;
+        } 
+        field.addEventListener("input", oninput); 
+    </script>
+</body>
+</html>

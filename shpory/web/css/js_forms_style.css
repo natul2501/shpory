@@ -1,0 +1,109 @@
+		body{
+			background-image : url(../img/old-cement-wall-texture.jpg);
+			background-size: 100%;
+			font-family: Calibri;
+			font-size: 14px; 
+		}
+		.fst{
+			font-weight: bold;
+			color: #812B2B;
+		}
+		
+		/*#contbor{
+			border: dotted #955283 1px;
+			background-color: #F9F4F8;
+			margin: 5px;
+			padding: 5px;
+		}*/
+		#content{
+			width: 98%;
+			background-color:#C9C9C9;
+			padding: 5px;
+   			padding-left: 20px;
+   			border: solid 1px black;
+   			position: absolute;
+   			top: 208px;
+			float: left;
+			z-index: 4;
+		}
+		.example{
+			font-weight: inherit;
+			color: RebeccaPurple;
+		}
+		#buttonFrame{
+			width: 160px;
+			height: 40px;
+			border: solid 0px rgba(0, 0, 0, 0.0);
+			margin-left: -7px;
+		}
+		#inputFrame{
+			width: 250px;
+			height: 60px;
+			border: solid 0px rgba(0, 0, 0, 0.0);
+			margin-left: -7px;
+		}
+		#passFrame{
+			width: 170px;
+			height: 55px;
+			border: solid 0px rgba(0, 0, 0, 0.0);
+			margin: -7px 0px 0px 0px;
+		}
+/*--------------ELEMENT'S STYLES-----------------*/
+		header{
+			width: 98%;
+			background-color:#C9C9C9;
+			padding: 5px;
+   			padding-left: 20px;
+   			border: solid 1px black;
+   			position: fixed;
+   			top: 0px;
+   			z-index: 5;
+		}
+		xmp{
+			display: block;
+			color: brown;
+			font-family: Consolas;
+			font-size: 13px;
+			line-height: 0px;
+			margin: 0px;
+		}
+		#buttonTable xmp{
+			font-weight: bold;
+		}
+		table{
+			display: block;
+			float: left;
+		}
+		td{
+			background-color: rgba(255, 255, 255, 0.3);
+			padding: 10px 3px 10px 3px;
+		}
+		th{
+			background-color: PowderBlue;
+		}
+
+		i{	color: FireBrick;
+		}
+		h3{
+			margin: 5px;
+			text-align: center;
+		}
+		h4{
+			margin: 2px;
+			text-align: center;
+		}
+		footer{
+			text-align: center;
+			width: 99.3%;
+			clear: both;
+			background-color: rgba(220, 220, 220, 0.6);
+			border: solid 1px black;
+			height: 40px;
+			position: absolute;
+			top: 2075px;
+			float: left;
+			clear: both;
+			z-index: 4;
+		}
+		
+		

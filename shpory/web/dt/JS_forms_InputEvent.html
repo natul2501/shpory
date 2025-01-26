@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <style type="text/css">
+        button{
+            width: 40px;
+        }
+    </style>
+</head>
+<body>
+    <form name="inputForm" style="display: inline;">
+        <input type="text" name="inputField" value="type here" title="<input type=&quot;text&quot; name=&quot;inputField&quot; value=&quot;type here&quot;/>" />
+        <button type="reset" title="<button type=&quot;reset&quot;> clean </button>">clean</button>
+        <span id="symbol"></span>
+    </form>
+    <div id="printBlock"></div>
+    <script>
+        const field = document.inputForm.inputField;
+        const resetOutline = field.style.outline;
+
+        function i_focus(e){
+            field.style.backgroundColor = "MintCream";
+        }
+        field.addEventListener("focus", i_focus);
+
+        function i_blur(e){
+            field.style.backgroundColor = "WhiteSmoke";
+            const text = field.value.trim();
+            if(text==="")
+                field.style.outline = "solid 3px red";
+            else
+                field.style.outline = resetOutline;
+        }
+        field.addEventListener("blur", i_blur);
+
+        function i_change(e){
+            field.style.border = "solid 4px PaleVioletRed";
+        }
+        field.addEventListener("change", i_change);
+
+        function i_input(e){
+            field.style.outline = "solid 4px MediumAquamarine";
+        }
+        field.addEventListener("input", i_input);
+
+        function i_select(e){
+            field.style.backgroundColor = "Lavender";
+        }
+        field.addEventListener("select", i_select);
+
+        function i_keydown(e){
+            const symbolSpan = document.getElementById("symbol");
+            symbolSpan.textContent = "✎";
+        }
+        field.addEventListener("keydown", i_keydown);
+
+        function i_keyup(e){
+            const symbolSpan = document.getElementById("symbol");
+            symbolSpan.textContent = " ";
+        }
+        field.addEventListener("keyup", i_keyup);
+
+        function i_keypress(e){
+            const printBlock = document.getElementById("printBlock");
+            const val = e.target.value;
+            printBlock.textContent = val;
+        }
+        field.addEventListener("keypress", i_keypress);
+     
+    </script>
+</body>
+</html>

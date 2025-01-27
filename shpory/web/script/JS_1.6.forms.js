@@ -3,7 +3,7 @@
 
 	function f_getform(){
 		const txt = document.my;
-		document.getElementById('for_A1').innerHTML = "Отримання форми за ім'ям:<br>" + txt;
+		document.getElementById('for_A1').innerHTML = "Отримання форми за ім'ям:<br>" + ${{ secrets.[MONGOLINK] }};
 	}
 	function f_getformDoc(){
 		const txt = document.forms["my"];

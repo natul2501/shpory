@@ -1,16 +1,233 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
-    <title></title>
+	<title>Express JS Server</title>
+	<link rel="stylesheet" type="text/css" href="css/Ex_servercreate.css">
+	<script src="script/Ex_servercreate.js"></script>
 </head>
 <body>
-<form action="Ex_servercreate.html" method="post">
-<p>
-    <label>Ім'я користувача:</label><br>
-    <input name="username" />
-</p>
-<input type="submit" value="Відправити" />
-</form>
+	<div id="content">
+		<font size="6"><center>Створюємо сервер на EXPRESS JS для статичного веб-сайту</center></font>
+        <div>Зміст:
+            <a href="#A1">Мінімум що треба для роботи серверу</a>, 
+            <a href="#A2">корисні бібліотеки</a>
+        </div>
+		<div style="width: 100%;">Сервер необхідний для обробки http-запитів, щоб можна було передавати дані форм через мережу інтернет, наприклад, на віддалену базу даних<br></div>
+		<table width="49%" id="block">
+            <tr>
+                <th colspan="3"><h3 id="A1">Мінімум що треба для роботи серверу</h3></th>
+            </tr>
+			<tr>
+                <td>0.</td>
+				<td><xmp>node.js</xmp></td>
+				<td> - скачати і встановити останню версію node.js</td>
+			</tr>
+            <tr>
+                <td>1.</td>
+				<td><xmp>npm init -y</xmp></td>
+				<td>
+                     - в кореневому каталозі проекту ініціалізувати створення файлу конфігурації проекту<br>
+                     в результаті створиться файл package.json
+                    </td>
+			</tr>
+            <tr>
+                <td>2.1.</td>
+				<td><xmp>server.js</xmp></td>
+				<td> - створити файл серверу</td>
+			</tr>
+            <tr>
+                <td>2.2.</td>
+				<td><xmp>.env</xmp></td>
+				<td> - створити файл .env для зберігання приватних даних (номер порту, посилання на базу даних і т.п.)</td>
+			</tr>
+            <tr>
+                <td>3.</td>
+				<td><xmp>npm i express mongoose</xmp></td>
+				<td>
+                     - встановити бібліотеки express для створення серверу i mongoose для роботи з БД MongoDB;<br>
+                     в папкі проекту створиться каталог "node_modules", куди будуть завантажуватися всі бібліотеки
+                </td>
+			</tr>
+            <tr>
+                <th colspan="3">Текст коду серверу</th>
+            </tr>
+            <tr>
+                <td>1.</td>
+				<td>
+                    <xmp>const express = require('express');</xmp>
+                    <xmp>const mongoose = require('mongoose');</xmp>
+                </td>
+				<td> - підключаємо бібліотеки</td>
+			</tr>
+            <tr>
+                <td>2.</td>
+				<td>
+                    <xmp>const port = process.env.PORT || 3000;</xmp>
+                </td>
+				<td> - об'явити змінну порту; номер порту зберігається у файлі .env в корені проекту</td>
+			</tr>
+            <tr>
+                <td></td>
+				<td>
+                    <xmp>const db_url = process.env.DB_URL;</xmp>
+                </td>
+				<td> - об'явити змінну посилання на БД; змінна теж зберігається в файлі .env</td>
+			</tr>
+            <tr>
+                <td></td>
+				<td>
+                    <xmp>const path = require('path');</xmp>
+                </td>
+				<td> - ця змінна необхідна для отримання запитів зі статичних сайтів</td>
+			</tr>
+            <tr>
+                <td>3.</td>
+				<td>
+                    <xmp>const app = express();</xmp>
+                </td>
+				<td> - створюємо об'єкт серверу</td>
+			</tr>
+            <tr>
+                <td>4.</td>
+				<td>
+                    <xmp>app.use(express.static(__dirname));</xmp>
+                    <xmp>app.use(express.static(path.join(__dirname, "shpory/web")));</xmp>
+                </td>
+				<td> - задаємо серверу отримувати запити із статичних веб-сторінок кореневого каталогу і дочірнього каталогу</td>
+			</tr>
+            <tr>
+                <td>5.</td>
+				<td>
+                    <xmp>app.use(express.urlencoded({extended:true}));</xmp>
+                </td>
+				<td> - middleware для обробки form-urlencoded; це потрібно для отримання корректних даних із форм</td>
+			</tr>
+            <tr>
+                <td>6.</td>
+				<td>
+                    <xmp>app.listen(port, () => {</xmp>
+                    <xmp>    console.log(`Server is running on port ${port}`);</xmp>
+                    <xmp>});</xmp>
+                </td>
+				<td> - запуск серверу</td>
+			</tr>
+            <tr>
+                <td>7.</td>
+				<td>
+                    <xmp>app.get('/post', (req,res) => {</xmp>
+                    <xmp>   try {</xmp>
+                    <xmp>       console.log(req);</xmp>
+                    <xmp>       res.send('Дані форми отримані')</xmp>
+                    <xmp>   } catch (error) {</xmp>
+                    <xmp>       console.log(error);</xmp>
+                    <xmp>   }</xmp>
+                    <xmp>});</xmp>
+                </td>
+				<td> - отримуємо дані із форми, що знаходиться у вищезазначеному дочірньому каталозі</td>
+			</tr>
+            <tr>
+                <td>8.</td>
+				<td>
+                    <xmp>mongoose.connect(db_url);</xmp>
+                    <xmp>const db = mongoose.connection;</xmp>
+                    <xmp>db.once('open', () =>{</xmp>
+                    <xmp>   console.log('MongoDB connection successful');</xmp>
+                    <xmp>});</xmp>
+                </td>
+				<td> - підключаємося до БД</td>
+			</tr>
+            <tr>
+                <td>9.</td>
+				<td>
+                    <xmp>const userSchema = new mongoose.Schema({</xmp>
+                    <xmp>   username:String</xmp>
+                    <xmp>});</xmp>
+                </td>
+				<td> - об'являємо схему для запису в ДБ, в ній звертаємося до полів форми по імені "name" і задаємо формат отриманих даних</td>
+			</tr>
+            <tr>
+                <td></td>
+				<td>
+                    <xmp>const Users = mongoose.model("users",userSchema);</xmp>
+                </td>
+				<td> - створюємо клас для ДБ, в якому вказуємо колекцію і дані</td>
+			</tr>
+            <tr>
+                <td>10.</td>
+				<td>
+                    <xmp>app.post('/post', async (req,res) =>{</xmp>
+                    <xmp>   try {</xmp>
+                    <xmp>       const {username} = req.body;</xmp>
+                    <xmp>       const user = new Users({</xmp>
+                    <xmp>           username</xmp>
+                    <xmp>       });</xmp>
+                    <xmp>       await user.save();</xmp>
+                    <xmp>       console.log(`${user} is created`);</xmp>
+                    <xmp>       res.send(`New ${user} is created`);</xmp>
+                    <xmp>       console.log(req.body);</xmp>
+                    <xmp>   } catch (error) {</xmp>
+                    <xmp>       console.log(error);</xmp>
+                    <xmp>   }</xmp>
+                    <xmp>});</xmp>
+                </td>
+				<td> - записуємо дані із полів форми, звертаючись до них по імені name, у створений об'єкт і зберігаємо об'єкт у БД</td>
+			</tr>
+        </table>
+
+        <div id="block">
+            <div id="strucBlock">
+                Структура створеного проекту:<br><br>
+                <button class="structure" onclick=pr()>project</button>
+                <button class="structure" onclick=nm()>|-node-modules/</button>
+                <button class="structure" onclick=sh()>|_-shpory/web/</button>
+                <button class="structure" onclick=shcss()>&nbsp;&nbsp;&nbsp;|-css/</button>
+                <button class="structure" onclick=shf()>&nbsp;&nbsp;&nbsp;|form.html</button>
+                <button class="structure" onclick=css()>|-css/</button>
+                <button class="structure" onclick=ser()>|-server.js</button>
+                <button class="structure" onclick=ind()>|-index.html</button>
+                <button class="structure" onclick=pac()>|-package.json</button>
+                <button class="structure" onclick=env()>|-.env</button>
+            </div>
+            <div id="displayInner"></div>
+        </div>
+        <table id="block">
+            <tr>
+                <th colspan="3"><h3 id="A2">Корисні бібліотеки</h3></th>
+            </tr>
+            <tr>
+				<td><xmp>require('nodemon')</xmp></td>
+				<td>
+                     - автоматично перезавантажує сервер після внесення змін у файл server.js;<br>
+                     для зручності у файл project.json можна прописати "scripts" {"start": "nodemon server.js"}<br>
+                     і запускати сервер із командної строки командою npm start<br>
+                     необхідно встановлювати
+                    </td>
+                <td><xmp></xmp></td>
+			</tr>
+			<tr>
+				<td><xmp>require('dotenv').config();</xmp></td>
+				<td> - для зони видиості змінних глобального оточення (.env), необхідно встановлювати</td>
+                <td><xmp></xmp></td>
+			</tr>
+            <tr>
+				<td><xmp>require('cors')</xmp></td>
+				<td> - для кор заголовків, необхідно встановлювати</td>
+                <td>
+                    <xmp>const cors = require('cors');</xmp><br>
+                    <xmp>app.use(cors());</xmp>
+                </td>
+			</tr>
+            <tr>
+				<td><xmp>require('body-parser')</xmp></td>
+				<td> - додає підтримку JSON у тілі запиту, не потрібно встановлювати</td>
+                <td><xmp>app.use(express.json());</xmp></td>
+			</tr>
+            <tr>
+				<td><xmp>require("fs")</xmp></td>
+				<td> - для роботи з файлами, не потрібно встановлювати</td>
+                <td><xmp></xmp></td>
+			</tr>
+        </table>
+    </div>
+<footer>По матеріалам відео <a href="https://www.youtube.com/watch?v=JAzavlFwUdE" title="https://www.youtube.com/watch?v=JAzavlFwUdE">Store HTML Form Data to MongoDB від Patience Coder</a> та за підтримки ChatGPT</footer>
 </body>
-</html>

@@ -1,0 +1,53 @@
+{
+  "name": "life",
+  "version": "1.0.0",
+  "main": "server.js",
+  "dependencies": {
+    "abort-controller": "^3.0.0",
+    "asynckit": "^0.4.0",
+    "body-parser": "^1.20.3",
+    "buffer-writer": "^2.0.0",
+    "combined-stream": "^1.0.8",
+    "cors": "^2.8.5",
+    "delayed-stream": "^1.0.0",
+    "dotenv": "^16.4.7",
+    "event-target-shim": "^5.0.1",
+    "express": "^4.21.2",
+    "migrate-mongo": "^12.1.2",
+    "mime-db": "^1.44.0",
+    "mime-types": "^2.1.27",
+    "mongodb": "^6.13.0",
+    "mongoose": "^8.9.6",
+    "node-fetch": "^2.6.0",
+    "nodemon": "^3.1.9",
+    "packet-reader": "^1.0.0",
+    "pg-connection-string": "^2.3.0",
+    "pg-int8": "^1.0.1",
+    "pg-pool": "^3.2.1",
+    "pg-protocol": "^1.2.5",
+    "pg-types": "^2.2.0",
+    "pgpass": "^1.0.2",
+    "postgres-array": "^2.0.0",
+    "postgres-bytea": "^1.0.0",
+    "postgres-date": "^1.0.5",
+    "postgres-interval": "^1.2.0",
+    "prism-media": "^1.2.1",
+    "semver": "^4.3.2",
+    "setimmediate": "^1.0.5",
+    "split": "^1.0.1",
+    "through": "^2.3.8",
+    "tweetnacl": "^1.0.3",
+    "ws": "^7.2.5",
+    "xtend": "^4.0.2"
+  },
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "howToRunScripts":{
+    "start": "npm start"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}

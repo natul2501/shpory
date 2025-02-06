@@ -1,0 +1,117 @@
+		body{
+			background-image : url(../img/old-cement-wall-texture.jpg);
+			background-size: 100%;
+			font-family: Calibri;
+			font-size: 14px; 
+		}
+		#contbor{
+			border: dotted #955283 1px;
+			background-color: #F9F4F8;
+			margin: 5px;
+			padding: 5px;
+		}
+		#content{
+			background-color:#C9C9C9;
+			padding: 5px;
+   			padding-left: 20px;
+   			border: solid 1px black;
+			float: left;
+			width: 98%;
+		}
+		#formdiv{
+			float: right;
+			padding-right: 10px;
+		}
+		#block{
+			display: inline-block;
+			margin: 6px;
+		}
+		#strucBlock{
+			display: block;
+			padding: 0px 80px 0px 80px;
+			background-color: rgba(255, 255, 255, 0.3);
+		}
+		#displayInner{
+			margin-top: 20px;
+			padding: 10px 80px 10px 80px;
+			background-color: Teal;
+			border: solid 5px LightSteelBlue;
+			color: GhostWhite;
+		}
+/*--------------ELEMENT'S STYLES-----------------*/
+		table xmp{
+			color: brown;
+			font-weight: bold;
+			font-family: Consolas;
+			font-size: 13px;
+			line-height: 13px;
+		}
+		nav{
+			background-color: rgba(88, 61, 0, 0.1);
+			padding-left: 50px;
+			margin: 10px 0px 10px 0px;
+		}
+		a{
+			text-decoration: none;
+			color: MidnightBlue;
+		}
+		table{
+			position: relative;
+			top: 0;
+			float: left;
+		}
+		td{
+			background-color: rgba(255, 255, 255, 0.3);
+		}
+		th{
+			background-color: PowderBlue;
+		}
+		#flw td{
+			height: 40px;
+		}
+		button{
+			background-color: AliceBlue;
+			border: solid 3px LightSteelBlue;
+			color: MidnightBlue;
+		}
+		button:active{
+			background-color: CornflowerBlue;
+			border: solid 3px LightSteelBlue;
+			color: MidnightBlue;
+		}
+		.structure{
+			border: none;
+			background: none;
+			display: block;
+			color: black;
+		}
+		.structure:hover{
+			background-color: PaleTurquoise;
+			padding-left: 1px;
+		}
+		.structure:active{
+			background-color: CadetBlue;
+		}
+		p{	text-indent: 55px;
+			font-style: italic;
+			margin: 3px;
+		}
+		b{	color: Purple;
+		}
+		h3{
+			margin: 0px;
+			text-align: center;
+		}
+		h4{
+			margin: 2px;
+			text-align: center;
+		}
+		footer{
+			text-align: center;
+			width: 99.3%;
+			clear: both;
+			background-color: rgba(220, 220, 220, 0.6);
+			border: solid 1px black;
+			height: 40px;
+		}
+		

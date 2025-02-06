@@ -76,7 +76,11 @@ function pac(){
 " }</xmp>\n\n"
 }
 
-
+function env(){
+  document.getElementById('displayInner').innerHTML = 
+"<xmp>DB_URL = mongodb+srv://username:password@cluster0.hr7cv.mongodb.net/collectionname\n"+
+"PORT = 3000</xmp>"
+}
 
 	
 

@@ -1,22 +1,39 @@
-//1 - імпортувати бібліотеки
+//============   1 - імпортувати бібліотеки  ===================
 const express = require('express');         //для створення серверу
 const mongoose = require('mongoose');       //для роботи з БД
 require('dotenv').config();                 //для зони видиості змінних глобального оточення (.env)
-
-//2 - об'явити змінні
+//============   2 - об'явити змінні  ===========================
 const port = process.env.PORT || 3000;
 const path = require('path'); // Для роботи зі шляхами
 const db_url = process.env.DB_URL;
+//============   3 - ініціалізація серверу  =====================
+const app = express();              
+//============   допоміжні функції бібліотек ====================
+app.use(express.static(__dirname)); //6 - каталоги для статичних файлів
+app.use(express.urlencoded({extended:true})); //11 - middleware для обробки form-urlencoded (дані форми)
 
-//3 - ініціалізація серверу
-const app = express();                      
-//6 - каталоги для статичних файлів:
-app.use(express.static(__dirname));
-// 1. Робимо папку "shpory/web" доступною для браузера
-app.use(express.static(path.join(__dirname, "shpory/web")));
-//11 - middleware для обробки form-urlencoded (дані форми)
-app.use(express.urlencoded({extended:true}));
 
+/*------------------- ГОЛОВНА СТОРІНКА -----------------------*/
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'index.html'));
+});
+/*------------------------------------------------------------*/
+
+
+/*------------------------ЩОДЕННИК----------------------------*/
+// Робимо папку "/diary" доступною для браузера
+//app.use(express.static(path.join(__dirname, "diary")));
+const articlesRoutes = require("./diary/js/articlesRoutes");
+// Використання EJS для динамічних шаблонів сторінок
+app.set("view engine", "ejs");
+// Вказуємо шлях до папки, де знаходяться шаблони EJS
+app.set("diary", path.join(__dirname, "diary"));
+// Використання маршрутів для статей
+app.use("/diary", articlesRoutes);
+/*------------------------------------------------------------*/
+
+
+/*----------ПРИКЛАД ВІДПРАВКИ ДАНИХ ФОРМ НА MONGODB-----------*/
 //7 - підключити базу даних
 mongoose.connect(db_url);
 const db = mongoose.connection;
@@ -31,11 +48,6 @@ const userSchema = new mongoose.Schema({
 
 //9 - створюємо клас для ДБ, в якому вказуємо колекцію і дані
 const Users = mongoose.model("users",userSchema);
-
-//5 - в корінь виводимо головну сторінку
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'index.html'));
-});
 
 //10 - отримуємо дані із форми
 app.get('/post', (req,res) => {
@@ -61,8 +73,9 @@ app.post('/post', async (req,res) =>{
     console.log(error);
   }
 });
+/*------------------------------------------------------------*/
 
-//4 - запуск серверу
+//=================== 4 - запуск серверу =======================
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });

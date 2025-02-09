@@ -181,7 +181,7 @@
                 <button class="structure" onclick=nm()>|-node-modules/</button>
                 <button class="structure" onclick=sh()>|_-shpory/web/</button>
                 <button class="structure" onclick=shcss()>&nbsp;&nbsp;&nbsp;|-css/</button>
-                <button class="structure" onclick=shf()>&nbsp;&nbsp;&nbsp;|form.html</button>
+                <button class="structure" onclick=shf()>&nbsp;&nbsp;&nbsp;|-form.html</button>
                 <button class="structure" onclick=css()>|-css/</button>
                 <button class="structure" onclick=ser()>|-server.js</button>
                 <button class="structure" onclick=ind()>|-index.html</button>
@@ -213,7 +213,7 @@
 				<td><xmp>require('cors')</xmp></td>
 				<td> - для кор заголовків, необхідно встановлювати</td>
                 <td>
-                    <xmp>const cors = require('cors');</xmp><br>
+                    <xmp>const cors = require('cors');</xmp>
                     <xmp>app.use(cors());</xmp>
                 </td>
 			</tr>
@@ -226,6 +226,23 @@
 				<td><xmp>require("fs")</xmp></td>
 				<td> - для роботи з файлами, не потрібно встановлювати</td>
                 <td><xmp></xmp></td>
+			</tr>
+            <tr>
+				<td><xmp>ejs</xmp></td>
+				<td>
+                     - Embedded JavaScript - для динамічного заповнення веб-сторінки контентом, що генерується скріптом<br>
+                    При цьому динамічний контент на html-сторінці розміщується у спеціальних тегах:<br>
+                    &lt;% ... %> – виконання JavaScript-коду (без виводу в HTML);<br>
+                    &lt;%- ... %> – HTML-розмітка буде інтерпретована браузером;<br>
+                    &lt;%= ... %> – виведення значення в HTML (екранує небезпечні символи).<br>
+                    Необхідно встановити бібліотеку ejs, та не потрібно спеціально її запитувати в js-файлі
+                </td>
+                <td>
+                    <xmp>app.set("view engine", "ejs");</xmp>
+                    <xmp>app.get('/', (req, res) => {</xmp>
+                    <xmp>    res.render('index', req.query);</xmp>
+                    <xmp>});</xmp>
+                </td>
 			</tr>
         </table>
     </div>

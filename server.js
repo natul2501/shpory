@@ -23,11 +23,12 @@ app.get('/', (req, res) => {
 /*------------------------ЩОДЕННИК----------------------------*/
 // Робимо папку "/diary" доступною для браузера
 //app.use(express.static(path.join(__dirname, "diary")));
+app.use("/diary/css", express.static(path.join(__dirname, "diary", "css")));
 const articlesRoutes = require("./diary/js/articlesRoutes");
 // Використання EJS для динамічних шаблонів сторінок
 app.set("view engine", "ejs");
 // Вказуємо шлях до папки, де знаходяться шаблони EJS
-app.set("diary", path.join(__dirname, "diary"));
+app.set("views", path.join(__dirname, "diary"));
 // Використання маршрутів для статей
 app.use("/diary", articlesRoutes);
 /*------------------------------------------------------------*/

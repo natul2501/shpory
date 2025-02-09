@@ -26,12 +26,12 @@
 <!------------------------------ CONTENT----------------------------------->
 <div id="container">
 	<% articles.forEach(article => { %>
-		<li>
-			<time datetime="2020-03-23T16:32"><%= article.date %></time>
-			<div class="about"><%= article.about %></div>
-			<a href="/diary/<%= article.id %>" class="link">Детальніше</a>
-			<p class="tags"><%= article.tags %></p>
-		</li>
+		<div class="event">
+			<time datetime="2020-03-23T16:32"><%- article.date %></time>
+			<div class="about"><%- article.about %></div>
+			<a href="/diary/<%- article.id %>" class="link">Детальніше</a>
+			<p class="tags"><%- article.tags %></p>
+		</div>
 	<% }) %>
 </div>
 

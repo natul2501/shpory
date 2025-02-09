@@ -24,10 +24,12 @@
 </div>
 <!------------------------------ CONTENT----------------------------------->
 	<div id="container">
-		<%= article.date %>
-		<%- article.content %>
-		<%= article.tags %>
-		<a href="/diary">Повернутися до списку</a>
+		<div class="eventt">
+			<div id="articleTime"><%- article.date %></div>
+			<div class="about"><%- article.content %></div>
+			<div class="tags"><%- article.tags %></div>
+			<a href="/diary">Повернутися до списку</a>
+		</div>
 	</div>
 </div>
 </body>

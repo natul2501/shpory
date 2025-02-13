@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Mongoose JS</title>
+	<link rel="stylesheet" type="text/css" href="css/js_mongoose_style.css">
+	<script src="script/bd_mongoose.js"></script>
+</head>
+<body>
+	<div id="content">
+		<font size="6"><center>РОБОТА З БАЗАМИ ДАНИХ MONGOOSE</center></font>
+		<div>В якості бази даних я вибрала об'єктно-реляційну БД (ORM) <b>MongoDB</b>, так як її структура подібна структурі об'єктів Java Script, а також є можливість безкоштовно завантажувати <a href="https://www.mongodb.com/pricing" title="www.mongodb.com/pricing">обмежену кількість</a> даних в <a href="https://www.mongodb.com/docs/atlas/getting-started/" title="https://www.mongodb.com/docs/atlas/getting-started/"> MongoDB в інтернеті</a>, таким чином забезпечивши цілодобовий доступ через мережу Internet.<br><a href="https://mongoosejs.com/" title="https://mongoosejs.com/">Mongoose</a> же призначений для асинхронної роботи із MongoDB, т.е. у разі необхідності виконувати декілька запитів паралельно.</div>
+		<table width="69%" class="block">
+			<tr>
+				<th colspan="3">Порядок налаштування доступу до БД</th>
+			</tr>
+			<tr>
+				<td>1.</td>
+				<td colspan="2"> (Якщо ще не встановлено), скачати і встановити <a href="https://nodejs.org/en/download" title="https://nodejs.org/en/download">Node.js </a> на комп'ютер.</td>
+			</tr>
+			<tr>
+				<td>2.</td>
+				<td><xmp>npm init -y</xmp></td>
+				<td> (Якщо ще не створено), створити новий проект (команда терміналу)</td>
+			</tr>
+			<tr>
+				<td>3.</td>
+				<td><xmp>npm install mongoose</xmp></td>
+				<td> - ввести в терміналі, щоб встановити бібліотеки в каталог проекту node_modules</td>
+			</tr>
+			<tr>
+				<td>4.</td>
+				<td>
+					<xmp>import mongoose from 'mongoose';</xmp>
+					<xmp>const { Collection } = mongoose;</xmp>
+				</td>
+				<td> - імпорт в файл index.js</td>
+			</tr>
+			<tr>
+				<td>5.</td>
+				<td><xmp>mongoose.connect(db_url);</xmp></td>
+				<td> - підключення до бази даних за посиланням, що знаходиться у змінній db_url</td>
+			</tr>
+			<tr>
+				<th colspan="3">Створення нового користувача (тип об'єкту Map зручний, якщо будуть змінюватися значення як ключів key так і їх значень value)</th>
+			</tr>
+			<tr>
+				<td>6.</td>
+				<td>
+					<xmp>const userSchema = new mongoose.Schema({</xmp>
+					<xmp>	list: {</xmp>
+					<xmp>		type: Map,</xmp>
+					<xmp>		of: new mongoose.Schema({</xmp>
+					<xmp>			username: { type: String, required: true },</xmp>
+					<xmp>			permissions: { type: String, default: 'User',</xmp>
+					<xmp>					enum: ['Admin', 'User', 'Banned'],},</xmp>
+					<xmp>			coins: {type: Number,  default: 0},</xmp>
+					<xmp>			games: [String]</xmp>
+					<xmp>		})</xmp>
+					<xmp>	}</xmp>
+					<xmp>});</xmp>
+				</td>
+				<td> - створення схеми <span class="fst">userSchema</span>: назви полів і формати їх значень</td>
+			</tr>
+			<tr>
+				<td>7.</td>
+				<td>
+					<xmp>let userModel = mongoose.model("users", userSchema);</xmp>
+				</td>
+				<td>
+					 - створення моделі <span class="fst">userModel</span>: присвоєння колекції users схеми userSchema
+				</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>
+					<xmp id="comm">let userModel = mongoose.model('users', new mongoose.Schema({}, {strict: false}));</xmp>
+				</td>
+				<td>
+					 - створення моделі без конкретної схеми, щоб у неї можна було записувати будь-які поля
+				</td>
+			</tr>
+			<tr>
+				<td>!</td>
+				<td>
+					<xmp id="comm">await userModel.deleteMany({});</xmp>
+				</td>
+				<td>
+					 - якщо в БД уже існує колекція "users", але з іншою схемою, то її спочатку необхідно видалити, інакше буде неможливо записати дані за новою схемою
+				</td>
+			</tr>
+			<tr>
+				<td>8.</td>
+				<td>
+					<xmp>const addUserToList = async (ID, uName, permiss, Coins, Games) => {</xmp>
+					<xmp>	try {</xmp>
+					<xmp>		let newUser = {</xmp>
+					<xmp>			username: uName,</xmp>
+					<xmp>			permissions: permiss,</xmp>
+					<xmp>			coins: Coins,</xmp>
+					<xmp>			games: Games</xmp>
+					<xmp>		}</xmp>
+					<xmp>		let userList = await userModel.findOne();</xmp>
+					<xmp>		if (!userList) userList = new userModel({ list: {} });</xmp>
+					<xmp>		userList.list.set(ID, newUser);</xmp>
+					<xmp>		await userList.save();</xmp>
+					<xmp>	} catch (err) {console.log(err);}</xmp>
+					<xmp>};</xmp>
+					<xmp>addUserToList('id0003', 'name3', 'Banned');</xmp>
+					<xmp>let userList = await userModel.findOne();</xmp>
+					<xmp>console.log(userList);</xmp>
+				</td>
+				<td>
+					 - створення нового користувача в колекції <span class="fst">userList</span><br>
+					✅ Необов’язкові поля можна не вказувати – вони будуть undefined.<br>
+					✅ Якщо є default, то буде використане значення за замовчуванням.<br>
+					❌ Якщо поле required: true і не передано, буде помилка.
+					 <button class="structure" onclick=f_newUserDb()>Подивитися базу даних</button>
+					 <button class="structure" onclick=f_newUserCon()>Подивитися консоль</button>
+				</td>
+			</tr>
+			</table>
+
+			<table>
+			<tr>
+				<th colspan="3">Інші функції mongoose</th>
+			</tr>
+			<tr>
+				<td><xmp>find();</xmp></td>
+				<td>
+					<details>
+						<summary>Подивитися текст коду</summary><br>
+							<xmp>const getUsers = async () => {</xmp>
+							<xmp>	try {</xmp>
+							<xmp>		const users = await userModel.find();</xmp>
+							<xmp>		console.log('Список користувачів:', users);</xmp>
+							<xmp>	} catch (error) {console.error(error);}</xmp>
+							<xmp>};</xmp>
+							<xmp>getUsers();</xmp>
+					</details>
+					<button class="structure" onclick=f_find()>Подивитися консоль</button>
+				</td>
+				<td>
+					 - отримання всіх користувачів
+				</td>
+			</tr>
+			<tr>
+				<td><xmp>findOne();</xmp></td>
+				<td>
+					<details>
+						<summary>Подивитися текст коду</summary><br>
+							<xmp>const getUserId = async (userId) => {</xmp>
+							<xmp>	try {</xmp>
+							<xmp>		const userList = await userModel.findOne();</xmp>
+							<xmp>		const user = userList.list.get(userId);</xmp>
+							<xmp>		console.log("Знайдено користувача:", user);</xmp>
+							<xmp>		return user;</xmp>
+							<xmp>	} catch (error) {console.error(error);}</xmp>
+							<xmp>};</xmp>
+							<xmp>getUserId('id0001');</xmp>
+					</details>
+					<button class="structure" onclick=f_findOne()>Подивитися консоль</button>
+				</td>
+				<td>
+					 - знайти користувача за Id
+				</td>
+			</tr>
+			<tr>
+				<td><xmp>delete(key);</xmp></td>
+				<td>
+					<details>
+						<summary>Подивитися текст коду</summary><br>
+							<xmp>const removeUserFromList = async (userId) => {</xmp>
+							<xmp>	try {</xmp>
+							<xmp>		const userList = await userModel.findOne();</xmp>
+							<xmp>		userList.list.delete(userId);</xmp>
+							<xmp>		await userList.save();</xmp>
+							<xmp>		console.log(`Користувач ${userId} видалений`);</xmp>
+							<xmp>		console.log(userList);</xmp>
+							<xmp>	} catch (error) {console.error(error);}</xmp>
+							<xmp>};</xmp>
+							<xmp>removeUserFromList('id0003');</xmp>
+					</details>
+					<button class="structure" onclick=f_delete()>Подивитися консоль</button>
+					<button class="structure" onclick=f_default()>Подивитися БД</button>
+				</td>
+				<td>
+					 - видалити користувача за Id
+				</td>
+			</tr>
+			<tr>
+				<td><xmp>collection(name);</xmp></td>
+				<td>
+					<details>
+						<summary>Подивитися текст коду</summary><br>
+							<xmp>const findCollection = async(collectionName) => {</xmp>
+							<xmp>	try {</xmp>
+							<xmp>		const userCollection = mongoose.connection.db.collection(collectionName);</xmp>
+							<xmp>		const users = await userCollection.find({}).toArray();</xmp>
+							<xmp>		console.log(users);</xmp>
+							<xmp>	} catch (error) {console.error(error);}</xmp>
+							<xmp>}</xmp>
+							<xmp>findCollection('users');</xmp>
+					</details>
+					<button class="structure" onclick=f_coll()>Подивитися консоль</button>
+				</td>
+				<td>
+					 - отримати колекцію без визначення схеми<br>
+					 важливо, щоб до виконання даної функції БД встигла завантажитися,<br>
+					 якщо БД не встигає завантажитися, то необхідно огорнути mongoose.connect(db_url) в асинхронну функцію
+				</td>
+			</tr>
+		</table>
+
+		<div id="block">
+			<button class="structure" onclick=f_default()>Нехай у нас є база даних <b>mydb</b> із колекцією <b>users</b>:</button>
+            <div id="strucBlock">
+				<xmp>_id: ObjectId(...XXX...)</xmp>
+				<xmp> ▼ list: Object</xmp>
+				<xmp>	▼ id0001: Object</xmp>
+				<xmp>		username: "user1"</xmp>
+				<xmp>		permissions: "Admin"</xmp>
+				<xmp>		coins: 300</xmp>
+				<xmp>		▼ games: Array (2)</xmp>
+				<xmp>			0: "Starcraft"</xmp>
+				<xmp>			1: "Frostpunk"</xmp>
+				<xmp>	▼ id0002: Object</xmp>
+				<xmp>		username: "user2"</xmp>
+				<xmp>		permissions: "User"</xmp>
+				<xmp>		coins: 200</xmp>
+				<xmp>		▼ games: Array (1)</xmp>
+				<xmp>			0: "Mass Effekt"</xmp>
+			</div>
+			Консоль:
+			<div id="displayInner"></div>
+        </div>
+	</div>
+	<p>&nbsp;</p>
+	<footer>По матеріалам сайту <a href="https://developer.mozilla.org/ru/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/mongoose#%D0%BE%D0%B1%D0%B7%D0%BE%D1%80">developer.mozilla.org</a></footer>
+
+</body>
+</html>

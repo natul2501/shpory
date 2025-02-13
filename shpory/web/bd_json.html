@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JS JSON</title>
+	<link rel="stylesheet" type="text/css" href="css/js_mongoose_style.css">
+	<script src="script/JS_1.9.mongoose.js"></script>
+</head>
+<body>
+	<div id="content">
+		<font size="6"><center>РОБОТА З ЛОКАЛЬНОЮ БАЗОЮ ДАНИХ JSON</center></font>
+		У файлах із розширенням <b>.json</b> дані зберігаються у вигляді пар "ключ":"значення".<br>
+		<table width="100%">
+            <tr>
+				<th colspan="4">Як виглядає файл із різними типами даних</th>
+			</tr>
+            <tr>
+                <td colspan="4">Нехай зчитаний json-файл зберігається у змінній json, тоді:</td>
+            </tr>
+            <tr>
+				<td>Тип даних</td>
+				<td>Структура файлу</td>
+				<td>Доступ до value у JS-файлі</td>
+                <td>Структура для запису у json-файл</td>
+			</tr>
+			<tr>
+				<td class="fst">String</td>
+				<td>
+                    <xmp>{</xmp>
+                    <xmp> "key1":"value1",</xmp>
+                    <xmp> "key2":"value2"</xmp>
+                    <xmp>}</xmp>
+                </td>
+				<td><xmp>let data = json.key1;</xmp></td>
+                <td>
+                    <xmp>let json = {</xmp>
+                    <xmp> key1:"value1",</xmp>
+                    <xmp> key2:"value2"</xmp>
+                    <xmp>}</xmp>
+                </td>
+			</tr>
+            <tr>
+				<td class="fst">Number</td>
+				<td>
+                    <xmp>{"key":10}</xmp>
+                </td>
+				<td><xmp>let data = json.key;</xmp></td>
+                <td><xmp>let json = { key: 10 }</xmp></td>
+			</tr>
+            <tr>
+				<td class="fst">Object</td>
+				<td>
+                    <xmp>{</xmp>
+                    <xmp>"obj":{</xmp>
+                    <xmp>   "key":"value"</xmp>
+                    <xmp>  }</xmp>
+                    <xmp>}</xmp>
+                </td>
+				<td><xmp>let data = json.obj.key;</xmp></td>
+                <td>
+                    <xmp>let data = {</xmp>
+                    <xmp> key:"value"</xmp>
+                    <xmp>}</xmp>
+                    <xmp>let json = { obj: data };</xmp>
+                </td>
+			</tr>
+            <tr>
+				<td class="fst">Array</td>
+				<td>
+                    <xmp>{</xmp>
+                    <xmp>"arr":[</xmp>
+                    <xmp>   "value1", "value2"</xmp>
+                    <xmp>  ]</xmp>
+                    <xmp>}</xmp>
+                </td>
+				<td><xmp>let data = json.arr[0];</xmp></td>
+                <td>
+                    <xmp>let data = ["value1", "value2"];</xmp>
+                    <xmp>let json = { arr: data };</xmp>
+                </td>
+			</tr>
+            <tr>
+				<td class="fst">Boolean</td>
+				<td>
+                    <xmp>{"key":true}</xmp>
+                </td>
+				<td><xmp>let data = json.key;</xmp></td>
+                <td><xmp>let json = { key: true }</xmp></td>
+			</tr>
+            <tr>
+				<td class="fst">Null</td>
+				<td>
+                    <xmp>{"key":null}</xmp>
+                </td>
+				<td><xmp>let data = json.key;</xmp></td>
+                <td><xmp>let json = { key: null }</xmp></td>
+			</tr>
+        </table>
+
+        <table width="100%">
+            <tr>
+				<th colspan="4">Робота з json у Java Script</th>
+			</tr>
+            <tr>
+				<td colspan="4">
+                    Для початку необхідно підключити бібліотеку для роботи з файлами із node_modules: <a href="https://nodejs.org/api/fs.html" title="https://nodejs.org/api/fs.html"> let fs = require("fs")</a><br>
+                    Нехай у нас є файл <span class="fst">data.json</span>, розташований відносно нашого файлу по адресі <span class="fst">dataBase/data.json</span>,  із наступними даними: <span class="fst">{"key1":"value1", "key2":"value2"}</span>
+                </td>
+			</tr>
+            <tr>
+				<td class="fst">fs.readFile()</td>
+				<td>
+                    <xmp>let value;</xmp>
+                    <xmp>fs.readFile("./dataBase/data.json", function (err, data) {</xmp>
+                    <xmp>   if (err) throw err;</xmp>
+                    <xmp>   value = JSON.parse(data).key1;</xmp>
+                    <xmp>   console.log(value);</xmp>
+                    <xmp>});</xmp>
+                </td>
+                <td>
+                    У консоль виведеться:<br>
+                    <span class="fst">value1</span>
+                </td>
+				<td> - прочитати файл: для запису необхідних даних у змінні Java Script</td>
+			</tr>
+            <tr>
+				<td class="fst">fs.writeFile()</td>
+				<td>
+                    <xmp>fs.writeFile('./dataBase/data.json', {"key3":"value3"}, function (err) {</xmp>
+                    <xmp>    if (err) throw err;</xmp>
+                    <xmp>    console.log('Replaced!');</xmp>
+                    <xmp>});</xmp>
+                </td>
+                <td>
+                    Файл data.json матиме наступний вигляд:<br>
+                    <span class="fst">{"key3":"value3"}</span>
+                </td>
+				<td> - записати файл</td>
+			</tr>
+        </table>
+    </div>
+    <p>&nbsp;</p>
+	<footer>По матеріалам сайту <a href="https://www.w3schools.com/nodejs/nodejs_filesystem.asp">w3schools.com</a></footer>
+
+</body>
+</html>

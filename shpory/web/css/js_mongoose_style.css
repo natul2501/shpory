@@ -99,5 +99,18 @@
 			clear: both;
 			z-index: 4;
 		}
+		#footer{
+			text-align: center;
+			width: 98.5%;
+			clear: both;
+			background-color: rgba(220, 220, 220, 0.6);
+			border: solid 1px black;
+			height: 40px;
+			position: absolute;
+			top: 1290px;
+			float: left;
+			clear: both;
+			z-index: 4;
+		}
 		
 		

@@ -1,0 +1,224 @@
+		@font-face{
+		    font-family: 'Corbel';
+		    src:local('Corbel');
+		    font-style: normal;
+		    font-display: swap;
+		    font-weight: 12;
+		}
+		html{
+		    box-sizing: border-box;
+		}
+
+		body{
+			font-family: 'Corbel';
+    		margin: 0;
+			background-image : url(../media/background1.jpg);
+			background-size: 100%;
+			background-attachment: fixed;
+		}
+		*,*::after, *::before{
+		    box-sizing: inherit;
+		}
+		header{
+			background-image : url(../media/header1.jpg);
+			background-size: 100%;
+			border: 1px outset #1C2926;
+			height: 100px;
+			width: 100%;
+			position: fixed;
+			float: left;
+			right: 0px;
+			left: 0px;
+			top: 0px;
+			z-index: 4;
+		}
+		header h2{
+			margin-bottom:0;
+			text-align: center
+		}
+		#descr{
+			float: right;
+			margin: 5px 15px 5px 5px;
+		}
+/*------------------MENUS STYLES----------------------*/
+		#menu{
+			position: fixed;
+			top: 120px;
+			height: 86.5%;
+			width:152px;
+			padding: 5px;
+			margin-left: 10px;
+			background: rgba(137, 120, 123, 0.8);
+			border: 1px inset #BC8F8F;
+		}
+		#menu ul{
+			margin: 0;
+			padding: 0;
+			list-style-type: none;
+		}
+		#menu li{
+			margin: 5px 0px 0px 0px;
+		}
+		#menuTags{
+			margin-top: 10px;
+		}
+		.menuLink{
+			color: #381943;
+			text-decoration: none;
+			font-weight:bold;
+		}
+		.menuLink:hover{
+			color: #B98BBF;
+			background-color: rgba(65, 63, 67);
+			border: 2px solid #C5B6B9;
+			text-decoration: none;
+			padding: 0px 3px 0px 3px;
+		}
+/*-------------------CONTENT STYLES------------------*/
+		.container{
+			display: inline-block;
+			position: absolute;
+			top: 120px;
+			left: 170px;
+			float: left;
+			width: 80%;
+			height: 86.5%;
+			overflow: auto;
+		}
+/*----------------------DIARIES----------------------*/
+		.diaryPrewiew{
+			display: inline-block;
+			position: relative;
+			margin: 25px;
+			border: solid 5px rgba(0, 0, 0, 0.1);
+		}
+		.diaryPrewiewLink{
+			text-decoration: none;
+		}
+		.diaryPrewiewLink:hover{
+			text-decoration: none;
+			margin: 0px;
+			padding: 0px;
+		}
+		.diaryPrewiewLink:hover .diaryPrewiew{
+			border: solid 5px rgba(172, 79, 204, 0.8);
+		}
+		.diaryPrewiewPicture{
+			width: 300px;
+			display: block;
+			padding: 10px 10px 5px 10px;
+		}
+		.diaryPrewiewAuthor{
+			text-align: center;
+			font-weight:bold;
+			width: 93%;
+			background-color: rgba(56, 25, 67, 0.1);
+			margin-left: 10px;
+		}
+		.diaryPrewiewDescription{
+			padding: 5px;
+			color: #353a49;
+			font-size: 14px;
+			float: right;
+		}
+/*-----------------CONTENT LIST DIARY----------------*/
+		.event{
+			background: rgba(35, 33, 37, 0.8);
+			border: 1px solid #1C2926;
+			width:80%;
+			margin: 5px;
+			color: #E5E3E6;
+			padding: 10px;
+			position: relative;
+			top: 113px;
+			left: 162px;
+			z-index: 3;
+		}
+		.about{
+			padding-left: 25px;
+			margin: 5px;
+		}
+		.tags{
+			margin: 5px 0px 0px 0px;
+			font-family: 'Calibri';
+			font-size: 14px;
+		}
+/*-------------------CONTENT DIARY-------------------*/
+		.eventt{
+			background: rgba(35, 33, 37, 0.8);
+			border: 1px solid #1C2926;
+			width:80%;
+			margin: 0px 5px 0px 5px;
+			font-family: Corbel;
+			color: #E5E3E6;
+			padding: 10px;
+			position: absolute;
+			top: 120px;
+			left: 172px;
+			line-height: 22px;
+		}
+		#articleTime{
+			text-indent: 35px;
+			font-weight: bold;
+			color: #B98BBF;
+			margin: 10px 0px 10px 0px;
+		}
+		#imgDiv{
+			display: inline-block;
+			float: right;
+		}
+/*--------------ELEMENT'S STYLES-----------------*/
+		p{
+			text-indent: 35px;
+			padding-bottom: 10px;
+			margin: 0px;
+		}
+		h3{
+			color: #B98BBF;
+			background-color: rgba(105,95,100,0.6);
+			text-align: center
+		}
+		h4{
+			color: #F982B9;
+			text-align: center;
+			font-size: 20px;
+			margin: 5px;
+		}
+		time{
+			font-family: 'Calibri';
+			font-size: 12px;
+		}
+		em.link{
+			text-align: center;
+		}
+		a.link{
+			padding-left: 25px;
+			color: #B98BBF;
+		}
+		#imgDiv a:hover{
+			border: 0px;
+			margin: 0px;
+			padding: 0px;
+		}
+		a.link:hover{
+			padding: 0px 5px 0px 5px;
+			margin-left: 15px;
+			background-color: rgba(45, 43, 47);
+			border: 2px solid #89787B;
+		}
+		a.def:hover{
+			border: none;
+			color: #FD60BC;
+			text-decoration: underline;
+
+		}
+		a.home:hover{
+			background-color: none;
+			border: none;
+			color: none;
+			background-image: url(../../media/icon/house-symbol-hover.png);
+			text-decoration: none;
+		}
+		a:active{
+			color: #FD60BC;
+		}

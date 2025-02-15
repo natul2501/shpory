@@ -1,6 +1,4 @@
-import { readFile } from "fs/promises";
-const jsonData = await readFile(new URL("../db/articles.json", import.meta.url), "utf-8");
-const articlesjson = JSON.parse(jsonData);
+let articlesjson = require("../db/articles.json");
 
 const articles = [];
 let event = new Object();
@@ -18,4 +16,4 @@ articlesjson.events.forEach((e,i) =>{
     console.log(articles[i].id, articles[i].date, articles[i].tags);
 });
 
-export default articles;
+module.exports = formData;

@@ -1,14 +1,14 @@
-const articles = require("./articles");
+import articles from "./articles.js";
 
 // Головна сторінка зі списком статей
-exports.getAllArticles = (req, res) => {
+export const getAllArticles =  (req, res) => {
     res.render("diaryListe", { title: "Головна сторінка", articles });
     console.log("js/articlesController/getAllArticles");
     console.log(res.outputData);
 };
 
 // Окрема стаття
-exports.getArticleById = (req, res) => {
+export const getArticleById = (req, res) => {
     const article = articles.find(a => a.id === parseInt(req.params.id));
     if (!article) {
         return res.status(404).send("Статтю не знайдено");

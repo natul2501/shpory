@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../css/diarystyle.css">
+    <script src="../js/newArticle.js"></script> 
+    <title>Додавання нового запису</title>
+</head>
+<body>
+<!------------------------------ HEADER----------------------------------->
+    <header id="header">
+        <h2>ЩОДЕННИК</h2>
+        <!--<div id="descr">Опис</div>-->
+    </header>
+<!------------------------------ MENUS----------------------------------->
+    <div id="menu">
+        <ul>
+                <li><a href="../index.html" class="menuLink">Головна</a></li>
+                <li><a href="diaries.html" class="menuLink">Щоденники</a></li>
+                <li><a href="../index.html" class="menuLink">Новий запис</a></li>
+        </ul>
+        <div id="menuTags">
+            <b>Теги</b><br>
+            careerkhpi, jobfair, activecitizens, LoNG, kharkiv_eco_city, life_others, karantin2020
+        </div>
+    </div>
+<!------------------------------ CONTENT----------------------------------->
+    <div class="newArticleContainer">
+        <div id="newArticlePrewiew">
+            <div id="PrewiewDescr"><p>Вікно<br>попереднього<br>перегляду</p></div>
+        </div>
+        <p style="color: gray;"><i>! Створити запис може лише автор щоденника</i></p>
+        <form method="POST" action="/newArticle" id="newArticle" name="newArticle">
+            <div class="newArticleDescr">Тема:</div> <input type="text" id="newArticleThema" name="newArticleThema" placeholder="&#8195;Описання, що буде показуватися у списку записів; якщо не вказати, буде показана частина із Тексту"><br>
+            <div class="newArticleDescr">Теги:</div> <input type="text" id="newArticleTags" name="newArticleTags" placeholder="&#8195;Можна вказати від одного до кількох Тегів через кому (&quot;,&quot;)"><br>
+            <div class="newArticleDescr">Текст:</div> <textarea id="newArticleContent" name="newArticleContent" placeholder="&#8195;Тест запису у щоденник"></textarea><br>
+            <div id="newArticlePannel">
+                <button id="newArticleButton" onclick=placeImgShow()>Вставити зображення</button>
+                <button id="newArticleButton" onclick=prewiew()>Попередній перегляд</button>
+                <input type="submit" value="Опублікувати" id="newArticleButton">
+            </div>
+        </form>
+
+        <div id="placeImg-style-before">
+            <div id="placeImg-style-after" class="placeImg-window">
+                <button id="closeButton" title="Закрити вікно додавання зображення" onclick="closePlaceImgWindow()">❌</button>
+                Введіть посилання на зображення: <br>
+                <input name="placeImgInput" id="placeImgInput"><br>
+                Введіть описання зображення (за бажанням):<br>
+                <input name="placeImgInputTitel" id="placeImgInputTitel"><br>
+                <span id="placeImgMessages"></span><br>
+                <button onclick=placeImg()>Додати зображення</button>
+            </div>
+        </div>
+    </div>    
+</body>
+</html>

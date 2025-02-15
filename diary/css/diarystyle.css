@@ -72,7 +72,7 @@
 			background-color: rgba(65, 63, 67);
 			border: 2px solid #C5B6B9;
 			text-decoration: none;
-			padding: 0px 3px 0px 3px;
+			padding: 3px 5px 3px 5px;
 		}
 /*-------------------CONTENT STYLES------------------*/
 		.container{
@@ -167,7 +167,131 @@
 			display: inline-block;
 			float: right;
 		}
-/*--------------ELEMENT'S STYLES-----------------*/
+/*------------------ NEW ARTICLE -------------------*/
+		.newArticleContainer{
+			display: inline-block;
+			position: absolute;
+			top: 120px;
+			left: 170px;
+			float: left;
+			width: 91%;
+			height: 86.5%;
+			overflow: auto;
+		}
+		#newArticleThema{
+			width: 50%;
+			height: 40px;
+			background-color: #b1b0c2;
+		}
+		#newArticleTags{
+			margin-top: 10px;
+			width: 50%;
+			background-color: #b1b0c2;
+		}
+		#newArticleContent{
+			margin-top: 10px;
+			width: 50%;
+			height: 600px;
+			background-color: #b1b0c2;
+		}
+		#newArticlePannel{
+			position: relative;
+			left: 53px;
+			width: 50%;
+			margin-top: 10px;
+			padding: 10px;
+			min-height: 60px;
+			border: solid 1px black;
+			background: rgba(137, 120, 123, 0.8);
+			border: 1px inset #BC8F8F;
+		}
+		.newArticleDescr{
+			display: inline-block;
+			width: 50px;
+			vertical-align: top;
+		}
+		#newArticleButton{
+			color: #381943;
+			font-weight:bold;
+			margin: 2px;
+		}
+		#newArticleButton:hover{
+			color: #B98BBF;
+			background-color: rgba(65, 63, 67);
+			border: 2px solid #C5B6B9;
+			padding: 3px 5px 3px 5px;
+		}
+		#newArticlePrewiew{
+			position: relative;
+			float: right;
+			height: 780px;
+			width: 46%;
+			overflow: auto;
+			background-color: rgba(255, 255, 255, 0.2);
+		}
+		#newArticlePrewiew #PrewiewDescr{
+			position: relative;
+			top: 40%;
+			text-align: center;
+			font-family: Century Gothic;
+			font-size: 40px;
+			letter-spacing: 10px;
+			font-weight: bold;
+			color: rgba(0, 0, 0, 0.5);
+		}
+		#newArticlePrewiew .eventt{
+			margin: 0px;
+			width: 100%;
+			top: 0px;
+			left: 0px;
+		}
+		.placeImg-window{
+			width: 30%;
+			height: 170px;
+			background-color: white;
+			border: solid 1px rgb(137, 120, 123);
+			text-align: center;
+			padding: 15px;
+		}
+		#closeButton{
+			position: relative;
+			top: -10px;
+			left: 74%;
+		}
+		#placeImg-style-before{
+			display: none;
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			top: 0;
+			left: 0;
+			background: rgba(102, 102, 102, 0.5);
+		}
+		#placeImg-style-before:target {
+			display: block;
+		}
+		#placeImg-style-after{
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			margin: auto;
+		}
+		.button2-style{
+			border: 1px solid #0000cc;
+			padding: 0 12px;
+			margin: 10px;
+			text-decoration: none;
+			background: #f2f2f2;
+		}
+		.placeImg-button-style:hover{background: #e6e6ff;}
+		#placeImgInput, #placeImgInputTitel{
+			width: 90%;
+			margin: 5px 0px 5px 0px;
+		}
+		
+/*----------------ELEMENT'S STYLES------------------*/
 		p{
 			text-indent: 35px;
 			padding-bottom: 10px;

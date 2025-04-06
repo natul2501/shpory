@@ -461,8 +461,10 @@ router.get("/:id", async (req, res) => {
       }
       if(article.show === '') {
         articleSymbol = '';
-        if(req.session.user.language === 'de') title = "Für alle Benutzer sichtbar";
-        if(req.session.user.language === 'ua') title = "Запис видимий усім користувачам";
+        if(req.session.user){
+          if(req.session.user.language === 'de') title = "Für alle Benutzer sichtbar";
+          if(req.session.user.language === 'ua') title = "Запис видимий усім користувачам";
+        } else title = "Запис видимий усім користувачам";
       }
       const TagsDoc = await TagsModel.findOne();
       const tags = TagsDoc.tagsRobert;

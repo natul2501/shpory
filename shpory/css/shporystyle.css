@@ -1,12 +1,12 @@
 		body{
-			background-image : url(../../media/index1.jpg);
+			background-image : url(../media/index1.jpg);
 			background-size: 100%;
 			background-attachment: fixed;
 			font-family: Consolas;
 			font-size: 16px; 
 		}
 		header{
-			background-image : url(../../media/index2.jpg);
+			background-image : url(../media/index2.jpg);
 			background-size: 100%;
 			border: 1px outset #1C2926;
 			height: 100px;

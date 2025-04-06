@@ -588,11 +588,40 @@ router.get("/:id", async (req, res) => {
         }
       }
       let articleSymbol = "";
-      if(article.show === 'author') {articleSymbol = 'fa-solid fa-lock';}
-      if(article.show === 'flysquirrel-diary') {articleSymbol = 'fa-solid fa-user-plus';}
-      if(article.show === 'userlist') {articleSymbol = 'fa-solid fa-users';}
-      if(article.show === 'user') {articleSymbol = 'fa-solid fa-user';}
-      if(article.show === '') {articleSymbol = '';}
+      let title = '';
+      if(article.viewers && article.viewers.length > 0){
+        article.viewers.forEach(viewer => {
+          const user = usersDb.find(u => u._id.toString() === viewer.toString()); // Порівнюємо як рядки для уникнення проблем з типами
+          if (user) {
+            viewerslist.push(user.username);
+          }
+        });
+      }
+      if(article.show === 'author') {
+        articleSymbol = 'fa-solid fa-lock';
+        if(req.session.user.language === 'de') title = "Nur für Autor sichtbar";
+        if(req.session.user.language === 'ua') title = "Запис видимий лише автору";
+      }
+      if(article.show === 'flysquirrel-diary') {
+        articleSymbol = 'fa-solid fa-user-plus';
+        if(req.session.user.language === 'de') title = "Nur für die Benutzer sichtbar, die Tagebuch abonniert haben";
+        if(req.session.user.language === 'ua') title = "Запис видимий усим, хто має підписку на щоденник";
+      }
+      if(article.show === 'userlist') {
+        articleSymbol = 'fa-solid fa-users';
+        if(req.session.user.language === 'de') title = "Nur für ausgewählte Benuttzer sichtbar: " + viewerslist.join(', ');
+        if(req.session.user.language === 'ua') title = "Запис видимий лише вибраним користувачам: " + viewerslist.join(', ');
+      }
+      if(article.show === 'user') {
+        articleSymbol = 'fa-solid fa-user';
+        if(req.session.user.language === 'de') title = "Für alle angemeldete Benutzer sichtbar";
+        if(req.session.user.language === 'ua') title = "Запис видимий усім зареєстрованим користувачам";
+      }
+      if(article.show === '') {
+        articleSymbol = '';
+        if(req.session.user.language === 'de') title = "Für alle Benutzer sichtbar";
+        if(req.session.user.language === 'ua') title = "Запис видимий усім користувачам";
+      }
       const TagsDoc = await TagsModel.findOne();
       const tags = TagsDoc.tagsFlysquirr;
       
@@ -610,6 +639,7 @@ router.get("/:id", async (req, res) => {
             res.render("diaryArticle", {
               article,
               articleSymbol:articleSymbol,
+              title:title,
               viewerslist:viewerslist,
               tags,
               articleId: articleId,
@@ -622,6 +652,7 @@ router.get("/:id", async (req, res) => {
               res.render("diaryArticle-de", {
                 article,
                 articleSymbol:articleSymbol,
+                title:title,
                 viewerslist:viewerslist,
                 tags,
                 articleId: articleId,
@@ -656,6 +687,7 @@ router.get("/:id", async (req, res) => {
                 res.render("diaryArticle", {
                   article,
                   articleSymbol:articleSymbol,
+                  title:title,
                   viewerslist:viewerslist,
                   tags,
                   articleId: articleId,
@@ -668,6 +700,7 @@ router.get("/:id", async (req, res) => {
                   res.render("diaryArticle-de", {
                     article,
                     articleSymbol:articleSymbol,
+                    title:title,
                     viewerslist:viewerslist,
                     tags,
                     articleId: articleId,
@@ -707,6 +740,7 @@ router.get("/:id", async (req, res) => {
                     res.render("diaryArticle", {
                       article,
                       articleSymbol:articleSymbol,
+                      title:title,
                       viewerslist:viewerslist,
                       tags,
                       articleId: articleId,
@@ -719,6 +753,7 @@ router.get("/:id", async (req, res) => {
                     res.render("diaryArticle-de", {
                       article,
                       articleSymbol:articleSymbol,
+                      title:title,
                       viewerslist:viewerslist,
                       tags,
                       articleId: articleId,
@@ -752,6 +787,7 @@ router.get("/:id", async (req, res) => {
               res.render("diaryArticle", {
                 article,
                 articleSymbol:articleSymbol,
+                title:title,
                 viewerslist:viewerslist,
                 tags,
                 articleId: articleId,
@@ -764,6 +800,7 @@ router.get("/:id", async (req, res) => {
                 res.render("diaryArticle-de", {
                   article,
                   articleSymbol:articleSymbol,
+                  title:title,
                   viewerslist:viewerslist,
                   tags,
                   articleId: articleId,
@@ -795,6 +832,7 @@ router.get("/:id", async (req, res) => {
               res.render("diaryArticle", {
                 article,
                 articleSymbol:articleSymbol,
+                title:title,
                 viewerslist:viewerslist,
                 tags,
                 articleId: articleId,
@@ -807,6 +845,7 @@ router.get("/:id", async (req, res) => {
                 res.render("diaryArticle-de", {
                   article,
                   articleSymbol:articleSymbol,
+                  title:title,
                   viewerslist:viewerslist,
                   tags,
                   articleId: articleId,
@@ -819,6 +858,7 @@ router.get("/:id", async (req, res) => {
             res.render("diaryArticle", {
               article,
               articleSymbol:articleSymbol,
+              title:title,
               viewerslist:viewerslist,
               tags,
               articleId: articleId,
@@ -1277,6 +1317,7 @@ router.post('/newArticle', checkAuth, async (req,res) =>{
       pictures.forEach(picture =>{
         const pictureObj = {
           thema: picture.thema,
+          title: picture.title,
           articleId: articleIdString,
           imgLink:picture.link,
           show:show,
@@ -1394,6 +1435,7 @@ router.post('/newArticleDe', checkAuth, async (req,res) =>{
       pictures.forEach(picture =>{
         const pictureObj = {
           thema: picture.thema,
+          title: picture.title,
           articleId: articleIdString,
           imgLink:picture.link,
           show:show,

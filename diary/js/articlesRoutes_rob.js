@@ -1146,6 +1146,7 @@ router.post('/newArticle', checkAuth, async (req,res) =>{
         pictures.forEach(picture =>{
           const pictureObj = {
             thema: picture.thema,
+            title: picture.title,
             articleId: articleIdString,
             imgLink:picture.link,
             show:show,
@@ -1265,6 +1266,7 @@ router.post('/newArticleDe', checkAuth, async (req,res) =>{
         pictures.forEach(picture =>{
           const pictureObj = {
             thema: picture.thema,
+            title: picture.title,
             articleId: articleIdString,
             imgLink:picture.link,
             show:show,

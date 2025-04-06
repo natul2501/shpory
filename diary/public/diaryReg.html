@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ua">
+<head>
+  <meta charset="utf-8">
+	<title>Diary  Реєстрація</title>
+  <link rel="icon" type="image/png" href="media/icon.png">
+	<link rel="stylesheet" type="text/css" href="/diary/public/css/diarystyle.css">
+  <meta name="robots" content="noindex, nofollow"> <!-- робить сторінку прихованою від пошукових ботів -->
+</head>
+
+<body>
+	<!------------------------------ HEADER----------------------------------->
+	<header id="header">
+		<h2>ЩОДЕННИКИ</h2>
+		<!--<div id="descr">
+			<i>Опис</i>
+		</div>-->
+	</header>
+    <div id="panelInstruments">
+		<a class="panelInstrumentsButton" href="/diary/public/diaryReg.html">🇺🇦</a>
+		<a class="panelInstrumentsButton" href="/diary/public/diaryReg-de.html">🇩🇪</a>
+	</div>
+	<!------------------------------ CONTENT----------------------------------->
+	<div class="diaryLogin">
+       <!--  Вікно реєстрації недоступне-->
+        <center>Вікно реєстрації</center><br>
+        <form action="/diary/public/flysquirrel-diary/registration" method="POST" id="regForm">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" class="loginInput" required><br><br>
+
+            <label for="email">E-mail:</label>
+            <input type="text" id="email" name="email" class="loginInput" required><br><br>
+            
+            <label for="password">Пароль:</label>
+            <input type="password" id="password" name="password" class="loginInput" required><br><br>
+            
+            <input type="checkbox" id="checkbox" name="checkbox" >
+            <label for="checkbox">Я погоджуюся із <a href="/diary/public/flysquirrel-diary/TermsOfUse">умовами користування веб-сайтом</a></label><br><br>
+            
+            <div id="responseMessage"></div>
+
+            <p>&nbsp;</p>
+            <button type="submit"  class="loginButton">Зареєструватися</button>
+        </form> 
+	</div>
+    <script src="js/diaryReg.js"></script>
+</body>
+</html>

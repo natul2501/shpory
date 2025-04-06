@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="css/diarystyle.css">
+    <link rel="stylesheet" type="text/css" href="css/diaryRobstyle.css">
     <meta name="robots" content="noindex, nofollow"> <!-- робить сторінку прихованою від пошукових ботів -->
     <title>Додавання нового запису</title>
     <link rel="icon" type="image/png" href="media/icon.png">
@@ -11,7 +11,7 @@
 <body>
 <!------------------------------ HEADER----------------------------------->
     <header id="header">
-        <h2>ЩОДЕННИК</h2>
+        <h2 id="headerHeader">ЩОДЕННИК</h2>
         <!--<div id="descr">Опис</div>-->
     </header>
 <!------------------------------ MENUS----------------------------------->
@@ -19,7 +19,8 @@
         <ul>
                 <li><a href="/" class="menuLink">Головна</a></li>
                 <li><a href="diaries.html" class="menuLink">Щоденники</a></li>
-                <li><a href="/diary/public/flysquirrel-diary/galerie" class="menuLink">Галерея</a></li>
+                <li><a href="/diary/public/robert-diary/" class="menuLink">Список записів</a></li>
+                <li><a href="/diary/public/robert-diary/galerie" class="menuLink">Галерея</a></li>
         </ul>
     </div>
 <!------------------------------ CONTENT----------------------------------->
@@ -33,7 +34,7 @@
             <select id="newArticlePermissions" name="newArticlePermissions">
                 <option value="">всі користувачі</option>
                 <option value="user">всі зареєстровані користувачі</option>
-                <option value="flysquirrel-diary">користувачі, які оформили підписку</option>
+                <option value="robert-diary">користувачі, які оформили підписку</option>
                 <option value="userlist">вибрані користувачі</option>
                 <option value="author">тільки я</option>
             </select>
@@ -47,19 +48,23 @@
                 Вибрані користувачі: <span id="selectedUsersDisplay"></span>
                 <input type="hidden" id="selectedUsers" name="selectedUsers">
             </div><br>
-
+            
             <div class="newArticleDescr">Тема:</div> <input type="text" id="newArticleThema" name="newArticleThema" placeholder="&#8195;Описання, що буде показуватися у списку записів; якщо не вказати, буде показана частина із Тексту"><br>
             <div class="newArticleDescr">Теги:</div> <input type="text" id="newArticleTags" name="newArticleTags" placeholder="&#8195;Можна вказати від одного до кількох Тегів через кому (&quot;,&quot;)"><br>
+            <div style="margin: 5px 0px 0px 50px; font-size: 14px;"><input type="checkbox" id="newArticlePrivat" name="newArticlePrivat"> Зробити статтю видимою лише для вас</div>
             <div class="newArticleDescr">Текст:</div> <textarea id="newArticleContent" name="newArticleContent" placeholder="&#8195;Текст запису у щоденник"></textarea><br>
             <div id="newArticlePannel">
                 <details style="display: inline-block;">
                     <summary>🙂</summary>
                     <div id="emoji-container"></div>
-                </details>
+                </details> 
+                <!--<button id="emojiButton" type="button">😊</button>
+                <div id="emojiPanel" class="hidden"></div>-->
                 <button class="newArticleButton" onclick=placeImgShow() type="button">Вставити зображення</button>
                 <button class="newArticleButton" onclick=prewiew() type="button">Попередній перегляд</button>
                 <input type="submit" value="Опублікувати" class="newArticleButton">
             </div>
+            </form>
         </form>
 
         <div id="placeImg-style-before">
@@ -94,6 +99,6 @@
             <p>При розміщенні зображень найкраще використовувати кнопку «Додати зображення».</p>
         </div>
     </div>
-    <script src="js/newArticle.js"></script> 
+    <script src="js/newArticleRob.js"></script> 
 </body>
 </html>

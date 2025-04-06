@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+	<title>Diary Registrieren</title>
+  <link rel="icon" type="image/png" href="media/icon.png">
+	<link rel="stylesheet" type="text/css" href="/diary/public/css/diarystyle.css">
+  <meta name="robots" content="noindex, nofollow"> <!-- робить сторінку прихованою від пошукових ботів -->
+</head>
+
+<body>
+	<!------------------------------ HEADER----------------------------------->
+	<header id="header">
+		<h2>TAGEBÜCHER</h2>
+		<!--<div id="descr">
+			<i>Опис</i>
+		</div>-->
+	</header>
+    <div id="panelInstruments">
+		<a class="panelInstrumentsButton" href="/diary/public/diaryReg.html">🇺🇦</a>
+		<a class="panelInstrumentsButton" href="/diary/public/diaryReg-de.html">🇩🇪</a>
+	</div>
+	<!------------------------------ CONTENT----------------------------------->
+	<div class="diaryLogin">
+       <!-- Registrierungsfenster nicht verfügbar -->
+        <center>Registrierungsfenster</center><br>
+        <form action="/diary/public/flysquirrel-diary/registration-de" method="POST" id="regForm">
+            <label for="username">Benutzername:</label>
+            <input type="text" id="username" name="username" class="loginInput" required><br><br>
+
+            <label for="email">E-mail:</label>
+            <input type="text" id="email" name="email" class="loginInput" required><br><br>
+            
+            <label for="password">Passwort:</label>
+            <input type="password" id="password" name="password" class="loginInput" required><br><br>
+              
+            <input type="checkbox" id="checkbox" name="checkbox" >
+            <label for="checkbox">Ich stimme den <a href="/diary/public/flysquirrel-diary/TermsOfUse-de">Nutzungsbedingungen der Website</a></label> zu.<br><br>
+            
+            <div id="responseMessage"></div>
+
+            <p>&nbsp;</p>
+            <button type="submit"  class="loginButton">Registrieren</button>
+        </form> 
+	</div>
+    <script src="js/diaryReg-de.js"></script>
+</body>
+</html>

@@ -1,83 +1,78 @@
 //============   1 - імпортувати бібліотеки  ===================
-const express = require('express');         //для створення серверу
-const mongoose = require('mongoose');       //для роботи з БД
-require('dotenv').config();                 //для зони видиості змінних глобального оточення (.env)
+import express from 'express';          //для створення серверу	
+import mongoose from 'mongoose';        //для роботи з БД
+import 'dotenv/config';                 //для зони видиості змінних глобального оточення (.env)
+import session from 'express-session';
+import bcrypt from 'bcryptjs';
+import cors from 'cors';
+
 //============   2 - об'явити змінні  ===========================
 const port = process.env.PORT || 3000;
-const path = require('path'); // Для роботи зі шляхами
 const db_url = process.env.DB_URL;
+// Для роботи зі шляхами:
+const path = await import('path'); 
+import { fileURLToPath } from 'url';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 //============   3 - ініціалізація серверу  =====================
 const app = express();              
+
 //============   допоміжні функції бібліотек ====================
-app.use(express.static(__dirname)); //6 - каталоги для статичних файлів
-app.use(express.urlencoded({extended:true})); //11 - middleware для обробки form-urlencoded (дані форми)
+app.use(express.urlencoded({extended:true})); //middleware для обробки form-urlencoded (дані форми)
+app.use(express.json());// Додає підтримку JSON
+app.use(cors());
 
+//============   підключення БД =================================
+const options = {
+  serverSelectionTimeoutMS: 5000,
+  socketTimeoutMS: 45000,
+};
 
+mongoose.connect(db_url, options).then(() => console.log('Database connected'))
+.catch(err => console.error('Database connection error:', err));
+
+//============   Налаштування сесій для логіну   ================
+app.use(session({
+  secret: process.env.SESSION_SECRET,
+  resave: false,
+  saveUninitialized: true,
+  cookie: { secure: false } // Для HTTP без HTTPS, встанови в true для HTTPS
+}));
+
+/*------------------------------------------------------------*/
 /*------------------- ГОЛОВНА СТОРІНКА -----------------------*/
+/*------------------------------------------------------------*/
+app.use("/public", express.static(path.join(__dirname, "public")));  //головна сторінка статична
+app.use("/shpory", express.static(path.join(__dirname, "shpory")));  //шпори сторінка статична
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'index.html'));
+  res.sendFile(path.join(__dirname, '/public/index.html'));
 });
 /*------------------------------------------------------------*/
 
 
+/*------------------------------------------------------------*/
 /*------------------------ЩОДЕННИК----------------------------*/
-// Робимо папку "/diary" доступною для браузера
-//app.use(express.static(path.join(__dirname, "diary")));
-
-const articlesRoutes = require("./diary/js/articlesRoutes_flysq");
-// Використання EJS для динамічних шаблонів сторінок
-app.set("view engine", "ejs");
-// Вказуємо шлях до папки, де знаходяться шаблони EJS
-app.set("views", path.join(__dirname, "diary"));
-app.get('/diary', (req, res) => {
-  res.sendFile(path.join(__dirname, './diary/diaries.html'));
-});
-app.use("/diary/css", express.static(path.join(__dirname, "diary", "css")));
-// Використання маршрутів для статей
-app.use("/flysquirrel-diary", articlesRoutes);
 /*------------------------------------------------------------*/
+/*  1) робимо статичні файли доступними для динамічної частини сайту*/
+app.use("/diary/public", express.static(path.join(__dirname, "diary", "public")));  //публічні файли щоденників
+app.use("/diary/public/css", express.static("diary/public/css"));
 
+/*  2) Використання EJS для динамічних шаблонів сторінок*/
+app.set("view engine", "ejs");
 
-/*----------ПРИКЛАД ВІДПРАВКИ ДАНИХ ФОРМ НА MONGODB-----------*/
-//7 - підключити базу даних
-mongoose.connect(db_url);
-const db = mongoose.connection;
-db.once('open', () =>{
-  console.log('MongoDB connection successful');
-});
+/*   3) Вказуємо шлях до папок, де знаходяться шаблони EJS*/
+app.set("views", [
+  path.join(__dirname, "diary/public"),
+  path.join(__dirname, "diary/public/searchResults")
+]);
 
-//8 - об'явити схему для запису в ДБ
-const userSchema = new mongoose.Schema({
-  username:String
-});
+/*   4) Використання маршрутів для статей, де описані всі дії зі сторінками щоденника */
+import articlesRoutes from "./diary/js/articlesRoutes_flysq.js";
+app.use("/diary/public/flysquirrel-diary", articlesRoutes);
+import articlesRoutesRob from "./diary/js/articlesRoutes_rob.js";
+app.use("/diary/public/robert-diary", articlesRoutesRob);
 
-//9 - створюємо клас для ДБ, в якому вказуємо колекцію і дані
-const Users = mongoose.model("users",userSchema);
-
-//10 - отримуємо дані із форми
-app.get('/post', (req,res) => {
-  try {
-    console.log(req);
-    res.send('Дані форми отримані')
-  } catch (error) {
-    console.log(error);
-  }
-});
-
-app.post('/post', async (req,res) =>{
-  try {
-    const {username} = req.body;
-    const user = new Users({
-      username
-    });
-    await user.save();
-    console.log(`${user} is created`);
-    res.send(`New ${user} is created`);
-    console.log(req.body);
-  } catch (error) {
-    console.log(error);
-  }
-});
 /*------------------------------------------------------------*/
 
 //=================== 4 - запуск серверу =======================

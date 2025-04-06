@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+	<title>Tagssuche Ergebnisse</title>
+	<link rel="icon" type="image/png" href="media/icon.png">
+	<link rel="stylesheet" type="text/css" href="/diary/public/css/diarystyle.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+	<meta name="robots" content="noindex, nofollow"> <!-- робить сторінку прихованою від пошукових ботів -->
+</head>
+
+<body>
+	<!------------------------------ HEADER----------------------------------->
+	<header id="header">
+		<h2>TAGEBUCH</h2>
+		<!--<div id="descr">Опис</div>-->
+	</header>
+	<div id="panelInstruments">
+		<a class="panelInstrumentsButton" href="/diary/public/flysquirrel-diary/ua">🇺🇦</a>
+		<a class="panelInstrumentsButton" href="/diary/public/flysquirrel-diary/de">🇩🇪</a>
+		<% if(user) { %>
+			<a class="panelInstrumentsButton" href="/diary/public/flysquirrel-diary/logout">Abmelden</a>
+		<% } %>
+		<% if(!user) { %>
+			<a class="panelInstrumentsButton" href="/diary/public/flysquirrel-diary/login-de">Anmelden</a>
+		<% } %>
+	</div>
+	<!------------------------------ MENUS----------------------------------->
+	<div id="menu">
+		<ul>
+				<li><a href="/" class="menuLink">Hauptseite</a></li>
+				<li><a href="diaries-de.html" class="menuLink">Diaries</a></li>
+				<li><a href="/diary/public/flysquirrel-diary/" class="menuLink">Artikel Übersicht</a></li>
+				<% if(author) author.forEach(d => {
+					if (d === 'flysquirrel-diary') { %>
+				<li><a href="/diary/public/newArticle-de.html" class="menuLink">Neuer Artikel</a></li>
+				<% }}) %>
+		</ul>
+	</div>
+	<!------------------------------ CONTENT----------------------------------->
+	<div class="container">
+		<p>Alle Artikel mit dem Tag <b><%- tagname %></b></p>
+		<% articles.forEach(article => { %>
+			<div class="event">
+				<div style="float: right;"><i class="<%- article.articleSymbol %>"></i></div>
+				<time datetime="2020-03-23T16:32"><%- article.date %></time>
+				<div class="about"><%- article.thema %></div>
+				<a href="/diary/public/<%- authorLink %>/<%- article.id %>" class="link">Weitere Details</a>
+				<p class="tags"><%- article.tags %></p>
+			</div>
+		<% }) %>
+	</div>
+	<div id="menuTags">
+		<center><b>Tags</b></center>
+		<% tags.forEach(tag => { %>
+			<a href="/diary/public/<%- authorLink %>/searchResults/<%- tag.name %>"
+				class="tagLink"
+				style="font-size:<%=14+(tag.count*0.5)%>px;">
+					<%- tag.name %>
+				</a>&nbsp; 
+			<% }) %>
+	</div>
+</body>
+</html>

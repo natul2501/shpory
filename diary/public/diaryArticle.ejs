@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+	<title>Diary</title>
+	<link rel="icon" type="image/png" href="media/icon.png">
+	<link rel="stylesheet" type="text/css" href="/diary/public/css/diarystyle.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+	<meta name="robots" content="noindex, nofollow"> <!-- робить сторінку прихованою від пошукових ботів -->
+</head>
+<body>
+<!------------------------------ HEADER----------------------------------->
+	<header id="header">
+		<h2>ЩОДЕННИК</h2>
+		<!--<div id="descr">Опис</div>-->
+	</header>
+	<div id="panelInstruments">
+		<a class="panelInstrumentsButton" href="/diary/public/flysquirrel-diary/ua">🇺🇦</a>
+		<a class="panelInstrumentsButton" href="/diary/public/flysquirrel-diary/de">🇩🇪</a>
+		<% if(user) { %>
+			<a class="panelInstrumentsButton" href="/diary/public/flysquirrel-diary/logout">Вийти із акаунта</a>
+		<% } %>
+		<% if(!user) { %>
+			<a class="panelInstrumentsButton" href="/diary/public/flysquirrel-diary/login">Увійти в акаунт</a>
+		<% } %>
+	</div>
+<!------------------------------ MENUS----------------------------------->
+	<div id="menu">
+		<ul>
+				<li><a href="/" class="menuLink">Головна</a></li>
+				<li><a href="/diary/public/diaries.html" class="menuLink">Щоденники</a></li>
+				<li><a href="/diary/public/flysquirrel-diary/galerie" class="menuLink">Галерея</a></li>
+				<% if(author) author.forEach(d => {
+					if (d === 'flysquirrel-diary') { %>
+					<li><a href="/diary/public/newArticle.html" class="menuLink">Новий запис</a></li>
+				<% }}) %>
+		</ul>
+	</div>
+<!------------------------------ CONTENT----------------------------------->
+	<div class="container">
+		<div class="eventt">
+			<div id="controls">
+				<span><br><a href="/diary/public/flysquirrel-diary" class="iconStyle">Повернутися до списку записів</a></span>
+				<% if(author) author.forEach(d => {
+					if (d === 'flysquirrel-diary') { %>
+				<span>
+					<a class="iconStyle" href="/diary/public/<%- authorLink %>/<%- articleId %>/remove" onclick="return confirmDeleteArticle(event)">
+						<i class="fa-solid fa-trash" title="Видалити статтю"></i>
+					</a>
+				</span>
+				<span>
+					<a class="iconStyle" href="/diary/public/newArticle.html?id=<%- articleId %>">
+						<i class="fa-solid fa-pen-to-square" title="Редагувати статтю"></i>
+					</a>
+				</span>
+				<% }}) %>
+			</div>
+			<p>&nbsp;</p>
+			<div id="articleTime">
+				<%- article.date %>
+				<i class="<%- articleSymbol %>" title="<%- title %>"></i>
+				<% if(viewerslist && (viewerslist.length > 0)) {%>
+					<i style="color: gray; font-weight: normal;">( <%- viewerslist.join(', ') %> )</i>
+				<%}%>
+			</div>
+			<div class="about"><%- article.content %></div>
+			<div class="tags"><%- article.tags %></div>
+			<p>&nbsp;</p>
+			<div id="commentContainer">
+			<h4 id="commentContainerDescription">Коментарі:</h4>
+				<div id="addComment">
+					<details>
+						<summary><span id="commentFormDescr">Додати коментар:<br></span></summary>
+						<form name="commentForm" id="commentForm" method="post" action="/diary/public/flysquirrel-diary/comment">
+							<input type="hidden" name="articleId" value="<%- articleId %>">
+							<textarea name="commentFormText" id="commentFormText"></textarea><br>
+							<input name="commentInput" id="commentInput" type="submit" value="Відправити коментар"/>
+					</form>
+					</details>
+				</div>
+				<p>&nbsp;</p>
+				<div class="commetContainer">
+					<% article.comments.slice(1).forEach(comment => { %>
+						<div class="commetDiv">
+							<div id="controls">
+								<% if (user.username === comment.author) { %>
+									<form method="POST" action="/diary/public/<%- authorLink %>/<%- articleId %>/removeComment" style="display:inline;"
+										onsubmit="return confirmDeleteComment(event)">
+										<input type="hidden" name="commentDate" value="<%- comment.date %>">
+										<button type="submit" class="iconStyle" style="background:none; border:none; cursor:pointer;">
+										  <i class="fa-solid fa-trash" title="Видалити коментар"></i>
+										</button>
+									  </form>
+								<% } else  if(author){%>
+								<% author.forEach(d => { %>
+									<% if (d === 'flysquirrel-diary') { %>
+										<form method="POST" action="/diary/public/<%- authorLink %>/<%- articleId %>/removeComment" style="display:inline;"
+											onsubmit="return confirmDeleteComment(event)">
+											<input type="hidden" name="commentDate" value="<%- comment.date %>">
+											<button type="submit" class="iconStyle" style="background:none; border:none; cursor:pointer;">
+											  <i class="fa-solid fa-trash" title="Видалити коментар"></i>
+											</button>
+										  </form>
+									<% } %> <!-- Закриваючий тег для if (d === 'flysquirrel-diary') -->
+								<% })} %> <!-- Закриваючий тег для forEach(d => { -->
+							</div>
+							
+							<div class="commentAuthor"><%- comment.author %></div>
+							<div class="commentDate"><%- comment.date %></div>
+							<div class="commentText"><%- comment.commentText %></div>
+						</div>
+					<% }) %>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="menuTags">
+		<center><b>Теги</b></center>
+		<% tags.forEach(tag => { %>
+			<a href="/diary/public/<%- authorLink %>/searchResults/<%- tag.name %>"
+				class="tagLink"
+				style="font-size:<%=14+(tag.count*0.5)%>px;">
+					<%- tag.name %>
+				</a>&nbsp; 
+			<% }) %>
+	</div>
+	<script>
+		function confirmDeleteArticle(event) {
+			const isConfirmed = confirm("Ви впевнені, що хочете видалити статтю?");
+			if (!isConfirmed) {
+			event.preventDefault(); // Блокуємо перехід, якщо натиснуто "Ні"
+			}
+			return isConfirmed; // Дозволяє або забороняє перехід
+		}
+		function confirmDeleteComment(event) {
+		  const isConfirmed = confirm("Ви впевнені, що хочете видалити коментар?");
+		  if (!isConfirmed) {
+			event.preventDefault(); // Скасовуємо відправку форми, якщо натиснуто "Ні"
+		  }
+		  return isConfirmed; // Повертаємо true або false, щоб контролювати відправку форми
+		}
+	</script>
+</body>
+</html>

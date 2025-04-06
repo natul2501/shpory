@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ua">
+<head>
+  <meta charset="utf-8">
+	<title>Diary</title>
+	<link rel="icon" type="image/png" href="media/icon.png">
+	<link rel="stylesheet" type="text/css" href="/diary/public/css/diarystyle.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+	<meta name="robots" content="noindex, nofollow"> <!-- робить сторінку прихованою від пошукових ботів -->
+</head>
+
+<body>
+	<!------------------------------ HEADER----------------------------------->
+	<header id="header">
+		<h2>ЩОДЕННИК</h2>
+		<!--<div id="descr">Опис</div>-->
+	</header>
+	<div id="panelInstruments">
+		<a class="panelInstrumentsButton" href="/diary/public/flysquirrel-diary/ua">🇺🇦</a>
+		<a class="panelInstrumentsButton" href="/diary/public/flysquirrel-diary/de">🇩🇪</a>
+		<% if(user) { %>
+			<a class="panelInstrumentsButton" href="/diary/public/flysquirrel-diary/logout">Вийти із акаунта</a>
+		<% } %>
+		<% if(!user) { %>
+			<a class="panelInstrumentsButton" href="/diary/public/flysquirrel-diary/login">Увійти в акаунт</a>
+		<% } %>
+	</div>
+	<!------------------------------ MENUS----------------------------------->
+	<div id="menu">
+		<ul>
+				<li><a href="/" class="menuLink">Головна</a></li>
+				<li><a href="diaries.html" class="menuLink">Щоденники</a></li>
+				<li><a href="/diary/public/flysquirrel-diary/" class="menuLink">Список записів</a></li>
+				<li><a href="/diary/public/flysquirrel-diary/galerie" class="menuLink">Галерея</a></li>
+				<% if(author) author.forEach(d => {
+				if (d === 'flysquirrel-diary') { %>
+				<li><a href="/diary/public/newArticle.html" class="menuLink">Новий запис</a></li>
+				<% }}) %>
+				<li><b style="color: #381943;">Останні коментарі:</b>
+					<% lastComments.forEach(comment => { %>
+						<div class="lastCommCOntainer">
+							<b><a href="<%- comment.commentLink %>" class="commentDate">
+								<%- comment.date %> <%- comment.author %>
+							</a></b><br><span><%- comment.commentText %></span><br>
+						</div>
+					<% }) %>
+				</li>
+		</ul>
+	</div>
+	<!------------------------------ CONTENT----------------------------------->
+	<div class="container">
+		<% if(articles.length > 0) { %>
+		<% articles.forEach(article => {
+			if (article.show === 'author') {
+				if(author){ author.forEach(d => {
+					if (d === 'flysquirrel-diary') { %>
+						<div class="event">
+							<div style="float: right;"><i class="<%- article.articleSymbol %>" title="<%- article.title %>"></i></div>
+							<time datetime="2020-03-23T16:32"><%- article.date %></time>
+							<div class="about"><%- article.thema %></div>
+							<a href="/diary/public/<%- authorLink %>/<%- article.id %>" class="link">Детальніше</a>
+							<p class="tags"><%- article.tags %></p>
+							
+						</div>
+				<% }}) %>
+			<% }} else {%>
+				<div class="event">
+					<div style="float: right;"><i class="<%- article.articleSymbol %>" title="<%- article.title %>"></i></div>
+					<time datetime="2020-03-23T16:32"><%- article.date %></time>
+					<div class="about"><%- article.thema %></div>
+					<a href="/diary/public/<%- authorLink %>/<%- article.id %>" class="link">Детальніше</a>
+					<p class="tags"><%- article.tags %></p>
+				</div>
+			<% } %>
+			<% })} else {%>
+				<div class="event">
+					Автор обмежив доступ до свого щоденника. Для отримання доступу зв' яжіться із автором.
+				</div>
+			<%}%>
+	</div>
+
+	<div id="menuTags">
+		<center><b>Теги</b></center>
+		<% tags.forEach(tag => { %>
+		<a href="/diary/public/<%- authorLink %>/searchResults/<%- tag.name %>"
+			class="tagLink"
+			style="font-size:<%=14+(tag.count*0.5)%>px;">
+				<%- tag.name %>
+			</a>&nbsp; 
+		<% }) %>
+	</div>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html  lang="de">
+<head>
+  <meta charset="utf-8">
+	<title>Diary Login</title>
+    <link rel="icon" type="image/png" href="media/icon.png">
+	<link rel="stylesheet" type="text/css" href="css/diarystyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <meta name="robots" content="noindex, nofollow"> <!-- робить сторінку прихованою від пошукових ботів -->
+</head>
+
+<body>
+	<!------------------------------ HEADER----------------------------------->
+	<header id="header">
+		<h2>TAGEBÜCHER</h2>
+		<!--<div id="descr">
+			<i>Опис</i>
+		</div>-->
+	</header>
+    <div id="panelInstruments">
+		<a class="panelInstrumentsButton" href="/diary/public/diaryLogin.html">🇺🇦</a>
+		<a class="panelInstrumentsButton" href="/diary/public/diaryLogin-de.html">🇩🇪</a>
+	</div>
+	<!------------------------------ CONTENT----------------------------------->
+	<div class="diaryLogin">
+        <center>Anmeldefenster</center><br>
+        <form action="/diary/public/flysquirrel-diary/login-de" method="POST" id="loginForm">
+            <label for="username">E-mail:</label>
+            <input type="text" id="username" name="email" class="loginInput" required><br><br>
+            
+            <label for="password">Passwort:</label>
+            <input type="password" id="password" name="password" class="loginInput" required><br><br>
+            
+            <div id="responseMessage"></div> <!-- Сюди виводитимемо помилки -->
+
+            <p>&nbsp;</p>
+            <button type="submit"  class="loginButton">Anmelden</button>
+        </form>
+        <div>
+            <p>Wenn Sie nicht registriert sind, müssen Sie sich zur Registrierung auf eine der folgenden Arten an den Autor der Site wenden:</p>
+            <div class="contactDiv"><i class="fa-regular fa-at" title="e-mail"></i> fly.squirr@gmail.com</div><br>
+            <div class="contactDiv"><i class="fa-brands fa-discord" title="discord"></i> .flysquirr</div>
+        </div>
+	</div>
+    <script src="js/diaryLogin-de.js"></script>
+</body>
+</html>

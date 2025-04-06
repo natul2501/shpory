@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+	<title>Diary</title>
+	<link rel="icon" type="image/png" href="media/icon.png">
+	<link rel="stylesheet" type="text/css" href="/diary/public/css/diarystyle.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+	<meta name="robots" content="noindex, nofollow"> <!-- робить сторінку прихованою від пошукових ботів -->
+</head>
+<body>
+<!------------------------------ HEADER----------------------------------->
+	<header id="header">
+		<h2>TAGEBUCH</h2>
+		<!--<div id="descr">Опис</div>-->
+	</header>
+	<div id="panelInstruments">
+		<a class="panelInstrumentsButton" href="/diary/public/flysquirrel-diary/ua">🇺🇦</a>
+		<a class="panelInstrumentsButton" href="/diary/public/flysquirrel-diary/de">🇩🇪</a>
+		<% if(user) { %>
+			<a class="panelInstrumentsButton" href="/diary/public/flysquirrel-diary/logout">Abmelden</a>
+		<% } %>
+		<% if(!user) { %>
+			<a class="panelInstrumentsButton" href="/diary/public/flysquirrel-diary/login">Anmelden</a>
+		<% } %>
+	</div>
+<!------------------------------ MENUS----------------------------------->
+	<div id="menu">
+		<ul>
+				<li><a href="/" class="menuLink">Hauptseite</a></li>
+				<li><a href="/diary/public/diaries-de.html" class="menuLink">Diaries</a></li>
+				<li><a href="/diary/public/flysquirrel-diary/" class="menuLink">Artikel Übersicht</a></li>
+				<li><a href="/diary/public/flysquirrel-diary/galerie" class="menuLink">Galerie</a></li>
+				<% if(author) author.forEach(d => {
+					if (d === 'flysquirrel-diary') { %>
+					<li><a href="/diary/public/newArticle-de.html" class="menuLink">Neuer Artikel</a></li>
+				<% }}) %>
+		</ul>
+	</div>
+<!------------------------------ CONTENT----------------------------------->
+	<div class="galerieContainer">
+		<div id="galerieLinkContainer">
+			Kathegorien:&#8195;
+			<% Object.keys(groupPictures).forEach(thema => { %>
+				<a href="#<%= thema %>" class="menuLink"><%= thema %></a>&#8195;
+			<% }) %>
+		</div>
+		<% Object.keys(groupPictures).forEach(thema => { %>
+			<section>
+				<h1 id="<%= thema %>">
+					<%= thema %>
+					<div style="float: right; margin-right: 70px;">
+						<a href="#galerieLinkContainer" style="text-decoration: none"><b>🔝</b></a>
+					</div>	
+				</h1>
+				<div class="gallery">
+					<% groupPictures[thema].forEach(pic => { %>
+						<% if (pic.show === 'author') {%>
+							<% if(author){ author.forEach(d => {%>
+								<% if (d === 'flysquirrel-diary') { %>
+									<div class="gallery-item">
+										<a href="/diary/public/flysquirrel-diary/<%= pic.articleId %>" class="gallery-itemLink">
+											<img src="<%= pic.imgLink %>" alt="Bild <%= thema %>" title="<%= pic.title %>">
+										</a>
+									</div>
+							<% }}) %>
+					<% }} else {%>
+						<div class="gallery-item">
+							<a href="/diary/public/flysquirrel-diary/<%= pic.articleId %>" class="gallery-itemLink">
+								<img src="<%= pic.imgLink %>" alt="Bild <%= thema %>" title="<%= pic.title %>">
+							</a>
+						</div>
+					<% }}) %>
+				</div>
+			</section>
+		<% }) %>
+	</div>
+</body>
+</html>

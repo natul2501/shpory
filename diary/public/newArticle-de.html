@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/diarystyle.css">
+    <meta name="robots" content="noindex, nofollow"> <!-- робить сторінку прихованою від пошукових ботів -->
+    <title>Artikel hinzufügen</title>
+    <link rel="icon" type="image/png" href="media/icon.png">
+</head>
+<body>
+<!------------------------------ HEADER----------------------------------->
+    <header id="header">
+        <h2>TAGEBUCH</h2>
+        <!--<div id="descr">Опис</div>-->
+    </header>
+<!------------------------------ MENUS----------------------------------->
+    <div id="menu">
+        <ul>
+                <li><a href="/" class="menuLink">Hauptseite</a></li>
+                <li><a href="diaries.html" class="menuLink">Diaries</a></li>
+                <li><a href="/diary/public/flysquirrel-diary/galerie" class="menuLink">Galerie</a></li>
+        </ul>
+    </div>
+<!------------------------------ CONTENT----------------------------------->
+    <div class="newArticleContainer">
+        <div id="newArticleMessage"></div>
+        <div id="newArticlePrewiew">
+            <div id="PrewiewDescr"><p>Vorschaufenster</p></div>
+        </div>
+        <form method="POST" id="newArticle" name="newArticle">
+            <div style="margin: 0px 0px 10px 0px; display: inline-block;">Wählen Sie, wer kann den Artikel sehen:</div> 
+            <select id="newArticlePermissions" name="newArticlePermissions">
+                <option value="">alle Benutzer</option>
+                <option value="user"><i class="fa-solid fa-user"></i> angemeldete Benutzer</option>
+                <option value="flysquirrel-diary"><i class="fa-solid fa-user-plus"></i> alle, die haben Tagebuch abboniert</option>
+                <option value="userlist">ausgewählte Benutzer</option>
+                <option value="author"><i class="fa-solid fa-lock"></i>nur ich</option>
+            </select>
+
+            <div id="userListContainer" style="display: none;">
+                <label for="userSearch">Benutzersuche:</label>
+                    <input type="text" id="userSearch" placeholder="Name eingeben..." oninput="filterUsers()"><br>
+                    <select id="userList" multiple onchange="selectUser()"></select>
+            </div>
+            <div id="selectedUsersContainer" style="display: none;">
+                Ausgewählte Benutzer: <span id="selectedUsersDisplay"></span>
+                <input type="hidden" id="selectedUsers" name="selectedUsers">
+            </div><br>
+
+            <div class="newArticleDescr">Thema:</div> <input type="text" id="newArticleThema" name="newArticleThema" placeholder="&#8195;Beschreibung, die in der Artikelliste angezeigt wird; wenn nicht angegeben, wird ein Teil des Textes angezeigt"><br>
+            <div class="newArticleDescr">Tags</div> <input type="text" id="newArticleTags" name="newArticleTags" placeholder="&#8195;Sie können ein oder mehrere Tags durch Kommas getrennt angeben (&quot;,&quot;)"><br>
+            <div class="newArticleDescr">Text:</div> <textarea id="newArticleContent" name="newArticleContent" placeholder="&#8195;Tagebucheintragstext"></textarea><br>
+            <div id="newArticlePannel">
+                <details style="display: inline-block;">
+                    <summary>🙂</summary>
+                    <div id="emoji-container"></div>
+                </details> 
+                <!--<button id="emojiButton" type="button">😊</button>
+                <div id="emojiPanel" class="hidden"></div>-->
+                <button class="newArticleButton" onclick=placeImgShow() type="button">Bild hinzufügen</button>
+                <button class="newArticleButton" onclick=prewiew() type="button">Vorschau</button>
+                <input type="submit" value="Publizieren" class="newArticleButton">
+            </div>
+        </form>
+
+        <div id="placeImg-style-before">
+            <div id="placeImg-style-after" class="placeImg-window">
+                <button id="closeButton" title="Fenster zum Hinzufügen von Bild schließen" onclick="closePlaceImgWindow()">❌</button>
+                Bildlink eingeben: <br>
+                <input name="placeImgInput" id="placeImgInput"><br>
+                Geben Sie eine Beschreibung für das Bild ein (optional):<br>
+                <input name="placeImgInputTitel" id="placeImgInputTitel"><br>
+                Geben Sie das Thema für das Bild ein, mit die es in Galerie sortiert wird:<br>
+                <input name="placeImgInputThema" id="placeImgInputThema"><br>
+                <input type="checkbox" id="placeImgInputPrivat" name="placeImgInputPrivat"> zeigen nicht ins Galerie<br>
+                <span id="placeImgMessages"></span><br>
+                <button onclick=placeImg()>Bild hinzufügen</button>
+            </div>
+        </div>
+        <div class="event" style="margin-left: 52px; width: 875px;">
+            Gestaltungstipps:<br>
+            <p>&lt;p&gt;Ein Absatz mit Text&lt;/p&gt;</p>
+            <p>&lt;em&gt;Helles Highlight&lt;/em&gt; - <em>Helles Highlight</em></p>
+            <p>&lt;comment&gt;Stumpfes Highlight&lt;/comment&gt; - <comment>Stumpfes Highlight</comment></p>
+            <p>&lt;strong&gt;Rotes Highlight&lt;/strong&gt; - <strong>Rotes Highlight</strong></p>
+            <p>&lt;h3&gt;Titel&lt;/h3&gt; - <h3>Titel</h3></p>
+            <p>&lt;h4&gt;Titel&lt;/h4&gt; - <h4>Titel</h4></p>
+            <p>Für eine detailliertere Gestaltung können Sie auch jedes andere Mittel von <a href="../../shpory/nav_html.html" class="simpleLink">HTML</a> und <a href="../../shpory/nav_css.html" class="simpleLink">CSS</a> verwenden.</p>
+            Um ein Video von YouTube hinzuzufügen, wählen Sie unter dem Video „Teilen“ => „Einbetten“ => den Frame-Code kopieren und in den Artikel einfügen.
+            <h4>Bilder</h4>
+            <p>Alle von Ihnen veröffentlichten Bilder werden thematisch sortiert und in Ihrer Galerie angezeigt.</p>
+            <p>Das Thema kann im &lt;span&lt;-Tag angegeben werden, der unter dem Bild-Tag platziert ist.</p>
+            <p>Wenn Sie nicht möchten, dass das Bild in der Galerie angezeigt wird, geben Sie das Thema "notForGalery" an.</p>
+            <p>Am besten nutzen Sie beim Bilder platzieren Button "Bild hinzufügen"</p>
+        </div>
+    </div>
+    <script src="js/newArticle-de.js"></script> 
+</body>
+</html>

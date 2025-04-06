@@ -4,6 +4,7 @@
 		    font-style: normal;
 		    font-display: swap;
 		    font-weight: 12;
+		    font-size: 14px;
 		}
 		html{
 		    box-sizing: border-box;
@@ -26,11 +27,30 @@
 			height: 100px;
 			width: 100%;
 			position: fixed;
-			float: left;
-			right: 0px;
 			left: 0px;
 			top: 0px;
 			z-index: 4;
+		}
+		#panelInstruments{
+			width: 200px;
+			height: 30px;
+			position: fixed;
+			left: 90%;
+			top: 70px;
+			z-index: 5;
+		}
+		.panelInstrumentsButton{
+			text-decoration: none;
+			padding: 2px;
+			background-color: rgba(0, 0, 0, 0.0);
+			border: 2px solid rgba(0, 0, 0, 0.0);
+			color: #381943;
+			font-weight:bold;
+		}
+		.panelInstrumentsButton:hover{
+			padding: 2px;
+			text-decoration: none;
+			border: 2px solid #C5B6B9;
 		}
 		header h2{
 			margin-bottom:0;
@@ -59,31 +79,52 @@
 		#menu li{
 			margin: 5px 0px 0px 0px;
 		}
-		#menuTags{
-			margin-top: 10px;
-		}
 		.menuLink{
 			color: #381943;
 			text-decoration: none;
 			font-weight:bold;
 		}
-		.menuLink:hover{
+		.menuLink:hover, .linkButton:hover, .loginButton:hover{
 			color: #B98BBF;
 			background-color: rgba(65, 63, 67);
 			border: 2px solid #C5B6B9;
 			text-decoration: none;
 			padding: 3px 5px 3px 5px;
 		}
+		#menuTags{
+			position: fixed;
+			top: 120px;
+			left: 1430px;
+			height: 86.5%;
+			width:400px;
+			margin-top: 10px;
+		}
+		.tagLink{
+			text-decoration: none;
+			text-shadow: 1px 1px 5px #8c55ff;
+			font-family: Candara;
+			color: DarkSlateBlue;
+		}
+		.tagLink:hover{
+			font-weight: bold;
+			-webkit-text-stroke: 1px Plum; /* Толщина и цвет обводки */
+		}
+		#authorMenuDiv{
+			position: absolute;
+			bottom: 0px;
+			color: #381943;
+			font-size: 14px;
+		}
 /*-------------------CONTENT STYLES------------------*/
 		.container{
 			display: inline-block;
-			position: absolute;
+			position: relative;
 			top: 120px;
 			left: 170px;
-			float: left;
 			width: 80%;
 			height: 86.5%;
 			overflow: auto;
+			scroll-padding-left: 60px;
 		}
 /*----------------------DIARIES----------------------*/
 		.diaryPrewiew{
@@ -130,9 +171,8 @@
 			color: #E5E3E6;
 			padding: 10px;
 			position: relative;
-			top: 113px;
-			left: 162px;
-			z-index: 3;
+			top: 0px;
+			left: 0px;
 		}
 		.about{
 			padding-left: 25px;
@@ -143,6 +183,16 @@
 			font-family: 'Calibri';
 			font-size: 14px;
 		}
+		.linkButton{
+			display: inline-block;
+			text-decoration: none;
+			font-weight: bold;
+			margin-top: 3px;
+			padding: 2px 5px 2px 5px;
+			background-color: #c5bdd2;
+			border: solid 2px #89787B;
+			color: #352255;
+		}
 /*-------------------CONTENT DIARY-------------------*/
 		.eventt{
 			background: rgba(35, 33, 37, 0.8);
@@ -151,11 +201,16 @@
 			margin: 0px 5px 0px 5px;
 			font-family: Corbel;
 			color: #E5E3E6;
-			padding: 10px;
-			position: absolute;
-			top: 120px;
-			left: 172px;
+			padding: 0px 10px 50px 10px;
+			position: relative;
+			top: 0px;
+			left: 20px;
 			line-height: 22px;
+			display: inline-block;
+		}
+		#controls{
+			display: block;
+			float: right;
 		}
 		#articleTime{
 			text-indent: 35px;
@@ -167,6 +222,95 @@
 			display: inline-block;
 			float: right;
 		}
+		.iconStyle{
+			color: #B98BBF;
+		}
+		#commentContainer{
+			display: inline-block;
+			position: relative;
+			width: 100%;
+			overflow: visible;
+			margin-bottom: 60px;
+		}
+		#commentContainerDescription{
+			display: block;
+			text-color: #B98BBF;
+			float: left;
+			margin-left: 100px;
+		}
+		#commentForm{
+			display: block;
+			position: relative;
+			left: -100%;
+		}
+		#commentFormDescr{
+			color: gray;
+			font-style: italic;
+		}
+		#commentFormText{
+			background-color: Lavender;
+			width: 800px;
+			height: 80px;
+		}
+		#addComment{
+			position: absolute;
+			left: 85%;
+		}
+		.commetContainer{
+			width: 98%;
+			margin: 0px 15px 15px 15px;
+		}
+		.commetDiv{
+			width: 100%;
+			background-color: rgba(256, 256, 256, 0.1);
+			margin-bottom: 10px;
+			padding: 5px;
+		}
+		.commentAuthor{
+			margin-left: 30px;
+			display: inline-block;
+			font-weight: bold;
+			color: #B98BBF;
+		}
+		.commentDate{
+			display: inline-block;
+			font-weight: bold;
+			color: #B98BBF;
+		}
+		.commentText{
+			margin-bottom: 20px;
+		}
+		.galerieContainer{
+			display: inline-block;
+			position: relative;
+			top: 120px;
+			left: 170px;
+			width: 90.5%;
+			height: 86.5%;
+			overflow: auto;
+			scroll-padding-left: 60px;
+		}
+		.gallery {
+	        display: flex;
+	        flex-wrap: wrap;
+	        gap: 10px;
+	    }
+	    .gallery-item {
+	        width: 200px;
+	        overflow: hidden;
+	    }
+	    .gallery-item img {
+	        width: 100%;
+	        object-fit: cover;
+	    }
+	    .gallery-item img:hover{
+			text-decoration: none;
+			margin: 0px;
+			padding: 0px;
+		}
+		.gallery-item img:hover{
+			border: solid 5px rgba(172, 79, 204, 0.8);
+		}
 /*------------------ NEW ARTICLE -------------------*/
 		.newArticleContainer{
 			display: inline-block;
@@ -177,6 +321,12 @@
 			width: 91%;
 			height: 86.5%;
 			overflow: auto;
+		}
+		#newArticleMessage{
+			text-indent: 60px;
+			color: Indigo;
+			font-family: Calibri;
+			font-style: italic;
 		}
 		#newArticleThema{
 			width: 50%;
@@ -210,16 +360,38 @@
 			width: 50px;
 			vertical-align: top;
 		}
-		#newArticleButton{
+		.newArticleButton, .loginButton{
 			color: #381943;
 			font-weight:bold;
 			margin: 2px;
 		}
-		#newArticleButton:hover{
+		.newArticleButton:hover{
 			color: #B98BBF;
 			background-color: rgba(65, 63, 67);
 			border: 2px solid #C5B6B9;
 			padding: 3px 5px 3px 5px;
+		}
+		#newArticlePermissionsDescription{
+			vertical-align: top;
+			margin: 0px 0px 10px 0px;
+			display: inline-block;
+		}
+		#newArticlePermissions{
+			vertical-align: top;
+		}
+		#userList{
+			position: absolute;
+			top: 22px;
+			left: 38.5%;
+			width: 164px;
+			height: 50px;
+			overflow: auto;
+			display: none;
+		}
+		#selectedUsersContainer{
+			width: 37%;
+			color: DarkSlateGray;
+			font-style: italic;
 		}
 		#newArticlePrewiew{
 			position: relative;
@@ -247,7 +419,7 @@
 		}
 		.placeImg-window{
 			width: 30%;
-			height: 170px;
+			height: 250px;
 			background-color: white;
 			border: solid 1px rgb(137, 120, 123);
 			text-align: center;
@@ -256,7 +428,7 @@
 		#closeButton{
 			position: relative;
 			top: -10px;
-			left: 74%;
+			left: 61%;
 		}
 		#placeImg-style-before{
 			display: none;
@@ -286,16 +458,123 @@
 			background: #f2f2f2;
 		}
 		.placeImg-button-style:hover{background: #e6e6ff;}
-		#placeImgInput, #placeImgInputTitel{
+		#placeImgInput, #placeImgInputTitel, #placeImgInputThema{
 			width: 90%;
 			margin: 5px 0px 5px 0px;
 		}
 		
+		#emoji-container{
+			position: relative;
+			top: 0px;
+			left: 0px;
+			width: 100%;
+			height: 200px;
+			overflow: scroll;
+		}
+		.emoji-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .emoji-item {
+            font-size: 24px;
+            cursor: pointer;
+        }
+        .emoji-item:hover {
+            transform: scale(1.2);
+        }
+       /* #emojiPanel {
+		  position: absolute;
+		  background: white;
+		  border: 1px solid #ccc;
+		  padding: 10px;
+		  display: flex;
+		  flex-wrap: wrap;
+		  gap: 5px;
+		  max-width: 200px;
+		  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+		}
+
+		.hidden {
+		  display: none;
+		}
+
+		.emoji {
+		  cursor: pointer;
+		  font-size: 1.2rem;
+		  padding: 5px;
+		  border-radius: 5px;
+		  transition: background 0.2s;
+		}
+
+		.emoji:hover {
+		  background: #eee;
+		}*/
+/*------------------ LOGIN -------------------*/
+		.diaryLogin{
+			position: absolute;
+			top: 30%;
+			left: 36%;
+			width: 500px;
+			height: 320px;
+			padding: 15px;
+			border: solid 1px black;
+			background-color: rgba(230, 230, 250, 0.5);
+		}
+		.loginInput{
+			display: inline-block;
+			position: absolute;
+			left: 22%;
+			margin: 10px;
+			width: 300px;
+		}
+		.loginButton{
+			position: relative;
+			left: 45%;
+			margin-bottom: 15px;
+		}
+		.contactDiv{
+			display: inline-block;
+		}
+		#responseMessage{
+			position: absolute;
+			left: 25%;
+			color: gray;
+		}
+/*------------------ TERMS OF USE ------------------*/
+		#termsOfUse{
+			position: absolute;
+			top: 100px;
+			left: 10%;
+			width: 80%;
+			padding: 0px 50px 0px 50px;
+			font-size: 16px;
+			background-color: rgba(35, 33, 37, 0.8);
+			color: white;
+		}
+
 /*----------------ELEMENT'S STYLES------------------*/
+		em{
+			font-style: normal;
+			font-weight: bold;
+			color: #B98BBF;
+		}
+		comment{
+			font-weight: bold;
+			color: #9791a3;
+		}
+		strong{
+			color: red;
+		}
 		p{
 			text-indent: 35px;
 			padding-bottom: 10px;
 			margin: 0px;
+		}
+		h1{
+			color: Indigo;
+			background-color: rgba(105,95,100,0.6);
+			text-align: center
 		}
 		h3{
 			color: #B98BBF;
@@ -318,13 +597,23 @@
 		a.link{
 			padding-left: 25px;
 			color: #B98BBF;
+			text-decoration: none;
+			font-weight: bold;
+		}
+		.simpleLink{
+			text-decoration: none;
+			font-weight: bold;
+			color: #E5E3E6;
+		}
+		.simpleLink:hover{
+			color: #B98BBF;
 		}
 		#imgDiv a:hover{
 			border: 0px;
 			margin: 0px;
 			padding: 0px;
 		}
-		a.link:hover{
+		a.link:hover {
 			padding: 0px 5px 0px 5px;
 			margin-left: 15px;
 			background-color: rgba(45, 43, 47);
@@ -340,7 +629,7 @@
 			background-color: none;
 			border: none;
 			color: none;
-			background-image: url(../../media/icon/house-symbol-hover.png);
+			background-image: url(../media/icon/house-symbol-hover.png);
 			text-decoration: none;
 		}
 		a:active{

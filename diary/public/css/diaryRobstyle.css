@@ -13,14 +13,14 @@
 		body{
 			font-family: 'Corbel';
     		margin: 0;
-			background-image : url(../media/background2.jpg);
+			background-image : url(background2.jpg);
 			background-size: 100%;
 		}
 		*,*::after, *::before{
 		    box-sizing: inherit;
 		}
 		header{
-			background-image : url(../media/header2.jpg);
+			background-image : url(header2.jpg);
 			background-size: 100%;
 			border: 1px outset #1C2926;
 			height: 100px;

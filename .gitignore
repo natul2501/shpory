@@ -1,0 +1,15 @@
+node_modules
+
+*.log
+
+*.env
+
+.vscode/
+.idea/
+
+.DS_Store
+Thumbs.db
+
+pm2-log/
+
+.npm/

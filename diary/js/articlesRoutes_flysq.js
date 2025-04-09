@@ -518,6 +518,9 @@ router.get("/", async (req, res) => {
     articles.sort((a, b) => Number(b.id) - Number(a.id)); // Сортуємо за спаданням ID
     const TagsDoc = await TagsModel.findOne();
     const tags = TagsDoc.tagsFlysquirr;
+    tags.sort(function (a, b) {
+      return a.name.localeCompare(b.name, ['uk', 'de'], { sensitivity: 'base' });
+    });
     if(req.session.user){
         if(req.session.user.language === 'ua'){
           res.render("diaryListe",
@@ -626,6 +629,9 @@ router.get("/:id", async (req, res) => {
       }
       const TagsDoc = await TagsModel.findOne();
       const tags = TagsDoc.tagsFlysquirr;
+      tags.sort(function (a, b) {
+        return a.name.localeCompare(b.name, ['uk', 'de'], { sensitivity: 'base' });
+      });
       
       //показ статті автору
         if(req.session.user && req.session.user.author.includes("flysquirrel-diary")){
@@ -1249,7 +1255,7 @@ router.post('/newArticle', checkAuth, async (req,res) =>{
     if(newArticleDatum){
       date = newArticleDatum;
     } else {
-      date = currentWeek + currentDate + " " + currentTime;
+      date = getFormattedDate();
     }
     if(!newArticleThema) newArticleThema = newArticleContent.substring(0, 200);
     let show = newArticlePermissions;
@@ -1364,7 +1370,7 @@ router.post('/newArticleDe', checkAuth, async (req,res) =>{
     if(newArticleDatum){
       date = newArticleDatum;
     } else {
-      date = currentWeek + currentDate + " " + currentTime;
+      date = getFormattedDate();
     }
 
     if(!newArticleThema) newArticleThema = newArticleContent.substring(0, 200);
@@ -1682,6 +1688,9 @@ router.get("/searchResults/:tagname", async (req, res) => {
       filteredArticles.sort((a, b) => Number(b.id) - Number(a.id)); // Сортуємо за спаданням ID
       const TagsDoc = await TagsModel.findOne();
       const tags = TagsDoc.tagsFlysquirr;
+      tags.sort(function (a, b) {
+        return a.name.localeCompare(b.name, ['uk', 'de'], { sensitivity: 'base' });
+      });
       if(!req.session.user){
         res.render("tagSearchResults", {
           articles: filteredArticles,
@@ -1772,6 +1781,16 @@ function searchPictureArr(content){
   return pictures;
 }
 
-
+function getFormattedDate() {
+  const date = new Date();
+  const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+  const dayName = days[date.getDay()];
+  const dd = String(date.getDate()).padStart(2, '0');
+  const mm = String(date.getMonth() + 1).padStart(2, '0'); // Місяці від 0 до 11
+  const yyyy = date.getFullYear();
+  const hh = String(date.getHours()).padStart(2, '0');
+  const min = String(date.getMinutes()).padStart(2, '0');
+  return `${dayName} ${dd}.${mm}.${yyyy} ${hh}:${min}`;
+}
 
 export default router;

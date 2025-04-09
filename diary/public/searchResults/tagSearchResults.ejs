@@ -14,6 +14,11 @@
 	<header id="header">
 		<h2>ЩОДЕННИК</h2>
 		<!--<div id="descr">Опис</div>-->
+		<div id="menuMob">
+            <button id="newArticleMenuButton" onclick="showmenu()" title="Меню">
+                <i class="fa-solid fa-bars" style="font-size: 36px;"></i>
+            </button>
+        </div>
 	</header>
 	<div id="panelInstruments">
 		<a class="panelInstrumentsButton" href="/diary/public/flysquirrel-diary/ua">🇺🇦</a>
@@ -60,5 +65,15 @@
 				</a>&nbsp; 
 			<% }) %>
 	</div>
+	<script>
+		function showmenu(){
+			let menu = document.getElementById('menu');
+			if(menu.style.display == 'block'){
+				menu.style.display = 'none';
+			} else {
+				menu.style.display = 'block';
+			}
+		}
+	</script>
 </body>
 </html>

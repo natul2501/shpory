@@ -16,6 +16,11 @@
 		<!--<div id="descr">
 			<i>Опис</i>
 		</div>-->
+		<div id="menuMob">
+            <button id="newArticleMenuButton" onclick="showmenu()" title="Меню">
+                <i class="fa-solid fa-bars" style="font-size: 36px;"></i>
+            </button>
+        </div>
 	</header>
 	<div id="panelInstruments">
 		<a class="panelInstrumentsButton" href="/diary/public/flysquirrel-diary/ua">🇺🇦</a>
@@ -53,6 +58,16 @@
 			</div>
 		</a>
 	</div>
-
+	<footer><a href="/diary/public/flysquirrel-diary/TermsOfUse" id="footerLink">Знаходячись на даному веб-сайті ви погоджуєтеся з умовами користування</a></footer>
+	<script>
+		function showmenu(){
+			let menu = document.getElementById('menu');
+			if(menu.style.display == 'block'){
+				menu.style.display = 'none';
+			} else {
+				menu.style.display = 'block';
+			}
+		}
+	</script>
 </body>
 </html>

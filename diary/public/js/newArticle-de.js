@@ -6,14 +6,22 @@ function insertInTextarea(text) {
     let endPos = textarea.selectionEnd;
     let before = textarea.value.substring(0, startPos);
     let after = textarea.value.substring(endPos);
-    
-    // Додаємо емодзі на місце курсора
     textarea.value = before + text + after;
-    
-    // Встановлюємо курсор після вставленого емодзі
     textarea.setSelectionRange(startPos + text.length, startPos + text.length);
     textarea.focus();
 }
+
+function getFormattedDate() {
+    const date = new Date();
+    const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+    const dayName = days[date.getDay()];
+    const dd = String(date.getDate()).padStart(2, '0');
+    const mm = String(date.getMonth() + 1).padStart(2, '0'); // Місяці від 0 до 11
+    const yyyy = date.getFullYear();
+    const hh = String(date.getHours()).padStart(2, '0');
+    const min = String(date.getMinutes()).padStart(2, '0');
+    return `${dayName} ${dd}.${mm}.${yyyy} ${hh}:${min}`;
+  }
 
 /*------------------------------------------------------------ */
 /*----------------------- 1. КНОПКИ -------------------------- */
@@ -21,14 +29,14 @@ function prewiew(){
     let thema = document.newArticle.newArticleThema.value;
     let tags = document.newArticle.newArticleTags.value;
     let content = document.newArticle.newArticleContent.value;
-    let date = new Date();
-    let currentDate = date.getUTCDate()+"."+date.getUTCMonth()+"."+date.getUTCFullYear()+" "+date.getUTCHours()+":"+date.getUTCMinutes();
+    let currentDate = getFormattedDate();
     document.getElementById('newArticlePrewiew').innerHTML = 
     "<div class=\"eventt\">"+
 	"<div id=\"articleTime\">" + currentDate + "</div>"+
 	"<div class=\"about\">" + content + "</div>"+
     "<div class=\"tags\">" + tags + "</div>"+
 	"</div>";
+    document.getElementById('newArticlePrewiewMob').innerHTML = document.getElementById('newArticlePrewiew').innerHTML;
 }
 
 function placeImgShow(){
@@ -67,7 +75,14 @@ const placeImg = async () => {
         document.getElementById('placeImg-style-before').style.display = "none";
     } catch (error) {document.getElementById('newArticlePrewiew').innerHTML = error;}
 }
-
+function showmenu(){
+    let menu = document.getElementById('menu');
+    if(menu.style.display == 'block'){
+        menu.style.display = 'none';
+    } else {
+        menu.style.display = 'block';
+    }
+}
 /*------------------------------------------------------------ */
 /*------- 1.2. СПИСОК КОРИСТУВАЧІВ, ЯКІ МОЖУТЬ ПЕРЕГЛЯДАТИ СТАТТЮ---------- */
 

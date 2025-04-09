@@ -14,6 +14,11 @@
     <header id="header">
         <h2 id="headerHeader">TAGEBUCH</h2>
         <!--<div id="descr">Опис</div>-->
+        <div id="menuMob">
+            <button id="newArticleMenuButton" onclick="showmenu()" title="Menu">
+                <i class="fa-solid fa-bars" style="font-size: 36px;"></i>
+            </button>
+        </div>
     </header>
 <!------------------------------ MENUS----------------------------------->
     <div id="menu">
@@ -67,6 +72,9 @@
                 <input type="submit" value="Publizieren" class="newArticleButton">
             </div>
         </form>
+        <div id="newArticlePrewiewMob">
+            <div id="PrewiewDescr"><p>Vorschaufenster</p></div>
+        </div>
 
         <div id="placeImg-style-before">
             <div id="placeImg-style-after" class="placeImg-window">
@@ -82,7 +90,7 @@
                 <button onclick=placeImg()>Bild hinzufügen</button>
             </div>
         </div>
-        <div class="event" style="margin-left: 52px; width: 875px;">
+        <div class="newArticleEvent">
             Gestaltungstipps:<br>
             <p>&lt;p&gt;Ein Absatz mit Text&lt;/p&gt;</p>
             <p>&lt;em&gt;Helles Highlight&lt;/em&gt; - <em>Helles Highlight</em></p>

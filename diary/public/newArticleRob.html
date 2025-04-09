@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="css/diaryRobstyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <meta name="robots" content="noindex, nofollow"> <!-- робить сторінку прихованою від пошукових ботів -->
     <title>Додавання нового запису</title>
     <link rel="icon" type="image/png" href="media/icon.png">
@@ -13,6 +14,11 @@
     <header id="header">
         <h2 id="headerHeader">ЩОДЕННИК</h2>
         <!--<div id="descr">Опис</div>-->
+		<div id="menuMob">
+            <button id="newArticleMenuButton" onclick="showmenu()" title="Меню">
+                <i class="fa-solid fa-bars" style="font-size: 36px;"></i>
+            </button>
+        </div>
     </header>
 <!------------------------------ MENUS----------------------------------->
     <div id="menu">

@@ -13,6 +13,11 @@
 	<header id="header">
 		<h2>ЩОДЕННИК</h2>
 		<!--<div id="descr">Опис</div>-->
+		<div id="menuMob">
+            <button id="newArticleMenuButton" onclick="showmenu()" title="Меню">
+                <i class="fa-solid fa-bars" style="font-size: 36px;"></i>
+            </button>
+        </div>
 	</header>
 	<div id="panelInstruments">
 		<a class="panelInstrumentsButton" href="/diary/public/flysquirrel-diary/ua">🇺🇦</a>
@@ -29,6 +34,7 @@
 		<ul>
 				<li><a href="/" class="menuLink">Головна</a></li>
 				<li><a href="/diary/public/diaries.html" class="menuLink">Щоденники</a></li>
+				<li><a href="/diary/public/flysquirrel-diary/" class="menuLink">Список статей</a></li>
 				<li><a href="/diary/public/flysquirrel-diary/galerie" class="menuLink">Галерея</a></li>
 				<% if(author) author.forEach(d => {
 					if (d === 'flysquirrel-diary') { %>
@@ -80,7 +86,8 @@
 				</div>
 				<p>&nbsp;</p>
 				<div class="commetContainer">
-					<% article.comments.slice(1).forEach(comment => { %>
+					<% article.comments.forEach(comment => { %>
+						<% if(comment.author) { %>
 						<div class="commetDiv">
 							<div id="controls">
 								<% if (user.username === comment.author) { %>
@@ -109,7 +116,7 @@
 							<div class="commentDate"><%- comment.date %></div>
 							<div class="commentText"><%- comment.commentText %></div>
 						</div>
-					<% }) %>
+					<% }}) %>
 				</div>
 			</div>
 		</div>
@@ -138,6 +145,14 @@
 			event.preventDefault(); // Скасовуємо відправку форми, якщо натиснуто "Ні"
 		  }
 		  return isConfirmed; // Повертаємо true або false, щоб контролювати відправку форми
+		}
+		function showmenu(){
+			let menu = document.getElementById('menu');
+			if(menu.style.display == 'block'){
+				menu.style.display = 'none';
+			} else {
+				menu.style.display = 'block';
+			}
 		}
 	</script>
 </body>

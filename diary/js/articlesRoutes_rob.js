@@ -114,25 +114,7 @@ router.get("/galerie", async (req, res) => {
         groupPictures[group].push(pic);
         });
       }
-      
     }
-    /*
-    if (!req.session.subscribe.includes("robert-diary")) {
-      if(req.session.user.language === 'ua'){
-        const message = '<p>Ви не підписані на щоденник Robert Tagebuch.</p>'+
-        '<p>Для отримання підписки зв\'яжіться з автором через Discord <em>.flysquirr</em> або е-мейл <em>fly.squirr@gmail.com</em>.</p>'+
-        '<p>Підписка безкоштовна і її отримання визначається лише бажанням автора ділитися з Вами своєю творчістю :3</p>';
-        return res.render("Messages", { message:message});
-      }
-      if(req.session.user.language === 'de'){
-        const message = '<p>Sie haben das Tagebuch Robert Tagebuch nicht abonniert.</p>'+
-        '<p>Um ein Abonnement abzuschließen, kontaktieren Sie den Autor über Discord <em>.flysquirr</em> oder E-Mail <em>fly.squirr@gmail.com</em>.</p>'+
-        '<p>Das Abonnement ist kostenlos und sein Erhalt hängt ausschließlich vom Wunsch des Autors ab, sein Werk mit Ihnen zu teilen :3</p>';
-        return res.render("Messages", { message:message});
-      }
-    }
-    req.session.subscribe.forEach(s => {
-      if(s==="robert-diary"){*/
       if(!req.session.user){
         res.render("diaryGalerieRob-de",
           { groupPictures,
@@ -158,11 +140,7 @@ router.get("/galerie", async (req, res) => {
               authorLink:"robert-diary"});
         }
       }
-        
-        return;
-      /*}
-    });*/
-    
+    return;
   } catch (error) {
     console.error("/galerie: Помилка доступу до галереї:", error);
     const message = "Server Failure: GET /galerie"
@@ -339,22 +317,9 @@ router.get("/", async (req, res) => {
       articles.sort((a, b) => Number(b.id) - Number(a.id)); // Сортуємо за спаданням ID
       const TagsDoc = await TagsModel.findOne();
       const tags = TagsDoc.tagsRobert;
-      
-      /*
-      if (!req.session.subscribe.includes("robert-diary")) {
-        if(req.session.user.language === 'ua'){
-          const message = '<p>Ви не підписані на щоденник Robert Tagebuch.</p>'+
-          '<p>Для отримання підписки зв\'яжіться з автором через Discord <em>.flysquirr</em> або е-мейл <em>fly.squirr@gmail.com</em>.</p>'+
-          '<p>Підписка безкоштовна і її отримання визначається лише бажанням автора ділитися з Вами своєю творчістю :3</p>';
-          return res.render("Messages", { message:message});
-        }
-        if(req.session.user.language === 'de'){
-          const message = '<p>Sie haben das Tagebuch Robert Tagebuch nicht abonniert.</p>'+
-          '<p>Um ein Abonnement abzuschließen, kontaktieren Sie den Autor über Discord <em>.flysquirr</em> oder E-Mail <em>fly.squirr@gmail.com</em>.</p>'+
-          '<p>Das Abonnement ist kostenlos und sein Erhalt hängt ausschließlich vom Wunsch des Autors ab, sein Werk mit Ihnen zu teilen :3</p>';
-          return res.render("Messages", { message:message});
-        }
-      }*/
+      tags.sort(function (a, b) {
+        return a.name.localeCompare(b.name, ['uk', 'de'], { sensitivity: 'base' });
+      });
       if(req.session.user){
         /*for (let s of req.session.subscribe) {
         if(s==="robert-diary"){*/
@@ -468,7 +433,9 @@ router.get("/:id", async (req, res) => {
       }
       const TagsDoc = await TagsModel.findOne();
       const tags = TagsDoc.tagsRobert;
-      
+      tags.sort(function (a, b) {
+        return a.name.localeCompare(b.name, ['uk', 'de'], { sensitivity: 'base' });
+      });
       //показ статті автору
         if(req.session.user && req.session.user.author.includes("robert-diary")){
           if(req.session.user.language === 'ua'){
@@ -1079,7 +1046,7 @@ router.post('/newArticle', checkAuth, async (req,res) =>{
       if(newArticleDatum){
         date = newArticleDatum;
       } else {
-        date = currentWeek + currentDate + " " + currentTime;
+        date = getFormattedDate();
       }
       if(!newArticleThema) newArticleThema = newArticleContent.substring(0, 200);
       let show = newArticlePermissions;
@@ -1193,10 +1160,7 @@ router.post('/newArticleDe', checkAuth, async (req,res) =>{
       if(newArticleDatum){
         date = newArticleDatum;
       } else {
-        date = `${date.getUTCDate().toString().padStart(2, '0')}.
-                  ${(date.getUTCMonth() + 1).toString().padStart(2, '0')}.
-                  ${date.getUTCFullYear()} ${date.getUTCHours().toString().padStart(2, '0')}:
-                  ${date.getUTCMinutes().toString().padStart(2, '0')}`;
+        date = getFormattedDate();
       }    
       if(!newArticleThema) newArticleThema = newArticleContent.substring(0, 200);
       let show = newArticlePermissions;
@@ -1513,6 +1477,9 @@ router.get("/searchResults/:tagname", async (req, res) => {
       filteredArticles.sort((a, b) => Number(b.id) - Number(a.id)); // Сортуємо за спаданням ID
       const TagsDoc = await TagsModel.findOne();
       const tags = TagsDoc.tagsRobert;
+      tags.sort(function (a, b) {
+        return a.name.localeCompare(b.name, ['uk', 'de'], { sensitivity: 'base' });
+      });
       if(!req.session.user){
         res.render("tagSearchResultsRob-de", {
           articles: filteredArticles,
@@ -1560,7 +1527,6 @@ router.get("/searchResults/:tagname", async (req, res) => {
 /*---------------- ДОПОМІЖНІ ФУНКЦІЇ  ------------------------ */
 
 function searchPictureArr(content){
-  
   let pictures = [];
   let thema = "";
   let link = "";
@@ -1570,7 +1536,6 @@ function searchPictureArr(content){
   /*let regex = /<img[^>]+src="([^"]+)"[^>]*>\s*<span[^>]*>([^<]*)<\/span>/g;
   let match;
   while ((match = regex.exec(content)) !== null) {
-    
     console.log(`Знайдено картинки: thema ${match[2]} link ${match[1]}`);
     thema = match[2];
     link = match[1];
@@ -1580,10 +1545,7 @@ function searchPictureArr(content){
     }
     pictures.push(indexObj);
   }*/
-
-  
   for (let i = 0; i<20; i++) {
-    
     startIndex = startIndex + 10;
     endIndex = content.indexOf("\"", startIndex);
     link = content.substring(startIndex, endIndex).trim();
@@ -1591,7 +1553,6 @@ function searchPictureArr(content){
     startIndex = startIndex + 7;
     endIndex = content.indexOf("\" style", startIndex);
     titel = content.substring(startIndex, endIndex).trim();
-
     startIndex = content.indexOf("<span", endIndex);
     if(startIndex !== -1){
       startIndex = startIndex + 27;
@@ -1608,6 +1569,18 @@ function searchPictureArr(content){
     if(startIndex == -1) break;
   }
   return pictures;
+}
+
+function getFormattedDate() {
+  const date = new Date();
+  const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+  const dayName = days[date.getDay()];
+  const dd = String(date.getDate()).padStart(2, '0');
+  const mm = String(date.getMonth() + 1).padStart(2, '0'); // Місяці від 0 до 11
+  const yyyy = date.getFullYear();
+  const hh = String(date.getHours()).padStart(2, '0');
+  const min = String(date.getMinutes()).padStart(2, '0');
+  return `${dayName} ${dd}.${mm}.${yyyy} ${hh}:${min}`;
 }
 
 export default router;

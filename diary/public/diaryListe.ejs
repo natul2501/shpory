@@ -14,6 +14,11 @@
 	<header id="header">
 		<h2>ЩОДЕННИК</h2>
 		<!--<div id="descr">Опис</div>-->
+		<div id="menuMob">
+            <button id="newArticleMenuButton" onclick="showmenu()" title="Menu">
+                <i class="fa-solid fa-bars" style="font-size: 36px;"></i>
+            </button>
+        </div>
 	</header>
 	<div id="panelInstruments">
 		<a class="panelInstrumentsButton" href="/diary/public/flysquirrel-diary/ua">🇺🇦</a>
@@ -28,24 +33,34 @@
 	<!------------------------------ MENUS----------------------------------->
 	<div id="menu">
 		<ul>
-				<li><a href="/" class="menuLink">Головна</a></li>
-				<li><a href="diaries.html" class="menuLink">Щоденники</a></li>
-				<li><a href="/diary/public/flysquirrel-diary/" class="menuLink">Список записів</a></li>
-				<li><a href="/diary/public/flysquirrel-diary/galerie" class="menuLink">Галерея</a></li>
-				<% if(author) author.forEach(d => {
-				if (d === 'flysquirrel-diary') { %>
-				<li><a href="/diary/public/newArticle.html" class="menuLink">Новий запис</a></li>
-				<% }}) %>
-				<li><b style="color: #381943;">Останні коментарі:</b>
-					<% lastComments.forEach(comment => { %>
-						<div class="lastCommCOntainer">
-							<b><a href="<%- comment.commentLink %>" class="commentDate">
-								<%- comment.date %> <%- comment.author %>
-							</a></b><br><span><%- comment.commentText %></span><br>
-						</div>
-					<% }) %>
-				</li>
+			<li><a href="/" class="menuLink">Головна</a></li>
+			<li><a href="diaries.html" class="menuLink">Щоденники</a></li>
+			<li><a href="/diary/public/flysquirrel-diary/" class="menuLink">Список записів</a></li>
+			<li><a href="/diary/public/flysquirrel-diary/galerie" class="menuLink">Галерея</a></li>
+			<% if(author) author.forEach(d => {
+			if (d === 'flysquirrel-diary') { %>
+			<li><a href="/diary/public/newArticle.html" class="menuLink">Новий запис</a></li>
+			<% }}) %>
+			<li><b style="color: #381943;">Останні коментарі:</b>
+				<% lastComments.forEach(comment => { %>
+					<div class="lastCommCOntainer">
+						<b><a href="<%- comment.commentLink %>" class="commentDate">
+							<%- comment.date %> <%- comment.author %>
+						</a></b><br><span><%- comment.commentText %></span><br>
+					</div>
+				<% }) %>
+			</li>
 		</ul>
+		<div id="menuTagsMob">
+			<center><b>Tags</b></center>
+			<% tags.forEach(tag => { %>
+				<a href="/diary/public/<%- authorLink %>/searchResults/<%- tag.name %>"
+					class="tagLink"
+					style="font-size:<%=14+(tag.count*0.5)%>px;">
+						<%- tag.name %>
+					</a>&nbsp; 
+				<% }) %>
+		</div>
 	</div>
 	<!------------------------------ CONTENT----------------------------------->
 	<div class="container">
@@ -89,5 +104,15 @@
 			</a>&nbsp; 
 		<% }) %>
 	</div>
+	<script>
+		function showmenu(){
+			let menu = document.getElementById('menu');
+			if(menu.style.display == 'block'){
+				menu.style.display = 'none';
+			} else {
+				menu.style.display = 'block';
+			}
+		}
+	</script>
 </body>
 </html>

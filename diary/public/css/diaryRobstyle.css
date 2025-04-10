@@ -34,7 +34,14 @@
 			position: fixed;
 			bottom: 0px;
 			width: 100%;
+			text-align: center;
+			background: rgba(224, 218, 210, 0.9);
+			color: rgba(67, 33, 9, 0.7);
 			z-index: 4;
+		}
+		#footerLink{
+			font-weight: bold;
+			color: black;
 		}
 		#headerHeader{
 			text-align: left;
@@ -44,7 +51,7 @@
 			font-family: 'tempus sans itc';
 			color: rgba(67, 33, 9, 0.7);
 		}
-		@media (max-width: 768px){
+		@media (max-width: 900px){
 			#headerHeader{
 				font-size: 44px;
 				margin: 20px 0px 0px 110px;
@@ -95,7 +102,7 @@
 		#menuMob{
 			display: none;
 		}
-		@media (max-width: 768px){
+		@media (max-width: 900px){
 			#menu{
 				display: none;
 				top: 100px;
@@ -204,7 +211,7 @@
 			scroll-padding-left: 60px;
 			z-index: 3;
 		}
-		@media (max-width: 768px){
+		@media (max-width: 900px){
 			.container{
 				top: 110px;
 				left: 10px;
@@ -262,7 +269,7 @@
 		.event:hover{
 			background: rgba(224, 218, 210, 0.9);
 		}
-		@media (max-width: 768px){
+		@media (max-width: 900px){
 			.event{
 				width: 100%;
 			}
@@ -310,7 +317,7 @@
 			line-height: 22px;
 			display: inline-block;
 		}
-		@media (max-width: 768px){
+		@media (max-width: 900px){
 			.eventt{
 				left: 0px;
 				width: 98%;
@@ -403,7 +410,7 @@
 			scroll-padding-left: 60px;
 			background: rgba(224, 218, 210, 0.9);
 		}
-		@media (max-width: 768px){
+		@media (max-width: 900px){
 			.galerieContainer{
 				left: 10px;
 				top: 110px;
@@ -418,12 +425,6 @@
 	    .gallery-item {
 	        width: 200px;
 	        overflow: hidden;
-	    }
-	    @media (max-width: 900px) {
-	    	.gallery-item {
-		        width: 100px;
-		        overflow: hidden;
-		    }
 	    }
 	    .gallery-item img {
 	        width: 90%;
@@ -452,7 +453,7 @@
 			background: rgba(224, 218, 210, 0.9);
 			padding: 10px;
 		}
-		@media (max-width: 768px){
+		@media (max-width: 900px){
 			.newArticleContainer{
 				left: 0px;
 				top: 100px;
@@ -672,33 +673,6 @@
         .emoji-item:hover {
             transform: scale(1.2);
         }
-       /* #emojiPanel {
-		  position: absolute;
-		  background: white;
-		  border: 1px solid #ccc;
-		  padding: 10px;
-		  display: flex;
-		  flex-wrap: wrap;
-		  gap: 5px;
-		  max-width: 200px;
-		  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-		}
-
-		.hidden {
-		  display: none;
-		}
-
-		.emoji {
-		  cursor: pointer;
-		  font-size: 1.2rem;
-		  padding: 5px;
-		  border-radius: 5px;
-		  transition: background 0.2s;
-		}
-
-		.emoji:hover {
-		  background: #eee;
-		}*/
 /*------------------ LOGIN -------------------*/
 		.diaryLogin{
 			position: absolute;

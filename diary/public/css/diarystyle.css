@@ -52,7 +52,7 @@
 			top: 20px;
 			z-index: 5;
 		}
-		@media (max-width: 900px){
+		@media (max-width: 1200px){
 			#panelInstruments{
 				width: 25%;
 			}
@@ -93,7 +93,7 @@
 		#menuMob{
 			display: none;
 		}
-		@media screen and (max-width: 900px) {
+		@media (max-width: 1200px) {
 			#menu{
 				display: none;
 				top: 110px;
@@ -191,7 +191,7 @@
 			scroll-padding-left: 60px;
 			z-index: 3;
 		}
-		@media (max-width: 900px){
+		@media (max-width: 1200px){
 			.container{
 				margin-top: 110px;
 				left: 10px;
@@ -247,7 +247,7 @@
 			top: 0px;
 			left: 0px;
 		}
-		@media (max-width: 900px){
+		@media (max-width: 1200px){
 			.event{
 				width: 98%;
 			}
@@ -286,7 +286,7 @@
 			line-height: 22px;
 			display: inline-block;
 		}
-		@media (max-width: 900px){
+		@media (max-width: 1200px){
 			.eventt{
 				left: 0px;
 				width: 98%;
@@ -374,7 +374,7 @@
 			overflow: auto;
 			scroll-padding-left: 60px;
 		}
-		@media (max-width: 900px){
+		@media (max-width: 1200px){
 			.galerieContainer{
 				left: 10px;
 				top: 110px;
@@ -415,7 +415,7 @@
 			height: 86.5%;
 			overflow: auto;
 		}
-		@media (max-width: 900px){
+		@media (max-width: 1200px){
 			.newArticleContainer{
 				left: 0px;
 				top: 110px;
@@ -466,7 +466,7 @@
 			padding: 10px;
 			float: left;
 		}
-		@media (max-width: 900px) {
+		@media (max-width: 1200px) {
 			#newArticleContent{
 				margin-left: 10px;
 				width: 92%;
@@ -544,7 +544,7 @@
 		#newArticlePrewiewMob{
 			display: none;
 		}
-		@media (max-width: 900px) {
+		@media (max-width: 1200px) {
 			#newArticlePrewiewMob{
 				display: block;
 				position: relative;
@@ -563,7 +563,7 @@
 				width: 90%;
 			}
 		}
-		@media (max-width: 900px) {
+		@media (max-width: 1200px) {
 			#newArticlePrewiew{
 				display: none;
 			}

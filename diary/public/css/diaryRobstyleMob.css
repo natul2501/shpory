@@ -13,16 +13,14 @@
 		body{
 			font-family: 'Corbel';
     		margin: 0;
-    		background-size: cover;
-			background-image : url(../media/background1.jpg);
-			background-attachment: fixed;
-			background-position: center center;
+			background-image : url(../media/background2.jpg);
+			background-size: 100%;
 		}
 		*,*::after, *::before{
 		    box-sizing: inherit;
 		}
 		header{
-			background-image : url(../media/header1.jpg);
+			background-image : url(../media/header2.jpg);
 			background-size: 100%;
 			border: 1px outset #1C2926;
 			height: 100px;
@@ -37,12 +35,21 @@
 			bottom: 0px;
 			width: 100%;
 			text-align: center;
-			background: rgba(137, 120, 123, 0.5);
-			color: #381943;
+			background: rgba(224, 218, 210, 0.9);
+			color: rgba(67, 33, 9, 0.7);
 			z-index: 4;
 		}
 		#footerLink{
 			font-weight: bold;
+			color: black;
+		}
+		#headerHeader{
+			text-align: left;
+			margin: 20px 0px 0px 110px;
+			font-size: 44px;
+			letter-spacing: 40px;
+			font-family: 'tempus sans itc';
+			color: rgba(67, 33, 9, 0.7);
 		}
 		#panelInstruments{
 			display: none;
@@ -70,10 +77,6 @@
 			border: 2px solid #C5B6B9;
 			background-color: rgba(65, 63, 67, 0.3);
 		}
-		header h2{
-			margin-bottom:0;
-			text-align: center
-		}
 		#descr{
 			float: right;
 			margin: 5px 15px 5px 5px;
@@ -82,16 +85,16 @@
 		#menu{
 			display: none;
 			position: fixed;
-			top: 98px;
-			left: 8px;
-			height: 90%;
+			top: 100px;
+			left: 0px;
+			height: 86.5%;
 			width:80%;
 			padding: 5px;
-			background: rgba(137, 120, 123, 1.0);
-			box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+			margin-left: 10px;
+			background: rgba(224, 218, 210, 1.0);
 			border: 1px inset #BC8F8F;
-			z-index: 4;
 			overflow: auto;
+			z-index: 4;
 		}
 		#menuMob{
 			display: block;
@@ -115,14 +118,32 @@
 			text-align: center;
 			width: 100%;
 		}
-		.menuLink{
-			color: #381943;
-			text-decoration: none;
+		.menuLink, .cathegoryLink{
+			color: black;
 			font-size: 35px;
+			text-shadow: 1px 1px 3px rgba(224, 218, 210, 1.0);
+			text-decoration: none;
 			font-weight:bold;
-
+		}
+		.menuLink:hover{
+			display: inline-block;
+			font-size: 35px;
+			width: 100%;
+			background-color: rgba(224, 218, 210, 1.0);
+			border: 6px outset #cdd4aa;
+			text-decoration: none;
+			padding: 3px 5px 3px 5px;
+		}
+		.cathegoryLink:hover, .linkButton:hover, .loginButton:hover{
+			background-color: rgba(224, 218, 210, 1.0);
+			border: 6px outset #cdd4aa;
+			text-decoration: none;
+			padding: 3px 5px 3px 5px;
 		}
 		.lastCommCOntainer{
+			background-color: rgba(100, 100, 100, 0.3);
+			border: solid 1px gray;
+			padding: 3px;
 			font-family: Calibri;
 			text-align: left;
 		}
@@ -150,20 +171,6 @@
 			font-weight:bold;
 			padding: 30px 0px 10px 0px;
 		}
-		#menu li:active{
-			color: #B98BBF;
-			background-color: rgba(65, 63, 67, 0.3);
-			border: 2px solid #C5B6B9;
-			text-decoration: none;
-		}
-		.linkButton:active, .loginButton:active{
-			color: #B98BBF;
-			background-color: rgba(65, 63, 67, 0.3);
-			border: 2px solid #C5B6B9;
-			text-decoration: none;
-			padding: 3px 5px 3px 5px;
-		}
-		
 		#menuTags{
 			display: none;
 		}
@@ -178,17 +185,14 @@
 		}
 		.tagLink{
 			text-decoration: none;
-			text-shadow: 1px 1px 5px #8c55ff;
+			font-weight: bold;
 			font-family: Candara;
 			color: black;
+			text-shadow: 1px 1px 3px #798052;
 		}
-		.tagLink:active{
-			font-weight: bold;
-			-webkit-text-stroke: 1px Plum; /* Толщина и цвет обводки */
-		}
-		.tagLink:active{
-			font-weight: bold;
-			-webkit-text-stroke: 1px Plum; /* Толщина и цвет обводки */
+		.tagLink:hover{
+			background-color: rgba(221, 227, 190, 1.0);
+			border: 6px outset #cdd4aa;
 		}
 		#authorMenuDiv{
 			position: absolute;
@@ -200,7 +204,7 @@
 		.container{
 			display: inline-block;
 			position: relative;
-			margin-top: 110px;
+			top: 110px;
 			left: 10px;
 			width: 97%;
 			height: 86.5%;
@@ -228,8 +232,6 @@
 		}
 		.diaryPrewiewPicture{
 			width: 300px;
-			height: 200px;
-			overflow: hidden;
 			display: block;
 			padding: 10px 10px 5px 10px;
 		}
@@ -237,27 +239,29 @@
 			text-align: center;
 			font-weight:bold;
 			width: 93%;
+			background-color: rgba(56, 25, 67, 0.1);
 			margin-left: 10px;
-			font-size: 35px;
 		}
 		.diaryPrewiewDescription{
 			padding: 5px;
 			color: #353a49;
 			font-size: 14px;
 			float: right;
-			font-size: 35px;
 		}
 /*-----------------CONTENT LIST DIARY----------------*/
 		.event{
-			background: rgba(35, 33, 37, 0.8);
+			background: rgba(224, 218, 210, 0.6);
 			border: 1px solid #1C2926;
-			width:98%;
+			width:100%;
 			margin: 5px;
-			color: #E5E3E6;
+			color: black;
 			padding: 10px;
 			position: relative;
 			top: 0px;
 			left: 0px;
+		}
+		.event:active{
+			background: rgba(224, 218, 210, 0.9);
 		}
 		.about{
 			padding-left: 25px;
@@ -266,7 +270,8 @@
 		.tags{
 			margin: 5px 0px 0px 0px;
 			font-family: 'Calibri';
-			font-size: 14px;
+			font-size: 16px;
+			font-weight: bold;
 		}
 		.linkButton{
 			display: inline-block;
@@ -280,12 +285,11 @@
 		}
 /*-------------------CONTENT DIARY-------------------*/
 		.eventt{
-			background: rgba(35, 33, 37, 0.8);
+			background: rgba(224, 218, 210, 0.95);
 			border: 1px solid #1C2926;
 			width:98%;
 			margin: 0px 5px 0px 5px;
 			font-family: Corbel;
-			color: #E5E3E6;
 			padding: 0px 10px 50px 10px;
 			position: relative;
 			top: 0px;
@@ -300,7 +304,6 @@
 		#articleTime{
 			text-indent: 35px;
 			font-weight: bold;
-			color: #B98BBF;
 			margin: 10px 0px 10px 0px;
 		}
 		#imgDiv{
@@ -309,19 +312,18 @@
 		}
 		.iconStyle{
 			font-size: 35px;
-			color: #B98BBF;
+			color: black;
 			text-decoration: none;
-			padding: 5px 10px 5px 10px;
 		}
 		.iconStyle:active{
-			color: #B98BBF;
-			background-color: rgba(255, 255, 255, 0.3);
+			color: green;
 		}
 		#commentContainer{
 			display: inline-block;
 			position: relative;
 			width: 100%;
 			overflow: visible;
+			margin-bottom: 60px;
 		}
 		#commentContainerDescription{
 			display: block;
@@ -333,8 +335,7 @@
 		#commentForm{
 			display: block;
 			position: relative;
-			left: -60%;
-			margin-bottom: 100px;
+			left: -100%;
 		}
 		#commentFormDescr{
 			color: gray;
@@ -344,8 +345,7 @@
 		#commentFormText{
 			background-color: Lavender;
 			width: 800px;
-			height: 300px;
-			overflow: auto;
+			height: 80px;
 		}
 		#commentInput{
 			font-size: 35px;
@@ -356,31 +356,31 @@
 		}
 		.commetContainer{
 			width: 98%;
-			margin: 60px 15px 15px 15px;
+			margin: 0px 15px 15px 15px;
 		}
 		.commetDiv{
 			width: 100%;
-			background-color: rgba(256, 256, 256, 0.1);
+			background-color: rgba(159, 157, 153, 0.4);
 			margin-bottom: 10px;
 			padding: 5px;
 		}
 		.commentAuthor{
 			margin: 0px 10px 30px 20px;
 			display: inline-block;
-			font-size: 35px;
 			font-weight: bold;
-			color: #B98BBF;
+			color: #333e00;
+			font-size: 35px;
 		}
 		.commentDate{
 			display: inline-block;
 			margin: 0px 10px 30px 20px;
-			font-size: 35px;
 			font-weight: bold;
-			color: #B98BBF;
+			color: #333e00;
+			font-size: 35px;
 		}
 		.commentText{
-			font-size: 35px;
-			margin-bottom: 30px;
+			margin-bottom: 20px;
+			margin: 0px 10px 30px 20px;
 		}
 		.galerieContainer{
 			display: inline-block;
@@ -390,7 +390,9 @@
 			width: 98%;
 			height: 86.5%;
 			overflow: auto;
+			padding: 10px;
 			scroll-padding-left: 60px;
+			background: rgba(224, 218, 210, 0.9);
 		}
 		#galerieLinkContainer{
 			font-size: 35px;
@@ -405,29 +407,31 @@
 	        overflow: hidden;
 	    }
 	    .gallery-item img {
-	        width: 100%;
+	        width: 90%;
 	        object-fit: cover;
 	        border: solid 1px gray;
 	        box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
 	    }
-	    .gallery-item img:active{
+	    .gallery-item img:hover{
 			text-decoration: none;
 			margin: 0px;
 			padding: 0px;
 		}
-		.gallery-item img:active{
-			border: solid 5px rgba(172, 79, 204, 0.8);
+		.gallery-item img:hover{
+			border: solid 8px #9dbd00;
 		}
 /*------------------ NEW ARTICLE -------------------*/
 		.newArticleContainer{
 			display: inline-block;
 			position: absolute;
-			top: 110px;
+			top: 100px;
 			left: 0px;
 			float: left;
 			width: 100%;
 			height: 86.5%;
 			overflow: auto;
+			background: rgba(224, 218, 210, 0.9);
+			padding: 10px;
 		}
 		#newArticleMessage{
 			text-indent: 60px;
@@ -443,65 +447,59 @@
 			margin-left: 10px;
 			width: 92%;
 			height: 40px;
-			background-color: #b1b0c2;
+			background-color: #afaba5;
 		}
 		#newArticleTags{
 			margin-left: 10px;
 			margin-top: 10px;
 			width: 92%;
-			background-color: #b1b0c2;
+			background-color: #afaba5;
 		}
 		#newArticleContent{
 			margin-left: 10px;
 			margin-top: 10px;
 			width: 92%;
 			height: 600px;
-			background-color: #b1b0c2;
+			background-color: #afaba5;
 		}
-		
 		#newArticlePannel{
-			margin-left: 10px;
 			position: relative;
+			margin-left: 10px;
 			width: 92%;
 			margin-top: 10px;
-			padding: 10px;
-			min-height: 60px;
 			border: solid 1px black;
-			background: rgba(137, 120, 123, 0.8);
+			background: rgba(175, 171, 165, 0.8);
 			border: 1px inset #BC8F8F;
 		}
 		.newArticleEvent{
-			background: rgba(35, 33, 37, 0.8);
+			background: rgba(224, 218, 210, 0.6);
 			border: 1px solid #1C2926;
 			width: 100%;
-			margin-top: 10px;
-			color: white;
+			margin: 0px;
+			color: black;
 			padding: 10px;
 			float: left;
 		}
+		
 		.newArticleDescr{
 			display: inline-block;
 			width: 50px;
 			vertical-align: top;
 		}
 		.newArticleButton, .loginButton{
-			color: #381943;
+			color: #333e00;
 			font-weight:bold;
-			font-size: 16px;
-			padding: 10px;
-			margin: 5px;
+			margin: 2px;
 		}
 		#newArticleMenuButton{
-			color: #B98BBF;
+			color: rgba(67, 33, 9, 0.7);
 			font-weight:bold;
 			margin: 2px;
 			background-color: rgba(0, 0, 0, 0.0);
-			border: solid 2px rgba(255, 255, 255, 0.2);
 		}
-		.newArticleButton:active, #newArticleMenuButton:active{
-			color: #B98BBF;
-			background-color: rgba(65, 63, 67);
-			border: 2px solid #C5B6B9;
+		.newArticleButton:hover, #newArticleMenuButton:hover{
+			color: green;
+			background-color: #c7d09b;
 			padding: 3px 5px 3px 5px;
 		}
 		#newArticlePermissionsDescription{
@@ -531,21 +529,15 @@
 		}
 		#newArticlePrewiewMob{
 			display: block;
-				position: relative;
-				width: 100%;
-				height: 780px;
-				overflow: auto;
-				background-color: rgba(255, 255, 255, 0.2);
-				border: solid 1px gray;
-				float: left;
-				margin: 10px 0px 10px 0px;
-				z-index: 1;
+			position: relative;
+			width: 100%;
+			height: 780px;
+			overflow: auto;
+			background-color: rgba(255, 255, 255, 0.2);
+			border: solid 1px gray;
+			float: left;
+			margin: 10px 0px 10px 0px;
 		}
-		#newArticlePrewiewMob .eventt{
-				position: relative;
-				left: 5px;
-				width: 90%;
-			}
 		#PrewiewDescr{
 			position: relative;
 			top: 40%;
@@ -632,12 +624,17 @@
 		.diaryLogin{
 			position: absolute;
 			top: 30%;
-			left: 16%;
+			left: 36%;
 			width: 500px;
 			height: 320px;
 			padding: 15px;
 			border: solid 1px black;
 			background-color: rgba(230, 230, 250, 0.5);
+		}
+		@media (max-width: 900px) {
+			.diaryLogin{
+				left: 16%;
+			}
 		}
 		.loginInput{
 			display: inline-block;
@@ -659,27 +656,15 @@
 			left: 25%;
 			color: gray;
 		}
-/*------------------ TERMS OF USE ------------------*/
-		#termsOfUse{
-			position: absolute;
-			top: 100px;
-			left: 10%;
-			width: 80%;
-			padding: 0px 50px 0px 50px;
-			font-size: 16px;
-			background-color: rgba(35, 33, 37, 0.8);
-			color: white;
-		}
-
 /*----------------ELEMENT'S STYLES------------------*/
 		em{
 			font-style: normal;
 			font-weight: bold;
-			color: #B98BBF;
+			color: #3c5f00;
 		}
 		comment{
 			font-weight: bold;
-			color: #9791a3;
+			color: #83916a;
 		}
 		strong{
 			color: red;
@@ -689,65 +674,50 @@
 			padding-bottom: 10px;
 			margin: 0px;
 		}
-		h1{
-			color: Indigo;
-			background-color: rgba(105,95,100,0.6);
-			text-align: center
-		}
-		h2{
-			margin-top: 10px;
-			font-size: 50px;
-		}
 		h3{
-			color: #B98BBF;
-			background-color: rgba(105,95,100,0.6);
+			color: #3f2600;
+			background-color: rgba(126, 99, 58, 0.6);
 			text-align: center
 		}
 		h4{
-			color: #F982B9;
+			color: #3c5f00;
+			text-shadow: 1px 1px 1px #94b261;
 			text-align: center;
 			font-size: 20px;
 			margin: 5px;
 		}
-		time{
-			font-family: 'Calibri';
-			font-size: 12px;
-		}
-		em.link{
-			text-align: center;
-		}
 		a.link{
 			padding-left: 25px;
-			color: #B98BBF;
 			text-decoration: none;
 			font-weight: bold;
+			color: black;
 		}
 		.simpleLink{
 			text-decoration: none;
 			font-weight: bold;
-			color: #E5E3E6;
+			color: #424f00;
 		}
-		.simpleLink:active{
-			color: #B98BBF;
+		.simpleLink:hover{
+			color: #74890d;
 		}
-		#imgDiv a:active{
+		#imgDiv a:hover{
 			border: 0px;
 			margin: 0px;
 			padding: 0px;
 		}
-		a.link:active {
+		a.link:hover {
 			padding: 0px 5px 0px 5px;
 			margin-left: 15px;
 			background-color: rgba(45, 43, 47);
 			border: 2px solid #89787B;
 		}
-		a.def:active{
+		a.def:hover{
 			border: none;
-			color: #FD60BC;
+			color: #74890d;
 			text-decoration: underline;
 
 		}
-		a.home:active{
+		a.home:hover{
 			background-color: none;
 			border: none;
 			color: none;
@@ -755,5 +725,5 @@
 			text-decoration: none;
 		}
 		a:active{
-			color: #FD60BC;
+			color: #74890d;
 		}

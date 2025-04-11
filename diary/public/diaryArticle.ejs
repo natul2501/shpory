@@ -30,16 +30,42 @@
 	</div>
 <!------------------------------ MENUS----------------------------------->
 	<div id="menu">
+		<div id="panelInstrumentsMob">
+			<div class="PIButtContainer">
+				<a class="PIButt" href="/diary/public/flysquirrel-diary/ua">🇺🇦</a>
+				<a class="PIButt" href="/diary/public/flysquirrel-diary/de">🇩🇪</a>
+			</div>
+			<div class="PIButtContainer">
+				<% if(user) { %>
+					<a class="PIButt" href="/diary/public/flysquirrel-diary/logout">Вийти із акаунта</a>
+				<% } %>
+				<% if(!user) { %>
+					<a class="PIButt" href="/diary/public/flysquirrel-diary/login-de">Увійти в акаунт</a>
+				<% } %>
+			</div>
+		</div>
 		<ul>
-				<li><a href="/" class="menuLink">Головна</a></li>
-				<li><a href="/diary/public/diaries.html" class="menuLink">Щоденники</a></li>
-				<li><a href="/diary/public/flysquirrel-diary/" class="menuLink">Список записів</a></li>
-				<li><a href="/diary/public/flysquirrel-diary/galerie" class="menuLink">Галерея</a></li>
-				<% if(author) author.forEach(d => {
-					if (d === 'flysquirrel-diary') { %>
-					<li><a href="/diary/public/newArticle.html" class="menuLink">Новий запис</a></li>
-				<% }}) %>
+			<li><a href="/" class="menuLink">Головна</a></li>
+			<li><a href="/diary/public/diaries.html" class="menuLink">Щоденники</a></li>
+			<li><a href="/diary/public/flysquirrel-diary/" class="menuLink">Список записів</a></li>
+			<li><a href="/diary/public/flysquirrel-diary/galerie" class="menuLink">Галерея</a></li>
+			<% if(author) author.forEach(d => {
+				if (d === 'flysquirrel-diary') { %>
+				<li><a href="/diary/public/newArticle.html" class="menuLink">Новий запис</a></li>
+			<% }}) %>
 		</ul>
+		<div id="menuTagsMob">
+			<center><div id="menuTagsMobHeader">Теги</div></center>
+			<% tags.forEach(tag => { %>
+				<div class="tagLinkContainer">
+					<a href="/diary/public/<%- authorLink %>/searchResults/<%- tag.name %>"
+						class="tagLink"
+						style="font-size:<%=35+(tag.count*0.5)%>px;">
+							<%- tag.name %>
+					</a>
+				</div>&nbsp; 
+				<% }) %>
+		</div>
 	</div>
 <!------------------------------ CONTENT----------------------------------->
 	<div class="container">

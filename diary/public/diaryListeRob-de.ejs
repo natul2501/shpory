@@ -4,7 +4,6 @@
   <meta charset="utf-8">
 	<title>Diary</title>
 	<link rel="icon" type="image/png" href="media/icon.png">
-	<link rel="stylesheet" type="text/css" href="/diary/public/css/diaryRobstyle.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 	<meta name="robots" content="noindex, nofollow"> <!-- робить сторінку прихованою від пошукових ботів -->
 </head>
@@ -32,6 +31,20 @@
 	</div>
 	<!------------------------------ MENUS----------------------------------->
 	<div id="menu">
+		<div id="panelInstrumentsMob">
+			<div class="PIButtContainer">
+				<a class="PIButt" href="/diary/public/flysquirrel-diary/ua">🇺🇦</a>
+				<a class="PIButt" href="/diary/public/flysquirrel-diary/de">🇩🇪</a>
+			</div>
+			<div class="PIButtContainer">
+				<% if(user) { %>
+					<a class="PIButt" href="/diary/public/flysquirrel-diary/logout">Abmelden</a>
+				<% } %>
+				<% if(!user) { %>
+					<a class="PIButt" href="/diary/public/flysquirrel-diary/login-de">Anmelden</a>
+				<% } %>
+			</div>
+		</div>
 		<ul>
 			<li><a href="/" class="menuLink">Hauptseite</a></li>
 			<li><a href="diaries-de.html" class="menuLink">Diaries</a></li>
@@ -41,24 +54,26 @@
 				if (d === 'robert-diary') { %>
 			<li><a href="/diary/public/newArticleRob-de.html" class="menuLink">Neuer Artikel</a></li>
 			<% }}) %>
-			<li><b class="menuLink">Letzte Kommentare:</b>
+			<li><div id="menuCommentsHeader">Letzte Kommentare:</div>
 				<% lastComments.forEach(comment => { %>
-					<div class="lastCommCOntainer">
-						<b><a href="<%- comment.commentLink %>" class="commentDate">
+					<div class="lastCommContainer">
+						<b><a href="<%- comment.commentLink %>" class="commentDateMenu">
 							<%- comment.date %> <%- comment.author %>
-						</a></b><br><span><%- comment.commentText %></span><br>
+						</a></b><br><div class="commentTextMenu"><%- comment.commentText %></div><br>
 					</div>
 				<% }) %>
 			</li>
 		</ul>
 		<div id="menuTagsMob">
-			<center><b>Tags</b></center>
+			<center><div id="menuTagsMobHeader">Tags</div></center>
 			<% tags.forEach(tag => { %>
-				<a href="/diary/public/<%- authorLink %>/searchResults/<%- tag.name %>"
-					class="tagLink"
-					style="font-size:<%=14+(tag.count*0.5)%>px;">
-						<%- tag.name %>
-					</a>&nbsp; 
+				<div class="tagLinkContainer">
+					<a href="/diary/public/<%- authorLink %>/searchResults/<%- tag.name %>"
+						class="tagLink"
+						style="font-size:<%=35+(tag.count*0.5)%>px;">
+							<%- tag.name %>
+					</a>
+				</div>&nbsp; 
 				<% }) %>
 		</div>
 	</div>
@@ -117,6 +132,22 @@
 				menu.style.display = 'block';
 			}
 		}
+		function applyStyles() {
+			const existing = document.getElementById("dynamic-styles");
+			if (existing) existing.remove(); // видалити попередній стиль
+			const link = document.createElement("link");
+			link.rel = "stylesheet";
+			link.type = "text/css";
+			link.id = "dynamic-styles";
+			if (window.innerHeight > window.innerWidth) {
+				link.href = "/diary/public/css/diaryRobstyleMob.css";
+			} else {
+				link.href = "/diary/public/css/diaryRobstyle.css";
+			}
+			document.head.appendChild(link);
+		}
+		applyStyles();// Запускаємо при завантаженні
+		window.addEventListener("resize", applyStyles);// Пере-перевірка при зміні розміру вікна
 	</script>
 </body>
 </html>

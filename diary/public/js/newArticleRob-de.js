@@ -83,7 +83,22 @@ function showmenu(){
         menu.style.display = 'block';
     }
 }
-
+function applyStyles() {
+    const existing = document.getElementById("dynamic-styles");
+    if (existing) existing.remove(); // видалити попередній стиль
+    const link = document.createElement("link");
+    link.rel = "stylesheet";
+    link.type = "text/css";
+    link.id = "dynamic-styles";
+    if (window.innerHeight > window.innerWidth) {
+        link.href = "css/diaryRobstyleMob.css";
+    } else {
+        link.href = "css/diaryRobstyle.css";
+    }
+    document.head.appendChild(link);
+}
+applyStyles();// Запускаємо при завантаженні
+window.addEventListener("resize", applyStyles);// Пере-перевірка при зміні розміру вікна
 /*------------------------------------------------------------ */
 /*------- 1.2. СПИСОК КОРИСТУВАЧІВ, ЯКІ МОЖУТЬ ПЕРЕГЛЯДАТИ СТАТТЮ---------- */
 

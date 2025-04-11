@@ -31,6 +31,20 @@
 	</div>
 	<!------------------------------ MENUS----------------------------------->
 	<div id="menu">
+		<div id="panelInstrumentsMob">
+			<div class="PIButtContainer">
+				<a class="PIButt" href="/diary/public/flysquirrel-diary/ua">🇺🇦</a>
+				<a class="PIButt" href="/diary/public/flysquirrel-diary/de">🇩🇪</a>
+			</div>
+			<div class="PIButtContainer">
+				<% if(user) { %>
+					<a class="PIButt" href="/diary/public/flysquirrel-diary/logout">Вийти із акаунта</a>
+				<% } %>
+				<% if(!user) { %>
+					<a class="PIButt" href="/diary/public/flysquirrel-diary/login-de">Увійти в акаунт</a>
+				<% } %>
+			</div>
+		</div>
 		<ul>
 				<li><a href="/" class="menuLink">Головна</a></li>
 				<li><a href="diaries.html" class="menuLink">Щоденники</a></li>

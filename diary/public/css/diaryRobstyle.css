@@ -51,12 +51,12 @@
 			font-family: 'tempus sans itc';
 			color: rgba(67, 33, 9, 0.7);
 		}
-		@media (max-width: 900px){
+		/*@media (max-width: 900px){
 			#headerHeader{
 				font-size: 44px;
 				margin: 20px 0px 0px 110px;
 			}
-		}
+		}*/
 		#panelInstruments{
 			width: 12%;
 			height: 30px;
@@ -102,7 +102,7 @@
 		#menuMob{
 			display: none;
 		}
-		@media (max-width: 900px){
+		/*@media (max-width: 900px){
 			#menu{
 				display: none;
 				top: 100px;
@@ -122,7 +122,7 @@
 				left: 20px;
 				z-index: 4;
 			}
-		}
+		}*/
 		#menu ul{
 			margin: 0;
 			padding: 0;
@@ -163,19 +163,17 @@
 			overflow: auto;
 			z-index: 3;
 		}
-		@media (max-width: 1400px) {
-			#menuTags{
-				display: none;
-			}
-		}
 		#menuTagsMob{
 			display: none;
 		}
-		@media (max-width: 1400px){
+		/*@media (max-width: 1400px) {
+			#menuTags{
+				display: none;
+			}
 			#menuTagsMob{
 				display: block;
 			}
-		}
+		}*/
 		.tagLink{
 			text-decoration: none;
 			font-weight: bold;
@@ -211,13 +209,13 @@
 			scroll-padding-left: 60px;
 			z-index: 3;
 		}
-		@media (max-width: 900px){
+		/*@media (max-width: 900px){
 			.container{
 				top: 110px;
 				left: 10px;
 				width: 97%;
 			}
-		}
+		}*/
 /*----------------------DIARIES----------------------*/
 		.diaryPrewiew{
 			display: inline-block;
@@ -269,11 +267,11 @@
 		.event:hover{
 			background: rgba(224, 218, 210, 0.9);
 		}
-		@media (max-width: 900px){
+		/*@media (max-width: 900px){
 			.event{
 				width: 100%;
 			}
-		}
+		}*/
 		.about{
 			padding-left: 25px;
 			margin: 5px;
@@ -317,12 +315,12 @@
 			line-height: 22px;
 			display: inline-block;
 		}
-		@media (max-width: 900px){
+		/*@media (max-width: 900px){
 			.eventt{
 				left: 0px;
 				width: 98%;
 			}
-		}
+		}*/
 		#controls{
 			display: block;
 			float: right;
@@ -410,13 +408,13 @@
 			scroll-padding-left: 60px;
 			background: rgba(224, 218, 210, 0.9);
 		}
-		@media (max-width: 900px){
+		/*@media (max-width: 900px){
 			.galerieContainer{
 				left: 10px;
 				top: 110px;
 				width: 98%;
 			}
-		}
+		}*/
 		.gallery {
 	        display: flex;
 	        flex-wrap: wrap;
@@ -453,13 +451,13 @@
 			background: rgba(224, 218, 210, 0.9);
 			padding: 10px;
 		}
-		@media (max-width: 900px){
+		/*@media (max-width: 900px){
 			.newArticleContainer{
 				left: 0px;
 				top: 100px;
 				width: 100%;
 			}
-		}
+		}*/
 		#newArticleMessage{
 			text-indent: 60px;
 			color: Indigo;
@@ -502,7 +500,7 @@
 			padding: 10px;
 			float: left;
 		}
-		@media (max-width: 900px) {
+		/*@media (max-width: 900px) {
 			#newArticleContent{
 				width: 90%;
 			}
@@ -515,7 +513,7 @@
 			#newArticlePannel{
 				width: 90%;
 			}
-		}
+		}*/
 		
 		.newArticleDescr{
 			display: inline-block;
@@ -573,7 +571,7 @@
 		#newArticlePrewiewMob{
 			display: none;
 		}
-		@media (max-width: 900px) {
+		/*@media (max-width: 900px) {
 			#newArticlePrewiewMob{
 				display: block;
 				position: relative;
@@ -585,12 +583,10 @@
 				float: left;
 				margin: 10px 0px 10px 0px;
 			}
-		}
-		@media (max-width: 900px) {
 			#newArticlePrewiew{
 				display: none;
 			}
-		}
+		}*/
 		#PrewiewDescr{
 			position: relative;
 			top: 40%;
@@ -684,11 +680,11 @@
 			border: solid 1px black;
 			background-color: rgba(230, 230, 250, 0.5);
 		}
-		@media (max-width: 900px) {
+		/*@media (max-width: 900px) {
 			.diaryLogin{
 				left: 16%;
 			}
-		}
+		}*/
 		.loginInput{
 			display: inline-block;
 			position: absolute;

@@ -15,3 +15,20 @@ document.getElementById("regForm").addEventListener("submit", async function(eve
         window.location.href = "/diary/public/diaryLogin.html"; // Якщо успіх — переходимо на сторінку
     }
 });
+
+function applyStyles() {
+    const existing = document.getElementById("dynamic-styles");
+    if (existing) existing.remove(); // видалити попередній стиль
+    const link = document.createElement("link");
+    link.rel = "stylesheet";
+    link.type = "text/css";
+    link.id = "dynamic-styles";
+    if (window.innerHeight > window.innerWidth) {
+        link.href = "/diary/public/css/diarystyleMob.css";
+    } else {
+        link.href = "/diary/public/css/diarystyle.css";
+    }
+    document.head.appendChild(link);
+}
+applyStyles();// Запускаємо при завантаженні
+window.addEventListener("resize", applyStyles);// Пере-перевірка при зміні розміру вікна

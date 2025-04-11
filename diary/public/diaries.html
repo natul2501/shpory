@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
 	<title>Diaries</title>
-	<link rel="stylesheet" type="text/css" href="css/diarystyle.css">
+	<!--<link rel="stylesheet" type="text/css" href="css/diarystyle.css">--->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 	<link rel="icon" type="image/png" href="media/icon.png">
 	<meta name="robots" content="noindex, nofollow"> <!-- робить сторінку прихованою від пошукових ботів -->
@@ -18,7 +18,7 @@
 		</div>-->
 		<div id="menuMob">
             <button id="newArticleMenuButton" onclick="showmenu()" title="Меню">
-                <i class="fa-solid fa-bars" style="font-size: 36px;"></i>
+                <i class="fa-solid fa-bars" id="newArticleMenuButtonIcon"></i>
             </button>
         </div>
 	</header>
@@ -68,6 +68,24 @@
 				menu.style.display = 'block';
 			}
 		}
+		function applyStyles() {
+			const existing = document.getElementById("dynamic-styles");
+			if (existing) existing.remove(); // видалити попередній стиль
+			const link = document.createElement("link");
+			link.rel = "stylesheet";
+			link.type = "text/css";
+			link.id = "dynamic-styles";
+			if (window.innerHeight > window.innerWidth) {
+				link.href = "css/diarystyleMob.css";
+			} else {
+				link.href = "css/diarystyle.css";
+			}
+			document.head.appendChild(link);
+		}
+		// Запускаємо при завантаженні
+		applyStyles();
+		// Пере-перевірка при зміні розміру вікна
+		window.addEventListener("resize", applyStyles);
 	</script>
 </body>
 </html>

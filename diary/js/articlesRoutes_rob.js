@@ -1309,10 +1309,7 @@ router.post('/comment', checkAuth, async (req,res) =>{
         return res.status(500).render("Messages", { message:message});
       }
     }
-    const currentWeek = new Date().toString().substring(0, 4);
-    const currtDate = new Date().toLocaleDateString();
-    const currentTime = new Date().toLocaleTimeString();
-    const currentDate = currentWeek + currtDate + " " + currentTime;
+    const currentDate = getFormattedDate();
     let articlesDoc = await articlesModel.findOne();
     if (!articlesDoc || !articlesDoc.articlesRob.has(articleId)) {
       if(req.session.user.language === 'ua'){

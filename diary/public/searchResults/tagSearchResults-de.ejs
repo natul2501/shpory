@@ -4,7 +4,6 @@
   <meta charset="utf-8">
 	<title>Tagssuche Ergebnisse</title>
 	<link rel="icon" type="image/png" href="media/icon.png">
-	<link rel="stylesheet" type="text/css" href="/diary/public/css/diarystyle.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 	<meta name="robots" content="noindex, nofollow"> <!-- робить сторінку прихованою від пошукових ботів -->
 </head>
@@ -16,7 +15,7 @@
 		<!--<div id="descr">Опис</div>-->
 		<div id="menuMob">
             <button id="newArticleMenuButton" onclick="showmenu()" title="Menu">
-                <i class="fa-solid fa-bars" style="font-size: 36px;"></i>
+                <i class="fa-solid fa-bars" id="newArticleMenuButtonIcon"></i>
             </button>
         </div>
 	</header>
@@ -36,11 +35,24 @@
 				<li><a href="/" class="menuLink">Hauptseite</a></li>
 				<li><a href="diaries-de.html" class="menuLink">Diaries</a></li>
 				<li><a href="/diary/public/flysquirrel-diary/" class="menuLink">Artikel Übersicht</a></li>
+				<li><a href="/diary/public/flysquirrel-diary/galerie" class="menuLink">Galerie</a></li>
 				<% if(author) author.forEach(d => {
 					if (d === 'flysquirrel-diary') { %>
 				<li><a href="/diary/public/newArticle-de.html" class="menuLink">Neuer Artikel</a></li>
 				<% }}) %>
 		</ul>
+		<div id="menuTagsMob">
+			<center><div id="menuTagsMobHeader">Tags</div></center>
+			<% tags.forEach(tag => { %>
+				<div class="tagLinkContainer">
+					<a href="/diary/public/<%- authorLink %>/searchResults/<%- tag.name %>"
+						class="tagLink"
+						style="font-size:<%=35+(tag.count*0.5)%>px;">
+							<%- tag.name %>
+					</a>
+				</div>&nbsp; 
+				<% }) %>
+		</div>
 	</div>
 	<!------------------------------ CONTENT----------------------------------->
 	<div class="container">
@@ -75,6 +87,22 @@
 				menu.style.display = 'block';
 			}
 		}
+		function applyStyles() {
+			const existing = document.getElementById("dynamic-styles");
+			if (existing) existing.remove(); // видалити попередній стиль
+			const link = document.createElement("link");
+			link.rel = "stylesheet";
+			link.type = "text/css";
+			link.id = "dynamic-styles";
+			if (window.innerHeight > window.innerWidth) {
+				link.href = "/diary/public/css/diarystyleMob.css";
+			} else {
+				link.href = "/diary/public/css/diarystyle.css";
+			}
+			document.head.appendChild(link);
+		}
+		applyStyles();// Запускаємо при завантаженні
+		window.addEventListener("resize", applyStyles);// Пере-перевірка при зміні розміру вікна
 	</script>
 </body>
 </html>

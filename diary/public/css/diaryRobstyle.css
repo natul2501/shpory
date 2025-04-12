@@ -65,6 +65,9 @@
 			top: 20px;
 			z-index: 5;
 		}
+		#panelInstrumentsMob{
+			display: none;
+		}
 		.panelInstrumentsButton{
 			text-decoration: none;
 			padding: 2px;
@@ -132,6 +135,7 @@
 			margin: 5px 0px 0px 0px;
 		}
 		.menuLink, .cathegoryLink{
+			padding: 3px 5px 3px 5px;
 			color: black;
 			text-shadow: 1px 1px 3px rgba(224, 218, 210, 1.0);
 			text-decoration: none;

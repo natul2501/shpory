@@ -17,6 +17,8 @@
 			background-image : url(../media/background1.jpg);
 			background-attachment: fixed;
 			background-position: center center;
+			font-size: 35px;
+			line-height: 45px;
 		}
 		*,*::after, *::before{
 		    box-sizing: inherit;
@@ -50,10 +52,19 @@
 		#panelInstrumentsMob{
 			z-index: 5;
 		}
+		#panelInstrumentsLog{
+			width: 12%;
+			height: 30px;
+			position: fixed;
+			right: 3%;
+			top: 20px;
+			z-index: 5;
+		}
 		.PIButtContainer{
 			width: 100%;
 			padding: 10px 30px 10px 30px;
 			text-align: center;
+			line-height: 80px;
 		}
 		.PIButt{
 			text-decoration: none;
@@ -66,6 +77,20 @@
 		}
 		.PIButt:active{
 			padding: 10px 30px 10px 30px;
+			text-decoration: none;
+			border: 2px solid #C5B6B9;
+			background-color: rgba(65, 63, 67, 0.3);
+		}
+		.panelInstrumentsButton{
+			text-decoration: none;
+			padding: 2px;
+			background-color: rgba(0, 0, 0, 0.0);
+			border: 2px solid rgba(0, 0, 0, 0.0);
+			color: #381943;
+			font-weight:bold;
+		}
+		.panelInstrumentsButton:hover{
+			padding: 2px;
 			text-decoration: none;
 			border: 2px solid #C5B6B9;
 			background-color: rgba(65, 63, 67, 0.3);
@@ -104,6 +129,9 @@
 		}
 		#newArticleMenuButtonIcon{
 			font-size: 80px;
+		}
+		#newArticleMenuButtonIconNA{
+			font-size: 55px;
 		}
 		#menu ul{
 			margin: 0;
@@ -194,7 +222,7 @@
 			position: absolute;
 			bottom: 0px;
 			color: #381943;
-			font-size: 14px;
+			font-size: 35px;
 		}
 /*-------------------CONTENT STYLES------------------*/
 		.container{
@@ -212,8 +240,11 @@
 		.diaryPrewiew{
 			display: inline-block;
 			position: relative;
+			width: 50%;
+			height: 500px;
 			margin: 25px;
 			border: solid 5px rgba(0, 0, 0, 0.1);
+			overflow: auto;
 		}
 		.diaryPrewiewLink{
 			text-decoration: none;
@@ -227,8 +258,8 @@
 			border: solid 5px rgba(172, 79, 204, 0.8);
 		}
 		.diaryPrewiewPicture{
-			width: 300px;
-			height: 200px;
+			width: 98%;
+			height: 300px;
 			overflow: hidden;
 			display: block;
 			padding: 10px 10px 5px 10px;
@@ -236,7 +267,7 @@
 		.diaryPrewiewAuthor{
 			text-align: center;
 			font-weight:bold;
-			width: 93%;
+			width: 95%;
 			margin-left: 10px;
 			font-size: 35px;
 		}
@@ -266,7 +297,7 @@
 		.tags{
 			margin: 5px 0px 0px 0px;
 			font-family: 'Calibri';
-			font-size: 14px;
+			font-weight: bold;
 		}
 		.linkButton{
 			display: inline-block;
@@ -277,6 +308,9 @@
 			background-color: #c5bdd2;
 			border: solid 2px #89787B;
 			color: #352255;
+		}
+		time{
+			font-size: 35px;
 		}
 /*-------------------CONTENT DIARY-------------------*/
 		.eventt{
@@ -479,6 +513,9 @@
 			padding: 10px;
 			float: left;
 		}
+		.newArticleEvent p{
+			line-height: 18px;
+		}
 		.newArticleDescr{
 			display: inline-block;
 			width: 50px;
@@ -631,25 +668,30 @@
 /*------------------ LOGIN -------------------*/
 		.diaryLogin{
 			position: absolute;
-			top: 30%;
-			left: 16%;
-			width: 500px;
-			height: 320px;
+			top: 20%;
+			left: 5%;
+			width: 90%;
+			height: 700px;
 			padding: 15px;
 			border: solid 1px black;
 			background-color: rgba(230, 230, 250, 0.5);
+			font-size: 35px;
 		}
 		.loginInput{
 			display: inline-block;
 			position: absolute;
-			left: 22%;
+			left: 30%;
 			margin: 10px;
-			width: 300px;
+			width: 550px;
+			height: 60px;
+			font-size: 35px;
 		}
 		.loginButton{
 			position: relative;
 			left: 45%;
 			margin-bottom: 15px;
+			padding: 10px;
+			font-size: 35px;
 		}
 		.contactDiv{
 			display: inline-block;
@@ -659,6 +701,10 @@
 			left: 25%;
 			color: gray;
 		}
+		input[type=checkbox] {
+	         width: 50px;
+	         height: 50px;
+	      }
 /*------------------ TERMS OF USE ------------------*/
 		#termsOfUse{
 			position: absolute;
@@ -688,6 +734,7 @@
 			text-indent: 35px;
 			padding-bottom: 10px;
 			margin: 0px;
+			line-height: 45px;
 		}
 		h1{
 			color: Indigo;
@@ -711,7 +758,7 @@
 		}
 		time{
 			font-family: 'Calibri';
-			font-size: 12px;
+			font-style: italic;
 		}
 		em.link{
 			text-align: center;

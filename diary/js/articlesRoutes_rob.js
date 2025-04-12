@@ -394,6 +394,7 @@ router.get("/:id", async (req, res) => {
           res.status(404).render("Messages", { message:message});
         }
       }
+      if (article){
       let articleSymbol = "";
       let title = '';
       if(article.viewers && article.viewers.length > 0){
@@ -672,6 +673,7 @@ router.get("/:id", async (req, res) => {
           }
         }
       }
+    }
   } catch (error) {
       console.error("/:id: Помилка отримання статті:", error);
       const message = "Server Failure GET /:id";

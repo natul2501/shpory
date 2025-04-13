@@ -4,7 +4,7 @@
 		    font-style: normal;
 		    font-display: swap;
 		    font-weight: 12;
-		    font-size: 32px;
+		    font-size: 16px;
 		}
 		html{
 		    box-sizing: border-box;
@@ -17,8 +17,7 @@
 			background-image : url(../media/background1.jpg);
 			background-attachment: fixed;
 			background-position: center center;
-			font-size: 32px;
-			line-height: 45px;
+			font-size: 16px;
 		}
 		*,*::after, *::before{
 		    box-sizing: inherit;
@@ -27,7 +26,7 @@
 			background-image : url(../media/header1.jpg);
 			background-size: 100%;
 			border: 1px outset #1C2926;
-			height: 100px;
+			height: 70px;
 			width: 100%;
 			position: fixed;
 			left: 0px;
@@ -53,18 +52,17 @@
 			z-index: 5;
 		}
 		#panelInstrumentsLog{
-			width: 12%;
+			width: 10%;
 			height: 30px;
 			position: fixed;
-			right: 3%;
-			top: 20px;
+			right: 0px;
+			top: 10px;
 			z-index: 5;
 		}
 		.PIButtContainer{
 			width: 100%;
-			padding: 10px 30px 10px 30px;
+			padding: 10px 5px 10px 5px;
 			text-align: center;
-			line-height: 80px;
 		}
 		.PIButt{
 			text-decoration: none;
@@ -73,7 +71,8 @@
 			border: 2px solid rgba(0, 0, 0, 0.0);
 			color: #381943;
 			font-weight:bold;
-			font-size: 35px;
+			font-size: 20px;
+			line-height: 35px;
 		}
 		.PIButt:active{
 			padding: 10px 30px 10px 30px;
@@ -107,9 +106,9 @@
 		#menu{
 			display: none;
 			position: fixed;
-			top: 98px;
+			top: 68px;
 			left: 8px;
-			height: 90%;
+			height: 85%;
 			width:80%;
 			padding: 5px;
 			background: rgba(137, 120, 123, 1.0);
@@ -121,14 +120,14 @@
 		#menuMob{
 			display: block;
 			position: fixed;
-			top: 5px;
+			top: 0px;
 			left: 5px;
 			z-index: 4;
 			border: solid 1px rgba(0, 0, 0, 0.0);
 			box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
 		}
 		#newArticleMenuButtonIcon{
-			font-size: 80px;
+			font-size: 55px;
 		}
 		#newArticleMenuButtonIconNA{
 			font-size: 55px;
@@ -139,44 +138,45 @@
 			list-style-type: none;
 		}
 		#menu li{
-			padding: 50px 0px 30px 0px;
+			padding: 10px 0px 10px 0px;
 			text-align: center;
 			width: 100%;
 		}
 		.menuLink{
 			color: #381943;
 			text-decoration: none;
-			font-size: 35px;
+			font-size: 20px;
 			font-weight:bold;
 
 		}
-		.lastCommCOntainer{
+		.lastCommContainer{
 			font-family: Calibri;
+			text-align: left;
+			background-color: rgba(255, 255, 255, 0.1);
+			border: solid 1px gray;
 			text-align: left;
 		}
 		#menuCommentsHeader{
 			color: #381943;
-			font-size: 35px;
+			font-size: 20px;
 			font-weight:bold;
-			padding: 0px 0px 30px 0px;
+			padding: 0px 0px 5px 0px;
 		}
 		.commentDateMenu{
 			display: inline-block;
-			padding-top: 20px;
+			padding-top: 5px;
 			text-decoration: none;
 			font-style: italic;
-			font-size: 35px;
 			color: #381943;
 		}
 		.commentTextMenu{
 			display: inline-block;
-			font-size: 35px;
 		}
 		#menuTagsMobHeader{
 			color: #381943;
-			font-size: 35px;
+			font-size: 20px;
 			font-weight:bold;
-			padding: 30px 0px 10px 0px;
+			padding: 5px 0px 10px 0px;
 		}
 		#menu li:active{
 			color: #B98BBF;
@@ -201,8 +201,8 @@
 		}
 		.tagLinkContainer{
 			display: inline-block;
-			margin-top: 40px;
-			margin-right: 20px;
+			margin-top: 10px;
+			margin-right: 5px;
 		}
 		.tagLink{
 			text-decoration: none;
@@ -222,14 +222,13 @@
 			position: absolute;
 			bottom: 0px;
 			color: #381943;
-			font-size: 35px;
 		}
 /*-------------------CONTENT STYLES------------------*/
 		.container{
 			display: inline-block;
 			position: relative;
-			margin-top: 110px;
-			left: 10px;
+			top: 75px;
+			left: 5px;
 			width: 97%;
 			height: 86.5%;
 			overflow: auto;
@@ -240,8 +239,8 @@
 		.diaryPrewiew{
 			display: inline-block;
 			position: relative;
-			width: 50%;
-			height: 500px;
+			width: 300px;
+			height: 300px;
 			margin: 25px;
 			border: solid 5px rgba(0, 0, 0, 0.1);
 			overflow: auto;
@@ -259,7 +258,7 @@
 		}
 		.diaryPrewiewPicture{
 			width: 98%;
-			height: 300px;
+			height: 200px;
 			overflow: hidden;
 			display: block;
 			padding: 10px 10px 5px 10px;
@@ -269,14 +268,14 @@
 			font-weight:bold;
 			width: 95%;
 			margin-left: 10px;
-			font-size: 35px;
+			font-size: 25px;
 		}
 		.diaryPrewiewDescription{
 			padding: 5px;
 			color: #353a49;
 			font-size: 14px;
 			float: right;
-			font-size: 35px;
+			font-size: 20px;
 		}
 /*-----------------CONTENT LIST DIARY----------------*/
 		.event{
@@ -310,16 +309,13 @@
 			border: solid 2px #89787B;
 			color: #352255;
 		}
-		time{
-			font-size: 35px;
-		}
 /*-------------------CONTENT DIARY-------------------*/
 		.eventt{
 			background: rgba(35, 33, 37, 0.8);
 			box-shadow: 6px 6px 8px rgba(0, 0, 0, 0.3);
 			border: 1px solid #1C2926;
 			width:98%;
-			margin: 0px 5px 4000px 5px;
+			margin: 0px 5px 400px 5px;
 			font-family: Corbel;
 			color: #E5E3E6;
 			padding: 0px 10px 50px 10px;
@@ -334,20 +330,20 @@
 			float: right;
 		}
 		#articleTime{
-			text-indent: 35px;
 			font-weight: bold;
 			color: #B98BBF;
-			margin: 10px 0px 35px 0px;
+			margin: 55px 0px 15px 15px;
 		}
 		#imgDiv{
 			display: inline-block;
 			float: right;
 		}
 		.iconStyle{
-			font-size: 35px;
+			font-size: 20px;
 			color: #B98BBF;
 			text-decoration: none;
-			padding: 5px 10px 5px 10px;
+			padding: 2px 5px 2px 5px;
+			float: right;
 		}
 		.iconStyle:active{
 			color: #B98BBF;
@@ -359,42 +355,43 @@
 			width: 100%;
 			overflow: visible;
 		}
+		.commetContainer{
+			width: 98%;
+			margin: 60px 15px 15px 15px;
+		}
 		#commentContainerDescription{
 			display: block;
 			text-color: #B98BBF;
 			float: left;
-			margin-left: 100px;
-			font-size: 35px;
+			margin-left: 10px;
+			font-size: 16px;
 		}
 		#commentForm{
 			display: block;
 			position: relative;
-			left: -60%;
+			left: -50%;
 			margin-bottom: 100px;
 			margin-top: 20px;
 		}
 		#commentFormDescr{
 			color: gray;
 			font-style: italic;
-			font-size: 35px;
+			font-size: 20px;
 		}
 		#commentFormText{
 			background-color: Lavender;
-			width: 800px;
-			height: 300px;
+			width: 350px;
+			height: 200px;
 			overflow: auto;
 		}
 		#commentInput{
-			font-size: 35px;
+			font-size: 16px;
 		}
 		#addComment{
 			position: absolute;
-			left: 60%;
+			left: 50%;
 		}
-		.commetContainer{
-			width: 98%;
-			margin: 60px 15px 15px 15px;
-		}
+		
 		.commetDiv{
 			width: 100%;
 			background-color: rgba(256, 256, 256, 0.1);
@@ -422,7 +419,7 @@
 		.galerieContainer{
 			display: inline-block;
 			position: relative;
-			top: 110px;
+			top: 75px;
 			left: 10px;
 			width: 98%;
 			height: 86.5%;
@@ -430,7 +427,7 @@
 			scroll-padding-left: 60px;
 		}
 		#galerieLinkContainer{
-			font-size: 35px;
+			font-size: 20px;
 		}
 		.gallery {
 	        display: flex;
@@ -438,7 +435,7 @@
 	        gap: 10px;
 	    }
 	    .gallery-item {
-	        width: 210px;
+	        width: 30%;
 	        overflow: hidden;
 	    }
 	    .gallery-item img {
@@ -528,7 +525,7 @@
 			color: #381943;
 			font-weight:bold;
 			font-size: 16px;
-			padding: 10px;
+			padding: 5px;
 			margin: 5px;
 		}
 		#newArticleMenuButton{
@@ -593,6 +590,7 @@
 			font-family: Century Gothic;
 			font-size: 40px;
 			letter-spacing: 10px;
+			line-height: 50px;
 			font-weight: bold;
 			color: rgba(0, 0, 0, 0.5);
 		}
@@ -672,29 +670,24 @@
 		.diaryLogin{
 			position: absolute;
 			top: 20%;
-			left: 5%;
-			width: 90%;
-			height: 700px;
+			left: 4%;
+			width: 360px;
+			height: 370px;
 			padding: 15px;
 			border: solid 1px black;
 			background-color: rgba(230, 230, 250, 0.5);
-			font-size: 35px;
 		}
 		.loginInput{
 			display: inline-block;
 			position: absolute;
-			left: 30%;
-			margin: 10px;
+			left: 35%;
+			margin: 0px 0px 10px 0px;
 			width: 60%;
-			height: 60px;
-			font-size: 35px;
+			height: 20px;
 		}
 		.loginButton{
 			position: relative;
-			left: 45%;
-			margin-bottom: 15px;
-			padding: 10px;
-			font-size: 35px;
+			left: 40%;
 		}
 		.contactDiv{
 			display: inline-block;
@@ -704,10 +697,6 @@
 			left: 25%;
 			color: gray;
 		}
-		input[type=checkbox] {
-	         width: 50px;
-	         height: 50px;
-	      }
 /*------------------ TERMS OF USE ------------------*/
 		#termsOfUse{
 			position: absolute;
@@ -735,12 +724,11 @@
 		}
 		p{
 			text-indent: 35px;
-			padding-bottom: 20px;
+			padding-bottom: 5px;
 			margin: 0px;
-			line-height: 45px;
 		}
 		li{
-			line-height: 45px;
+			line-height: 20px;
 		}
 		h1{
 			color: Indigo;
@@ -748,8 +736,8 @@
 			text-align: center
 		}
 		h2{
-			margin-top: 10px;
-			font-size: 50px;
+			margin: 10px 0px 0px 25px;
+			font-size: 40px;
 		}
 		h3{
 			color: #B98BBF;
@@ -812,7 +800,7 @@
 			color: #FD60BC;
 		}
 		input, textarea, select {
-		  font-size: 32px; /*заборонити збільшувати масштаб вікна при встановленні курсору в полі*/
+		  /*font-size: 32px; заборонити збільшувати масштаб вікна при встановленні курсору в полі*/
 		}
 		#newArticleThema {
 		  font-size: 16px;

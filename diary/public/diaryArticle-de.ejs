@@ -88,14 +88,15 @@
 			</div>
 			<p>&nbsp;</p>
 			<div id="articleTime">
-				<%- article.date %>
 				<i class="<%- articleSymbol %>" title="<%- title %>"></i>
+				<span style="color: gray; font-weight: normal; font-style: italic;"> (<%- title %>)</span>
 				<% if(viewerslist && (viewerslist.length > 0)) {%>
-					<i style="color: gray; font-weight: normal;">( <%- viewerslist.join(', ') %> )</i>
-				<%}%>
+					<i style="color: gray; font-weight: normal; font-style: italic;">( <%- viewerslist.join(', ') %> )</i>
+				<%}%><br><br>
+				<%- article.date %>
 			</div>
 			<div class="about"><%- article.content %></div>
-			<div class="tags"><%- article.tags %></div>
+			<div class="tags">Tags: <%- article.tags %></div>
 			<p>&nbsp;</p>
 			<div id="commentContainer">
 			<h4 id="commentContainerDescription">Kommentare:</h4>

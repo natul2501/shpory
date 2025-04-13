@@ -23,7 +23,7 @@
 			background-image : url(../media/header2.jpg);
 			background-size: 100%;
 			border: 1px outset #1C2926;
-			height: 100px;
+			height: 70px;
 			width: 100%;
 			position: fixed;
 			left: 0px;
@@ -45,8 +45,7 @@
 		}
 		#headerHeader{
 			text-align: left;
-			margin: 20px 0px 0px 30%;
-			font-size: 54px;
+			font-size: 44px;
 			letter-spacing: 40px;
 			font-family: 'tempus sans itc';
 			color: rgba(67, 33, 9, 0.7);
@@ -90,7 +89,7 @@
 /*------------------MENUS STYLES----------------------*/
 		#menu{
 			position: fixed;
-			top: 120px;
+			top: 85px;
 			height: 86.5%;
 			width:175px;
 			padding: 5px;
@@ -157,15 +156,15 @@
 		}
 		#menuTags{
 			position: fixed;
-			top: 120px;
-			left: 77%;
+			top: 75px;
+			left: 79.5%;
 			height: 85%;
-			width: 22%;
+			width: 20%;
 			margin-top: 10px;
 			padding: 0px 10px 0px 10px;
 			background: rgba(224, 218, 210, 0.6);
 			overflow: auto;
-			z-index: 3;
+			z-index: 2;
 		}
 		#menuTagsMob{
 			display: none;
@@ -195,7 +194,7 @@
 			color: #381943;
 			font-size: 14px;
 		}
-		.lastCommCOntainer{
+		.lastCommContainer{
 			background-color: rgba(100, 100, 100, 0.3);
 			border: solid 1px gray;
 			padding: 3px;
@@ -205,8 +204,8 @@
 		.container{
 			display: inline-block;
 			position: relative;
-			top: 120px;
-			left: 205px;
+			top: 80px;
+			left: 185px;
 			width: 80%;
 			height: 86.5%;
 			overflow: auto;
@@ -260,7 +259,7 @@
 		.event{
 			background: rgba(224, 218, 210, 0.6);
 			border: 1px solid #1C2926;
-			width:80%;
+			width:75%;
 			margin: 5px;
 			color: black;
 			padding: 10px;
@@ -309,13 +308,13 @@
 		.eventt{
 			background: rgba(224, 218, 210, 0.95);
 			border: 1px solid #1C2926;
-			width:80%;
-			margin: 0px 5px 0px 5px;
+			width:75%;
+			margin: 5px 5px 0px 5px;
 			font-family: Corbel;
 			padding: 0px 10px 50px 10px;
 			position: relative;
 			top: 0px;
-			left: 20px;
+			left: 0px;
 			line-height: 22px;
 			display: inline-block;
 		}
@@ -403,7 +402,7 @@
 		.galerieContainer{
 			display: inline-block;
 			position: relative;
-			top: 120px;
+			top: 80px;
 			left: 190px;
 			width: 89.5%;
 			height: 86.5%;

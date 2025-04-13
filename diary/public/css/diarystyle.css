@@ -25,7 +25,7 @@
 			background-image : url(../media/header1.jpg);
 			background-size: 100%;
 			border: 1px outset #1C2926;
-			height: 100px;
+			height: 70px;
 			width: 100%;
 			position: fixed;
 			left: 0px;
@@ -85,7 +85,7 @@
 /*------------------MENUS STYLES----------------------*/
 		#menu{
 			position: fixed;
-			top: 120px;
+			top: 85px;
 			height: 84.5%;
 			width:195px;
 			padding: 5px;
@@ -137,10 +137,10 @@
 		}
 		#menuTags{
 			position: fixed;
-			top: 120px;
-			left: 77%;
+			top: 75px;
+			left: 79.5%;
 			height: 85%;
-			width: 22%;
+			width: 20%;
 			margin-top: 10px;
 			padding: 0px 10px 0px 10px;
 			z-index: 4;
@@ -182,7 +182,7 @@
 		.container{
 			display: inline-block;
 			position: relative;
-			margin-top: 120px;
+			margin-top: 80px;
 			left: 205px;
 			width: 80%;
 			height: 86.5%;
@@ -238,7 +238,7 @@
 		.event{
 			background: rgba(35, 33, 37, 0.8);
 			border: 1px solid #1C2926;
-			width:80%;
+			width:74%;
 			margin: 5px;
 			color: #E5E3E6;
 			padding: 10px;
@@ -274,14 +274,14 @@
 		.eventt{
 			background: rgba(35, 33, 37, 0.8);
 			border: 1px solid #1C2926;
-			width:80%;
-			margin: 0px 5px 0px 5px;
+			width:74%;
+			margin: 5px 5px 0px 5px;
 			font-family: Corbel;
 			color: #E5E3E6;
 			padding: 0px 10px 50px 10px;
 			position: relative;
 			top: 0px;
-			left: 20px;
+			left: 0px;
 			line-height: 22px;
 			display: inline-block;
 		}
@@ -367,7 +367,7 @@
 		.galerieContainer{
 			display: inline-block;
 			position: relative;
-			top: 120px;
+			top: 80px;
 			left: 215px;
 			width: 88.5%;
 			height: 86.5%;

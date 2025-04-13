@@ -4,7 +4,7 @@
 		    font-style: normal;
 		    font-display: swap;
 		    font-weight: 12;
-		    font-size: 35px;
+		    font-size: 32px;
 		}
 		html{
 		    box-sizing: border-box;
@@ -15,7 +15,7 @@
     		margin: 0;
 			background-image : url(../media/background2.jpg);
 			background-size: 100%;
-			font-size: 35px;
+			font-size: 32px;
 			
 		}
 		*,*::after, *::before{
@@ -296,7 +296,7 @@
 			background: rgba(224, 218, 210, 0.95);
 			border: 1px solid #1C2926;
 			width:98%;
-			margin: 0px 5px 0px 5px;
+			margin: 0px 5px 400px 5px;
 			font-family: Corbel;
 			padding: 0px 10px 50px 10px;
 			position: relative;
@@ -312,7 +312,7 @@
 		#articleTime{
 			text-indent: 35px;
 			font-weight: bold;
-			margin: 10px 0px 10px 0px;
+			margin: 10px 0px 35px 0px;
 		}
 		#imgDiv{
 			display: inline-block;
@@ -346,6 +346,7 @@
 			display: block;
 			position: relative;
 			left: -60%;
+			overflow: visible;
 		}
 		#commentFormDescr{
 			color: gray;
@@ -743,4 +744,16 @@
 		}
 		a:active{
 			color: #74890d;
+		}
+		input, textarea, select {
+		  font-size: 32px; /*заборонити збільшувати масштаб вікна при встановленні курсору в полі*/
+		}
+		#newArticleThema {
+		  font-size: 16px;
+		}
+		#newArticleTags {
+		  font-size: 16px;
+		}
+		#newArticleContent {
+		  font-size: 16px;
 		}

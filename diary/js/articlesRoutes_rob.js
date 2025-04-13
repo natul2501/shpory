@@ -1417,10 +1417,12 @@ router.get("/searchResults/:tagname", async (req, res) => {
     const articlesDocs = await articlesModel.find();
     const filteredArticles = [];
     let articleSymbol = '';
+    let existingFlag = false;
     articlesDocs.forEach(doc => {
       doc.articlesRob.forEach((article, key) => {
         let tagsArray = article.tags ? article.tags.split(",").map(tag => tag.trim()) : [];
           if (tagsArray.includes(tagname)) {
+            existingFlag = true;
             if(req.session.user){
               //статті, видимі автору
               if(req.session.user.author.includes("robert-diary")){
@@ -1472,7 +1474,15 @@ router.get("/searchResults/:tagname", async (req, res) => {
         });
       });
       if (!filteredArticles.length) {
-        const message = `Статті з тегом ${tagname} не знайдено`;
+        let message;
+        if(existingFlag){
+          if(req.session.user){
+            if(req.session.user.language === 'ua') message = `Автор обмежив доступ до статей за тегом ${tagname}`;
+            if(req.session.user.language === 'de') message = `Der Autor hat den Zugriff auf Artikel nach Tag ${tagname} eingeschränkt`;
+          }
+        } else {
+          message = `Статті з тегом ${tagname} не знайдено`;
+        }
         return res.status(500).render("Messages", { message:message});
       }
       filteredArticles.sort((a, b) => Number(b.id) - Number(a.id)); // Сортуємо за спаданням ID

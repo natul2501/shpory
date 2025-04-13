@@ -405,25 +405,27 @@ router.get("/:id", async (req, res) => {
           }
         });
       }
-      if(article.show === 'author') {
-        articleSymbol = 'fa-solid fa-lock';
-        if(req.session.user.language === 'de') title = "Nur für Autor sichtbar";
-        if(req.session.user.language === 'ua') title = "Запис видимий лише автору";
-      }
-      if(article.show === 'robert-diary') {
-        articleSymbol = 'fa-solid fa-user-plus';
-        if(req.session.user.language === 'de') title = "Nur für die Benutzer sichtbar, die Tagebuch abonniert haben";
-        if(req.session.user.language === 'ua') title = "Запис видимий усим, хто має підписку на щоденник";
-      }
-      if(article.show === 'userlist') {
-        articleSymbol = 'fa-solid fa-users';
-        if(req.session.user.language === 'de') title = "Nur für ausgewählte Benuttzer sichtbar: " + viewerslist.join(', ');
-        if(req.session.user.language === 'ua') title = "Запис видимий лише вибраним користувачам: " + viewerslist.join(', ');
-      }
-      if(article.show === 'user') {
-        articleSymbol = 'fa-solid fa-user';
-        if(req.session.user.language === 'de') title = "Für alle angemeldete Benutzer sichtbar";
-        if(req.session.user.language === 'ua') title = "Запис видимий усім зареєстрованим користувачам";
+      if(req.session.user){
+        if(article.show === 'author') {
+          articleSymbol = 'fa-solid fa-lock';
+          if(req.session.user.language === 'de') title = "Nur für Autor sichtbar";
+          if(req.session.user.language === 'ua') title = "Запис видимий лише автору";
+        }
+        if(article.show === 'robert-diary') {
+          articleSymbol = 'fa-solid fa-user-plus';
+          if(req.session.user.language === 'de') title = "Nur für die Benutzer sichtbar, die Tagebuch abonniert haben";
+          if(req.session.user.language === 'ua') title = "Запис видимий усим, хто має підписку на щоденник";
+        }
+        if(article.show === 'userlist') {
+          articleSymbol = 'fa-solid fa-users';
+          if(req.session.user.language === 'de') title = "Nur für ausgewählte Benuttzer sichtbar: " + viewerslist.join(', ');
+          if(req.session.user.language === 'ua') title = "Запис видимий лише вибраним користувачам: " + viewerslist.join(', ');
+        }
+        if(article.show === 'user') {
+          articleSymbol = 'fa-solid fa-user';
+          if(req.session.user.language === 'de') title = "Für alle angemeldete Benutzer sichtbar";
+          if(req.session.user.language === 'ua') title = "Запис видимий усім зареєстрованим користувачам";
+        }
       }
       if(article.show === '') {
         articleSymbol = '';

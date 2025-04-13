@@ -1688,6 +1688,8 @@ router.get("/searchResults/:tagname", async (req, res) => {
           if(req.session.user){
             if(req.session.user.language === 'ua') message = `Автор обмежив доступ до статей за тегом ${tagname}`;
             if(req.session.user.language === 'de') message = `Der Autor hat den Zugriff auf Artikel nach Tag ${tagname} eingeschränkt`;
+          } else {
+            message = `Автор обмежив доступ до статей за тегом ${tagname}`;
           }
         } else {
           message = `Статті з тегом ${tagname} не знайдено`;

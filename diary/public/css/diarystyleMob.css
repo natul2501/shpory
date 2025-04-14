@@ -75,7 +75,7 @@
 			line-height: 35px;
 		}
 		.PIButt:active{
-			padding: 10px 30px 10px 30px;
+			padding: 10px 20px 10px 20px;
 			text-decoration: none;
 			border: 2px solid #C5B6B9;
 			background-color: rgba(65, 63, 67, 0.3);
@@ -155,12 +155,15 @@
 			background-color: rgba(255, 255, 255, 0.1);
 			border: solid 1px gray;
 			text-align: left;
+			margin-bottom: 5px;
+			padding: 3px;
 		}
 		#menuCommentsHeader{
 			color: #381943;
 			font-size: 20px;
 			font-weight:bold;
 			padding: 0px 0px 5px 0px;
+			margin-top: 20px;
 		}
 		.commentDateMenu{
 			display: inline-block;
@@ -168,9 +171,11 @@
 			text-decoration: none;
 			font-style: italic;
 			color: #381943;
+			align: left;
 		}
 		.commentTextMenu{
 			display: inline-block;
+			align: left;
 		}
 		#menuTagsMobHeader{
 			color: #381943;
@@ -243,7 +248,11 @@
 			height: 300px;
 			margin: 25px;
 			border: solid 5px rgba(0, 0, 0, 0.1);
+			background-color: rgba(222, 216, 227, 0.5);
 			overflow: auto;
+		}
+		.diaryPrewiew:hover{
+			background-color: rgba(222, 216, 227, 0.9);
 		}
 		.diaryPrewiewLink{
 			text-decoration: none;
@@ -253,11 +262,8 @@
 			margin: 0px;
 			padding: 0px;
 		}
-		.diaryPrewiewLink:active .diaryPrewiew{
-			border: solid 5px rgba(172, 79, 204, 0.8);
-		}
 		.diaryPrewiewPicture{
-			width: 98%;
+			width: 100%;
 			height: 200px;
 			overflow: hidden;
 			display: block;
@@ -266,7 +272,7 @@
 		.diaryPrewiewAuthor{
 			text-align: center;
 			font-weight:bold;
-			width: 95%;
+			width: 93%;
 			margin-left: 10px;
 			font-size: 25px;
 		}
@@ -291,8 +297,8 @@
 			left: 0px;
 		}
 		.about{
-			padding-left: 25px;
-			margin: 5px;
+			padding-left: 5px;
+			margin: 5px 0px 5px 0px;
 		}
 		.tags{
 			margin: 5px 0px 0px 0px;
@@ -380,7 +386,7 @@
 		}
 		#commentFormText{
 			background-color: Lavender;
-			width: 350px;
+			width: 100%;
 			height: 200px;
 			overflow: auto;
 		}
@@ -391,7 +397,6 @@
 			position: absolute;
 			left: 50%;
 		}
-		
 		.commetDiv{
 			width: 100%;
 			background-color: rgba(256, 256, 256, 0.1);
@@ -401,19 +406,16 @@
 		.commentAuthor{
 			margin: 0px 10px 30px 20px;
 			display: inline-block;
-			font-size: 35px;
 			font-weight: bold;
 			color: #B98BBF;
 		}
 		.commentDate{
 			display: inline-block;
 			margin: 0px 10px 30px 20px;
-			font-size: 35px;
 			font-weight: bold;
 			color: #B98BBF;
 		}
 		.commentText{
-			font-size: 35px;
 			margin-bottom: 30px;
 		}
 		.galerieContainer{
@@ -496,6 +498,7 @@
 		#newArticlePannel{
 			margin-left: 10px;
 			position: relative;
+			left: 0px;
 			width: 92%;
 			margin-top: 10px;
 			padding: 10px;
@@ -548,6 +551,7 @@
 		}
 		#newArticlePermissions{
 			vertical-align: top;
+			height: 30px;
 		}
 		#userList{
 			position: absolute;
@@ -558,8 +562,14 @@
 			overflow: auto;
 			display: none;
 		}
+		#userListContainer{
+			margin-top: 10px;
+		}
+		#userSearch{
+			height: 30px;
+		}
 		#selectedUsersContainer{
-			width: 37%;
+			width: 40%;
 			color: DarkSlateGray;
 			font-style: italic;
 		}
@@ -601,7 +611,7 @@
 			left: 0px;
 		}
 		.placeImg-window{
-			width: 30%;
+			width: 90%;
 			height: 250px;
 			background-color: white;
 			border: solid 1px rgb(137, 120, 123);
@@ -724,7 +734,7 @@
 		}
 		p{
 			text-indent: 35px;
-			padding-bottom: 5px;
+			padding: 0px;
 			margin: 0px;
 		}
 		li{

@@ -55,15 +55,6 @@
 				if (d === 'flysquirrel-diary') { %>
 			<li><a href="/diary/public/newArticle-de.html" class="menuLink">Neuer Artikel</a></li>
 			<% }}) %>
-			<li><div id="menuCommentsHeader">Letzte Kommentare:</div>
-				<% lastComments.forEach(comment => { %>
-					<div class="lastCommContainer">
-						<b><a href="<%- comment.commentLink %>" class="commentDateMenu">
-							<%- comment.date %> <%- comment.author %>
-						</a></b><br><div class="commentTextMenu"><%- comment.commentText %></div><br>
-					</div>
-				<% }) %>
-			</li>
 		</ul>
 		<div id="menuTagsMob">
 			<center><span id="menuTagsMobHeader">Tags</span></center>
@@ -74,9 +65,17 @@
 						style="font-size:<%=16+(tag.count*0.5)%>px;">
 							<%- tag.name %>
 					</a>
-				</div>&nbsp; 
+				</div>
 				<% }) %>
 		</div>
+		<div id="menuCommentsHeader">Letzte Kommentare:</div>
+				<% lastComments.forEach(comment => { %>
+					<div class="lastCommContainer">
+						<b><a href="<%- comment.commentLink %>" class="commentDateMenu">
+							<%- comment.date %> <%- comment.author %>
+						</a></b><br><div class="commentTextMenu"><%- comment.commentText %></div><br>
+					</div>
+				<% }) %>
 	</div>
 	<!------------------------------ CONTENT----------------------------------->
 	<div class="container">

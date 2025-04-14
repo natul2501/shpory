@@ -6,6 +6,7 @@
 	<link rel="icon" type="image/png" href="media/icon.png">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 	<meta name="robots" content="noindex, nofollow"> <!-- робить сторінку прихованою від пошукових ботів -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 <!------------------------------ HEADER----------------------------------->
@@ -60,7 +61,7 @@
 				<div class="tagLinkContainer">
 					<a href="/diary/public/<%- authorLink %>/searchResults/<%- tag.name %>"
 						class="tagLink"
-						style="font-size:<%=35+(tag.count*0.5)%>px;">
+						style="font-size:<%=16+(tag.count*0.5)%>px;">
 							<%- tag.name %>
 					</a>
 				</div>&nbsp; 
@@ -71,7 +72,6 @@
 	<div class="container">
 		<div class="eventt">
 			<div id="controls">
-				<span><br><a href="/diary/public/robert-diary" class="iconStyle">Повернутися до списку записів</a></span>
 				<% if(author) author.forEach(d => {
 					if (d === 'robert-diary') { %>
 				<span>
@@ -84,15 +84,15 @@
 						<i class="fa-solid fa-pen-to-square" title="Редагувати статтю"></i>
 					</a>
 				</span>
-				<% }}) %>
+				<% }}) %><br>
+				<span><a href="/diary/public/robert-diary" class="iconStyle">Повернутися до списку записів</a></span>
 			</div>
-			<p>&nbsp;</p>
 			<div id="articleTime">
 				<i class="<%- articleSymbol %>" title="<%- title %>"></i>
 				<span style="color: gray; font-weight: normal; font-style: italic;"> (<%- title %>)</span>
 				<% if(viewerslist && (viewerslist.length > 0)) {%>
 					<i style="color: gray; font-weight: normal; font-style: italic;">( <%- viewerslist.join(', ') %> )</i>
-				<%}%><br><br>
+				<%}%><br>
 				<%- article.date %>
 			</div>
 			<div class="about"><%- article.content %></div>

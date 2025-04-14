@@ -45,7 +45,8 @@
 		}
 		#headerHeader{
 			text-align: left;
-			font-size: 44px;
+			font-size: 54px;
+			margin: 5px 0px 0px 15%;
 			letter-spacing: 40px;
 			font-family: 'tempus sans itc';
 			color: rgba(67, 33, 9, 0.7);
@@ -164,7 +165,7 @@
 			padding: 0px 10px 0px 10px;
 			background: rgba(224, 218, 210, 0.6);
 			overflow: auto;
-			z-index: 2;
+			z-index: 3;
 		}
 		#menuTagsMob{
 			display: none;
@@ -309,7 +310,7 @@
 			background: rgba(224, 218, 210, 0.95);
 			border: 1px solid #1C2926;
 			width:75%;
-			margin: 5px 5px 0px 5px;
+			margin: 5px 5px 400px 5px;
 			font-family: Corbel;
 			padding: 0px 10px 50px 10px;
 			position: relative;
@@ -318,12 +319,6 @@
 			line-height: 22px;
 			display: inline-block;
 		}
-		/*@media (max-width: 900px){
-			.eventt{
-				left: 0px;
-				width: 98%;
-			}
-		}*/
 		#controls{
 			display: block;
 			float: right;
@@ -355,12 +350,14 @@
 			display: block;
 			text-color: #B98BBF;
 			float: left;
-			margin-left: 100px;
+			margin-left: 40px;
 		}
 		#commentForm{
 			display: block;
 			position: relative;
-			left: -100%;
+			left: -60%;
+			margin-bottom: 100px;
+			margin-top: 20px;
 		}
 		#commentFormDescr{
 			color: gray;
@@ -368,12 +365,13 @@
 		}
 		#commentFormText{
 			background-color: Lavender;
-			width: 800px;
-			height: 80px;
+			width: 450px;
+			height: 200px;
 		}
 		#addComment{
 			position: absolute;
-			left: 82%;
+			left: 60%;
+			margin-top: 8px;
 		}
 		.commetContainer{
 			width: 98%;

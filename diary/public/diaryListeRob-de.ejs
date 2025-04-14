@@ -6,6 +6,7 @@
 	<link rel="icon" type="image/png" href="media/icon.png">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 	<meta name="robots" content="noindex, nofollow"> <!-- робить сторінку прихованою від пошукових ботів -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body>
@@ -54,15 +55,6 @@
 				if (d === 'robert-diary') { %>
 			<li><a href="/diary/public/newArticleRob-de.html" class="menuLink">Neuer Artikel</a></li>
 			<% }}) %>
-			<li><div id="menuCommentsHeader">Letzte Kommentare:</div>
-				<% lastComments.forEach(comment => { %>
-					<div class="lastCommContainer">
-						<b><a href="<%- comment.commentLink %>" class="commentDateMenu">
-							<%- comment.date %> <%- comment.author %>
-						</a></b><br><div class="commentTextMenu"><%- comment.commentText %></div><br>
-					</div>
-				<% }) %>
-			</li>
 		</ul>
 		<div id="menuTagsMob">
 			<center><div id="menuTagsMobHeader">Tags</div></center>
@@ -70,12 +62,20 @@
 				<div class="tagLinkContainer">
 					<a href="/diary/public/<%- authorLink %>/searchResults/<%- tag.name %>"
 						class="tagLink"
-						style="font-size:<%=35+(tag.count*0.5)%>px;">
+						style="font-size:<%=16+(tag.count*0.5)%>px;">
 							<%- tag.name %>
 					</a>
 				</div>&nbsp; 
 				<% }) %>
 		</div>
+		<div id="menuCommentsHeader">Letzte Kommentare:</div>
+				<% lastComments.forEach(comment => { %>
+					<div class="lastCommContainer">
+						<b><a href="<%- comment.commentLink %>" class="commentDateMenu">
+							<%- comment.date %> <%- comment.author %>
+						</a></b><br><div class="commentTextMenu"><%- comment.commentText %></div><br>
+					</div>
+				<% }) %>
 	</div>
 	<!------------------------------ CONTENT----------------------------------->
 	<div class="container">

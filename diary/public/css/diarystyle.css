@@ -144,6 +144,7 @@
 			margin-top: 10px;
 			padding: 0px 10px 0px 10px;
 			z-index: 4;
+			overflow: auto;
 		}
 		#menuTagsMob{
 			display: none;
@@ -319,12 +320,14 @@
 			display: block;
 			text-color: #B98BBF;
 			float: left;
-			margin-left: 100px;
+			margin-left: 40px;
 		}
 		#commentForm{
 			display: block;
 			position: relative;
-			left: -100%;
+			left: -60%;
+			margin-bottom: 100px;
+			margin-top: 20px;
 		}
 		#commentFormDescr{
 			color: gray;
@@ -332,12 +335,13 @@
 		}
 		#commentFormText{
 			background-color: Lavender;
-			width: 800px;
-			height: 80px;
+			width: 450px;
+			height: 200px;
 		}
 		#addComment{
 			position: absolute;
-			left: 85%;
+			left: 60%;
+			margin-top: 8px;
 		}
 		.commetContainer{
 			width: 98%;
@@ -408,10 +412,10 @@
 		.newArticleContainer{
 			display: inline-block;
 			position: absolute;
-			top: 120px;
-			left: 205px;
+			top: 85px;
+			left: 210px;
 			float: left;
-			width: 91%;
+			width: 87%;
 			height: 86.5%;
 			overflow: auto;
 		}
@@ -537,7 +541,7 @@
 			position: relative;
 			float: right;
 			height: 780px;
-			width: 46%;
+			width: 42%;
 			overflow: auto;
 			background-color: rgba(255, 255, 255, 0.2);
 		}
@@ -577,8 +581,8 @@
 			color: rgba(0, 0, 0, 0.5);
 		}
 		#newArticlePrewiew .eventt{
-			margin: 0px;
-			width: 100%;
+			margin: 0px 0px 30px 0px;
+			width: 98%;
 			top: 0px;
 			left: 0px;
 		}

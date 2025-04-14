@@ -58,7 +58,7 @@ const placeImg = async () => {
             text =
             "<div align=\"center\">\n"+
                 "<a href=\"" + link + "\">\n"+
-                    "<img src=\"" + link + "\" width=\"60%\" title=\"" + description + "\" style=\"border: solid 1px gray\">\n"+
+                    "<img src=\"" + link + "\" width=\"70%\" title=\"" + description + "\" style=\"border: solid 1px gray\">\n"+
                     "<span style=\"display:none\">notForGalery</span>\n"+           //не показувати в галереї
                     "</a>\n"+
             "</div>\n";
@@ -66,7 +66,7 @@ const placeImg = async () => {
             text =
         "<div align=\"center\">\n"+
             "<a href=\"" + link + "\">\n"+
-                "<img src=\"" + link + "\" width=\"60%\" title=\"" + description + "\" style=\"border: solid 1px gray\">\n"+
+                "<img src=\"" + link + "\" width=\"70%\" title=\"" + description + "\" style=\"border: solid 1px gray\">\n"+
                 "<span style=\"display:none\">" + thema + "</span>\n"+
                 "</a>\n"+
         "</div>\n";

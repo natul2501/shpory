@@ -386,7 +386,7 @@
 		}
 		#commentFormText{
 			background-color: Lavender;
-			width: 100%;
+			width: 360px;
 			height: 200px;
 			overflow: auto;
 		}

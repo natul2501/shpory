@@ -229,6 +229,17 @@
 			color: #381943;
 		}
 /*-------------------CONTENT STYLES------------------*/
+		#searchByDate{
+			display: inline-block;
+			position: relative;
+			top: 75px;
+			left: 10px;
+			width: 95%;
+			background: rgba(35, 33, 37, 0.8);
+			box-shadow: 6px 6px 8px rgba(0, 0, 0, 0.3);
+			border: 1px solid #1C2926;
+			color: white;
+		}
 		.container{
 			display: inline-block;
 			position: relative;

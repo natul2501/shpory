@@ -89,15 +89,13 @@
 			</div>
 			
 			<div id="articleTime">
+				<%- article.date %>
 				<i class="<%- articleSymbol %>" title="<%- title %>"></i>
 				<span style="color: gray; font-weight: normal; font-style: italic;"> (<%- title %>)</span>
-				<% if(viewerslist && (viewerslist.length > 0)) {%>
-					<i style="color: gray; font-weight: normal; font-style: italic;">( <%- viewerslist.join(', ') %> )</i>
-				<%}%><br>
-				<%- article.date %>
 			</div>
-			<div class="about"><%- article.content %></div>
+			<div class="about" id="about"><%- article.content %></div>
 			<div class="tags">Теги: <%- article.tags %></div>
+			<!--<button onclick="speakText()">Прослухати текст</button>-->
 			<p>&nbsp;</p>
 			<div id="commentContainer">
 			<h4 id="commentContainerDescription">Коментарі:</h4>
@@ -198,6 +196,26 @@
 		}
 		applyStyles();// Запускаємо при завантаженні
 		window.addEventListener("resize", applyStyles);// Пере-перевірка при зміні розміру вікна
+
+		/*function speakText() {
+			speechSynthesis.cancel();
+			const text = document.getElementById('about').innerText;
+			const utterance = new SpeechSynthesisUtterance(text);
+			const voices = speechSynthesis.getVoices();
+			// Спроба знайти український голос
+			const ukrainianVoice = voices.find(voice => voice.lang === 'ru-RU');
+			if (ukrainianVoice) {
+				utterance.voice = ukrainianVoice;
+			} else {
+				alert("Український голос не знайдено у вашій системі.");
+			}
+			utterance.lang = 'ru-RU';
+			speechSynthesis.speak(utterance);
+		}
+		// Деякі браузери не завантажують голоси одразу — тому викликаємо після onvoiceschanged
+		speechSynthesis.onvoiceschanged = () => {
+			speechSynthesis.getVoices();
+		}*/
 	</script>
 </body>
 </html>

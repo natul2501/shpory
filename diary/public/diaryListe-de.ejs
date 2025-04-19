@@ -78,37 +78,17 @@
 				<% }) %>
 	</div>
 	<!------------------------------ CONTENT----------------------------------->
-	<div class="container">
-		<% if(articles.length > 0) { %>
-		<% articles.forEach(article => {
-			if (article.show === 'author') {
-				if(author){ author.forEach(d => {
-					if (d === 'flysquirrel-diary') { %>
-						<div class="event">
-							<div style="float: right;"><i class="<%- article.articleSymbol %>" title="<%- article.title %>"></i></div>
-							<time datetime="2020-03-23T16:32"><%- article.date %></time>
-							<div class="about"><%- article.thema %></div>
-							<a href="/diary/public/<%- authorLink %>/<%- article.id %>" class="link">Weitere Details</a>
-							<p class="tags"><%- article.tags %></p>
-							
-						</div>
-				<% }}) %>
-			<% }} else {%>
-				<div class="event">
-					<div style="float: right;"><i class="<%- article.articleSymbol %>" title="<%- article.title %>"></i></div>
-					<time datetime="2020-03-23T16:32"><%- article.date %></time>
-					<div class="about"><%- article.thema %></div>
-					<a href="/diary/public/<%- authorLink %>/<%- article.id %>" class="link">Weitere Details</a>
-					<p class="tags"><%- article.tags %></p>
-				</div>
-			<% } %>
-			<% })} else {%>
-				<div class="event">
-					Der Autor hat den Zugriff auf sein Tagebuch eingeschränkt. Um Zugriff zu erhalten, kontaktieren Sie den Autor.
-				</div>
-			<%}%>
+	<div id="searchByDate" >
+        <details><summary style="margin: 3px 0px 3px 15px;">Suchleiste...</summary>
+			<label for="datePicker">📅 Zeigen Artikel vor :</label>
+			<input type="date" id="datePicker" style="padding: 5px; font-size: 16px;">
+			<button onclick="startDateSearch()">🔍 Suchen</button>
+		</details>
+    </div>
+	<div class="container" id="articlesContainer">
+		<!-- Статті будуть довантажуватись сюди -->
 	</div>
-
+	<div id="loading" style="text-align:center; padding: 1em; display:none;">Loading...</div>
 	<div id="menuTags">
 		<center><b>Tags</b></center>
 		<% tags.forEach(tag => { %>
@@ -121,6 +101,7 @@
 	</div>
 	<footer>Durch die Nutzung dieser Website erklären Sie sich mit den <a href="/diary/public/flysquirrel-diary/TermsOfUse-de" id="footerLink">Nutzungsbedingungen</a> einverstanden</footer>
 	<script>
+/*------ показувати значок меню на мобільних пристроях ------*/
 		function showmenu(){
 			let menu = document.getElementById('menu');
 			if(menu.style.display == 'block'){
@@ -129,6 +110,7 @@
 				menu.style.display = 'block';
 			}
 		}
+/*--- застосувати стилі в залежності від вертикальної / горизонтальної орієнтації -*/
 		function applyStyles() {
 			const existing = document.getElementById("dynamic-styles");
 			if (existing) existing.remove(); // видалити попередній стиль
@@ -145,6 +127,93 @@
 		}
 		applyStyles();// Запускаємо при завантаженні
 		window.addEventListener("resize", applyStyles);// Пере-перевірка при зміні розміру вікна
+/*---- дозавантаження статей при прокручуванні сторінки -*/
+let offset = 0;
+		const limit = 20;
+		let loading = false;
+		let endReached = false;
+		let searchByDate = false;
+		let selectedDate = "";
+		// Завантажуємо статті при початковому завантаженні сторінки
+		window.addEventListener("load", () => {
+			loadArticles(); 
+		});
+		// Автоматичне завантаження при прокрутці
+		window.addEventListener('scroll', () => {
+		if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 200) {
+			loadArticles();
+		}
+		});
+/*-------- отримання статей для дозавантаження ------------*/
+		async function loadArticles() {
+			if (loading || endReached) return;
+			loading = true;
+			document.getElementById('loading').style.display = 'block';
+			try {
+				let newArticles;
+				// Якщо пошук за датою
+				if (searchByDate) {
+					const res = await fetch(`/diary/public/flysquirrel-diary/searchByDate/${selectedDate}?offset=${offset}`);
+					if (!res.ok) throw new Error("Помилка завантаження");
+					newArticles = await res.json();
+					if (newArticles.length === 0) {
+						endReached = true;
+						searchByDate = false;
+						document.getElementById('loading').innerText = 'Es gibt keine mehr Artikel.';
+						return;
+					}
+				} else {
+					const res = await fetch(`/diary/public/flysquirrel-diary/api/articles?offset=${offset}`);
+					newArticles = await res.json();
+					if (newArticles.length === 0) {
+						endReached = true;
+						document.getElementById('loading').innerText = 'Es gibt keine mehr Artikel.';
+						return;
+					}
+				}
+				offset += limit;
+				renderArticles(newArticles);
+			} catch (err) {
+				console.error("Помилка завантаження:", err);
+			} finally {
+				loading = false;
+				document.getElementById('loading').style.display = 'none';
+			}
+		}
+/*-------- рендер сторінок із бази даних на веб-сторінці ------------*/
+		function renderArticles(articles) {
+		const container = document.getElementById('articlesContainer');
+		articles.forEach(article => {
+			if(article.date){
+				const html = 
+				`<div class="event">
+					<div style="float: right;"><i class="${article.articleSymbol}" title="${article.title}"></i></div>
+					<time>${article.date}</time>
+					<div class="about">${article.thema}</div>
+					<a href="/diary/public/flysquirrel-diary/${article.id}" class="link">Mehr</a>
+					<p class="tags">${article.tags}</p>
+				</div>`
+				container.insertAdjacentHTML('beforeend', html);
+			} else {
+				const html = 
+				`<div class="event">
+					<div class="about">${article.thema}</div>
+				</div>`
+				container.insertAdjacentHTML('beforeend', html);
+			}
+		});
+		}
+/*-------- ініціалізація пошуку за датою ------------*/
+		function startDateSearch() {
+			selectedDate = document.getElementById("datePicker").value;
+			if (!selectedDate) return alert("Wählen Sie die Datum!");
+			searchByDate = true;
+			offset = 0; // Скидаємо offset для нового пошуку
+			endReached = false; // Скидаємо flag, щоб знову завантажити статті
+			// Очищаємо контейнер статей перед завантаженням нових
+			document.getElementById('articlesContainer').innerHTML = '';
+			loadArticles(); // Викликаємо завантаження статей
+		}
 	</script>
 </body>
 </html>

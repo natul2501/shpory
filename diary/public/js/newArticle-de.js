@@ -11,8 +11,14 @@ function insertInTextarea(text) {
     textarea.focus();
 }
 
-function getFormattedDate() {
-    const date = new Date();
+function getFormattedDate(inputdate) {
+    let date;
+    if(inputdate){
+        const timeStamp = Math.floor(new Date(inputdate).getTime());
+        date = new Date(timeStamp);
+    } else {
+        date = new Date();
+    }
     const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
     const dayName = days[date.getDay()];
     const dd = String(date.getDate()).padStart(2, '0');
@@ -25,11 +31,22 @@ function getFormattedDate() {
 
 /*------------------------------------------------------------ */
 /*----------------------- 1. КНОПКИ -------------------------- */
+let articleDate;
 function prewiew(){
     let thema = document.newArticle.newArticleThema.value;
     let tags = document.newArticle.newArticleTags.value;
     let content = document.newArticle.newArticleContent.value;
-    let currentDate = getFormattedDate();
+    let currentDate;
+    const customDate = document.getElementById('datetime').value;
+    if(!customDate){
+        if(articleDate){
+            currentDate = articleDate;
+        } else {
+            currentDate = getFormattedDate();
+        }
+    } else {
+        currentDate = getFormattedDate(customDate);
+    }
     document.getElementById('newArticlePrewiew').innerHTML = 
     "<div class=\"eventt\">"+
 	"<div id=\"articleTime\">" + currentDate + "</div>"+
@@ -218,6 +235,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             document.getElementById("newArticleThema").value = article.thema || "";
             document.getElementById("newArticleTags").value = article.tags || "";
             document.getElementById("newArticleContent").value = article.content || "";
+            articleDate = article.date;
             form.action = `/diary/public/flysquirrel-diary/editArticle/${articleId}`;
         } catch (error) {
             console.error("Помилка отримання статті:", error);
@@ -225,7 +243,15 @@ document.addEventListener("DOMContentLoaded", async () => {
     } else {
         form.action = "/diary/public/flysquirrel-diary/newArticleDe";
     }
-
+    const checkbox = document.getElementById('datetimeCheckbox');
+    const datetimeBlock = document.getElementById('showDatetimeInput');
+    checkbox.addEventListener('change', function () {
+        if (checkbox.checked) {
+            datetimeBlock.style.display = 'inline-block';
+        } else {
+            datetimeBlock.style.display = 'none';
+        }
+    });
     /*------------------------------------------------------------ */
     /*------------- 3. ВІДПРАВКА ДАНИХ НА СЕРВЕР ----------------- */
     form.addEventListener("submit", async function(event) {
@@ -236,7 +262,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         let content = form.newArticleContent.value;
         const permission = form.newArticlePermissions.value;
         let selectedUsersInput = document.getElementById("selectedUsers");
-
+        const customArticleDate = document.getElementById('datetime');
         if(content.length < 10){
             document.getElementById("newArticleMessage").textContent = `Sie müssen Text mit mindestens 10 Zeichen hinzufügen.`;
             return;
@@ -260,6 +286,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         
         const formData = new FormData(this);
         formData.append("selectedUsers", selectedUsersInput.value);
+        formData.append("datetime", customArticleDate.value);
             let response;
         try {
             if(articleId){

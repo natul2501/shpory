@@ -201,6 +201,16 @@
 			border: 6px outset #cdd4aa;
 		}
 /*-------------------CONTENT STYLES------------------*/
+		#searchByDate{
+			display: inline-block;
+			position: relative;
+			top: 75px;
+			left: 10px;
+			width: 95%;
+			background: rgba(224, 218, 210, 0.9);
+			box-shadow: 6px 6px 8px rgba(0, 0, 0, 0.3);
+			border: 1px solid #1C2926;
+		}
 		.container{
 			display: inline-block;
 			position: relative;

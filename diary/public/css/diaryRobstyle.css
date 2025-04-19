@@ -202,10 +202,20 @@
 			margin-bottom: 5px;
 		}
 /*-------------------CONTENT STYLES------------------*/
+		#searchByDate{
+			display: inline-block;
+			position: relative;
+			top: 85px;
+			left: 190px;
+			width: 60%;
+			background: rgba(224, 218, 210, 0.6);
+			box-shadow: 6px 6px 8px rgba(0, 0, 0, 0.3);
+			border: 1px solid #1C2926;
+		}
 		.container{
 			display: inline-block;
 			position: relative;
-			top: 80px;
+			top: 85px;
 			left: 185px;
 			width: 80%;
 			height: 86.5%;

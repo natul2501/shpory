@@ -58,10 +58,12 @@
 	</div>
 	<!------------------------------ CONTENT----------------------------------->
 	<div id="searchByDate" >
-        <details><summary style="margin: 3px 0px 3px 15px;">Suchleiste...</summary>
+		<details><summary style="margin: 3px 0px 3px 15px;">Suchleiste...</summary>
 			<label for="datePicker">📅 Zeigen Artikel vor :</label>
-			<input type="date" id="datePicker" style="padding: 5px; font-size: 16px;">
-			<button onclick="startDateSearch()">🔍 Suchen</button>
+			<input type="date" id="datePicker"><br>
+			<label for="inputSearch">Oder suchzeichenfolge eingeben: </label>
+			<input type="text" id="inputSearch"><br>
+			<button onclick="startDateSearch()" id="startDateSearch">🔍 Suchen</button>
 		</details>
 		<center>Alle Artikel mit dem Tag <span id="tagname"><%- tagname %></span></center>
     </div>
@@ -113,6 +115,7 @@ let offset = 0;
 		let endReached = false;
 		let searchByDate = false;
 		let selectedDate = "";
+		let inputString = '';
 		// Завантажуємо статті при початковому завантаженні сторінки
 		window.addEventListener("load", () => {
 			loadArticles(); 
@@ -144,7 +147,8 @@ let offset = 0;
 					}
 				} else {
 					const tagname = document.getElementById('tagname').textContent;
-					const res = await fetch(`/diary/public/robert-diary/api/articles?offset=${offset}&tagname=${tagname}`);
+					inputString = document.getElementById('inputSearch').value;
+					const res = await fetch(`/diary/public/robert-diary/api/articles?offset=${offset}&tagname=${tagname}&inputString=${inputString}`);
 					newArticles = await res.json();
 					if (newArticles.length === 0) {
 						endReached = true;
@@ -189,8 +193,8 @@ let offset = 0;
 /*-------- ініціалізація пошуку за датою ------------*/
 		function startDateSearch() {
 			selectedDate = document.getElementById("datePicker").value;
-			if (!selectedDate) return alert("Wählen Sie die Datum!");
-			searchByDate = true;
+			inputString = document.getElementById('inputSearch').value;
+			if (selectedDate) searchByDate = true;
 			offset = 0; // Скидаємо offset для нового пошуку
 			endReached = false; // Скидаємо flag, щоб знову завантажити статті
 			// Очищаємо контейнер статей перед завантаженням нових

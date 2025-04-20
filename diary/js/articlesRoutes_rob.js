@@ -242,7 +242,7 @@ router.get("/", async (req, res) => {
 
 router.get("/api/articles", async (req, res) => {
     try {
-      const { tagname } = req.query;
+      const { tagname, inputString } = req.query;
       const offset = parseInt(req.query.offset) || 0;
       const limit = 20;
       let articlesList = await articlesModel.find();
@@ -252,7 +252,23 @@ router.get("/api/articles", async (req, res) => {
       const usersDb = await UsersModel.find();
       articlesList.forEach(articleDoc =>{
         articleDoc.articlesRob.forEach((article, key) => {
-          if(tagname){
+          if(inputString){
+            const matched = article.content.includes(inputString);
+            if(matched){
+              if(tagname){
+                let tagsArray = article.tags ? article.tags.split(",").map(tag => tag.trim()) : [];
+                if (tagsArray.includes(tagname)) {
+                  if(article.date) existingFlag = true;
+                  const articleObj = schowedArticle(article, key, req.session.user, usersDb);
+                  if(articleObj.id) articles.push(articleObj);
+                }
+              } else {
+                if(article.date) existingFlag = true;
+                const articleObj = schowedArticle(article, key, req.session.user, usersDb);
+                if(articleObj.id) articles.push(articleObj);
+              }
+            }
+          } else if(tagname){
             let tagsArray = article.tags ? article.tags.split(",").map(tag => tag.trim()) : [];
             if (tagsArray.includes(tagname)) {
               if(article.date) existingFlag = true;
@@ -1461,7 +1477,6 @@ router.get("/searchResults/:tagname", async (req, res) => {
     const articlesDocs = await articlesModel.find();
     const usersDb = await UsersModel.find();
     const filteredArticles = [];
-    let articleSymbol = '';
     let existingFlag = false;
     articlesDocs.forEach(doc => {
       doc.articlesRob.forEach((article, key) => {

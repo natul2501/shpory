@@ -448,7 +448,7 @@ router.get("/", async (req, res) => {
 
 router.get("/api/articles", async (req, res) => {
   try {
-    const { tagname } = req.query;
+    const { tagname, inputString } = req.query;
     const offset = parseInt(req.query.offset) || 0;
     const limit = 20;
     let articlesList = await articlesModel.find();
@@ -458,7 +458,23 @@ router.get("/api/articles", async (req, res) => {
     const usersDb = await UsersModel.find();
     articlesList.forEach(articleDoc =>{
       articleDoc.articlesFlysq.forEach((article, key) => {
-        if(tagname){
+        if(inputString){
+          const matched = article.content.includes(inputString);
+          if(matched){
+            if (tagname){
+              let tagsArray = article.tags ? article.tags.split(",").map(tag => tag.trim()) : [];
+              if (tagsArray.includes(tagname)) {
+                if(article.date) existingFlag = true;
+                const articleObj = schowedArticle(article, key, req.session.user, usersDb);
+                if(articleObj.id) articles.push(articleObj);
+              }
+            } else {
+              if(article.date) existingFlag = true;
+              const articleObj = schowedArticle(article, key, req.session.user, usersDb);
+              if(articleObj.id) articles.push(articleObj);
+            }
+          }
+        } else if(tagname){
           let tagsArray = article.tags ? article.tags.split(",").map(tag => tag.trim()) : [];
           if (tagsArray.includes(tagname)) {
             if(article.date) existingFlag = true;
@@ -1509,7 +1525,7 @@ router.post("/:id/removeComment", checkAuth, async (req, res) => {
 /*-------------------------- 9. ПОШУК --------------------------- */
 router.get("/searchByDate/:date", async (req, res) => {
   try {
-    const { date } = req.params;
+    const { date, inputString } = req.params;
     const startDate = date + 'T00:00:00'
     const showDate = getFormattedDate(startDate);
     const startTimeStamp = Math.floor(new Date(startDate).getTime() / 1000)
@@ -1684,7 +1700,7 @@ router.get("/searchResults/:tagname", async (req, res) => {
             const articleObj = schowedArticle(article, key, req.session.user, usersDb);
             if(articleObj.id){
               filteredArticles.push(articleObj);
-            } 
+            }
           }
         });
       });

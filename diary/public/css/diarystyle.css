@@ -176,16 +176,6 @@
 			font-size: 14px;
 		}
 /*-------------------CONTENT STYLES------------------*/
-		#searchByDate{
-			display: inline-block;
-			position: relative;
-			top: 85px;
-			left: 210px;
-			width: 59.2%;
-			background: rgba(35, 33, 37, 0.8);
-			border: 1px solid #1C2926;
-			color: white;
-		}
 		.container{
 			display: inline-block;
 			position: relative;
@@ -197,13 +187,6 @@
 			scroll-padding-left: 60px;
 			z-index: 3;
 		}
-		/*@media (max-width: 1200px){
-			.container{
-				margin-top: 110px;
-				left: 10px;
-				width: 97%;
-			}
-		}*/
 /*----------------------DIARIES----------------------*/
 		.diaryPrewiew{
 			display: inline-block;
@@ -253,11 +236,6 @@
 			top: 0px;
 			left: 0px;
 		}
-		/*@media (max-width: 1200px){
-			.event{
-				width: 98%;
-			}
-		}*/
 		.about{
 			padding-left: 25px;
 			margin: 5px;
@@ -276,6 +254,26 @@
 			background-color: #c5bdd2;
 			border: solid 2px #89787B;
 			color: #352255;
+		}
+		#searchByDate{
+			display: inline-block;
+			position: relative;
+			top: 85px;
+			left: 210px;
+			width: 59.2%;
+			padding: 3px 0px 3px 15px;
+			background: rgba(35, 33, 37, 0.8);
+			border: 1px solid #1C2926;
+			color: white;
+		}
+		#datePicker{
+			padding: 5px; font-size: 16px;
+		}
+		#inputSearch{
+			margin-top: 15px;
+		}
+		#startDateSearch{
+			margin: 15px;
 		}
 /*-------------------CONTENT DIARY-------------------*/
 		.eventt{
@@ -373,6 +371,52 @@
 		.commentText{
 			margin-bottom: 20px;
 		}
+		#imageModal {
+		    position: fixed;
+		    top: 0;
+		    left: 0;
+		    width: 100%;
+		    height: 100%;
+		    background-color: rgba(0, 0, 0, 0.8);
+		    z-index: 9999;
+		    display: flex;
+		    align-items: center;
+		    justify-content: center;
+		  }
+
+		  #imageModalContent {
+		    position: relative;
+		    max-width: 100%;
+		    max-height: 100%;
+		    background: transparent;
+		    padding: 10px;
+		    border: none;
+		    text-align: right;
+		  }
+
+		  #imageModalContent img {
+		    max-width: 100%;
+		    max-height: 80vh;
+		    display: block;
+		    margin: 0 auto;
+		  }
+
+		  #closeImageModal {
+		    background-color: #f44336;
+		    color: white;
+		    border: none;
+		    padding: 6px 10px;
+		    cursor: pointer;
+		    font-size: 16px;
+		    border-radius: 5px;
+		    position: absolute;
+		    top: 8px;
+		    right: 10px;
+		  }
+
+		  #closeImageModal:hover {
+		    background-color: #d32f2f;
+		  }
 /*------------------- GALERIE -------------------*/
 		.galerieContainer{
 			display: inline-block;

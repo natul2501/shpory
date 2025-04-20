@@ -69,6 +69,12 @@
 		</div>
 	</div>
 <!------------------------------ CONTENT----------------------------------->
+	<div id="imageModal" style="display:none;">
+		<div id="imageModalContent">
+			<button id="closeImageModal">&times;</button>
+			<img id="modalImage" src="" alt="Vergrößertes Bild">
+		</div>
+	</div>
 	<div class="container">
 		<div class="eventt">
 			<div id="controls">
@@ -194,6 +200,19 @@
 		}
 		applyStyles();// Запускаємо при завантаженні
 		window.addEventListener("resize", applyStyles);// Пере-перевірка при зміні розміру вікна
+/*----------- збільшення зображення для перегляду -----------------*/
+		document.querySelectorAll('.about img').forEach(img => {
+			img.style.cursor = 'pointer';
+			img.addEventListener('click', () => {
+			const modal = document.getElementById('imageModal');
+			const modalImg = document.getElementById('modalImage');
+			modalImg.src = img.src;
+			modal.style.display = 'flex';
+			});
+		});
+		document.getElementById('closeImageModal').addEventListener('click', () => {
+			document.getElementById('imageModal').style.display = 'none';
+		});
 	</script>
 </body>
 </html>

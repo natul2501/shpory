@@ -74,18 +74,14 @@ const placeImg = async () => {
         if(galerieFlag){
             text =
             "<div align=\"center\">\n"+
-                "<a href=\"" + link + "\">\n"+
-                    "<img src=\"" + link + "\" width=\"70%\" title=\"" + description + "\" style=\"border: solid 1px gray\">\n"+
-                    "<span style=\"display:none\">notForGalery</span>\n"+           //не показувати в галереї
-                    "</a>\n"+
+                "<img src=\"" + link + "\" width=\"70%\" title=\"" + description + "\" style=\"border: solid 1px gray\">\n"+
+                "<span style=\"display:none\">notForGalery</span>\n"+           //не показувати в галереї
             "</div>\n";
         } else {
             text =
         "<div align=\"center\">\n"+
-            "<a href=\"" + link + "\">\n"+
-                "<img src=\"" + link + "\" width=\"70%\" title=\"" + description + "\" style=\"border: solid 1px gray\">\n"+
-                "<span style=\"display:none\">" + thema + "</span>\n"+
-                "</a>\n"+
+            "<img src=\"" + link + "\" width=\"70%\" title=\"" + description + "\" style=\"border: solid 1px gray\">\n"+
+            "<span style=\"display:none\">" + thema + "</span>\n"+
         "</div>\n";
         }
         insertInTextarea(text);
@@ -235,6 +231,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             document.getElementById("newArticleThema").value = article.thema || "";
             document.getElementById("newArticleTags").value = article.tags || "";
             document.getElementById("newArticleContent").value = article.content || "";
+            document.getElementById('newArticlePermissions').value = article.show || '';
             articleDate = article.date;
             form.action = `/diary/public/flysquirrel-diary/editArticle/${articleId}`;
         } catch (error) {

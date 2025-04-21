@@ -43,12 +43,18 @@ router.post('/login', async (req, res) => {
     return res.status(400).send('Невірний пароль');
   }
   /*-----------глобальні змінні користувача----------------*/
-  req.session.user = user; // Зберігаємо користувача в сесії
-  req.session.permissions = user.permissions;
-  if(user.author.length>0){
+  req.session.user = { // Зберігаємо користувача в сесії
+    _id: user._id.toString(),
+    username: user.username,
+    email: user.email,
+    language: user.language,
+    author: user.author,
+    subscribe: user.subscribe,
+    permissions: user.permissions
+  };
+  if(user.author.length > 0){
     req.session.author = user.author;
   } else {req.session.author = ['notAuthor']}
-  req.session.subscribe = user.subscribe;
   /*-------------------------------------------------------*/
   if(user.language === 'ua'){
     res.redirect('/diary/public/diaries.html'); // Перенаправляємо на список щоденників
@@ -77,12 +83,18 @@ router.post('/login-de', async (req, res) => {
     return res.status(400).send('Falsches Passwort');
   }
    /*-----------глобальні змінні користувача----------------*/
-   req.session.user = user; // Зберігаємо користувача в сесії
-   req.session.permissions = user.permissions;
-   if(user.author.length>0){
-     req.session.author = user.author;
-   } else {req.session.author = ['notAuthor']}
-   req.session.subscribe = user.subscribe;
+   req.session.user = { // Зберігаємо користувача в сесії
+    _id: user._id.toString(),
+    username: user.username,
+    email: user.email,
+    language: user.language,
+    author: user.author,
+    subscribe: user.subscribe,
+    permissions: user.permissions
+  };
+  if(user.author.length > 0){
+    req.session.author = user.author;
+  } else {req.session.author = ['notAuthor']}
    /*-------------------------------------------------------*/
   if(user.language === 'ua'){
     res.redirect('/diary/public/diaries.html'); // Перенаправляємо на список щоденників
@@ -134,6 +146,7 @@ router.post('/registration', async (req, res) => {
     author:[],
     subscribe:[]});
   await newUser.save();
+  console.log(`Новий користувач ${newUser.username}, ${newUser.email}`);
   res.redirect('/diary/public/diaryLogin.html'); // Перенаправляємо на сторінку входу
 });
 
@@ -171,6 +184,7 @@ router.post('/registration-de', async (req, res) => {
     author:[],
     subscribe:[]});
   await newUser.save();
+  console.log(`Neuer Benutzer ${newUser.username}, ${newUser.email}`);
   res.redirect('/diary/public/diaryLogin-de.html'); // Перенаправляємо на сторінку входу
 });
 router.get('/TermsOfUse', (req, res) => {
@@ -363,6 +377,9 @@ router.get("/", async (req, res) => {
     let lastComments = [];
     const consoleDate = new Date().toISOString();
     const usersDb = await UsersModel.find();
+    const TagsDoc = await TagsModel.findOne();
+    const tagsDB = TagsDoc.tagsFlysquirr;
+    let tags = [];
     if(req.session.user){
       if(req.session.user.author.includes(diaryName)){console.log(`${consoleDate} | ${diaryName} |  ${req.session.user.username} /: author`);}
       else if(req.session.user.subscribe.includes(diaryName)){console.log(`${consoleDate} | ${diaryName} |  ${req.session.user.username} /: ${diaryName}`);}
@@ -372,7 +389,17 @@ router.get("/", async (req, res) => {
     articlesList.forEach(articleDoc =>{
       articleDoc.articlesFlysq.forEach((article, key) => {
         const articleObj = schowedArticle(article, key, req.session.user, usersDb);
-        if(articleObj.id) articles.push(articleObj);
+        if(articleObj.id){
+          let tagsArray = article.tags ? article.tags.split(",").map(tag => tag.trim()) : [];
+          tagsArray.forEach(articleTag => {
+            const current = tags.find(item => item.name === articleTag);
+            if(!current){
+              const currentTag = tagsDB.find(item => item.name === articleTag);
+              tags.push(currentTag);
+            }
+          });
+          articles.push(articleObj);
+        } 
       });
       articleDoc.flysqLastComment.forEach(comment => {
         if(req.session.user){
@@ -412,8 +439,6 @@ router.get("/", async (req, res) => {
       })
     });
     articles.sort((a, b) => Number(b.timeStamp) - Number(a.timeStamp)); // Сортуємо за спаданням ID
-    const TagsDoc = await TagsModel.findOne();
-    const tags = TagsDoc.tagsFlysquirr;
     tags.sort(function (a, b) {
       return a.name.localeCompare(b.name, ['uk', 'de'], { sensitivity: 'base' });
     });
@@ -587,6 +612,9 @@ router.get("/:id", async (req, res) => {
   try {
       const articlesList = await articlesModel.find();
       const usersDb = await UsersModel.find();
+      const TagsDoc = await TagsModel.findOne();
+      const tagsDB = TagsDoc.tagsFlysquirr;
+      let tags = [];
       let viewerslist = [];
       let article = null;
       const articleId = req.params.id;
@@ -596,6 +624,18 @@ router.get("/:id", async (req, res) => {
               break;
           }
       }
+      articlesList.forEach(articlesDoc => {
+        articlesDoc.articlesFlysq.forEach(article => {
+          let tagsArray = article.tags ? article.tags.split(",").map(tag => tag.trim()) : [];
+          tagsArray.forEach(articleTag => {
+            const current = tags.find(item => item.name === articleTag);
+            if(!current){
+              const currentTag = tagsDB.find(item => item.name === articleTag);
+              tags.push(currentTag);
+            }
+          });
+        });
+      });
       if (!article) {
         if(req.session.user && req.session.user.language === 'ua'){
           const message = "Стаття не знайдена GET /:id";
@@ -624,8 +664,6 @@ router.get("/:id", async (req, res) => {
       const symbolObj = getArticleSymbol(article.show, req.session.user, viewerslist);
       articleSymbol = symbolObj.articleSymbol;
       title = symbolObj.title;
-      const TagsDoc = await TagsModel.findOne();
-      const tags = TagsDoc.tagsFlysquirr;
       tags.sort(function (a, b) {
         return a.name.localeCompare(b.name, ['uk', 'de'], { sensitivity: 'base' });
       });
@@ -702,40 +740,39 @@ router.get("/:id", async (req, res) => {
             }
           }
           //стаття видима лише для вибраних користувачів
-          if(article.show === "userlist") {
-            if(article.viewers && article.viewers.length > 0){
-              article.viewers.forEach(viewer => {
-                const user = usersDb.find(u => u._id.toString() === viewer.toString()); // Порівнюємо як рядки для уникнення проблем з типами
+          if (article.show === "userlist") {
+            if (Array.isArray(article.viewers) && article.viewers.length > 0) {
+              const viewerIds = article.viewers.map(v => v.toString());
+              let isRendered = false;
+              for (const viewerId of viewerIds) {
+                const user = usersDb.find(u => u._id.toString() === viewerId);
                 if (user) {
                   viewerslist.push(user.username);
                 }
-              });
-              article.viewers.forEach(viewer => {
-                if(req.session.user && req.session.user._id === viewer){
-                  if(req.session.user.language === 'ua'){
+                if (req.session.user && req.session.user._id === viewerId) {
+                  const lang = req.session.user.language;
+                  if (lang === 'ua') {
                     res.render("diaryArticle", articleObj);
-                  }
-                  if(req.session.user.language === 'de'){
+                  } else {
                     res.render("diaryArticle-de", articleObj);
                   }
-                } else {
-                  if(!req.session.user){
-                    const message = "Дана стаття має обмежений доступ для перегляду";
-                    res.render("Messages", { message:message});
-                  } else {
-                    if(req.session.user.language === 'ua'){
-                      const message = "Дана стаття має обмежений доступ для перегляду";
-                      res.render("Messages", { message:message});
-                    }
-                    if(req.session.user.language === 'de'){
-                      const message = "Der zugang ist begrenzt für Sie";
-                      res.render("Messages", { message:message});
-                    }
-                  }
+                  isRendered = true;
+                  break;
                 }
-              });
-            } 
+              }
+              if (!isRendered) {
+                const message =
+                  !req.session.user
+                    ? "Дана стаття має обмежений доступ для перегляду"
+                    : req.session.user.language === 'de'
+                      ? "Der zugang ist begrenzt für Sie"
+                      : "Дана стаття має обмежений доступ для перегляду";
+
+                return res.render("Messages", { message });
+              }
+            }
           }
+          
           //стаття для зареєстрованих користувачів
           if(article.show === "user") {
           if(req.session.user) {
@@ -1690,6 +1727,9 @@ router.get("/searchResults/:tagname", async (req, res) => {
     const { tagname } = req.params;
     const articlesDocs = await articlesModel.find();
     const usersDb = await UsersModel.find();
+    const TagsDoc = await TagsModel.findOne();
+    const tagsDB = TagsDoc.tagsFlysquirr;
+    let tags = [];
     const filteredArticles = [];
     let existingFlag = false;
     articlesDocs.forEach(doc => {
@@ -1699,6 +1739,14 @@ router.get("/searchResults/:tagname", async (req, res) => {
             existingFlag = true;
             const articleObj = schowedArticle(article, key, req.session.user, usersDb);
             if(articleObj.id){
+              let tagsArray = article.tags ? article.tags.split(",").map(tag => tag.trim()) : [];
+              tagsArray.forEach(articleTag => {
+                const current = tags.find(item => item.name === articleTag);
+                if(!current){
+                  const currentTag = tagsDB.find(item => item.name === articleTag);
+                  tags.push(currentTag);
+                }
+              });
               filteredArticles.push(articleObj);
             }
           }
@@ -1730,8 +1778,6 @@ router.get("/searchResults/:tagname", async (req, res) => {
       }
       
       filteredArticles.sort((a, b) => Number(b.timeStamp) - Number(a.timeStamp)); // Сортуємо за спаданням ID
-      const TagsDoc = await TagsModel.findOne();
-      const tags = TagsDoc.tagsFlysquirr;
       tags.sort(function (a, b) {
         return a.name.localeCompare(b.name, ['uk', 'de'], { sensitivity: 'base' });
       });
@@ -1877,33 +1923,6 @@ function schowedArticle(article, articleId, user, usersDb){
   let title = "";
   let viewerslist = [];
   if(user){
-    //статті, видимі автору
-    if(user.author.includes(diaryName)){
-      if(article.viewers && article.viewers.length > 0){
-        article.viewers.forEach(viewer => {
-          const userViewer = usersDb.find(u => u._id.toString() === viewer.toString());
-          if (userViewer) {
-            viewerslist.push(userViewer.username);
-          }
-        });
-      }
-      const symbolObj = getArticleSymbol(article.show, user, viewerslist);
-      articleSymbol = symbolObj.articleSymbol;
-      title = symbolObj.title;
-      articleObj = {id:articleId, articleSymbol:articleSymbol, title:title, ...article.toObject()};
-    }
-    //статті, видимі підписникам
-    if(!user.author.includes(diaryName)){
-      if(user.subscribe.includes(diaryName)){
-        if(article.show!=="author"){
-          const symbolObj = getArticleSymbol(article.show, user, viewerslist);
-          articleSymbol = symbolObj.articleSymbol;
-          title = symbolObj.title;
-          articleObj = {id:articleId, articleSymbol:articleSymbol, title:title, ...article.toObject()};
-        }
-      }
-    }
-    //статті, видимі вибраним користувачам
     if(article.viewers && article.viewers.length > 0){
       article.viewers.forEach(viewer => {
         const userViewer = usersDb.find(u => u._id.toString() === viewer.toString());
@@ -1911,16 +1930,36 @@ function schowedArticle(article, articleId, user, usersDb){
           viewerslist.push(userViewer.username);
         }
       });
+    }
+    //статті, видимі автору
+    if(user.author.includes(diaryName)){
+      const symbolObj = getArticleSymbol(article.show, user, viewerslist);
+      articleSymbol = symbolObj.articleSymbol;
+      title = symbolObj.title;
+      articleObj = {id:articleId, articleSymbol:articleSymbol, title:title, ...article.toObject()};
+    }
+    //статті, видимі підписникам
+    if(article.show === diaryName){
+      if(!user.author.includes(diaryName)){
+        if(user.subscribe.includes(diaryName)){
+            const symbolObj = getArticleSymbol(article.show, user, viewerslist);
+            articleSymbol = symbolObj.articleSymbol;
+            title = symbolObj.title;
+            articleObj = {id:articleId, articleSymbol:articleSymbol, title:title, ...article.toObject()};
+        }
+      }
+    }
+    
+    //статті, видимі вибраним користувачам
+    if(article.show === 'userlist') {
       if(!user.author.includes(diaryName)){
         article.viewers.forEach(viewer => {
           if(user._id === viewer){
-            if(article.show === 'userlist') {
-              const consoleDate = new Date().toISOString();
-              console.log(`${consoleDate} | ${diaryName} | ${user.username} /: userlist`);
-              const symbolObj = getArticleSymbol(article.show, user, viewerslist);
-              articleSymbol = symbolObj.articleSymbol;
-              title = symbolObj.title;
-            }
+            const consoleDate = new Date().toISOString();
+            console.log(`${consoleDate} | ${diaryName} | ${user.username} /: userlist`);
+            const symbolObj = getArticleSymbol(article.show, user, viewerslist);
+            articleSymbol = symbolObj.articleSymbol;
+            title = symbolObj.title;
             articleObj = {id:articleId, articleSymbol:articleSymbol, title:title, ...article.toObject()};
           }
         })
@@ -1928,18 +1967,18 @@ function schowedArticle(article, articleId, user, usersDb){
     }
     //статті, видимі зареєстрованим користувачам
     if(!user.author.includes(diaryName)){
-      if(!user.subscribe.includes(diaryName)){
         if(article.show!=="author" && article.show!==diaryName){
-          const symbolObj = getArticleSymbol(article.show, user, viewerslist);
-          articleSymbol = symbolObj.articleSymbol;
-          title = symbolObj.title;
-          articleObj = {id:articleId, articleSymbol:articleSymbol, title:title, ...article.toObject()};
+          if(article.show === 'user' || article.show === '' || !article.show) {
+            const symbolObj = getArticleSymbol(article.show, user, viewerslist);
+            articleSymbol = symbolObj.articleSymbol;
+            title = symbolObj.title;
+            articleObj = {id:articleId, articleSymbol:articleSymbol, title:title, ...article.toObject()};
         }
       }
     }
   }
-  //статті, видимі для всіх
     if(!user){
+      //статті, видимі для всіх
       if(!article.show || article.show === ""){
         const symbolObj = getArticleSymbol(article.show, user, viewerslist);
         articleSymbol = symbolObj.articleSymbol;

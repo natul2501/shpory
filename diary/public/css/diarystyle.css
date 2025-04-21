@@ -187,6 +187,19 @@
 			scroll-padding-left: 60px;
 			z-index: 3;
 		}
+		#topButton{
+			position: fixed;
+			bottom: 30px;
+			right: 30%;
+			z-index: 5;
+			width: 50px;
+			height: 50px;
+			font-size: 50px;
+			color: rgba(147, 96, 234, 0.3);
+		}
+		#topButton:hover{
+			color: #B98BBF;
+		}
 /*----------------------DIARIES----------------------*/
 		.diaryPrewiew{
 			display: inline-block;
@@ -285,26 +298,24 @@
 			color: #E5E3E6;
 			padding: 0px 10px 50px 10px;
 			position: relative;
-			top: 0px;
+			top: -10px;
 			left: 0px;
 			line-height: 22px;
 			display: inline-block;
 		}
-		/*@media (max-width: 1200px){
-			.eventt{
-				left: 0px;
-				width: 98%;
-			}
-		}*/
 		#controls{
 			display: block;
 			float: right;
+			margin-top: 10px;
 		}
 		#articleTime{
 			text-indent: 35px;
 			font-weight: bold;
 			color: #B98BBF;
 			margin: 10px 0px 10px 0px;
+		}
+		#about{
+			margin-top: 40px;
 		}
 		#imgDiv{
 			display: inline-block;

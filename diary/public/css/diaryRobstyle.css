@@ -213,41 +213,18 @@
 			scroll-padding-left: 60px;
 			z-index: 3;
 		}
-/*----------------------DIARIES----------------------*/
-		.diaryPrewiew{
-			display: inline-block;
-			position: relative;
-			margin: 25px;
-			border: solid 5px rgba(0, 0, 0, 0.1);
+		#topButton{
+			position: fixed;
+			bottom: 30px;
+			right: 30%;
+			z-index: 6;
+			width: 50px;
+			height: 50px;
+			font-size: 50px;
+			color: rgba(224, 218, 210, 0.6);
 		}
-		.diaryPrewiewLink{
-			text-decoration: none;
-		}
-		.diaryPrewiewLink:hover{
-			text-decoration: none;
-			margin: 0px;
-			padding: 0px;
-		}
-		.diaryPrewiewLink:hover .diaryPrewiew{
-			border: solid 5px rgba(172, 79, 204, 0.8);
-		}
-		.diaryPrewiewPicture{
-			width: 300px;
-			display: block;
-			padding: 10px 10px 5px 10px;
-		}
-		.diaryPrewiewAuthor{
-			text-align: center;
-			font-weight:bold;
-			width: 93%;
-			background-color: rgba(56, 25, 67, 0.1);
-			margin-left: 10px;
-		}
-		.diaryPrewiewDescription{
-			padding: 5px;
-			color: #353a49;
-			font-size: 14px;
-			float: right;
+		#topButton:hover{
+			color: #e2f500;
 		}
 /*-----------------CONTENT LIST DIARY----------------*/
 		.event{
@@ -264,11 +241,6 @@
 		.event:hover{
 			background: rgba(224, 218, 210, 0.9);
 		}
-		/*@media (max-width: 900px){
-			.event{
-				width: 100%;
-			}
-		}*/
 		.about{
 			padding-left: 25px;
 			margin: 5px;
@@ -335,11 +307,15 @@
 		#controls{
 			display: block;
 			float: right;
+			margin-top: 10px;
 		}
 		#articleTime{
 			text-indent: 35px;
 			font-weight: bold;
 			margin: 10px 0px 10px 0px;
+		}
+		#about{
+			margin-top: 40px;
 		}
 		#imgDiv{
 			display: inline-block;

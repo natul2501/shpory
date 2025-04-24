@@ -252,7 +252,132 @@ router.get('/apiusers', async (req, res) => {
       res.status(500).json({ error: 'Помилка сервера' });
   }
 });
-
+/*-------------------- 12. ДРУК ------------------------------ */
+router.get("/printArticle", async (req, res) => {
+  try {
+    const { articleId } = req.query;
+    const articlesList = await articlesModel.find();
+    let article = null;
+    for (const articleDoc of articlesList){
+      if(articleDoc.articlesFlysq.has(articleId)){
+          article = articleDoc.articlesFlysq.get(articleId);
+          break;
+      }
+    }
+    if (!article) {
+      if(req.session.user && req.session.user.language === 'ua'){
+        const message = "Стаття не знайдена GET /:id";
+        res.status(404).render("Messages", { message:message});
+      }
+      else if(req.session.user && req.session.user.language === 'de'){
+        const message = "Artikel ist nicht gefunden GET /:id";
+        res.status(404).render("Messages", { message:message});
+      }
+      else {
+        const userLang = navigator.language || navigator.userLanguage;
+        if(userLang === 'de-DE') {
+          const message = "Artikel ist nicht gefunden GET /:id";
+          res.status(404).render("Messages", { message:message});
+        } else {
+          const message = "Стаття не знайдена GET /:id";
+          res.status(404).render("Messages", { message:message});
+        }
+      }
+    } else {
+      let commentArr = [];
+      let currLang = '';
+      if(article.comments.length){
+        article.comments.forEach(comment => commentArr.unshift(comment));
+      }
+      let backLink = '';
+      if(req.session.user && req.session.user.language === 'ua'){
+        backLink = `<a href="/diary/public/${diaryName}/${articleId}">Повернутися до статті</a>`;
+        currLang = 'ua';
+      } else if(req.session.user && req.session.user.language === 'de'){
+        backLink = `<a href="/diary/public/${diaryName}/${articleId}">Zurück zum Artikel</a>`;
+        currLang = 'de';
+      }
+      else {
+        const userLang = navigator.language || navigator.userLanguage;
+        if(userLang === 'de-DE'){
+          backLink = `<a href="/diary/public/${diaryName}/${articleId}">Zurück zum Artikel</a>`;
+          currLang = 'de';
+        } 
+        else{
+          backLink = `<a href="/diary/public/${diaryName}/${articleId}">Повернутися до статті</a>`;
+          currLang = 'ua';
+        } 
+      }
+      const articleObj = {
+        date:article.date,
+        content:article.content,
+        comments:commentArr,
+        backLink:backLink,
+        language:currLang
+      }
+      res.render("pageToPrint", articleObj);
+    }
+  } catch (error) {
+    console.error("/printArticle: Помилка отримання статті:", error);
+    const message = "Server Failure GET /printArticle";
+    return res.status(500).render("Messages", { message:message});
+  }
+});
+router.get("/printAll", async (req, res) => {
+  try {
+    const articlesList = await articlesModel.find();
+    const usersDb = await UsersModel.find();
+    let articles = [];
+    let headersArr = [];
+    for (const articleDoc of articlesList){
+      articleDoc.articlesFlysq.forEach((article, key) => {
+        const articleObj = schowedArticle(article, key, req.session.user, usersDb);
+        if(articleObj.id){
+          articles.push(articleObj);
+        } 
+      });
+    }
+    articles.forEach(article =>{
+      const headerObj={
+        date:article.date,
+        id:article.id
+      }
+      headersArr.push(headerObj)
+    });
+    let backLink = '';
+    let currLang = '';
+    if(req.session.user && req.session.user.language === 'ua'){
+      backLink = `<a href="/diary/public/${diaryName}">Повернутися до списку записів</a>`;
+      currLang = 'ua';
+    } else if(req.session.user && req.session.user.language === 'de'){
+      backLink = `<a href="/diary/public/${diaryName}">Zurück zum Artikel Übersicht</a>`;
+      currLang = 'de';
+    }
+    else {
+      const userLang = navigator.language || navigator.userLanguage;
+      if(userLang === 'de-DE'){
+        backLink = `<a href="/diary/public/${diaryName}">Zurück zum Artikel Übersicht</a>`;
+        currLang = 'de';
+      } 
+      else{
+        backLink = `<a href="/diary/public/${diaryName}">Повернутися до списку записів</a>`;
+        currLang = 'ua';
+      }
+    }
+    const articleObj = {
+      articles:articles,
+      headersArr:headersArr,
+      backLink:backLink,
+      language:currLang,
+      diaryName:'FlySquirrel Diary'
+    }
+    res.render("printAll", articleObj);
+  } catch (error) {
+    console.error("/printAll: Помилка отримання списку записів:", error);
+    const message = "Server Failure GET /printAll";
+    return res.status(500).render("Messages", { message:message});
+  }
+});
 /*------------------------------------------------------------ */
 /*------------------ 10. ГАЛЕРЕЯ  ---------------------------- */
 router.get("/galerie", async (req, res) => {
@@ -438,7 +563,7 @@ router.get("/", async (req, res) => {
         }
       })
     });
-    articles.sort((a, b) => Number(b.timeStamp) - Number(a.timeStamp)); // Сортуємо за спаданням ID
+    articles.sort((a, b) => Number(b.timeStamp) - Number(a.timeStamp)); // Сортуємо за спаданням
     tags.sort(function (a, b) {
       return a.name.localeCompare(b.name, ['uk', 'de'], { sensitivity: 'base' });
     });

@@ -55,11 +55,6 @@
 		#panelInstrumentsMob{
 			display: none;
 		}
-		/*@media (max-width: 1200px){
-			#panelInstruments{
-				width: 25%;
-			}
-		}*/
 		.panelInstrumentsButton{
 			text-decoration: none;
 			padding: 2px;
@@ -96,15 +91,6 @@
 		#menuMob{
 			display: none;
 		}
-		/*@media (max-width: 1200px) {
-			#menu{
-				display: none;
-				top: 110px;
-				left: 0px;
-				width:210px;
-				background-color: rgba(255, 255, 255, 0.8);
-				z-index: 4;
-			}*/
 		#menu:hover{
 			background: rgba(137, 120, 123, 1.0);
 		}
@@ -439,13 +425,6 @@
 			overflow: auto;
 			scroll-padding-left: 60px;
 		}
-		/*@media (max-width: 1200px){
-			.galerieContainer{
-				left: 10px;
-				top: 110px;
-				width: 98%;
-			}
-		}*/
 		.gallery {
 	        display: flex;
 	        flex-wrap: wrap;
@@ -469,6 +448,14 @@
 		.gallery-item img:hover{
 			border: solid 5px rgba(172, 79, 204, 0.8);
 		}
+		.gallery-item img {
+			opacity: 0;
+			transition: opacity 0.5s ease-in;
+		}
+
+		.gallery-item img.loaded {
+			opacity: 1;
+		}
 /*------------------ NEW ARTICLE -------------------*/
 		.newArticleContainer{
 			display: inline-block;
@@ -480,13 +467,6 @@
 			height: 86.5%;
 			overflow: auto;
 		}
-		/*@media (max-width: 1200px){
-			.newArticleContainer{
-				left: 0px;
-				top: 110px;
-				width: 100%;
-			}
-		}*/
 		#newArticleMessage{
 			text-indent: 60px;
 			color: Indigo;
@@ -531,28 +511,6 @@
 			padding: 10px;
 			float: left;
 		}
-		/*@media (max-width: 1200px) {
-			#newArticleContent{
-				margin-left: 10px;
-				width: 92%;
-			}
-			#newArticleTags{
-				margin-left: 10px;
-				width: 92%;
-			}
-			#newArticleThema{
-				margin-left: 10px;
-				width: 92%;
-			}
-			#newArticlePannel{
-				margin-left: 10px;
-				width: 92%;
-			}
-			.newArticleEvent{
-				margin-left: 0px;
-				width: 100%;
-			}
-		}*/
 		.newArticleDescr{
 			display: inline-block;
 			width: 50px;
@@ -609,28 +567,6 @@
 		#newArticlePrewiewMob{
 			display: none;
 		}
-		/*@media (max-width: 1200px) {
-			#newArticlePrewiewMob{
-				display: block;
-				position: relative;
-				width: 100%;
-				height: 780px;
-				overflow: auto;
-				background-color: rgba(255, 255, 255, 0.2);
-				border: solid 1px gray;
-				float: left;
-				margin: 10px 0px 10px 0px;
-				z-index: 1;
-			}
-			#newArticlePrewiewMob .eventt{
-				position: relative;
-				left: 55px;
-				width: 90%;
-			}
-			#newArticlePrewiew{
-				display: none;
-			}
-		}*/
 		#PrewiewDescr{
 			position: relative;
 			top: 40%;
@@ -639,6 +575,7 @@
 			font-size: 40px;
 			letter-spacing: 10px;
 			font-weight: bold;
+			line-height: 60px;
 			color: rgba(0, 0, 0, 0.5);
 		}
 		#newArticlePrewiew .eventt{
@@ -724,11 +661,6 @@
 			border: solid 1px black;
 			background-color: rgba(230, 230, 250, 0.5);
 		}
-		/*@media (max-width: 900px) {
-			.diaryLogin{
-				left: 16%;
-			}
-		}*/
 		.loginInput{
 			display: inline-block;
 			position: absolute;

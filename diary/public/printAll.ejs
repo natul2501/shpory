@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            @media print {
+              body * {
+                visibility: hidden;
+              }
+        
+              #printable, #printable * {
+                visibility: visible;
+              }
+        
+              #printable {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                page-break-after: auto;
+              }
+            }
+        
+            /* Додаткове форматування під A4 */
+            #printable {
+              font-family: 'Corbel';
+              src:local('Corbel');
+              font-style: normal;
+              font-size: 16px;
+              width: 210mm;
+            }
+            .borderDiv{
+                width: 100%;
+                height: 30px;
+                float: left;
+            }
+            .content {
+                width: 100%;
+                float: left;
+            }
+            #backLink{
+              clear: both;
+            }
+            .commentContainer{
+                width: 100%;
+                float: left;
+            }
+            .commDate{
+              color: gray;
+              font-style: italic;
+              font-weight: bold;
+              float: left;
+            }
+            .commContent{
+                float: left;
+            }
+            .articleHeader{
+                text-decoration: none;
+                color: black;
+                font-weight: bold;
+                line-height: 27px;
+            }
+            #imgDiv{
+                float: right;
+            }
+            p{
+              text-indent: 35px;
+              padding-bottom: 8px;
+              margin: 0px;
+              float: left;
+            }
+            em{
+              font-style: normal;
+              font-weight: bold;
+            }
+            strong{
+              color: red;
+            }
+            h1, h2, h3 {
+              margin: 3px;
+              float: left;
+              width: 100%;
+            }
+            time{
+              font-family: 'Calibri';
+              font-size: 16px;
+              font-weight: bold;
+              float: right;
+              width: 100%;
+              text-align: right;
+              margin-bottom: 10px;
+              padding: 5px;
+              background-color: rgba(0, 0, 0, 0.1);
+            }
+            iframe{
+              display: none;
+            }
+          </style>
+    </head>
+    <body>
+        <div id="printable">
+            <% if (language === 'ua') { %>
+                <h1>Зміст <%- diaryName %></h1>
+            <% } else if (language === 'de') { %>
+                <h1>Inhalt von <%- diaryName %></h1>
+            <% } %>
+            <% headersArr.forEach(header => {%>
+                <a href="#<%- header.id %>" class="articleHeader"><%- header.date %></a><br>
+            <% }) %>
+            <% articles.forEach(article => {%>
+                <div class="borderDiv"></div>
+                <time id="<%- article.id %>"><%- article.date %></time>
+                <div class="content"><%- article.content %></div>
+                <div class="commentContainer">
+                <% if(article.comments.length) {%>
+                    <% if((article.comments[0] && article.comments[0].date) || (article.comments[1] && article.comments[1].date)) {%>
+                        
+                        <% if (language === 'ua') { %>
+                            <h3>Коментарі</h3>
+                        <% } else if (language === 'de') { %>
+                            <h3>Kommentare</h3>
+                        <% } %>
+                        <br>
+                    <% } %>
+                    <% article.comments.forEach(comment => { %>
+                        <p class="commDate"><%- comment.author %> | <%- comment.date %></p>
+                        <p class="commContent"><%- comment.commentText %></p>
+                <% })} %>
+            </div>
+          <% }) %>
+        </div>
+        <div id="backLink"><%- backLink %></div>
+    </body>
+</html>

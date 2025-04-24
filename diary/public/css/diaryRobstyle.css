@@ -51,12 +51,6 @@
 			font-family: 'tempus sans itc';
 			color: rgba(67, 33, 9, 0.7);
 		}
-		/*@media (max-width: 900px){
-			#headerHeader{
-				font-size: 44px;
-				margin: 20px 0px 0px 110px;
-			}
-		}*/
 		#panelInstruments{
 			width: 12%;
 			height: 30px;
@@ -105,27 +99,6 @@
 		#menuMob{
 			display: none;
 		}
-		/*@media (max-width: 900px){
-			#menu{
-				display: none;
-				top: 100px;
-				left: 0px;
-				width:210px;
-				background: rgba(224, 218, 210, 1.0);
-				box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
-				z-index: 4;
-			}
-			#menu:hover{
-				background: rgba(224, 218, 210, 1.0);
-			}
-			#menuMob{
-				display: block;
-				position: fixed;
-				top: 26px;
-				left: 20px;
-				z-index: 4;
-			}
-		}*/
 		#menu ul{
 			margin: 0;
 			padding: 0;
@@ -445,13 +418,6 @@
 			scroll-padding-left: 60px;
 			background: rgba(224, 218, 210, 0.9);
 		}
-		/*@media (max-width: 900px){
-			.galerieContainer{
-				left: 10px;
-				top: 110px;
-				width: 98%;
-			}
-		}*/
 		.gallery {
 	        display: flex;
 	        flex-wrap: wrap;
@@ -488,13 +454,6 @@
 			background: rgba(224, 218, 210, 0.9);
 			padding: 10px;
 		}
-		/*@media (max-width: 900px){
-			.newArticleContainer{
-				left: 0px;
-				top: 100px;
-				width: 100%;
-			}
-		}*/
 		#newArticleMessage{
 			text-indent: 60px;
 			color: Indigo;
@@ -536,22 +495,7 @@
 			color: black;
 			padding: 10px;
 			float: left;
-		}
-		/*@media (max-width: 900px) {
-			#newArticleContent{
-				width: 90%;
-			}
-			#newArticleTags{
-				width: 90%;
-			}
-			#newArticleThema{
-				width: 90%;
-			}
-			#newArticlePannel{
-				width: 90%;
-			}
-		}*/
-		
+		}		
 		.newArticleDescr{
 			display: inline-block;
 			width: 50px;
@@ -601,6 +545,7 @@
 			float: right;
 			height: 780px;
 			width: 45%;
+			line-height: 60px;
 			overflow: auto;
 			background-color: rgba(255, 255, 255, 0.2);
 			border: solid 1px gray;
@@ -608,22 +553,6 @@
 		#newArticlePrewiewMob{
 			display: none;
 		}
-		/*@media (max-width: 900px) {
-			#newArticlePrewiewMob{
-				display: block;
-				position: relative;
-				width: 100%;
-				height: 780px;
-				overflow: auto;
-				background-color: rgba(255, 255, 255, 0.2);
-				border: solid 1px gray;
-				float: left;
-				margin: 10px 0px 10px 0px;
-			}
-			#newArticlePrewiew{
-				display: none;
-			}
-		}*/
 		#PrewiewDescr{
 			position: relative;
 			top: 40%;
@@ -717,11 +646,6 @@
 			border: solid 1px black;
 			background-color: rgba(230, 230, 250, 0.5);
 		}
-		/*@media (max-width: 900px) {
-			.diaryLogin{
-				left: 16%;
-			}
-		}*/
 		.loginInput{
 			display: inline-block;
 			position: absolute;

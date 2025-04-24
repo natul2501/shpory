@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            @media print {
+              body * {
+                visibility: hidden;
+              }
+        
+              #printable, #printable * {
+                visibility: visible;
+              }
+        
+              #printable {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                page-break-after: auto;
+              }
+            }
+        
+            /* Додаткове форматування під A4 */
+            #printable {
+              font-family: 'Corbel';
+              src:local('Corbel');
+              font-style: normal;
+              font-size: 16px;
+              width: 210mm;
+              border-top: solid 1px gray;
+            }
+            #content {
+              float: left;
+            }
+            #backLink{
+              clear: both;
+            }
+            #commDate{
+              color: gray;
+              font-style: italic;
+              font-weight: bold;
+            }
+            p{
+              text-indent: 35px;
+              padding-bottom: 8px;
+              margin: 0px;
+            }
+            em{
+              font-style: normal;
+              font-weight: bold;
+              color: #B98BBF;
+            }
+            strong{
+              color: red;
+            }
+            h1, h2, h3 {
+              margin: 3px;
+            }
+            time{
+              font-family: 'Calibri';
+              font-size: 16px;
+              float: right;
+            }
+            iframe{
+              display: none;
+            }
+          </style>
+    </head>
+    <body>
+        <div id="printable">
+          <time><%- date %></time>
+          <div id="content"><%- content %></div>
+          <% if(comments.length) {%>
+            <% if (language === 'ua') { %>
+            <h3>Коментарі</h3>
+          <% } else if (language === 'de') { %>
+            <h3>Kommentare</h3>
+          <% } %>
+          <% comments.forEach(comment => { %>
+            <p id="commDate"><%- comment.author %> | <%- comment.date %></p>
+            <p><%- comment.commentText %></p>
+          <% })} %>
+        </div>
+        <div id="backLink"><%- backLink %></div>
+    </body>
+</html>

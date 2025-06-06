@@ -1,0 +1,310 @@
+@font-face{
+	font-family: 'Corbel';
+	src:local('Corbel');
+	font-style: normal;
+	font-display: swap;
+	font-weight: 12;
+	font-size: 14px;
+}
+html{
+	box-sizing: border-box;
+}
+
+body{
+	font-family: 'Corbel';
+    margin: 0;
+    background-color: rgb(66, 62, 71);
+    color: #dfdae6;
+}
+*,*::after, *::before{
+	box-sizing: inherit;
+}
+#leftContainer{
+    position: absolute;
+    top: 0px;
+    width: 59%;
+}
+#rightContainer{
+    position: absolute;
+    top: 0px;
+    right: 20px;
+    width: 39%;
+}
+#profile{
+    float: left;
+    width: 100%;
+    border-radius: 10px;
+    border: solid 1px rgb(111, 107, 126);
+    background-color: rgba(90, 89, 104, 0.4);
+    margin: 10px;
+    padding: 10px;
+}
+#picture{
+    width: 120px;
+    height: 100px;
+    float: left;
+    margin: 30px 0px 0px 15px;
+}
+    #profilepic{
+        width: 100px;
+        height: 100px;
+        border-radius: 25%;
+    }
+    #about{
+        float: left;
+        vertical-align: top;
+        margin: 10px;
+        width: 80%;
+    }
+    #about h3{
+        color: #ff6587;
+        margin: 5px;
+    }
+    #about p{
+        margin: 5px;
+    }
+    .aboutButton{
+        display: inline-block;
+        margin: 5px;
+        padding: 10px;
+        border-radius: 5px;
+        background-color: #5865F2;
+        text-decoration: none;
+        font-weight: bold;
+        color: white;
+    }
+    .aboutButton:hover{
+        background-color: #4654C0;
+    }
+    .aboutButton:active{
+        background-color: #3a448f;
+    }
+#cathegories{
+    float: left;
+    width: 100%;
+    border-radius: 10px;
+    border: solid 1px rgb(111, 107, 126);
+    background-color: rgba(90, 89, 104, 0.4);
+    margin: 10px;
+    padding: 10px;
+}
+    .cathButt{
+        height: 40px;
+        padding: 10px;
+        margin: 3px;
+        font-weight: bold;
+        color: white;
+        background-color: #ad58f2;
+        border-radius: 10px;
+        border: none;
+    }
+    .cathButt:hover{
+        background-color: #863ec0;
+    }
+    .cathButt:active{
+        background-color: #632c91;
+    }
+#commandList{
+    float: left;
+    width: 100%;
+    border-radius: 10px;
+    border: solid 1px rgb(111, 107, 126);
+    background-color: rgba(90, 89, 104, 0.4);
+    color: white;
+    margin: 10px;
+    padding: 10px;
+}
+    .commButt:hover{
+        outline: solid 3px #7eabeb98;
+    }
+    .commButt:active{
+        outline: solid 3px #7eabeb98;
+        background-color: #7eabeb98;
+    }
+#preview{
+    position: relative;
+    width: 100%;
+    border-radius: 10px;
+    background-color: #313338;
+    font-family: 'Segoe UI', sans-serif;
+    color: #dbdee1;
+    margin: 10px;
+    overflow: auto;
+    margin: 10px;
+    padding: 10px;
+    z-index: 2;
+}
+    .discord-container {
+        max-width: 600px;
+        margin: 20px auto;
+        padding: 20px;
+    }
+
+    #message {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 16px;
+        padding: 5px;
+    }
+
+    .avatar {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        margin-right: 12px;
+    }
+
+    .message-content {
+        flex: 1;
+    }
+
+    .message-header {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        margin-bottom: 4px;
+    }
+
+    .username {
+        font-weight: 600;
+    }
+
+    .badge {
+        font-size: 10px;
+        font-weight: bold;
+        padding: 2px 4px;
+        border-radius: 3px;
+        text-transform: uppercase;
+    }
+
+    .badge.bot {
+        background-color: #5865f2;
+        color: white;
+    }
+
+    .timestamp {
+        margin-left: auto;
+        font-size: 12px;
+        color: #949ba4;
+    }
+
+    #message-embed {
+        background-color: #2b2d31;
+        border-left: 4px solid #ed417c;
+        padding: 12px 16px;
+        border-radius: 8px;
+        font-size: 13.5px;
+        white-space: pre-wrap;
+        line-height: 1.6;
+        color: #dfdae6;
+        font-family: Consolas, monospace;
+        display: none;
+    }
+    #message-text{
+        color: #ffffff;
+        font-family: "Calibri";
+    }
+    #message-text-mentioned{
+        color: #ffffff;
+        font-family: "Calibri";
+        display: none;
+    }
+    pre {
+        margin: 0;
+    }
+    .e{
+        height: 16px;
+    }
+    .msgButt{
+        display: inline-block;
+        height: 25px;
+        border-radius: 7px;
+        background-color: #383a40;
+        margin: 4px;
+        padding: 15px;
+        text-align: center;
+        line-height: 1px;
+    }
+    /* Панель вводу повідомлення */
+    .input-bar {
+        background-color: #383a40;
+        padding: 12px;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+
+    #msgInput {
+        flex: 1;
+        background-color: transparent;
+        border: none;
+        color: #fff;
+        font-size: 14px;
+        outline: none;
+    }
+    #commParams{
+        display: inline-block;
+        align-items: center;
+        margin-right: 3px;
+        margin-bottom: 8px;
+    }
+    #commName{
+        display: inline-block;
+        background-color: transparent;
+        color: white;
+        font-size: 14px;
+        margin-right: 8px;
+    }
+    #paramName{
+        display: inline-block;
+        background-color: #2b2d31;
+        color: #ffffffcc;
+        padding: 2px 6px;
+        border: 1px solid #3c3f45;
+        border-radius: 6px 0 0 6px;
+        font-size: 14px;
+    }
+    #paramValue{
+        display: inline-block;
+        background-color: #1e1f22;
+        color: #ffffff;
+        padding: 2px 6px;
+        border-radius: 0 6px 6px 0;
+        font-size: 14px;
+        border: 1px solid #1e1f22;
+        border-left: none;
+    }
+
+    .input-bar .icons {
+        position: relative;
+        top: -6px;
+        display: flex;
+        gap: 10px;
+        font-size: 18px;
+        color: #b5bac1;
+    }
+#explains{
+    float: left;
+    width: 100%;
+    border-radius: 10px;
+    border: solid 1px rgb(111, 107, 126);
+    background-color: rgba(90, 89, 104, 0.4);
+    margin: 10px;
+    padding: 10px;
+    font-family: 'Calibri';
+}
+em, .commButt{
+    color: #aed0ff;
+    background-color: #719fdf34;
+    font-weight: bold;
+    font-style: normal;
+    padding: 0px 3px 0px 3px;
+    border-radius: 5px;
+    border: none;
+}
+dfn{
+    font-weight: bold;
+    color: #cf95ff;
+    font-style: normal;
+}

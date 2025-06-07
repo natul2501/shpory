@@ -51,6 +51,9 @@ app.get('/', (req, res) => {
 app.get('/rhombi', (req, res) => {
   res.sendFile(path.join(__dirname, '/public/rhombi.html'));
 });
+app.get('/rhombi-ru', (req, res) => {
+  res.sendFile(path.join(__dirname, '/public/rhombi_ru.html'));
+});
 /*------------------------------------------------------------*/
 
 

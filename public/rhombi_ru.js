@@ -929,7 +929,7 @@ const commArr = [
         },
         {
             cathegory:'economics',
-            name:'/купити эмодзи-до &lt;a:c9:1373380823188770916&gt;',
+            name:'/купить эмодзи-до &lt;a:c9:1373380823188770916&gt;',
             functionName:'f_doCommand(33)',
             descr:'пример использования команды для совершения покупки',
             msgInput:'/купить',

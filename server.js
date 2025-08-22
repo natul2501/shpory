@@ -20,7 +20,7 @@ const app = express();
 
 //============   допоміжні функції бібліотек ====================
 app.use(express.urlencoded({extended:true})); //middleware для обробки form-urlencoded (дані форми)
-app.use(express.json());// Додає підтримку JSON
+app.use(express.json({ limit: '10mb' }));// Додає підтримку JSON, дозволяє приймати тіла запитів розміром до 10 мегабайт
 app.use(cors());
 
 //============   підключення БД =================================

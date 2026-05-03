@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Canvas</title>
+	<link rel="stylesheet" type="text/css" href="css/js_dom_style.css">
+	<style>
+		td {
+			padding-left: 5px;
+		}
+	</style>
+	<script src="script/JS_1.10.canvas.js"></script>
+</head>
+<body>
+	<div id="content">
+		<font size="6"><center>Canvas API</center></font>
+		Canvas API передбачає роботу із елементом &lt;canvas&gt;. Цей елемент є як би область малювання, до якої можна отримати доступ у коді JavaScript і на якій можна намалювати різні фігури, помістити на неї зображення, навіть маніпулювати відео та інше.
+		<nav>Розділи: <a href="#A1">створення 2d-фігур</a> | <a href="#A2">задати властивості фігур</a> | <a href="#A3">трансформації</a> | <a href="#A4">довільні фігури та лінії</a> | <a href="#A5">текст</a></nav>
+		<table border="1" width="48%" style="clear: left;">
+			<tr>
+				<th colspan="4" align="center" id="A1">2. Створення 2d-фігур</th>
+			</tr>
+			<tr>
+				<td><xmp>strokeRect(x, y, w, h)</xmp></td>
+				<td> - малює контур прямокутника(<b>x</b>, <b>y</b> - координати лівого верхнього кута; <b>w</b> - ширина, <b>h</b> - висота)</td>
+				<td align="center"><button onclick="c_strokeRect()" title="button onclick=&quot;strokeRect()&quot;>Подивитися результат">Подивитися результат</button></td>
+				<td width="45%">
+					<details>
+						<summary>Подивитися текст коду</summary>
+							<xmp>const canvas = document.getElementById("canvas");</xmp>
+							<xmp>const context = canvas.getContext("2d");</xmp>
+							<xmp>context.strokeRect (10, 10, 100, 100);</xmp>
+					</details>
+				</td>
+			</tr>
+			<tr>
+				<td><xmp>fillRect(x, y, w, h)</xmp></td>
+				<td> - прямокутник із заливкою(<b>x</b>, <b>y</b> - координати лівого верхнього кута; <b>w</b> - ширина, <b>h</b> - висота)</td>
+				<td align="center"><button onclick="c_fillRect()" title="button onclick=&quot;fillRect()&quot;>Подивитися результат">Подивитися результат</button></td>
+				<td width="45%">
+					<details>
+						<summary>Подивитися текст коду</summary>
+							<xmp>const canvas = document.getElementById("canvas");</xmp>
+							<xmp>const context = canvas.getContext("2d");</xmp>
+							<xmp>context.fillRect (10, 10, 100, 100);</xmp>
+					</details>
+				</td>
+			</tr>
+			<tr>
+				<td><xmp>clearRect(x, y, w, h)</xmp></td>
+				<td> - очистити від заливки область прямокутника(<b>x</b>, <b>y</b> - координати лівого верхнього кута; <b>w</b> - ширина, <b>h</b> - висота)</td>
+				<td align="center"><button onclick="c_clearRect()" title="button onclick=&quot;clearRect()&quot;>Подивитися результат">Подивитися результат</button></td>
+				<td width="45%">
+					<details>
+						<summary>Подивитися текст коду</summary>
+							<xmp>const canvas = document.getElementById("canvas");</xmp>
+							<xmp>const context = canvas.getContext("2d");</xmp>
+							<xmp>context.fillRect (10, 10, 100, 100);</xmp>
+							<xmp>context.clearRect (15, 15, 90, 90);</xmp>
+					</details>
+				</td>
+			</tr>
+			<tr>
+				<th colspan="4" align="center" id="A2">3. Задати властивості фігур</th>
+			</tr>
+			<tr>
+				<td><xmp>strokeStyle</xmp></td>
+				<td> - задати <u>колір ліній</u> чи контуру (у форматі rgb, rgba, #ХХХХХХ або словом)</td>
+				<td align="center"><button onclick="c_strokeStyle()" title="button onclick=&quot;strokeStyle()&quot;>Подивитися результат">Подивитися результат</button></td>
+				<td width="45%">
+					<details>
+						<summary>Подивитися текст коду</summary>
+							<xmp>const canvas = document.getElementById("canvas");</xmp>
+							<xmp>const context = canvas.getContext("2d");</xmp>
+							<xmp>context.strokeStyle = "#ff0000";</xmp>
+							<xmp>context.strokeRect (10, 10, 100, 100);</xmp>
+					</details>
+				</td>
+			</tr>
+			<tr>
+				<td><xmp>lineWidth</xmp></td>
+				<td> - задати <u>товщину лінії</u> (в пікселях)</td>
+				<td align="center"><button onclick="c_lineWidth()" title="button onclick=&quot;lineWidth()&quot;>Подивитися результат">Подивитися результат</button></td>
+				<td width="45%">
+					<details>
+						<summary>Подивитися текст коду</summary>
+							<xmp>const canvas = document.getElementById("canvas");</xmp>
+							<xmp>const context = canvas.getContext("2d");</xmp>
+							<xmp>context.fillStyle = "#c7ecee";</xmp>
+							<xmp>context.fillRect (10, 10, 100, 100);</xmp>
+							<xmp>context.strokeStyle = "#22a6b3";</xmp>
+							<xmp>context.lineWidth = 15.5;</xmp>
+							<xmp>context.strokeRect (10, 10, 100, 100);</xmp>
+					</details>
+				</td>
+			</tr>
+			<tr>
+				<td><xmp>setLineDash()</xmp></td>
+				<td> - як параметр приймає масив чисел, які встановлюють <u>відстані між лініями</u></td>
+				<td align="center"><button onclick="c_setLineDash()" title="button onclick=&quot;setLineDash()&quot;>Подивитися результат">Подивитися результат</button></td>
+				<td width="45%">
+					<details>
+						<summary>Подивитися текст коду</summary>
+							<xmp>const canvas = document.getElementById("canvas");</xmp>
+							<xmp>const context = canvas.getContext("2d");</xmp>
+							<xmp>context.strokeStyle = "red";</xmp>
+							<xmp>context.setLineDash([15,5]);</xmp>
+							<xmp>context.strokeRect(10, 10, 100, 100);</xmp>
+										
+							<xmp>context.strokeStyle = "blue";</xmp>
+							<xmp>context.setLineDash([2,5,6]);</xmp>
+							<xmp>context.strokeRect(130, 10, 100, 100);</xmp>
+										
+							<xmp>context.strokeStyle = "green";</xmp>
+							<xmp>context.setLineDash([2]);</xmp>
+							<xmp>context.strokeRect(250, 10, 100, 100);</xmp>
+					</details>
+				</td>
+			</tr>
+			<tr>
+				<td><xmp>lineJoin</xmp></td>
+				<td> - <u>тип з'єднання ліній</u> фігури: пряме, заокруглене або конічне</td>
+				<td align="center"><button onclick="c_lineJoin()" title="button onclick=&quot;lineJoin()&quot;>Подивитися результат">Подивитися результат</button></td>
+				<td width="45%">
+					<details>
+						<summary>Подивитися текст коду</summary>
+							<xmp>const canvas = document.getElementById("canvas");</xmp>
+							<xmp>const context = canvas.getContext("2d");</xmp>
+							<xmp>context.lineWidth = 20;</xmp>
+							<xmp>context.lineJoin = "miter";</xmp>
+							<xmp>context.strokeRect(10, 20, 100, 100);</xmp>
+							<xmp>context.lineJoin = "bevel";</xmp>
+							<xmp>context.strokeRect(140, 20, 100, 100);</xmp>
+							<xmp>context.lineJoin = "round";</xmp>
+							<xmp>context.strokeRect(270, 20, 100, 100);</xmp>
+					</details>
+				</td>
+			</tr>
+			<tr>
+				<td><xmp>fillStyle</xmp></td>
+				<td> - задати <u>колір заливки</u> фігури (у форматі rgb, rgba, #ХХХХХХ або словом)</td>
+				<td align="center"><button onclick="c_fillStyle()" title="button onclick=&quot;fillStyle()&quot;>Подивитися результат">Подивитися результат</button></td>
+				<td width="45%">
+					<details>
+						<summary>Подивитися текст коду</summary>
+							<xmp>const canvas = document.getElementById("canvas");</xmp>
+							<xmp>const context = canvas.getContext("2d");</xmp>
+							<xmp>context.fillStyle = "#ee5253";</xmp>
+							<xmp>context.fillRect (10, 10, 100, 100);</xmp>
+					</details>
+				</td>
+			</tr>
+			<tr>
+				<td><xmp>globalAlpha</xmp></td>
+				<td> - <u>прозорість заливки</u></td>
+				<td align="center"><button onclick="c_globalAlpha()" title="button onclick=&quot;globalAlpha()&quot;>Подивитися результат">Подивитися результат</button></td>
+				<td width="45%">
+					<details>
+						<summary>Подивитися текст коду</summary>
+							<xmp>const canvas = document.getElementById("canvas");</xmp>
+							<xmp>const context = canvas.getContext("2d");</xmp>
+							<xmp>context.fillStyle = "blue";</xmp>
+							<xmp>context.fillRect(50, 50, 100, 100);</xmp>
+							<xmp>context.globalAlpha = 0.5;</xmp>
+							<xmp>context.fillStyle = "red";</xmp>
+							<xmp>context.fillRect(100, 100, 100, 100);</xmp>
+					</details>
+				</td>
+			</tr>
+			<tr>
+				<td><xmp>createPattern()</xmp></td>
+				<td> - <u>заливка зображенням</u> фігури (<b>repeat</b> - повторення зображення, <b>repeat-x</b> - повторення по осі х, <b>repeat-y</b> - повторення по осі у, <b>no-repeat</b> - без повторення)</td>
+				<td align="center"><button onclick="c_createPatternRepeat()" title="button onclick=&quot;createPatternRepeat()&quot;>Подивитися результат">Подивитися результат</button></td>
+				<td width="45%">
+					<details>
+						<summary>Подивитися текст коду</summary>
+							<xmp>const canvas = document.getElementById("canvas");</xmp>
+							<xmp>const context = canvas.getContext("2d");</xmp>
+							<xmp>const img = new Image();</xmp>
+							<xmp>img.src = "./img/ap2.png";</xmp>
+							<br>
+							<xmp>img.onload = function() {</xmp>
+								<xmp>const pattern = context.createPattern(img, "repeat");</xmp>
+								<xmp>context.fillStyle = pattern;</xmp>
+								<xmp>context.fillRect(10, 10, 480, 280);</xmp>
+								<xmp>context.strokeRect(10, 10, 480, 280);</xmp>
+							<xmp>}</xmp>;
+					</details>
+				</td>
+			</tr>
+			<tr>
+				<td><xmp>createLinearGradient</xmp><xmp>(x0, y0, x1, y1)</xmp></td>
+				<td>
+					 - створення <u>лінійного градієнту</u> (<b>x0</b>, <b>y0</b> - початкові координати градієнта щодо верхнього лівого кута, <b>x1</b>, <b>y1</b> - відповідно кінцеві координати)<br>
+					<i>x0 = x1 - горизонтальний градієнт, y0 = y1 - вертикальний градієнт</i>
+					</td>
+				<td align="center" rowspan="2"><button onclick="c_createLinearGradient()" title="button onclick=&quot;createLinearGradient()&quot;>Подивитися результат">Подивитися результат</button></td>
+				<td width="45%" rowspan="2">
+					<details>
+						<summary>Подивитися текст коду</summary>
+							<xmp>const canvas = document.getElementById("canvas");</xmp>
+							<xmp>const context = canvas.getContext("2d");</xmp>
+							<br>
+							<xmp>const gradient = </xmp><xmp>context.createLinearGradient(10, 30, 150, 150);</xmp>
+							<xmp>gradient.addColorStop(0, "blue");</xmp>
+							<xmp>gradient.addColorStop(1, "yellow");</xmp>
+							<xmp>context.fillStyle = gradient;</xmp>
+							<xmp>context.fillRect(10, 30, 150, 150);</xmp>
+							<xmp>context.strokeRect(10, 30, 150, 150);</xmp>
+							<br>
+							<xmp>const gradient2 = </xmp><xmp>context.createLinearGradient(250, 30, 150, 150);</xmp>
+							<xmp>gradient2.addColorStop(0, "blue");</xmp>
+							<xmp>gradient2.addColorStop(0.3, "red");</xmp>
+							<xmp>gradient2.addColorStop(1, "yellow");</xmp>
+							<xmp>context.fillStyle = gradient2;</xmp>
+							<xmp>context.fillRect(170, 30, 150, 150);</xmp>
+							<xmp>context.strokeRect(170, 30, 150, 150);</xmp>
+					</details>
+				</td>
+			</tr>
+			<tr>
+				<td><xmp>addColorStop</xmp><xmp>(offset, color)</xmp></td>
+				<td> - задання опорних точок градієнту (<b>offset</b> - зміщення опорної точки градієнту, <b>color</b> - її колір)</td>
+			</tr>
+			<tr>
+				<td><xmp>createRadialGradient</xmp><xmp>(x0,y0,r0,x1,y1,r1)</xmp></td>
+				<td> - створення <u>радіального градієнту</u> (<b>x0</b>, <b>y0</b> - координати центру першого кола, <b>x1</b>, <b>y1</b> - координати центру другого кола, <b>r0</b>, <b>r1</b> - радіуси відповідно першого і другого кіл)</td>
+				<td align="center"><button onclick="c_createRadialGradient()" title="button onclick=&quot;createRadialGradient()&quot;>Подивитися результат">Подивитися результат</button></td>
+				<td width="45%">
+					<details>
+						<summary>Подивитися текст коду</summary>
+							<xmp>const canvas = document.getElementById("canvas");</xmp>
+							<xmp>const context = canvas.getContext("2d");</xmp>
+							<xmp>const gradient = context.createRadialGradient(120,100,100,120,100,30);</xmp>
+							<xmp>gradient.addColorStop(0, "blue");</xmp>
+							<xmp>gradient.addColorStop(1, "white");</xmp>
+							<xmp>context.fillStyle = gradient;</xmp>
+							<xmp>context.fillRect(50, 30, 150, 150);</xmp>
+							<xmp>context.strokeRect(50, 30, 150, 150);</xmp>
+					</details>
+				</td>
+			</tr>
+			<tr>
+				<td><xmp>shadowColor</xmp></td>
+				<td> - колір тіні</td>
+				<td align="center" rowspan="4"><button onclick="c_shadow()" title="button onclick=&quot;shadow()&quot;>Подивитися результат">Подивитися результат</button></td>
+				<td width="45%" rowspan="4">
+					<details>
+						<summary>Подивитися текст коду</summary>
+							<xmp>const canvas = document.getElementById("canvas");</xmp>
+							<xmp>const context = canvas.getContext("2d");</xmp>
+							<xmp>context.fillStyle = "#3498db";</xmp>
+							<xmp>context.shadowOffsetX = 10;</xmp>
+							<xmp>context.shadowOffsetY = 10;</xmp>
+							<xmp>context.shadowBlur = 10;</xmp>
+							<xmp>context.shadowColor = "#9999";</xmp>
+							<xmp>context.fillRect(10, 10, 200, 200);</xmp>
+					</details>
+				</td>
+			</tr>
+			<tr>
+				<td><xmp>shadowBlur</xmp></td>
+				<td> - число пікселів для встановлення розмиття тіні</td>
+			</tr>
+			<tr>
+				<td><xmp>shadowOffsetX</xmp></td>
+				<td> - горизонтальне зміщення в пікселях зліва або справа при від'ємному значенні</td>
+			</tr>
+			<tr>
+				<td><xmp>shadowOffsetY</xmp></td>
+				<td> - вертикальне зміщення в пікселях зверху або знизу при від'ємному значенні</td>
+			</tr>
+			<tr>
+				<th colspan="4" align="center" id="A3">4. Трансформації</th>
+			</tr>
+			<tr>
+				<td><xmp>translate(x, y)</xmp></td>
+				<td> - <u>переміщення</u> по осі <b>x</b> та <b>y</b> відносно поточного розташування (в пікселях)</td>
+				<td align="center"><button onclick="c_translate()" title="button onclick=&quot;translate()&quot;>Подивитися результат">Подивитися результат</button></td>
+				<td width="45%">
+					<details>
+						<summary>Подивитися текст коду</summary>
+							<xmp>const canvas = document.getElementById("canvas");</xmp>
+							<xmp>const context = canvas.getContext("2d");</xmp>
+							<xmp>context.fillStyle = "blue";</xmp>
+							<xmp>context.fillRect(100, 50, 100, 100);</xmp>
+							<xmp>context.globalAlpha = 0.5;</xmp>
+							<xmp>context.fillStyle = "red";</xmp>
+							<xmp>context.translate(50, 25);</xmp>
+							<xmp>context.fillRect(100, 50, 100, 100);</xmp>
+					</details>
+				</td>
+			</tr>
+			<tr>
+				<td><xmp>rotate(angle)</xmp></td>
+				<td> - <u>поворот</u> на заданий кут <b>angle</b> (в радіанах) відносно точки з координатами (0,0)</td>
+				<td align="center"><button onclick="c_rotate()" title="button onclick=&quot;rotate()&quot;>Подивитися результат">Подивитися результат</button></td>
+				<td width="45%">
+					<details>
+						<summary>Подивитися текст коду</summary>
+							<xmp>const canvas = document.getElementById("canvas");</xmp>
+							<xmp>const context = canvas.getContext("2d");</xmp>
+							<xmp>context.fillStyle = "blue";</xmp>
+							<xmp>context.fillRect(100, 50, 100, 100);</xmp>
+							<xmp>context.globalAlpha = 0.5;</xmp>
+							<xmp>context.fillStyle = "red";</xmp>
+							<xmp>context.rotate(.52); //поворот на 0.52 радіан або 30°</xmp>
+							<xmp>context.fillRect(100, 50, 100, 100);</xmp>
+					</details>
+				</td>
+			</tr>
+			<tr>
+				<td><xmp>scale(xScale, yScale)</xmp></td>
+				<td> - <u>розтягування</u> по осі х у <b>xScale</b> раз і по осі у у <b>уScale</b> разів</td>
+				<td align="center"><button onclick="c_scale()" title="button onclick=&quot;scale()&quot;>Подивитися результат">Подивитися результат</button></td>
+				<td width="45%">
+					<details>
+						<summary>Подивитися текст коду</summary>
+							<xmp>const canvas = document.getElementById("canvas");</xmp>
+							<xmp>const context = canvas.getContext("2d");</xmp>
+							<xmp>context.fillStyle = "blue";</xmp>
+							<xmp>context.fillRect(100, 50, 100, 100);</xmp>
+							<xmp>context.globalAlpha = 0.5;</xmp>
+							<xmp>context.fillStyle = "red";</xmp>
+							<xmp>context.scale(1.5, 1.5);</xmp>
+							<xmp>context.fillRect(100, 50, 100, 100);</xmp>
+					</details>
+				</td>
+			</tr>
+			<tr>
+				<td><xmp>transform(a,b,c,d,e,f)</xmp></td>
+				<td>
+					 - <u>матриця трансформацій</u>:<br>
+					  <b>a</b> - масштабування по осі Х<br>
+					  <b>b</b> - поворот навколо осі Х<br>
+					  <b>c</b> - поворот навколо осі У<br>
+					  <b>d</b> - масштабування по осі У<br>
+					  <b>e</b> - горизонтальне зміщення<br>
+					  <b>f</b> - вертикальне зміщення
+					</td>
+				<td align="center"  rowspan="2"><button onclick="c_transform()" title="button onclick=&quot;transform()&quot;>Подивитися результат">Подивитися результат</button></td>
+				<td width="45%"  rowspan="2">
+					<details>
+						<summary>Подивитися текст коду</summary>
+							<xmp>const canvas = document.getElementById("canvas");</xmp>
+							<xmp>const context = canvas.getContext("2d");</xmp>
+							<xmp>context.fillStyle = "blue";</xmp>
+							<xmp>context.fillRect(100, 50, 100, 100);</xmp>
+							<xmp>context.globalAlpha = 0.5;</xmp>
+							<xmp>context.fillStyle = "red";</xmp>
+							<xmp>context.transform(</xmp>  
+							<xmp>   Math.cos(Math.PI/6),</xmp>
+							<xmp>   Math.sin(Math.PI/6), -1 * Math.sin(Math.PI/6),</xmp>
+							<xmp>   Math.cos(Math.PI/6), 0, 0);</xmp>
+							<xmp>context.fillRect(100, 50, 100, 100);</xmp>
+					</details>
+				</td>
+			</tr>
+			<tr>
+				<td><xmp>setTransform(a,b,c,d,e,f)</xmp></td>
+				<td> - <u>заміна трансформацій</u> (параметри аналогічно transform)</td>
+			</tr>
+			<tr>
+				<td><xmp>resetTransform()</xmp></td>
+				<td> - <u>скидання трансформацій</u> для наступних фігур</td>
+				<td align="center"><button onclick="c_resetTransform()" title="button onclick=&quot;resetTransform()&quot;>Подивитися результат">Подивитися результат</button></td>
+				<td width="45%">
+					<details>
+						<summary>Подивитися текст коду</summary>
+							<xmp>const canvas = document.getElementById("canvas");</xmp>
+							<xmp>const context = canvas.getContext("2d");</xmp>
+							<xmp>context.fillStyle = "blue";</xmp>
+							<xmp>context.fillRect(100, 50, 100, 100);</xmp>
+							<xmp>context.globalAlpha = 0.5;</xmp>
+							<xmp>context.fillStyle = "red";</xmp>
+							<xmp>context.translate(50, 25);</xmp>
+							<xmp>context.fillRect(100, 50, 100, 100);</xmp>
+							<xmp>context.fillStyle = "green";</xmp>
+							<xmp>context.resetTransform();</xmp>
+							<xmp>context.fillRect(0, 10, 100, 100);</xmp>
+					</details>
+				</td>
+			</tr>
+			<tr>
+				<th colspan="4" align="center" id="A4">Довільні фігури та лінії</th>
+			</tr>
+			<tr>
+				<td><xmp>1| beginPath()</xmp></td>
+				<td> - ініціація початку шляху</td>
+				<td align="center" rowspan="4"><button onclick="c_beginPath()" title="button onclick=&quot;beginPath()&quot;>Подивитися результат">Подивитися результат</button></td>
+				<td width="45%" rowspan="4">
+					<details>
+						<summary>Подивитися текст коду</summary>
+							<xmp>const canvas = document.getElementById("canvas");</xmp>
+							<xmp>const context = canvas.getContext("2d");</xmp>
+							<xmp>context.beginPath();</xmp>
+							<xmp>context.moveTo(20, 100);</xmp>
+							<xmp>context.lineTo(140, 10);</xmp>
+							<xmp>context.lineTo(260, 100);</xmp>
+							<xmp>context.stroke();</xmp>
+					</details>
+				</td>
+			</tr>
+			<tr>
+				<td><xmp>2| moveTo(x, y)</xmp></td>
+				<td> - задання початкової точки з координатами х та у</td>
+			</tr>
+			<tr>
+				<td><xmp>3| lineTo(x, y)</xmp></td>
+				<td> - провести лінію від заданої точки до точки з координатами х та у</td>
+			</tr>
+			<tr>
+				<td><xmp>4| stroke()</xmp></td>
+				<td> - відобразити результат на екрані</td>
+			</tr>
+			<tr>
+				<td><xmp>closePath()</xmp></td>
+				<td> - <u>замикання</u> шляху</td>
+				<td align="center"><button onclick="c_closePath()" title="button onclick=&quot;closePath&quot;>Подивитися результат">Подивитися результат</button></td>
+				<td width="45%">
+					<details>
+						<summary>Подивитися текст коду</summary>
+							<xmp>const canvas = document.getElementById("canvas");</xmp>
+							<xmp>const context = canvas.getContext("2d");</xmp>
+							<xmp>context.beginPath();</xmp>
+							<xmp>context.moveTo(20, 100);</xmp>
+							<xmp>context.lineTo(140, 10);</xmp>
+							<xmp>context.lineTo(260, 100);</xmp>
+							<xmp>context.closePath();</xmp>
+							<xmp>context.stroke();</xmp>
+					</details>
+				</td>
+			</tr>
+			<tr>
+				<td><xmp>Path2D</xmp></td>
+				<td> - <u>об'єкт</u>, що використовується для розмежування шляхів</td>
+				<td align="center"><button onclick="c_path()" title="button onclick=&quot;path&quot;>Подивитися результат">Подивитися результат</button></td>
+				<td width="45%">
+					<details>
+						<summary>Подивитися текст коду</summary>
+							<xmp>const canvas = document.getElementById("canvas");</xmp>
+							<xmp>const context = canvas.getContext("2d");</xmp>
+							<xmp>context.beginPath();</xmp>
+							<br>
+							<xmp>const path1 = new Path2D();</xmp>
+							<xmp>path1.moveTo(20, 100);</xmp>
+							<xmp>path1.lineTo(140, 10);</xmp>
+							<xmp>path1.lineTo(260, 100);</xmp>
+							<xmp>path1.closePath();</xmp>
+							<xmp>context.strokeStyle = "blue";</xmp>
+							<xmp>context.stroke(path1);</xmp>
+							<br>
+							<xmp>const path2 = new Path2D();</xmp>
+							<xmp>path2.moveTo(20, 110);</xmp>
+							<xmp>path2.lineTo(140, 200);</xmp>
+							<xmp>path2.lineTo(260, 110);</xmp>
+							<xmp>path2.closePath();</xmp>
+							<xmp>context.strokeStyle = "red";</xmp>
+							<xmp>context.stroke(path2);</xmp>
+					</details>
+				</td>
+			</tr>
+			<tr>
+				<td><xmp>fill()</xmp></td>
+				<td> - <u>заливка</u> замкнутого шляху</td>
+				<td align="center"><button onclick="c_fill()" title="button onclick=&quot;fill()&quot;>Подивитися результат">Подивитися результат</button></td>
+				<td width="45%">
+					<details>
+						<summary>Подивитися текст коду</summary>
+							<xmp>const canvas = document.getElementById("canvas");</xmp>
+							<xmp>const context = canvas.getContext("2d");</xmp>
+							<xmp>context.beginPath();</xmp>
+							<xmp>context.moveTo(20, 100);</xmp>
+							<xmp>context.lineTo(140, 10);</xmp>
+							<xmp>context.lineTo(260, 100);</xmp>
+							<xmp>context.closePath();</xmp>
+							<xmp>context.fill();</xmp>
+							<xmp>context.stroke();</xmp>
+					</details>
+				</td>
+			</tr>
+			<tr>
+				<td><xmp>clip()</xmp></td>
+				<td> - <u>обрізання</u> всього, що виходить за межі попереднього об'єкту</td>
+				<td align="center"><button onclick="c_clip()" title="button onclick=&quot;clip()&quot;>Подивитися результат">Подивитися результат</button></td>
+				<td width="45%">
+					<details>
+						<summary>Подивитися текст коду</summary>
+							<xmp>const canvas = document.getElementById("canvas");</xmp>
+							<xmp>const context = canvas.getContext("2d");</xmp>
+							<br>
+							<xmp>context.beginPath();</xmp>
+							<xmp>context.rect (10, 10, 100, 100);</xmp>
+							<xmp>context.clip();</xmp>
+							<br>
+							<xmp>context.moveTo(20, 100);</xmp>
+							<xmp>context.lineTo(140, 10);</xmp>
+							<xmp>context.lineTo(260, 100);</xmp>
+							<xmp>context.closePath();</xmp>
+							<xmp>context.stroke();</xmp>
+					</details>
+				</td>
+			</tr>
+			<tr>
+				<td><xmp>rect(x, y, w, h)</xmp></td>
+				<td> - малює <u>прямокутник</u>(<b>x</b>, <b>y</b> - координати лівого верхнього кута; <b>w</b> - ширина, <b>h</b> - висота)</td>
+				<td align="center"><button onclick="c_rect()" title="button onclick=&quot;rect()&quot;>Подивитися результат">Подивитися результат</button></td>
+				<td width="45%">
+					<details>
+						<summary>Подивитися текст коду</summary>
+							<xmp>const canvas = document.getElementById("canvas");</xmp>
+							<xmp>const context = canvas.getContext("2d");</xmp>
+							<xmp>context.beginPath();</xmp>
+							<xmp>context.rect (10, 10, 100, 100);</xmp>
+							<xmp>context.stroke();</xmp>
+					</details>
+				</td>
+			</tr>
+			<tr>
+				<td><xmp>arc(x, y, r, start,</xmp><xmp>end, clockwise)</xmp></td>
+				<td>
+					 - малює <u>коло</u> або <u>сегмент кола</u>
+					 <br>(<b>x</b>, <b>y</b> - координати центру,
+					 <br><b>r</b> - радіус,
+					 <br><b>start</b> - початковий кут,
+					 <br><b>end</b> - кінцевий кут,
+					 <br><b>clockwise</b> - true = проти часової стрілки або false = за часовою)</td>
+				<td align="center"><button onclick="c_arc()" title="button onclick=&quot;arc()&quot;>Подивитися результат">Подивитися результат</button></td>
+				<td width="45%">
+					<details>
+						<summary>Подивитися текст коду</summary>
+							<xmp>const canvas = document.getElementById("canvas");</xmp>
+							<xmp>const context = canvas.getContext("2d");</xmp>
+							<xmp>context.beginPath();</xmp>
+							<xmp>context.moveTo(20, 90);</xmp>
+							<xmp>context.arc(20, 90, 50, 0, Math.PI/2, false);</xmp>
+							<xmp>context.closePath();</xmp>
+							<xmp>context.stroke();</xmp>
+					</details>
+				</td>
+			</tr>
+			<tr>
+				<td><xmp>arcTo(x1, y1,</xmp><xmp>x2, y2, r)</xmp></td>
+				<td> - малює <u>дугу</u> (<b>x1</b>, <b>y1</b> - координати початкової точки, <b>x2</b>, <b>y2</b> - координати кінцевої точки, <b>r</b> - радіус)</td>
+				<td align="center"><button onclick="c_arcTo()" title="button onclick=&quot;arcTo()&quot;>Подивитися результат">Подивитися результат</button></td>
+				<td width="45%">
+					<details>
+						<summary>Подивитися текст коду</summary>
+							<xmp>const canvas = document.getElementById("canvas");</xmp>
+							<xmp>const context = canvas.getContext("2d");</xmp>
+							<xmp>context.beginPath();</xmp>
+							<xmp>context.moveTo(10, 150);</xmp>
+							<xmp>context.arcTo(10, 10, 150, 10, 140);</xmp>
+							<xmp>context.closePath();</xmp>
+							<xmp>context.stroke();</xmp>
+					</details>
+				</td>
+			</tr>
+			<tr>
+				<td><xmp>quadraticCurveTo</xmp><xmp>(x1, y1, x2, y2)</xmp></td>
+				<td> - малює <u>квадратичну криву</u> (<b>x1</b>, <b>y1</b> - координати початкової точки, <b>x2</b>, <b>y2</b> - координати кінцевої точки)</td>
+				<td align="center"><button onclick="c_quadraticCurveTo()" title="button onclick=&quot;quadraticCurveTo()&quot;>Подивитися результат">Подивитися результат</button></td>
+				<td width="45%">
+					<details>
+						<summary>Подивитися текст коду</summary>
+							<xmp>const canvas = document.getElementById("canvas");</xmp>
+							<xmp>const context = canvas.getContext("2d");</xmp>
+							<xmp>context.beginPath();</xmp>
+							<xmp>context.moveTo(10, 150);</xmp>
+							<xmp>context.quadraticCurveTo(10, 10, 150, 10);</xmp>
+							<xmp>context.closePath();</xmp>
+							<xmp>context.stroke();</xmp>
+					</details>
+				</td>
+			</tr>
+			<tr>
+				<td><xmp>bezierCurveTo(x1, y1,</xmp><xmp> x2, y2, x3, y3)</xmp></td>
+				<td> - малює <u>криву Безьє</u> із заданням координат трьох опорних точок (<b>x</b> та <b>y</b>)</td>
+				<td align="center"><button onclick="c_bezierCurveTo()" title="button onclick=&quot;bezierCurveTo()&quot;>Подивитися результат">Подивитися результат</button></td>
+				<td width="45%">
+					<details>
+						<summary>Подивитися текст коду</summary>
+							<xmp>const canvas = document.getElementById("canvas");</xmp>
+							<xmp>const context = canvas.getContext("2d");</xmp>
+							<xmp>context.beginPath();</xmp>
+							<xmp>context.moveTo(30, 100);</xmp>
+							<xmp>context.bezierCurveTo(110, 0, 190, 200, 270, 100);</xmp>
+							<xmp>context.closePath();</xmp>
+							<xmp>context.stroke();</xmp>
+					</details>
+				</td>
+			</tr>
+			<tr>
+				<th colspan="4" align="center" id="A5">Текст</th>
+			</tr>
+			<tr>
+				<td><xmp>fillText(text, x, y)</xmp></td>
+				<td> - виведення тексту із заливкою (<b>text</b> - заданий текст, <b>x</b>, <b>y</b> - координати лівої верхньої точки об'єкту)</td>
+				<td align="center"><button onclick="c_fillText()" title="button onclick=&quot;fillText()&quot;>Подивитися результат">Подивитися результат</button></td>
+				<td width="45%">
+					<details>
+						<summary>Подивитися текст коду</summary>
+							<xmp>const canvas = document.getElementById("canvas");</xmp>
+							<xmp>const context = canvas.getContext("2d");</xmp>
+							<xmp>context.font = "30px Verdana";</xmp>
+							<xmp>context.fillStyle = "navy";</xmp>
+							<xmp>context.fillText("Hello world!", 20, 50);</xmp>
+					</details>
+				</td>
+			</tr>
+			<tr>
+				<td><xmp>strokeText(text, x, y)</xmp></td>
+				<td> - виведення тексту із контуром (<b>text</b> - заданий текст, <b>x</b>, <b>y</b> - координати лівої верхньої точки об'єкту)</td>
+				<td align="center"><button onclick="c_strokeText()" title="button onclick=&quot;strokeText()&quot;>Подивитися результат">Подивитися результат</button></td>
+				<td width="45%">
+					<details>
+						<summary>Подивитися текст коду</summary>
+							<xmp>const canvas = document.getElementById("canvas");</xmp>
+							<xmp>const context = canvas.getContext("2d");</xmp>
+							<xmp>context.font = "30px Verdana";</xmp>
+							<xmp>context.strokeStyle = "navy";</xmp>
+							<xmp>context.strokeText("Hello world!", 20, 50);</xmp>
+					</details>
+				</td>
+			</tr>
+			<tr>
+				<td><xmp>textAlign</xmp></td>
+				<td> - вирівнювання по горизонталі (left, right, center, start, end)</td>
+				<td align="center"><button onclick="c_textAlign()" title="button onclick=&quot;textAlign()&quot;>Подивитися результат">Подивитися результат</button></td>
+				<td width="45%">
+					<details>
+						<summary>Подивитися текст коду</summary>
+							<xmp>const canvas = document.getElementById("canvas");</xmp>
+							<xmp>const context = canvas.getContext("2d");</xmp>
+							<xmp>context.font = "22px Verdana";</xmp>
+							<xmp>context.textAlign = "right";</xmp>
+							<xmp>context.fillText("Right Text", 120, 30);</xmp>
+							<xmp>context.textAlign = "left";</xmp>
+							<xmp>context.fillText("Left Text", 120, 60);</xmp>
+							<xmp>context.textAlign = "center";</xmp>
+							<xmp>context.fillText("Center Text", 120, 90);</xmp>
+							<xmp>context.textAlign = "start";</xmp>
+							<xmp>context.fillText("Start Text", 120, 120);</xmp>
+							<xmp>context.textAlign = "end";</xmp>
+							<xmp>context.fillText("End Text", 120, 150);</xmp>
+					</details>
+				</td>
+			</tr>
+			<tr>
+				<td><xmp>textBaseline</xmp></td>
+				<td> - вирівнювання по вертикалі (top, bottom, middle, alphabetic, hanging)</td>
+				<td align="center"><button onclick="c_textBaseline()" title="button onclick=&quot;textBaseline()&quot;>Подивитися результат">Подивитися результат</button></td>
+				<td width="45%">
+					<details>
+						<summary>Подивитися текст коду</summary>
+							<xmp>const canvas = document.getElementById("canvas");</xmp>
+							<xmp>const context = canvas.getContext("2d");</xmp>
+							<xmp>context.font = "22px Verdana";</xmp>
+							<xmp>context.textBaseline="top";</xmp>
+							<xmp>context.fillText("Top",10,100);</xmp>
+							<xmp>context.textBaseline="bottom";</xmp>
+							<xmp>context.fillText("Bottom",45,100);</xmp>
+							<xmp>context.textBaseline="middle";</xmp>
+							<xmp>context.fillText("Middle",130,100);</xmp>
+							<xmp>context.textBaseline="alphabetic";</xmp>
+							<xmp>context.fillText("Alphabetic",205,100);</xmp>
+							<xmp>context.textBaseline="hanging";</xmp>
+							<xmp>context.fillText("Hanging",320,100);</xmp>
+					</details>
+				</td>
+			</tr>
+			<tr>
+				<td><xmp>measureText()</xmp></td>
+				<td> - виведення ширини тексту</td>
+				<td align="center"><button onclick="c_measureText()" title="button onclick=&quot;measureText()&quot;>Подивитися результат">Подивитися результат</button></td>
+				<td width="45%">
+					<details>
+						<summary>Подивитися текст коду</summary>
+							<xmp>const canvas = document.getElementById("canvas");</xmp>
+							<xmp>const context = canvas.getContext("2d");</xmp>
+							<xmp>context.font = "14px Verdana";</xmp>
+							<xmp>const text = context.measureText("Hello world!");</xmp>
+							<xmp>let value = "Ширина тексту = " + text.width;</xmp>
+							<xmp>context.fillText(value, 20, 50);</xmp>
+					</details>
+				</td>
+			</tr>
+		</table>
+
+
+		<table border="1" width="48%" style="position: fixed; top: 128px; right: 40px;">
+			<tr>
+				<th align="center" colspan="4">1. Необхідно визначити елемент &lt;canvas&gt; на веб-сторінці:</th>
+			</tr>
+			<tr>
+				<td align="center" colspan="4"><canvas id="canvas" width="500px" height="300px" style="border: solid 1px gray; margin: 5px;"></canvas></td>
+			</tr>
+			<tr>
+				<td align="center" colspan="4"><xmp><canvas id="canvas" width="500px" height="300px"></canvas></xmp></td>
+			</tr>
+			<tr>
+				<td colspan="4"><div align="center"><button onclick="c_basic()">Встановити властивості за замовчуванням</button></div>
+					<details>
+						<summary>Подивитися текст коду</summary>
+							<xmp>const canvas = document.getElementById("canvas");</xmp>
+							<xmp>const context = canvas.getContext("2d");</xmp>
+							<xmp>context.restore();</xmp>
+							<xmp>context.strokeStyle = "black";</xmp>
+							<xmp>context.fillStyle = "black";</xmp>
+							<xmp>context.lineWidth = 1.0;</xmp>
+							<xmp>context.setLineDash([]);</xmp>
+							<xmp>context.globalAlpha = 1.0;</xmp>
+							<xmp>context.shadowOffsetX = 0;</xmp>
+							<xmp>context.shadowOffsetY = 0;</xmp>
+							<xmp>context.shadowBlur = 0;</xmp>
+							<xmp>context.clearRect(0, 0, 500, 300);</xmp>
+					</details>
+				</td>
+			</tr>
+			<tr>
+				<th colspan="4" align="center">Скидання стану</th>
+			</tr>
+			<tr>
+				<td><xmp>save()</xmp></td>
+				<td> - збереження стану об'єкту Canvas, застосовувати перед зміною властивостей фігури</td>
+				<td align="center" rowspan="2"><button onclick="c_saveRestore()" title="button onclick=&quot;saveRestore()&quot;>Подивитися результат">Подивитися результат</button></td>
+				<td width="45%" rowspan="2">
+					<details>
+						<summary>Подивитися текст коду</summary>
+							<xmp>const canvas = document.getElementById("canvas");</xmp>
+							<xmp>const context = canvas.getContext("2d");</xmp>
+							<xmp>context.clearRect(0, 0, 500, 300);</xmp>
+							<xmp>context.save();</xmp>
+							<xmp>context.strokeStyle = "#ff0000";</xmp>
+							<xmp>context.strokeRect (10, 10, 100, 100);</xmp>
+							<xmp>context.restore();</xmp>
+							<xmp>context.strokeRect (20, 20, 110, 110);</xmp>
+					</details>
+				</td>
+			</tr>
+			<tr>
+				<td><xmp>restore()</xmp></td>
+				<td> - відновлення попередньо збереженого стану фігури</td>
+			</tr>
+		</table>
+
+	
+	</div>	
+	<p>&nbsp;</p>
+	<footer>По матеріалам сайту <a href="https://metanit.com/web/javascript/21.1.php">metanit.com</a></footer>
+
+</body>
+</html>

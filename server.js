@@ -1,25 +1,26 @@
-import express from 'express';          // для створення серверу
-import mongoose from 'mongoose';        // для роботи з БД
-import 'dotenv/config';                 // для зони видиості змінних глобального оточення (.env)
+//============   1 - імпортувати бібліотеки  ===================
+import express from 'express';          //для створення серверу	
+import mongoose from 'mongoose';        //для роботи з БД
+import 'dotenv/config';                 //для зони видиості змінних глобального оточення (.env)
 import session from 'express-session';
 import bcrypt from 'bcryptjs';
 import cors from 'cors';
 
 //============   2 - об'явити змінні  ===========================
 const port = process.env.PORT || 3000;
-const dbURI = process.env.MONGO_URI;  // використовується тільки одна змінна для підключення до БД
+const db_url = process.env.DB_URL;
 // Для роботи зі шляхами:
-const path = await import('path');
+const path = await import('path'); 
 import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 //============   3 - ініціалізація серверу  =====================
-const app = express();
+const app = express();              
 
 //============   допоміжні функції бібліотек ====================
-app.use(express.urlencoded({extended:true, limit: '10mb' })); //middleware для обробки form-urlencoded (дані форми)
-app.use(express.json({limit: '10mb'}));// Додає підтримку JSON, дозволяє приймати тіла запитів розміром до 10 мегабай
+app.use(express.urlencoded({extended:true})); //middleware для обробки form-urlencoded (дані форми)
+app.use(express.json());// Додає підтримку JSON
 app.use(cors());
 
 //============   підключення БД =================================
@@ -28,9 +29,8 @@ const options = {
   socketTimeoutMS: 45000,
 };
 
-mongoose.connect(dbURI, options)
-  .then(() => console.log('Database connected'))
-  .catch(err => console.error('Database connection error:', err));
+mongoose.connect(db_url, options).then(() => console.log('Database connected'))
+.catch(err => console.error('Database connection error:', err));
 
 //============   Налаштування сесій для логіну   ================
 app.use(session({
@@ -44,7 +44,8 @@ app.use(session({
 /*------------------- ГОЛОВНА СТОРІНКА -----------------------*/
 /*------------------------------------------------------------*/
 app.use("/public", express.static(path.join(__dirname, "public")));  //головна сторінка статична
-app.use("/shpory", express.static(path.join(__dirname, "shpory")));  //шпори сторінка статична
+app.use("/shpory", express.static(path.join(__dirname, "shpory")));  //шпори по веб сторінка статична
+app.use("/electronix", express.static(path.join(__dirname, "electronix")));  //шпори по електроніці сторінка статична
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '/public/index.html'));
 });

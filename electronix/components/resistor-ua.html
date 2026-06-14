@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Резистор</title>
+	<link rel="stylesheet" type="text/css" href="../css/componentsStyle.css">
+</head>
+<body>
+	<div id="content">
+		<img src="https://images.theengineeringprojects.com/image/main/2018/01/Introduction-to-Resistors-0.png" width="200px" style="float: right;">
+		<font size="6"><center>Резистор</center></font>
+		<nav>Розділи: <a href="#A1">Класифікація за призначенням</a> | <a href="#A2">Класифікація за конструкцією</a> | <a href="#A3">Властивості резисторів</a> | <a href="#A4">Узагальнені діапазони параметрів різних типів резисторів</a> | <a href="#A5">Швидкий вибір резистора під задачу</a></nav>
+		<table border="1">
+			<tr>
+				<th colspan="4" id="A1">Класифікація за призначенням</th>
+			</tr>
+			<tr>
+				<td><xmp>Резистори загального призначення</xmp></td>
+				<td>використовуються в більшості електронних схем</td>
+				<td>дешеві та компактні, підходять для нормальних умов</td>
+				<td>найчастіше вивідні (THT) або SMD Thick Film, рідше - вуглецеві плівкові (С1)</td>
+			</tr>
+			<tr>
+				<td><xmp>Прецизійні</xmp></td>
+				<td>використовуються у ADC/DAC, медична техніка, вимірювальні прилади, калібратори</td>
+				<td>висока точність і стабільність параметрів</td>
+				<td>Thin Film, Metal Film (С2), Metal Foil (наприклад, серія МЛК)</td>
+			</tr>
+			<tr>
+				<td><xmp>Високовольтні</xmp> <img src="https://image.made-in-china.com/365f3j00bovchPudAkzH/12W-35K-60K-100K-1-High-Voltage-Resistor.webp" width="70px"></td>
+				<td>для роботи при великих напругах</td>
+				<td>мають довгий корпус і спеціальну ізоляцію</td>
+				<td>Об’ємні композиційні (С4), спеціальні Thick Film HV, іноді — wirewound</td>
+			</tr>
+			<tr>
+				<td><xmp>Високомегаомні</xmp></td>
+				<td>використовуються у електрометрах, дозиметрах, фотопомножувачах, високочутливих датчиках</td>
+				<td>дуже великі опори (МОм–ГОм)</td>
+				<td>Об’ємні композиційні (С4), спеціальні Thin Film HV, Metal Glaze</td>
+			</tr>
+			<tr>
+				<td><xmp>Високочастотні (ВЧ)</xmp></td>
+				<td>для роботи на високих частотах (мінімальна паразитна індуктивність)</td>
+				<td>використовуються у Wi-Fi, Bluetooth, LTE/5G, радарах, антенах</td>
+				<td>Thin Film RF, С6 (СВЧ), спеціальні non-inductive</td>
+			</tr>
+			<tr>
+				<td><xmp>Потужні (навантажувальні, HLF)</xmp></td>
+				<td>для розсіювання великої потужності</td>
+				<td>використовуються у блоках живлення, гальмівних системах, електроприводах, dummy load</td>
+				<td>Wirewound (С5), цементні, metal strip, power thick film</td>
+			</tr>
+			<tr>
+				<td rowspan="3"><xmp>Термістор (NTC/PTC)</xmp> <img src="https://www.electricaltechnology.org/wp-content/uploads/2021/11/What-is-a-Thermistor-Types-of-Thermistors-Construction-and-Applications.jpg" width="200px"><img src="https://electricalacademia.com/wp-content/uploads/2024/05/word-image-22962-1.png" height="60px"></td>
+				<td rowspan="3">опір залежить від температури, але залежність експонційна і схильність до самонагріву</td>
+				<td>NTC -  після нагріву R падає, використовуються в датчиках температури, для компенсації температури, при вимірюванні батарей</td>
+				<td>маленька "крапля", диск або SMD </td>
+			</tr>
+			<tr>
+				<td>NTC inrush current limiter - при холодному старті мають високий R і обмежують струм, після нагріву R падає</td>
+				<td><img src="https://i.ebayimg.com/images/g/19oAAOSwtnpXi49C/s-l1200.jpg" width="70px"></td>
+			</tr>
+			<tr>
+				<td>PTC - після нагріву R зростає, використовуються у самовідновлюваних запобіжниках, для захисту двигунів</td>
+				<td>жовті "таблетки", resettable fuse <img src="https://www.mamuteeletronica.com.br/media/catalog/product/cache/ff61517d26ace703648229d56c081b52/f/7/f75e9d5924e2e6658a39e53b55e3a635_1.jpg" width="70px"> <img src="https://www.codico.com/media/economix/ip/resized/240x_ext_714a8ed_PTC__NTC__Polymer-PTC_c_THINKING.png" width="70px"></td>
+			</tr>
+			<tr>
+				<td><xmp>Варистор</xmp> <img src="https://www.ariat-tech.com/upfile/images/ab/20251224085619895.png" width="70px"> <img src="https://www.ariat-tech.com/upfile/images/90/20251224085645376.png" height="60px"></td>
+				<td>дуже великий опір при нормальній напрузі, при перенапрузі опір різко падає<br>при імпульсі "замикають" перенапругу і поглинають енергію<br>деградація після імпульсів, можуть зруйнуватися від імпульсу, мають ємність</td>
+				<td>використовуються у мережевих фільтрах, блоках живлення, Automotive, промислова техніка</td>
+				<td>сині або помаранчеві диски, часто стоять біля входу живлення<br>на практиці заміняють TVS-діодами</td>
+			</tr>
+			<tr>
+				<td><xmp>Фоторезистор (LDR)</xmp> <img src="https://vseplus.com/images/p/full/672529a.jpg" width="70px"> <img src="https://startingelectronics.org/beginners/components/LDR-photoresistor/LDR-photoresistor-symbol.png" height="40px"></td>
+				<td>опір залежить від освітлення (чим більше світла тим менше опір)<br>дуже інерційні, нелінійні і мають обмежений діапазон<br>основний параметр - Light Resistance Ratio</td>
+				<td>використовуються у автоматичному освітленні, у простих датчиках</td>
+				<td>круглий корпус, зверху "змійка"-провідник, прозоре вікно<br>на практиці частіше заміняють фотодіодами</td>
+			</tr>
+			<tr>
+				<td rowspan="3"><xmp>Магніторезистор</xmp></td>
+				<td><b>AMR</b> — Anisotropic Magnetoresistance - опір залежить від напрямку магнітного поля і струму в колі<br>Magnetoresistance Ratio: MR=(​R(H)−R0)/R0​​</td>
+				<td>використовуються у компасах, простих датчиках положення, automotive</td>
+				<td>прості, дешеві і стабільні, але мають невелику чутливість</td>
+			</tr>
+			<tr>
+				<td><b>GMR</b> — Giant Magnetoresistance — опір залежить від швидкості руху електронів крізь резистивні шари<br>Magnetoresistance Ratio: MR=(​R(H)−R0)/R0​​</td>
+				<td>використовуються у енкодерах, датчиках струму, automotive</td>
+				<td>зміна опору на десятки % більша, ніж у AMR, більш чутливі і швидкі, але більш дорожчі</td>
+			</tr>
+			<tr>
+				<td><b>TMR</b> — Tunnel Magnetoresistance — опір залежить від частоти тунельного ефекту крізь ізолятор: якщо магнітні поля одного напрямку, то електрони проходять частіше<br>Magnetoresistance Ratio: MR=(​R(H)−R0)/R0​​</td>
+				<td>використовуються у сучаних енкодерах, дуже точних датчиках, MRAM (магніторезистивна оперативна пам'ять)</td>
+				<td>мають дуже високу чутливість, точність і мале споживання, але складні у виробництві і дорожчі</td>
+			</tr>
+			<tr>
+				<td><xmp>Газорезистор</xmp></td>
+				<td>опір змінюється через адсорбцію газу<br>основний параметр - Sensitivity Ratio</td>
+				<td></td>
+				<td>в якості альтернативи використовують NDIR (точність) або електрохімічні датчики (селективність)</td>
+			</tr>
+			<tr>
+				<td><xmp>Гігроскопічний резистор</xmp>(Humidity Resistor)</td>
+				<td>опір залежить від вологості<br>основний параметр - RH Sensitivity</td>
+				<td></td>
+				<td>в якості альтернативи використовують ємнісні датчики (стабільніші)</td>
+			</tr>
+			<tr>
+				<td><xmp>П’єзорезистор</xmp></td>
+				<td>опір змінюється через механічний тиск у напівпровіднику (Piezoresistive Coefficient)</td>
+				<td></td>
+				<td>в якості альтернативи використовують ємнісні MEMS (менший дрейф)</td>
+			</tr>
+			<tr>
+				<td><xmp>Тензорезистор</xmp></td>
+				<td>опір змінюється при деформації (при розтягуванні провідник стає довшим і тоншим)<br>основний параметр - Gauge Factor (GF): GF=(ΔR/R)/ε, де ε - відносна деформація​</td>
+				<td>використовуються у вагах, датчиках сили, тиску<br>в якості альтернативи використовують MEMS-сенсори (компактна електроніка) або п'єзодатчики (динамічні навантаження)</td>
+				<td>тонка металева фольга або "змійка" на полімерній плівці</td>
+			</tr>
+		</table>
+
+		<table border="1">
+			<tr>
+				<th colspan="4" id="A2">Класифікація за конструкцією</th>
+			</tr>
+			<tr>
+				<td><xmp>С1 - Вуглецевий плівковий</xmp><img src="https://mm.digikey.com/Volume0/opasdata/d220001/derivates/1/300/330/892/3%2C3-Ohm-5%25-Axial-RSF_sml.jpg" width="70px"></td>
+				<td>нанесення провідної плівки на діелектрик, опір регулюється прорізанням (спіраллю)</td>
+				<td>низька вартість</td>
+				<td>найчастіше вивідні (THT) або SMD</td>
+			</tr>
+			<tr>
+				<td><xmp>С2 - Металоплівковий (Metal Film)</xmp> <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTS_XmZbbCqcEo1w6Mf2YVaZGMDh00OcXFOmw&s" width="70px"></td>
+				<td>металоплівкове напилення → висока точність</td>
+				<td>краща стабільність у порівнянні із С1</td>
+				<td>найчастіше вивідні (THT) або SMD</td>
+			</tr>
+			<tr>
+				<td><xmp>С3 - Композиційний</xmp></td>
+				<td>нанесення провідної плівки на діелектрик, опір регулюється прорізанням (спіраллю)</td>
+				<td></td>
+				<td>Найчастіше змінні</td>
+			</tr>
+			<tr>
+				<td><xmp>С4 - Об’ємний композиційний</xmp></td>
+				<td>провідний матеріал змішаний з діелектриком (об’ємна структура)</td>
+				<td></td>
+				<td>Великий і потужний</td>
+			</tr>
+			<tr>
+				<td><xmp>С5 - Дротяний (Wirewound)</xmp> <img src="https://5.imimg.com/data5/SELLER/Default/2024/10/460295252/AL/FT/SW/21614932/5-w-power-resistors-wirewound-cement-filled-ceramic-wirewound-resistors-through-hole.jpg" width="70px"><img src="https://res.cloudinary.com/rsc/image/upload/b_rgb:FFFFFF,c_pad,dpr_2.625,f_auto,h_214,q_auto,w_380/c_pad,h_214,w_380/F6830983-01?pgw=1" height="60px"></td>
+				<td>намотування дроту з високим опором на каркас</td>
+				<td>До ~10 кГц, добре витримують потужність і відводять тепло, але мають індуктивність</td>
+				<td>Великі, керамічні або "цементні" корпуси, потужність вказана прямо на корпусі<br>
+					використовуються у блоках живлення, нагрівачах, гальмівні резистори, навантаження
+				</td>
+			</tr>
+			<tr>
+				<td><xmp>С6 - СВЧ (мікрохвильові)</xmp> <img src="https://www.ttelectronics.com/TTElectronics/media/ProductImages/resistors/C.jpg" width="70px"></td>
+				<td>з метою мінімізації паразитичних індуктивності та ємності роблять максимально плоску геометрію та короткий струмовий шлях</td>
+				<td>мають малу паразитичну індуктивність і низький імпеданс (Z=R+jX)</td>
+				<td>схожі на SMD, різницю можна дізнатися в даташиті (RF resistor, microwave resistor, low inductance)<br>
+					використовуються у антенах, Wi-Fi, Bluetooth, LTE/5G, радари, супутниковий зв’язок
+				</td>
+			</tr>
+			<tr>
+				<td><xmp>Metal Glaze - металоглазуровані резистори</xmp> <img src="https://www.resistorcermet.com/wp-content/uploads/Punch-grid-resistors-2.jpg" width="70px"></td>
+				<td>нанесення на метал сумішу металу і склоподібної глазурі</td>
+				<td>працюють при високій напрузі, мають хорошу стабільність, мають більше шуму і великі розміри</td>
+				<td>використовуються у електрометрах, фотопомножувачах, медичній техніці, рентгені,  HV probes</td>
+			</tr>
+			<tr>
+				<td><xmp>Thick Film - Товстоплівкові</xmp> <img src="https://passive-components.eu/wp-content/uploads/2018/12/Bourns-thick-film-resistors.jpg" width="70px"> <img src="https://img.directindustry.com/images_di/photo-mg/35467-12303245.jpg" width="70px"></td>
+				<td>запечена резистивна паста на керамічній підкладці, десятки мікрометрів</td>
+				<td>маленькі та дешеві, але мають більше шумів і меншу стабільність</td>
+				<td>найдешевші SMD<br>
+					використовуються в побутовій електроніці та масовій техніці
+				</td>
+			</tr>
+			<tr>
+				<td><xmp>Power Thick Film - потужні товстоплівкові</xmp> <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9ZefUuWjE_HBzTI2ToWb7ulX34_ENlzqMBw&s" width="70px"> <img src="https://www.electronicsmedia.info/wp-content/uploads/2023/05/Thick-Film-Power-Resistor-.png" width="70px"></td>
+				<td>товстоплівкова технологія але для великої потужності (більша площа, товсті шари)</td>
+				<td>витримують великі імпульси, мають малу індуктивність, компактніші за wirewound</td>
+				<td>великі SMD, металеві теплові площадки, power resistor, pulse proof<br>
+					використовуються в Automotive, Power electronics, LED drivers, DC/DC
+				</td>
+			</tr>
+			<tr>
+				<td><xmp>High Voltage Thick Film</xmp><img src="https://circuitdigest.com/sites/default/files/projectimage_news/High-Voltage-Thick-Film-Chip-Resistors-Deliver-Power-upto-1.5W.png" width="70px"></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td><xmp>Thin Film - Тонкоплівкові</xmp> <img src="https://www.thin-film.com/wp-content/uploads/2024/04/WLM1206-2-Terminal-Current-Sensing-Resistor-CSR-Product-Image-400x250.png" width="70px"></td>
+				<td>опір задається вирізаною лазером доріжкою на тонкому металевому шарі (одиниці мікрометрів)</td>
+				<td>дуже точні (до 0.01%), низький шум, більш стабільні, але менш стійкі до імпульсів</td>
+				<td>схожі на SMD, різницю можна дізнатися в даташиті<br>
+					використовуються у вимірювальній техніці, аудіо та медицині</td>
+			</tr>
+			
+			<tr>
+				<td><xmp>Metal Foil - метал-фольгові</xmp> <img src="https://www.megatron.de/fileadmin/user_upload/Produktbilder/Widerstaende/Metallfolienwiderstand-MZH-Detail.png" width="70px"></td>
+				<td>хімічне витравлення рисунку на тонкій металевій фользі</td>
+				<td>конструкція компенсує теплове розширення, надвисока стабільність, дуже малий TCR, мінімальний дрейф, але великі і дорогі</td>
+				<td>використовуються в метрології, aerospace, калібратори, high-end instrumentation</td>
+			</tr>
+			<tr>
+				<td><xmp>Current Sense - Шунтові</xmp> <img src="https://i.ytimg.com/vi/LeBEAit2frg/hq720.jpg" height="70px"></td>
+				<td>зазвичай товстий металевий провідник</td>
+				<td>дуже малий опір (мОм), мають великі металеві контакти, часто напис R005, 2m0 або 0m5, часто 4 виводи (з'єднання Кельвіна)</td>
+				<td>використовуються для вимірювання струму у BMS, блоках живлення, автомобілях, DC/DC</td>
+			</tr>
+			<tr>
+				<td><xmp>Metal Strip - металострічкові / шунтові</xmp> <img src="https://4.imimg.com/data4/VN/RY/MY-261179/ultra-low-ohm-metal-strip-resistors.jpg" width="70px"></td>
+				<td>на металевій смужці лазером формують геометрію і приварюють контакти</td>
+				<td>малий опір, добре відводять тепло (малий TCR), часто напис R005, 1m0 або 2m0, часто 4 виводи (з'єднання Кельвіна)</td>
+				<td>використовуються для вимірювання струму у BMS, автомобілях, DC/DC</td>
+			</tr>
+			<tr>
+				<td><xmp>Змінні резистори (потенціометри)</xmp> <img src="https://www.mini-tech.com.ua/image/cache/catalog/raznoe/variable_big_1-550x550.JPG" width="70px"></td>
+				<td></td>
+				<td>для частої зміни опору вручну</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td><xmp>Підстроювальні резистори (тримери)</xmp> <img src="https://images.prom.ua/559751240_w300_h300_rezistor-zminnij-potentsiometr.jpg" width="70px"></td>
+				<td></td>
+				<td>щоб мати можливість іноді змінювати опір викруткою (≈ 1000 обертів)</td>
+				<td></td>
+			</tr>
+		</table>
+
+
+		<table border="1">
+			<tr>
+				<th colspan="3" id="A3">Властивості резисторів</th>
+			</tr>
+			<tr>
+				<td><xmp>1. Номінальний опір</xmp>Resistance Range або Resistance Value</td>
+				<td>розділений по логарифмічним рядам номіналів (Е24, Е96, Е192 і т.п.)</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td><xmp>2. Допуск</xmp>Tolerance</td>
+				<td>±5% (E24), ±1% (E96), ±0.5% (Е192)</td>
+				<td>
+					- ±10% - дешеві, старі;<br>
+					- ±5% - нормальний масмаркет (thick film) - LED, pull-up;<br>
+					- ±1% - хороші сучасні (більшість якісних) - analog electronics;<br>
+					- ±0.1% - дуже хороші (thin film) - ADC/DAC;<br>
+					- ±0.01% - прецизійні
+				</td>
+			</tr>
+			<tr>
+				<td><xmp>3. Номінальна потужність</xmp>Power Rating</td>
+				<td>потужність, при якій резистор працює без перегріву<br>залежить від розміру і температури; ⚠️ Часто вказується при 70°C</td>
+				<td>
+					0402 - 1/16 W | 0603 - 1/10 W | 0805 - 1/8 W | 1206 - 1/4 W | through-hole - 0.25-2 W<br>
+					⚠️ краще працювати на 30-60% rated power
+				</td>
+			</tr>
+			<tr>
+				<td><xmp>4. Номінальна (робоча) напруга</xmp>Maximum Working Voltage, Overload Voltage</td>
+				<td>максимальна напруга без пробою</td>
+				<td>у SMD-резисторах можливий поверхневий пробій вже ~220 В; навіть якщо потужність дозволяє більше — напруга може обмежувати</td>
+			</tr>
+			<tr>
+				<td><xmp>5. Температурний коефіцієнт опору (ТКС)</xmp>TCR або Temperature Coefficient</td>
+				<td>показує, на яку величину (у відсоках або частках) зміниться електричний опір резистора при зміні його температури на 1°C (або 1 К). α=ΔR/(R⋅ΔT); ±100 ppm/°C; ±25 ppm/°C (прецизійні)​</td>
+				<td>
+					у металах додатній, у вуглецевих матеріалах - від'ємний<br>
+					важливо для ADC/DAC, Current sensing<br>
+					- 200–500 ppm - погано (дешеві thick film);<br>
+					- 100 ppm - нормально (масові);<br>
+					- 50 ppm - хороші (якісні);<br>
+					- ≤25 ppm - дуже хороші (thin film);<br>
+					- ≤25 ppm - precision analog, sensor interface;<br>
+					- &lt;10 ppm - прецизійні (foil)
+				</td>
+			</tr>
+			<tr>
+				<td><xmp>6. Шуми</xmp>Noise, Excess Noise</td>
+				<td>важливо для аудіо</td>
+				<td>
+					важливі для малих сигналів; найнижчі у С1, С2, С5, білшьші у С3<br>
+					- Carbon composition - дуже шумні;<br>
+					- Thick film - середні;<br>
+					- Thin film - низькі (для аудіо норм);<br>
+					- Wirewound - дуже низькі;<br>
+					- Metal foil - мінімальні
+				</td>
+			</tr>
+			<tr>
+				<td><xmp>7. Коефіцієнт напруги</xmp>Voltage Coefficient</td>
+				<td>вплив напруги на опір</td>
+				<td>
+					важливий для високовольтних, високомегаомних резисторів, precision ADC<br>часто не вказується для звичайних резисторів<br>
+					>100 ppm/V - погано<br>
+					10–50 ppm/V - нормально<br>
+					&lt;1 ppm/V - дуже добре
+				</td>
+			</tr>
+			<tr>
+				<td><xmp>8. Надійність і температурні графіки</xmp>Derating Curve</td>
+				<td>показує як зменшується допустима потужність із температурою</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td><xmp>9. Стабільність при навантаженні</xmp>Load Life Stability</td>
+				<td>зміна опору з часом (наприклад, ±1% після 1000 годин при rated power 70°C)</td>
+				<td>
+					особливо критично для прецизійних схем та калібрувальних ланцюгів<br>
+					1-5% - дешеві; &lt;1% - нормальні; 0.1% - хороші; &lt;0.01% - precision
+				</td>
+			</tr>
+			<tr>
+				<td><xmp>10. Стійкість до вологості</xmp>Humidity Resistance</td>
+				<td>зміна опору при високій вологості (90–95%) (наприклад, ΔR ≤ ±2%)</td>
+				<td>в ідеалі &lt;0.5% drift</td>
+			</tr>
+			<tr>
+				<td><xmp>11. термо-ЕРС</xmp>Thermal EMF</td>
+				<td>паразитна напруга, яка виникає через різницю температур у матеріалах (наприклад, 1–5 µV/°C)</td>
+				<td>
+					важливо для схем із датчиками, підсилювачами, при вимірюванні мікровольт<br>
+					>10 µV/°C - погано | 1–5 µV/°C - добре | &lt;0.1 µV/°C - excellent |  | 
+				</td>
+			</tr>
+			<tr>
+				<td><xmp>12. Імпульсне навантаження</xmp>Pulse Load Capability</td>
+				<td>Показує, чи витримає резистор короткі імпульси великої потужності<br>подається у вигляді графіків енергія / потужність vs час імпульсу (наприклад, 10× номінальної потужності на 10 мс)</td>
+				<td>
+					важливо для імпульсних блоків живлення, в захисних колах, цифрових схемах, automotive, DC/DC, power electronics<br>
+					Thin film - слабка | Thick film - середня | Wirewound - хороша | Metal strip - дуже хороша
+				</td>
+			</tr>
+			<tr>
+				<td><xmp>13. Паразитна індуктивність</xmp></td>
+				<td>важливо для RF</td>
+				<td> Wirewound - погано | Thick film - нормально | Thin film - добре | RF resistor - дуже добре</td>
+			</tr>
+		</table>
+
+		<table border="1" style="padding: 5px;">
+			<tr>
+				<th colspan="7"  id="A4">Узагальнені діапазони параметрів різних типів резисторів</th>
+			</tr>
+			<tr>
+				<td>Тип</td>
+				<td>Tolerance</td>
+				<td>TCR (ppm/°C)</td>
+				<td>Noise</td>
+				<td>Load Life</td>
+				<td>Voltage Coeff</td>
+				<td>особливості</td>
+			</tr>
+			<tr>
+				<td>Вуглецеві (С1)</td>
+				<td>±5…20%</td>
+				<td>200–1000</td>
+				<td>високий</td>
+				<td>±2…5%</td>
+				<td>помітний</td>
+				<td>дешеві</td>
+			</tr>
+			<tr>
+				<td>Металоплівкові (С2)</td>
+				<td>±0.1…1%</td>
+				<td>10–100</td>
+				<td>низький</td>
+				<td>±0.5…2%</td>
+				<td>малий</td>
+				<td>універсальні</td>
+			</tr>
+			<tr>
+				<td>Композиційні (С3)</td>
+				<td>±5…20%</td>
+				<td>100–1000</td>
+				<td>високий</td>
+				<td>±5…10%</td>
+				<td>значний</td>
+				<td>змінні</td>
+			</tr>
+			<tr>
+				<td>Об’ємні (С4)</td>
+				<td>±5…10%</td>
+				<td>100–500</td>
+				<td>середній</td>
+				<td>±2…5%</td>
+				<td>помітний</td>
+				<td>силові</td>
+			</tr>
+			<tr>
+				<td>Дротяні (С5)</td>
+				<td>±0.01…1%</td>
+				<td>5–50</td>
+				<td>дуже низький</td>
+				<td>±0.1…1%</td>
+				<td>дуже малий</td>
+				<td>потужні</td>
+			</tr>
+			<tr>
+				<td>СВЧ (С6)</td>
+				<td>±0.1…5%</td>
+				<td>25–200</td>
+				<td>низький</td>
+				<td>±1…3%</td>
+				<td>малий</td>
+				<td>ВЧ</td>
+			</tr>
+			<tr>
+				<td>Thick Film (товстоплівкові)</td>
+				<td>±1…5%</td>
+				<td>100–300</td>
+				<td>середній</td>
+				<td>±1…3%</td>
+				<td></td>
+				<td>дешеві SMD</td>
+			</tr>
+			<tr>
+				<td>Thin Film (тонкоплівкові)</td>
+				<td>±0.01…1%</td>
+				<td>5–50</td>
+				<td>низький</td>
+				<td>±0.1…1%</td>
+				<td></td>
+				<td>точні</td>
+			</tr>
+			<tr>
+				<td>Metal Foil</td>
+				<td>±0.001…0.01%</td>
+				<td>0.2–10</td>
+				<td>дуже низький</td>
+				<td>±0.01…0.1%</td>
+				<td></td>
+				<td>еталонні</td>
+			</tr>
+			<tr>
+				<td>Шунтові (current sense)</td>
+				<td>±0.1…5%</td>
+				<td>15–200</td>
+				<td>низький</td>
+				<td>±0.5…2%</td>
+				<td></td>
+				<td>мОм опори</td>
+			</tr>
+			
+		</table>
+
+		<table border="1" style="padding: 5px;">
+			<tr>
+				<th colspan="3"  id="A5">Швидкий вибір резистора під задачу</th>
+			</tr>
+			<tr>
+				<td>Дешева звичайна схема</td>
+				<td>Thick Film (SMD)</td>
+				<td>дешеві, масові</td>
+			</tr>
+			<tr>
+				<td>Точні вимірювання</td>
+				<td>Thin Film / Metal Film (С2)</td>
+				<td>малий TCR, стабільність</td>
+			</tr>
+			<tr>
+				<td>Надвисока точність (еталон)</td>
+				<td>Metal Foil</td>
+				<td>мінімальний дрейф</td>
+			</tr>
+			<tr>
+				<td>Велика потужність</td>
+				<td>Дротяний (С5)</td>
+				<td>витримує нагрів</td>
+			</tr>
+			<tr>
+				<td>Висока напруга / МОм</td>
+				<td>Об’ємний (С4)</td>
+				<td>менше пробою</td>
+			</tr>
+			<tr>
+				<td>Високі частоти (ВЧ)</td>
+				<td>Thin Film / СВЧ (С6)</td>
+				<td>мала індуктивність</td>
+			</tr>
+			<tr>
+				<td>Імпульсні навантаження</td>
+				<td>Thick Film / спеціальні pulse</td>
+				<td>витримують імпульси</td>
+			</tr>
+			<tr>
+				<td>Малий струм (шунт)</td>
+				<td>Current Sense</td>
+				<td>точний малий опір</td>
+			</tr>
+			<tr>
+				<td>Регулювання вручну</td>
+				<td>Змінний (С3)</td>
+				<td>зручність</td>
+			</tr>
+			<tr>
+				<td>Рідке налаштування</td>
+				<td>Підстроювальний</td>
+				<td>стабільність після налаштування</td>
+			</tr>
+			<tr>
+				<td>Температурний датчик</td>
+				<td>Термістор</td>
+				<td>залежить від T</td>
+			</tr>
+			<tr>
+				<td>Захист від перенапруг</td>
+				<td>Варистор</td>
+				<td>реагує на U</td>
+			</tr>
+			<tr>
+				<td>Світлочутливі схеми</td>
+				<td>Фоторезистор</td>
+				<td>залежить від світла</td>
+			</tr>
+		</table>
+
+		
+	</div>	
+	<p>&nbsp;</p>
+	<footer>По матеріалам чату GPT і конспектів лекцій в універі</footer>
+
+</body>
+</html>

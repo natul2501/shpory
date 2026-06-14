@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Котушка індуктивності</title>
+	<link rel="stylesheet" type="text/css" href="../css/componentsStyle.css">
+</head>
+<body>
+	<div id="content">
+		<img src="https://electronics.koncon.nl/wp-content/uploads/2023/11/inductor_2.jpg" width="100px" style="float: right;">
+		<img src="https://components101.com/sites/default/files/inline-images/Inductor-Symbols.png" width="140px" style="float: right;">
+		<font size="6"><center>Котушка індуктивності / дросель / inductor / choke</center></font>
+		<nav>Розділи: <a href="#A1">Що таке котушка індуктивності</a> | <a href="#A2">Основні параметри</a> | <a href="#A3">Класифікація</a> | <a href="#A4">Найпоширеніші типи</a>  | <a href="#A5">Практичні рекомендації по підбору котушки</a></nav>
+		<table border="1">
+			<tr>
+				<th colspan="3" id="A1">Що таке котушка індуктивності</th>
+			</tr>
+			<tr>
+				<td colspan="3" >Котушка індуктивності — це пасивний електронний компонент, який накопичує енергію у магнітному полі, що виникає навколо нього при протіканні струму, і чинить опір зміні струму.</td>
+			</tr>
+			<tr>
+				<td colspan="3" >
+					Котушка індуктивності - це фізично провідник, скручений у спіраль, часто навколо осердя різного матеріалу і форми. Коли через нього тече струм, навколо нього виникає магнітне поле і, як наслідок, ЕРС самоіндукції, яка “протидіє” зміні струму.<br>
+					u = L* (di​ / dt); E = (L * I^2) / 2​
+				</td>
+			</tr>
+			<tr>
+				<th colspan="3" >Основні функції</th>
+			</tr>
+			<tr>
+				<td colspan="3" >
+					1. Фільтрація ВЧ<br>
+					2. Накопичення енергії у DC/DC<br>
+					3. Глушіння електромагнітних завад (EMI suppression)<br>
+					4. Створення резонансних контурів<br>
+					5. Узгодження RF сигналів<br>
+					6. У LED drivers для регуляції струму<br>
+					7. Обмеження струму<br>
+					8. Затримка зміни струму
+				</td>
+			</tr>
+			<tr>
+				<th colspan="3" >Зазвичай використовуються</th>
+			</tr>
+			<tr>
+				<td colspan="3" >
+					- DC/DC converters - накопичення енергії, є міні-джерелом струму при вимкненні транзистора<br>
+					- VRM CPU/GPU - згладжування імпульсного струму<br>
+					- EMI filters - синфазний дроссель (common mode choke), який блокує ВЧ-шум<br>
+					- RF - резонансні котушки (resonant coils)<br>
+					- Audio - у схемах розділення аудіочастот між динаміками (crossover) для приглушення ВЧ<br>
+					- Power electronics - згладжування (smoothing) струму<br>
+					- Motors - фільтрація шумів (filtering EMI), згладжування струму<br>
+					- LED drivers - утримування потрібного струму (current regulation)
+				</td>
+			</tr>
+			<tr>
+				<th colspan="3" id="A2">Основні параметри</th>
+			</tr>
+			<tr>
+				<td><xmp>1. Індуктивність</xmp>Nominal Inductance = L = (N * Φ) / І​; [H]</td>
+				<td>Типові значення: RF = nH; DC/DC = 0.1–100 µH; Filters = µH–mH; Audio crossover = mH​</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td><xmp>2. DCR або RDC</xmp>DC resistance</td>
+				<td>Опір обмотки: викликає нагрів, втрати, падіння напруги<br>>1 Ω - погано; 100 – 500 мΩ - нормально; &lt; 50 мΩ - very good; &lt; 10 мΩ - excellent</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td><xmp>3. Impedance</xmp></td>
+				<td>Повний опір, див. графік Impedance vs Frequency</td>
+				<td>важливий для ferrite beads, EMI-фільтрів, RF</td>
+			</tr>
+			<tr>
+				<td><xmp>4. Isat</xmp>Saturation current</td>
+				<td>Струм, при якому індуктивність починає різко падати, див. графік Inductance vs Current<br>&lt; 1 A - малий; 1 – 10 A - нормальний; 10 – 50 A - потужний; > 100 A	- дуже потужний</td>
+				<td>важливо для DC/DC, VRM, power electronics.</td>
+			</tr>
+			<tr>
+				<td><xmp>5. Irms</xmp>RMS current, середньоквадратичний струм</td>
+				<td>Максимальний струм, який не перегріває котушку.</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td><xmp>6. Ripple current</xmp></td>
+				<td>Змінна складова струму, яка накладається на постійний струм (наприклад, у випрямлячах чи імпульсних блоках живлення)</td>
+				<td>важливо для DC/DC (струм постійно трохи росте й падає), може вказуватися у вигляді графіку temperature rise або allowable ripple current.</td>
+			</tr>
+			<tr>
+				<td><xmp>7. Q-factor</xmp>Q = (ω * L) / R​</td>
+				<td>Чим більший, тим менші втрати в котушці, див. графік Q vs Frequency<br> &lt; 10 - погано; 10 – 50 - нормально; 50 – 200 - добре; > 500 - excellent RF</td>
+				<td>важливий для RF, resonant circuits</td>
+			</tr>
+			<tr>
+				<td><xmp>8. SRF</xmp>Self Resonant Frequency</td>
+				<td>
+					Частота, де паразитна ємність і індуктивність утворюють резонанс. Після SRF котушка починає поводитись як конденсатор.<br>
+					&lt; 1 MHz - низько; 10 – 100 MHz - добре; > 1 GHz - RF
+				</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td><xmp>9. Core losses</xmp></td>
+				<td>
+					Втрати в осерді. Складаються із:<br>
+					- Hysteresis losses - втрати енергії на перемагнічування осердя (чим вища частота тим більші втрати)<br>
+					- вихрових струмів (Eddy currents) - паразитичні струми, що виникають під дією ЕРС котушки і гріють осердя<br>
+					- інших магнітних втрат<br>
+					 Часто подано у вигляді графіку Core Loss vs Frequency
+				</td>
+				<td>важливо для power electronics, високих частот</td>
+			</tr>
+			<tr>
+				<td><xmp>10. Temperature rise</xmp>ΔT</td>
+				<td>Нагрів. > 60°C - погано; 20 – 40°C - нормально; &lt; 20°C - excellent</td>
+				<td>Зазвичай подається у вигляді графіку Temperature Rise vs Current</td>
+			</tr>
+        </table>
+
+		<table border="1">
+			<tr>
+				<th colspan="3" id="A3">Класифікація</th>
+			</tr>
+			<tr>
+				<td colspan="3" align="center"><b>За осердям</b></td>
+			</tr>
+			<tr>
+				<td>
+					<xmp>Air core</xmp>повітряне осердя<br>
+					<img src="https://tavotech.com/wp-content/uploads/2023/02/air-core-inductor.jpg" width="100px">
+				</td>
+				<td>немає феромагнетика: дуже високий Q, майже немає втрат, немає saturation.</td>
+				<td>RF, антени, радіо, tuning circuits, oscillators, високодобротні LC-контури</td>
+			</tr>
+			<tr>
+				<td>
+					<xmp>Ferrite</xmp>феритове осердя<br>
+					<img src="https://5.imimg.com/data5/SELLER/Default/2024/2/394619168/RF/GZ/CK/32578463/ferrite-rod-inductor.png" width="100px">
+				</td>
+				<td>найпоширеніше: компактні, дешеві, хороші на високих частотах</td>
+				<td>DC/DC, VRM, ноутбуки, смартфони, материнські плати, GPU, EMI filters, automotive</td>
+			</tr>
+			<tr>
+				<td>
+					<xmp>Powdered iron</xmp>порошкове залізо<br>
+					<img src="https://4.imimg.com/data4/GL/CQ/MY-15419791/inductor-coil.jpg" width="100px">
+				</td>
+				<td>“м’яке” насичення, добре переносить великі струми</td>
+				<td>PFC, потужні БЖ, industrial power, інвертори, сонячні системи, automotive power</td>
+			</tr>
+			<tr>
+				<td>
+					<xmp>Laminated steel</xmp>шихтована сталь<br>
+					<img src="https://www.madisoundspeakerstore.com/images/products/thumbs/sl4.0.jpg" width="100px">
+				</td>
+				<td>для низьких частот, на ВЧ великі вихрові струми</td>
+				<td>50 Hz transformers, мережеві дроселі, старі БЖ, електродвигуни, силові трансформатори</td>
+			</tr>
+			<tr>
+				<td>
+					<xmp>Amorphous</xmp>аморфне осердя<br>
+					<img src="https://shinenergy.net/wp-content/uploads/2022/12/Amorphous-Core-AC-Inductor.jpg" width="100px">
+				</td>
+				<td>менші втрати, важливо для дорогих енергоефективних систем</td>
+				<td>high-efficiency power, premium power supplies, industrial, energy systems</td>
+			</tr>
+			<tr>
+				<td>
+					<xmp>Nanocrystalline</xmp>нанокристалічне<br>
+					<img src="https://ecdn6.globalso.com/upload/p/4158/image_other/2025-07/nanocrystalline-magnetic-core-inductors.jpg" width="100px">
+				</td>
+				<td>дуже хороші EMI-властивості</td>
+				<td>EMI filters, industrial EMI, медична електроніка (medical), сервери, обладнання зв'язку (telecom), якісні блоки живлення (premium PSU)</td>
+			</tr>
+			<tr>
+				<td colspan="3" align="center"><b>За конструкцією</b></td>
+			</tr>
+			<tr>
+				<td>
+					<xmp>Wirewound</xmp>намотана дротом<br>
+					<img src="https://www.coilcraft.com/getattachment/12c9ba84-bd03-4aa2-8599-f34419b9fc11/0402af_dim.jpg" width="100px">
+				</td>
+				<td>класична котушка</td>
+				<td>power electronics, audio, filters, загального призначення (general purpose)</td>
+			</tr>
+			<tr>
+				<td>
+					<xmp>Multilayer</xmp>багатошарова<br>
+					<img src="https://m.media-amazon.com/images/I/31IvvDECuxL.jpg" width="100px">
+				</td>
+				<td>“Крихітні RF-котушки”: маленькі, дешеві, для малих струмів</td>
+				<td>smartphones, RF, Wi-Fi, Bluetooth, compact electronics</td>
+			</tr>
+			<tr>
+				<td>
+					<xmp>Thin-film</xmp>тонкоплівкова<br>
+					<img src="https://uk.farnell.com/productimages/large/en_GB/2103051-40.jpg" width="100px">
+				</td>
+				<td>дуже маленькі RF-котушки для надвисоких частот</td>
+				<td>GHz RF, smartphones, надвисокочастотна електроніка (microwave), antennas, монолітна мікрохвильова інтегральна схема (MMIC)</td>
+			</tr>
+			<tr>
+				<td>
+					<xmp>Drum core</xmp>барабанне осердя<br>
+					<img src="https://image.made-in-china.com/43f34j00dFYlUjcKfkur/Unshielded-Through-Hole-2uh100uh-4-7mh-0809-Ferrite-Radial-Leaded-Drum-Core-I-Shaped-Power-Inductors.jpg" width="100px">
+				</td>
+				<td>дешевий силовий дросель, Мінус: поле сильно “витікає” назовні.</td>
+				<td>DC/DC, бюджетна електроніка, LED drivers, загальна силова електроніка (general power)</td>
+			</tr>
+			<tr>
+				<td>
+					<xmp>Toroidal</xmp>тороїдальний<br>
+					<img src="https://m.media-amazon.com/images/I/61wLV6LdzOL._AC_UF894,1000_QL80_.jpg" width="100px">
+				</td>
+				<td>у формі кільця, якісні але дорогі</td>
+				<td>premium PSU, audio, PFC, industrial, filters</td>
+			</tr>
+			<tr>
+				<td>
+					<xmp>Shielded</xmp>екранований<br>
+					<img src="https://passive-components.eu/wp-content/uploads/2022/02/Vishay-high-current-inductor-with-E-shielding.jpg" width="100px">
+				</td>
+				<td>магнітне поле “закрите”, сучасний дорогий power inductor</td>
+				<td>VRM, laptops, smartphones, GPU, compact electronics</td>
+			</tr>
+			<tr>
+				<td><xmp>Unshielded</xmp>неекранований</td>
+				<td>поле виходить назовні</td>
+				<td>дешеві DC/DC, LED drivers, non-critical electronics</td>
+			</tr>
+			<tr>
+				<td>
+					<xmp>Ferrite beads</xmp>феритова бусина<br>
+					<img src="https://m.split-corecurrenttransformer.com/photo/pl33126191-axial_wide_band_choke_coil_ferrite_bead_for_industrial_magnet.jpg" width="100px">
+				</td>
+				<td>ВЧ-поглинач шуму</td>
+				<td>USB, HDMI, CPU rails, analog power, RF modules</td>
+			</tr>
+			<tr>
+				<td>
+					<xmp>Coupled inductors</xmp>зв’язані дроселі<br>
+					<img src="https://cdn.open-pr.com/W/7/W727171804_g.jpg" width="100px">
+				</td>
+				<td>кілька обмоток на одному осерді, зазвичай ferrite, powdered iron</td>
+				<td>flyback, SEPIC, isolated DC/DC, EMI</td>
+			</tr>
+			<tr>
+				<td>
+					<xmp>Pulse transformers</xmp>імпульсні трансформатори<br>
+					<img src="https://5.imimg.com/data5/SELLER/Default/2023/2/NB/LG/IY/332071/pulse-transformer-ee-42x15.jpg" width="100px">
+				</td>
+				<td>передають імпульси, за конструкцією це вже трансформатор, зазвичай ferrite, nanocrystalline</td>
+				<td>SMPS, flyback, gate drive, Ethernet isolation</td>
+			</tr>
+			<tr>
+				<td colspan="3" align="center"><b>За призначенням</b></td>
+			</tr>
+			<tr>
+				<td><xmp>Power inductors</xmp>силові дроселі</td>
+				<td>працюють із великими струмами, зазвичай drum core, shielded, toroidal, ferrite, powdered iron</td>
+				<td>DC/DC, VRM, блоки живлення, інвертори, LED drivers, автомобільна електроніка (automotive)</td>
+			</tr>
+			<tr>
+				<td>
+					<xmp>RF inductors</xmp>ВЧ-котушки<br>
+					<img src="https://www.analogictips.com/wp-content/uploads/2020/12/RF-inductors-FAQ-featured.jpg" width="100px">
+				</td>
+				<td>для радіочастот, зазвичай air-core, multilayer, thin-film, air core, ferrite (інколи)</td>
+				<td>Wi-Fi, Bluetooth, GPS, RF filters, antennas, генератори коливань (oscillators)</td>
+			</tr>
+			<tr>
+				<td><xmp>Chokes</xmp>дроселі</td>
+				<td>“душать” ВЧ або пульсації, зазвичай wirewound, shielded, toroidal, ferrite, nanocrystalline</td>
+				<td>EMI filters, входи живлення (power input), audio, лінії постійного живлення (DC lines)</td>
+			</tr>
+			<tr>
+				<td>
+					<xmp>Common mode chokes</xmp>синфазний дросель<br>
+					<img src="https://www.coilcraft.com/getattachment/474a9fb6-7c6b-43b5-99f5-ae7e48d48e12/EMI_CMC_POWER_LINE_Category.jpg" width="100px">
+				</td>
+				<td>
+					має дві обмотки на одному осерді. Пригнічує однакові шуми в обох проводах: корисний струм взаємно компенсує магнітне поле, шум - ні.<br>
+					зазвичай toroidal, shielded, ferrite, nanocrystalline
+				</td>
+				<td>фільтри на вході мережі 110/220 В AC(AC input filters), USB, Ethernet, HDMI, подавлення електромагнітних шумів у важких промислових умовах (industrial EMI)</td>
+			</tr>
+			<tr>
+				<td>
+					<xmp>Differential choke</xmp>диференційний дросель<br>
+					<img src="https://cdn.ready-market.com.tw/36dbcc6f/Templates/pic/m/CMT(MN-ZN).jpg" width="100px">
+				</td>
+				<td>пригнічує диференційний шум, зазвичай звичайні power inductors</td>
+				<td>DC/DC, фільтри електромагнітних шумів (EMI filters), у силових каскадах (power stages)</td>
+			</tr>
+			<tr>
+				<td><xmp>Ferrite beads</xmp>феритова бусина</td>
+				<td>ВЧ-поглинач шуму</td>
+				<td>USB, HDMI, лінії живлення процесора (CPU rails), живлення аналогових схем (analog power), радіочастотні блоки (RF modules)</td>
+			</tr>
+			<tr>
+				<td><xmp>Coupled inductors</xmp>зв’язані дроселі</td>
+				<td>кілька обмоток на одному осерді, зазвичай ferrite, powdered iron</td>
+				<td>зворотній перетворювач (flyback), індуктивні перетворювачі, що одночасно підвищують і понижують напругу (SEPIC), конвертери із гальванічною розв'язкою (isolated DC/DC), EMI</td>
+			</tr>
+			<tr>
+				<td><xmp>Pulse transformers</xmp>імпульсні трансформатори</td>
+				<td>передають імпульси, за конструкцією це вже трансформатор, зазвичай ferrite, nanocrystalline</td>
+				<td>імпульсні блоки живлення (SMPS), flyback, драйвер затвора (gate drive), гальванічна розв'язка мережі (Ethernet isolation)</td>
+			</tr>
+			<tr>
+				<td><xmp>Air-core inductors</xmp></td>
+				<td>безосердні котушки</td>
+				<td>без магнітного осердя</td>
+			</tr>
+		</table>
+
+		<table border="1">
+			<tr>
+				<th colspan="4" id="A4">Найпоширеніші типи</th>
+			</tr>
+			<tr>
+				<td><xmp>Air-core</xmp>без осердя</td>
+				<td>просто дріт, намотаний спіраллю: за рахунок відсутності магнітного матеріалу немає втрат у осерді і струму насичення</td>
+				<td>немає струму насичення, чудова добротність Q (100–1000), чудовий на RF (MHz–GHz), немає втрат гістерезису, але мала індуктивність (nH–µH), великі розміри, слабке магнітне поле</td>
+				<td>використовують у радіочастотах (RF), налаштування на конкретну частоту (tuning,) антенах, резонансних колах</td>
+			</tr>
+			<tr>
+				<td><xmp>Ferrite core</xmp>Котушка на феритовому осерді</td>
+				<td>дріт, намотаний навколо ферритового осердя. Ферит дозволяє різко збільшити індуктивність, хороший на ВЧ</td>
+				<td>Найпоширеніший тип: велика індуктивність (100 nH – mH), компактність, хороші ВЧ (kHz–MHz), дешеві, але saturation (1–100 A), втрати в осерді, нагрів осердя</td>
+				<td>використовують у перетворювачах постійної напруги (DC/DC), модулях стабілізаціх живлення CPU/GPU (VRM), для електромагнітних завад (EMI), general purpose</td>
+			</tr>
+			<tr>
+				<td><xmp>Powdered iron</xmp>Котушка на осерді з порошкового заліза</td>
+				<td>Між зернами порошку є ізоляція, тому менше вихрових струмів: насичення відбувається плавно і котушка краще переносить великі струми</td>
+				<td>м’яке saturation, високий струм, стабільність, але більші втрати, гірші ВЧ (до сотень kHz)</td>
+				<td>використовують у силовій електроніці (інвертори, БЖ, двигуни), корекції коефіцієнта потужності в блоках живлення (PFC), у перетворювачах напруги (converter)</td>
+			</tr>
+			<tr>
+				<td><xmp>Toroidal</xmp>Тороїдальний дросель</td>
+				<td>Осердя у вигляді кільця, може бути ферритовим, powdered iron, nanocrystalline: магнітне поле майже повністю замикається всередині кільця, тому майже немає EMI, розсіювання поля.</td>
+				<td>Тороїдальне осердя: мінімальні EMI, excellent efficiency, високий Q, низькі втрати, але дорожчі і складні у виробництві</td>
+				<td>використовують там, де великі струми і високі потужності (high power), у аудіо, фільтрах, PFC</td>
+			</tr>
+			<tr>
+				<td><xmp>Shielded inductors</xmp>Екранований дросель</td>
+				<td>Навколо котушки є магнітний екран або замкнуте осердя, щоб магнітне поле не “витікало” назовні і не наводило шуми на іншу електроніку</td>
+				<td>Магнітне поле “закрите” всередині: менше EMI, кращі для PCB, стабільніші, але дорожчі, іноді більший DCR</td>
+				<td>використовують у VRM, CPU/GPU, там, де важливі маленькі розміри</td>
+			</tr>
+			<tr>
+				<td><xmp>Ferrite bead</xmp>Феритова бусина</td>
+				<td>Шматок фериту, через який проходить провідник</td>
+				<td>На низьких частотах майже нічого не робить, на високих - сильно збільшує імпеданс, перетворює шум у тепло.</td>
+				<td>використовують для пригнічення високочастотних шумів (EMI suppression), у USB, на лініях живлення (power rails)</td>
+			</tr>
+		</table>
+
+		<table border="1">
+			<tr>
+				<th colspan="2" id="A5">Практичні рекомендації по підбору котушки</th>
+			</tr>
+			<tr>
+				<td>Для DC/DC</td>
+				<td>Дивитись Isat (бажано ×1.3…×2 запас), DCR, Irms</td>
+			</tr>
+			<tr>
+				<td>Для RF</td>
+				<td>Дивитись Q, SRF (має бути значно вищою за робочу частоту)</td>
+			</tr>
+			<tr>
+				<td>Для EMI</td>
+				<td>Дивитись impedance vs frequency</td>
+			</tr>
+			<tr>
+				<td>Для power electronics</td>
+				<td>DCR = ККД</td>
+			</tr>
+			<tr>
+				<td>Для VRM</td>
+				<td>Потрібно low DCR, shielded, high current</td>
+			</tr>
+			<tr>
+				<td>Для CPU/GPU</td>
+				<td>майже завжди shielded ferrite</td>
+			</tr>
+			<tr>
+				<td>Малий корпус</td>
+				<td>менший паразитний C, вищий SRF, кращий RF</td>
+			</tr>
+		</table>
+		
+	</div>	
+	<p>&nbsp;</p>
+	<footer>По матеріалам чату GPT</footer>
+
+</body>
+</html>

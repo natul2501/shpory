@@ -1,0 +1,109 @@
+		body{
+			background-image : url(../img/old-cement-wall-texture.jpg);
+			background-size: 100%;
+			font-family: Calibri;
+			font-size: 14px; 
+		}
+		#contbor{
+			border: dotted #955283 1px;
+			background-color: #F9F4F8;
+			margin: 5px;
+			padding: 5px;
+		}
+		#content{
+			background-color:#C9C9C9;
+			padding: 5px;
+   			padding-left: 20px;
+   			border: solid 1px black;
+			float: left;
+			width: 98%;
+		}
+        .article{
+            display: inline-block;
+			vertical-align: top;
+        }
+		.border{
+			border: 1px solid gray;
+			padding: 0px 5px 0px 15px;
+			margin: 5px 0px 5px 0px;
+		}
+		#formdiv{
+			float: right;
+			padding-right: 10px;
+		}
+		.cube{
+			width: 145px;
+			height: 30px;
+			background-color: Orchid;
+			border: solid 3px MediumOrchid;
+			padding-top: 10px;
+		}
+        canvas {
+            border: 1px solid #444;
+            background: white;
+            margin-top: 20px;
+        }
+		/*.MathJax {
+			font-size: 130% !important;
+			font-weight: normal;
+		}*/
+/*--------------ELEMENT'S STYLES-----------------*/
+		xmp{
+			color: brown;
+			font-weight: bold;
+			font-family: Consolas;
+			font-size: 13px;
+			line-height: 2px;
+		}
+		nav{
+			background-color: rgba(88, 61, 0, 0.1);
+			padding-left: 50px;
+			margin: 10px 0px 10px 0px;
+		}
+		a{
+			text-decoration: none;
+			color: MidnightBlue;
+		}
+		table{
+			display: inline-table;
+		}
+		td{
+			background-color: rgba(255, 255, 255, 0.3);
+			padding: 5px;
+		}
+		th{
+			background-color: PowderBlue;
+		}
+		button{
+			background-color: AliceBlue;
+			border: solid 3px LightSteelBlue;
+			color: MidnightBlue;
+		}
+		button:active{
+			background-color: CornflowerBlue;
+			border: solid 3px LightSteelBlue;
+			color: MidnightBlue;
+		}
+		/*p{	text-indent: 55px;
+			font-style: italic;
+			margin: 3px;
+		}*/
+		b{	color: Purple;
+		}
+		h3{
+			margin: 5px;
+			text-align: center;
+		}
+		h4{
+			margin: 2px;
+			text-align: center;
+		}
+		footer{
+			text-align: center;
+			width: 99.3%;
+			clear: both;
+			background-color: rgba(220, 220, 220, 0.6);
+			border: solid 1px black;
+			height: 40px;
+		}
+		

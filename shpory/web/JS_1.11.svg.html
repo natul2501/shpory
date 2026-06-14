@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>D3.js - SVG</title>
+	<link rel="stylesheet" type="text/css" href="css/js_dom_style.css">
+	<style>
+		td {
+			padding-left: 5px;
+		}
+	</style>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+	<script src="script/JS_1.11.svg.js"></script>
+</head>
+<body>
+	<div id="content">
+		<font size="6"><center>D3.js - SVG</center></font>
+        <p><b>D3.js</b> - це быблыотека на мовы Java Script для обробки і візуалізації даних.</p>
+		<p><b>SVG</b> - це технологія масштабованої векторної графіки, яку можна виводити безпосередньо в DOM</p>
+        <nav>
+            Розділи: <a href="#A1">Текст</a> | <a href="#A2">Лінії і криві</a> | <a href="#A3">Геометричні фігури</a> | <a href="#A4">Властивості геометричних фігур і ліній</a> | 
+            <a href="#A5"> Групування елементів</a> | <a href="#A6"> Робота з даними елементів веб-сторінки</a> | <a href="#A7"> Прив'язка даних</a>
+        </nav>
+		<div id="svg-container" width="100%" style="position: sticky; top: 140px; text-align: center; margin-bottom: 20px;">
+            <svg id="svgC" height="250px" viewBox="0 0 300 150" style="border:1px solid black; background-color: rgb(207, 207, 207); box-shadow: 1px 1px 3px;"></svg>
+            <ul style="display: none; background-color: rgb(252, 215, 210); border:1px solid black; box-shadow: 1px 1px 3px;"></ul>
+        </div>
+
+        <table border="1">
+            <tr>
+				<th align="center" colspan="4">
+                    Порядок додавання об'єкту до веб-сторінки
+                </th>
+			</tr>
+            <tr>
+                <td colspan="2">
+                    1. Необхідно підключити бібліотеку в &lt;header&gt; на веб-сторінці<br>
+                    <i>
+                        В адресі вказана остання версія v7 і мінімізована версія (суфікс min)
+                    </i>
+                </td>
+                <td colspan="2">
+                    <xmp><script src="https://d3js.org/d3.v7.min.js"></script></xmp>
+                </td>
+            </tr>
+			<tr>
+				<td colspan="2">
+                    2. Результат виводиться на веб-сторінку в контейнер: 
+                </td>
+				<td colspan="2">
+                    <xmp><svg></svg></xmp>
+                </td>
+			</tr>
+            <tr>
+				<td colspan="2">
+                    3. Задати властивості контейнера (за замовчуванням width="300px" height="150px") 
+                </td>
+                <td colspan="2">
+                    <xmp>viewBox</xmp> - специфічний для контейнеру SVG атрибут
+                </td>
+			</tr>
+            <tr>
+				<td colspan="2">
+					<xmp><svg viewBox="0 0 900 300"></svg></xmp>
+				</td>
+                <td colspan="2">
+                    - встановлює початок системи координат (х = 0, у = 0 - вісь у направлена зверху вниз), 
+                    а також співвідношення сторін (ш:в = 900:300)
+                </td>
+				
+			</tr>
+        </table>
+        
+        <table border="1">
+			<tr>
+				<th colspan="4" align="center" id="A1">1. Текст</th>
+			</tr>
+            <tr>
+				<td><xmp><text>Текст</text></xmp></td>
+				<td>
+                    - тег для виводу тексту у контейнер<br>
+                    властивості можна задавати через стилі css (розмір, шрифт, т.п.)
+
+                </td>
+				<td>
+                    <button onclick="s_text()" title="button onclick=&quot;s_text()&quot;>Подивитися результат">Подивитися результат</button>
+                </td>
+				<td>
+					<details>
+						<summary>Подивитися текст коду</summary>
+							<xmp><svg></xmp>
+                            <xmp>    <text x="100" y="30">Текст</text></xmp>
+                            <xmp></svg></xmp>
+					</details>
+				</td>
+			</tr>
+            <tr>
+				<td><xmp>text-anchor</xmp></td>
+				<td> - вирівнювання по горизонталі відносно заданих координат тексту:<br>
+                    <b>start</b> - лівий край<br>
+                    <b>middle</b> - центр<br>
+                    <b>end</b> - правий край
+                </td>
+				<td>
+                    <button onclick="s_text_an()" title="button onclick=&quot;s_text_an()&quot;>Подивитися результат">Подивитися результат</button>
+                </td>
+				<td>
+					<details>
+						<summary>Подивитися текст коду</summary>
+							<xmp><svg></xmp>
+                            <xmp>    <text x="100" y="30" text-anchor="end" >Текст</text></xmp>
+                            <xmp></svg></xmp>
+					</details>
+				</td>
+			</tr>
+            <tr>
+				<th colspan="4" align="center" id="A2">2. Лінії і криві</th>
+			</tr>
+            <tr>
+				<td>
+                    <xmp><line x1 y1 x2 y2 /></xmp>
+                </td>
+				<td>
+                    - тег для виводу лінії<br>
+                    від координати (x1;y1) до координати (x2;y2)
+                </td>
+				<td>
+                    <button onclick="s_line()" title="button onclick=&quot;s_line()&quot;>Подивитися результат">Подивитися результат</button>
+                </td>
+				<td>
+					<details>
+						<summary>Подивитися текст коду</summary>
+							<xmp><line x1="10" y1="15" x2="220" y2="100" stroke="black" /></xmp>
+					</details>
+				</td>
+			</tr>
+            <tr>
+				<td><xmp><polyline points="x1,y1 x2,y2, x3,y3 ..." /></xmp></td>
+				<td> - складна лінія</td>
+				<td>
+                    <button onclick="s_polyline()" title="button onclick=&quot;s_polyline()&quot;>Подивитися результат">Подивитися результат</button>
+                </td>
+				<td>
+					<details>
+						<summary>Подивитися текст коду</summary>
+							<xmp><polyline points="5,135 30,5 55,135 80,5, 105,135"</xmp>
+                            <xmp>  fill="none" stroke="orangered" stroke-width="5" /></xmp>
+					</details>
+				</td>
+			</tr>
+            <tr>
+				<td>
+                    <xmp><path d="M mx1 my1</xmp>
+                    <xmp>  C cx1 cy1, cx2 cy2, cx3 cy3</xmp>
+                    <xmp>  S sx1 sy1, mx2 my2" /></xmp>
+                </td>
+				<td>
+                    Геометричний шлях для малювання кривої, атрибут d якого визначає:<br>
+                    1 -  <b>M mx1 my1</b> - точка, звідки буде малюватися крива<br>
+                    2 - <b>L lx1 ly1, ...</b> - провести лінію до точки (lx1;ly1)<br>
+                    2 - <b>C cx1 cy1, ...</b> - провести кубічну криву Безьє до точки (cx1 cy1 cx2 cy2 cx3 cy3)<br>
+                    2 - <b>Q qx1 qy1, ...</b> - провести кубічну криву Безьє до точки (qx1 qy1 qx2 qy2)<br>
+                    2 - <b>A ...</b> - провести дугу по координатам (rx ry x-axis-rotation large-arc-flag sweep-flag x y)<br>
+                    3 - <b>S sx1 sy1</b> - стоп точка, після якої більше немає вигинів<br>
+                    4 - <b>mx2 my2</b> - точка, в якій закінчується крива<br>
+                </td>
+				<td>
+                    <button onclick="s_path()" title="button onclick=&quot;s_path()&quot;>Подивитися результат">Подивитися результат</button>
+                </td>
+				<td>
+					<details>
+						<summary>Подивитися текст коду</summary>
+							<xmp><path d="M20 80 C 90 150, 105 150, 160 80</xmp>
+                            <xmp>   S 230 10, 300 80" fill="none"</xmp>
+                            <xmp>   stroke="navy" stroke-width="3" /></xmp>
+					</details>
+				</td>
+			</tr>
+            <tr>
+				<th colspan="4" align="center" id="A3">3. Геометричні фігури</th>
+			</tr>
+            <tr>
+				<td>
+                    <xmp><rect x y width height /></xmp>
+                </td>
+				<td>
+                    - прямокутник із координатами лівого верхнього кута (x;y) 
+                    шириною width і висотою height
+                </td>
+				<td>
+                    <button onclick="s_rect()" title="button onclick=&quot;s_rect()&quot;>Подивитися результат">Подивитися результат</button>
+                </td>
+				<td>
+					<details>
+						<summary>Подивитися текст коду</summary>
+							<xmp><rect x="15" y="10" width="120" height="60" /></xmp>
+					</details>
+				</td>
+			</tr>
+            <tr>
+				<td><xmp><rect x y width height rx ry/></xmp></td>
+				<td>- атрибути для заокруглених кутів rx і ry прямокутника</td>
+				<td>
+                    <button onclick="s_rect_r()" title="button onclick=&quot;s_rect_r()&quot;>Подивитися результат">Подивитися результат</button>
+                </td>
+				<td>
+					<details>
+						<summary>Подивитися текст коду</summary>
+							<xmp><rect x="15" y="10" width="120" height="60"</xmp>
+                            <xmp>  fill="none" stroke="#2980b9" rx="20" ry="20" /></xmp>
+					</details>
+				</td>
+			</tr>
+            <tr>
+				<td><xmp><circle cx cy r /></xmp></td>
+				<td>- круг із координатами центру (cx;cy) і радіусом r </td>
+				<td>
+                    <button onclick="circle()" title="button onclick=&quot;circle()&quot;>Подивитися результат">Подивитися результат</button>
+                </td>
+				<td>
+					<details>
+						<summary>Подивитися текст коду</summary>
+							<xmp><circle cx="100" cy="80" r="50" /></xmp>
+					</details>
+				</td>
+			</tr>
+            <tr>
+				<td><xmp><ellipse cx cy rx ry /></xmp></td>
+				<td>- еліпс із координатами центру (cx;cy) і радіусами rx і ry</td>
+				<td>
+                    <button onclick="ellips()" title="button onclick=&quot;ellips()&quot;>Подивитися результат">Подивитися результат</button>
+                </td>
+				<td>
+					<details>
+						<summary>Подивитися текст коду</summary>
+							<xmp><ellipse cx="100" cy="80" rx="60" ry="30" </xmp>
+                            <xmp>  fill="#55efc4" stroke="#00b894"  /></xmp>
+					</details>
+				</td>
+			</tr>
+            <tr>
+				<td><xmp><polygon points="x1,y1 x2,y2 ... />"</xmp></td>
+				<td>- фігура довільної форми</td>
+				<td>
+                    <button onclick="s_poly()" title="button onclick=&quot;s_poly()&quot;>Подивитися результат">Подивитися результат</button>
+                </td>
+				<td>
+					<details>
+						<summary>Подивитися текст коду</summary>
+							<xmp><polygon points="70,5 90,41 136,48 103,80 111,126 </xmp>
+                            <xmp>  70,105 29,126 36,80 5,48 48,41" fill="turquoise"</xmp>
+                            <xmp>  stroke="lightseagreen" stroke-width="5" /></xmp>
+					</details>
+				</td>
+			</tr>
+            <tr>
+				<th colspan="4" align="center" id="A4">4. Властивості геометричних фігур і ліній</th>
+			</tr>
+            <tr>
+				<td><xmp>fill</xmp></td>
+				<td>- задати колір заливки; щоб прибрати заливку, використовується значення "none"</td>
+				<td>
+                    <button onclick="s_rect_f()" title="button onclick=&quot;s_rect_f()&quot;>Подивитися результат">Подивитися результат</button>
+                </td>
+				<td>
+					<details>
+						<summary>Подивитися текст коду</summary>
+							<xmp><rect x="15" y="10" width="120" height="60" fill="#2980b9" /></xmp>
+					</details>
+				</td>
+			</tr>
+            <tr>
+				<td><xmp>stroke</xmp></td>
+				<td>- задати колір лінії/обводки (назвою, в форматі rgb(0,0,0) або #000000)</td>
+				<td>
+                    <button onclick="s_rect_s()" title="button onclick=&quot;s_rect_s()&quot;>Подивитися результат">Подивитися результат</button>
+                </td>
+				<td>
+					<details>
+						<summary>Подивитися текст коду</summary>
+							<xmp><rect x="15" y="10" width="120" height="60"</xmp>
+                            <xmp>  fill="none" stroke="#2980b9" /></xmp>
+					</details>
+				</td>
+			</tr>
+            <tr>
+				<td><xmp>stroke-width</xmp></td>
+				<td>- задати ширину лінії (абсолютне число, яке переводиться в пікселі, або у %)</td>
+				<td>
+                    <button onclick="s_line_st()" title="button onclick=&quot;s_line_st()&quot;>Подивитися результат">Подивитися результат</button>
+                </td>
+				<td>
+					<details>
+						<summary>Подивитися текст коду</summary>
+							<xmp><line x1="10" y1="15" x2="220" y2="100"</xmp>
+                            <xmp>  stroke="black" stroke-width="2"/></xmp>
+					</details>
+				</td>
+			</tr>
+            <tr>
+				<td><xmp>transform = translate(x, [y])</xmp></td>
+				<td>- переміщення фігури по горизонталі (x) і вертикалі (у - якщо не задати, то y=0)</td>
+				<td>
+                    <button onclick="s_tr_tr()" title="button onclick=&quot;s_tr_tr()&quot;>Подивитися результат">Подивитися результат</button>
+                </td>
+				<td>
+					<details>
+						<summary>Подивитися текст коду</summary>
+							<xmp><rect x="15" y="10" width="120" height="60" /></xmp>
+                            <xmp><rect x="15" y="10" width="120" height="60</xmp>
+                            <xmp>  transform="translate(15)" fill="none" stroke="red"/></xmp>
+					</details>
+				</td>
+			</tr>
+            <tr>
+				<td><xmp>transform = scale(sx, [sy])</xmp></td>
+				<td>- масштабує у sx раз по горизонталі і sy раз по вертикалі (якщо sy не вказаний, sy=sx)</td>
+				<td>
+                    <button onclick="s_tr_sc()" title="button onclick=&quot;s_tr_sc()&quot;>Подивитися результат">Подивитися результат</button>
+                </td>
+				<td>
+					<details>
+						<summary>Подивитися текст коду</summary>
+							<xmp><rect x="15" y="10" width="120" height="60" /></xmp>
+                            <xmp><rect x="15" y="10" width="120" height="60</xmp>
+                            <xmp>  transform="scale(1.5)" fill="none" stroke="red"/></xmp>
+					</details>
+				</td>
+			</tr>
+            <tr>
+				<td><xmp>transform = rotate(deg, [cx, cy])</xmp></td>
+				<td>- повертає на кут deg; cx, cy - координати центру повороту (за замовчуванням (0,0))</td>
+				<td>
+                    <button onclick="s_tr_r()" title="button onclick=&quot;s_tr_r()&quot;>Подивитися результат">Подивитися результат</button>
+                </td>
+				<td>
+					<details>
+						<summary>Подивитися текст коду</summary>
+							<xmp><rect x="15" y="10" width="120" height="60" /></xmp>
+                            <xmp><rect x="15" y="10" width="120" height="60</xmp>
+                            <xmp>  transform="rotate(10)" fill="none" stroke="red"/></xmp>
+					</details>
+				</td>
+			</tr>
+            <tr>
+				<td><xmp>transform = skewX(deg)</xmp></td>
+				<td>- нахиляє елемент вздовж осі х на вказаний кут</td>
+				<td>
+                    <button onclick="s_tr_sx()" title="button onclick=&quot;s_tr_sx()&quot;>Подивитися результат">Подивитися результат</button>
+                </td>
+				<td>
+					<details>
+						<summary>Подивитися текст коду</summary>
+							<xmp><rect x="15" y="10" width="120" height="60" /></xmp>
+                            <xmp><rect x="15" y="10" width="120" height="60</xmp>
+                            <xmp>  transform="skewX(10)" fill="none" stroke="red"/></xmp>
+					</details>
+				</td>
+			</tr>
+            <tr>
+				<td><xmp>transform = skewX(deg)</xmp></td>
+				<td>- нахиляє елемент вздовж осі Y на вказаний кут</td>
+				<td>
+                    <button onclick="s_tr_sy()" title="button onclick=&quot;s_tr_sy()&quot;>Подивитися результат">Подивитися результат</button>
+                </td>
+				<td>
+					<details>
+						<summary>Подивитися текст коду</summary>
+							<xmp><rect x="15" y="10" width="120" height="60" /></xmp>
+                            <xmp><rect x="15" y="10" width="120" height="60</xmp>
+                            <xmp>  transform="skewY(10)" fill="none" stroke="red"/></xmp>
+					</details>
+				</td>
+			</tr>
+            <tr>
+				<td><xmp>transform = matrix(a, b, c, d, e, f)</xmp></td>
+				<td>
+                    - матриця аффінного перетворення:<br>
+                    x' = a⋅x + c⋅y + e<br>
+                    y' = b⋅x + d⋅y + f<br>
+                    Значення літер:<br>
+                    a - масштаб по осі Х<br>
+                    b - нахил по осі У<br>
+                    c - нахил по осі Х<br>
+                    d - масштаб по осі У<br>
+                    e - переміщення по осі Х<br>
+                    f - переміщення по осі У
+                </td>
+				<td>
+                    <button onclick="s_tr_m()" title="button onclick=&quot;s_tr_m()&quot;>Подивитися результат">Подивитися результат</button>
+                </td>
+				<td>
+					<details>
+						<summary>Подивитися текст коду</summary>
+							<xmp><rect x="15" y="10" width="120" height="60" /></xmp>
+                            <xmp><rect x="15" y="10" width="120" height="60</xmp>
+                            <xmp>  transform="matrix(.3 0 0 .95 55 25)"</xmp>
+                            <xmp>  fill="none" stroke="red"/></xmp>
+					</details>
+				</td>
+			</tr>
+            <tr>
+				<th colspan="4" align="center" id="A5">5. Групування елементів</th>
+			</tr>
+            <tr>
+				<td><xmp><g></g></xmp></td>
+				<td>
+                    - теги, всередині яких групують елементи. Використовують для:<br>
+                    1 - спільної трансформації (атрибут transform);<br>
+                    2 - спільної стилізації (можна задавати стилі в тегу &lt;g>)
+                </td>
+				<td>
+                    <button onclick="s_group()" title="button onclick=&quot;s_group()&quot;>Подивитися результат">Подивитися результат</button>
+                </td>
+				<td>
+					<details>
+						<summary>Подивитися текст коду</summary>
+							<xmp><svg></xmp>
+                            <xmp>   <g></xmp>
+                            <xmp>       <text x="10" y="15">Прямокутник</text></xmp>
+                            <xmp>       <rect x="10" y="20" width="110" height="80" fill="#16a085" /></xmp>
+                            <xmp>   </g></xmp>
+                            <xmp></svg></xmp>
+					</details>
+				</td>
+			</tr>
+        </table>
+        
+        <table border="1">
+			<tr>
+				<th colspan="4" align="center" id="A6">6. Робота з даними елементів веб-сторінки</th>
+			</tr>
+            <tr>
+				<td><xmp>d3.select("selector")</xmp></td>
+				<td>
+                    повертає перший елемент із усіх елементів, які відповідають селектору 
+                    ("selector" - найменування об'єкту; ".selector" - доступ по класу; "#selector" - доступ по ID)
+                </td>
+				<td></td>
+				<td>
+					<details>
+						<summary>Подивитися текст коду</summary>
+							<xmp>d3.select("li:last-of-type")</xmp>повертає останній елемент зі списку
+                            <xmp>d3.select("body").select("ul")</xmp>можна використовувати кілька рівнів вибірки
+					</details>
+				</td>
+			</tr>
+            <tr>
+				<td><xmp>d3.selectAll("selector")</xmp></td>
+				<td>повертає всі елементи, які відповідають селектору (у вигляді архіву Array())</td>
+				<td></td>
+				<td></td>
+			</tr>
+            <tr>
+				<td><xmp>attr()</xmp></td>
+				<td>
+                    отримує чи встановлює значення атрибуту, наприклад дозволити перетягувати дане зображення: 
+                    <img src="img/fl.jpg" width="35px" draggable="false">
+                </td>
+				<td>
+                    <button onclick="s_attr()" title="button onclick=&quot;s_attr()&quot;>Подивитися результат">Подивитися результат</button>
+                </td>
+				<td>
+					<details>
+						<summary>Подивитися текст коду</summary>
+							<xmp>function s_attr(){</xmp>
+                            <xmp>   d3.select("img").attr("draggable", "true");</xmp>
+                            <xmp>}</xmp>
+					</details>
+				</td>
+			</tr>
+            <tr>
+				<td><xmp>style()</xmp></td>
+				<td>
+                    отримує або встановлює стиль елемента, наприклад 
+                    <dfn style="color: brown;" title="&lt;dfn&gt;змінити колір цього тексту&lt;dfn&gt;">
+                        змінити колір цього тексту
+                    </dfn>
+                </td>
+				<td>
+                    <button onclick="s_style()" title="button onclick=&quot;s_style()&quot;>Подивитися результат">Подивитися результат</button>
+                </td>
+				<td>
+					<details>
+						<summary>Подивитися текст коду</summary>
+                            <xmp>function s_attr(){</xmp>
+							<xmp>   d3.select("dfn").style("color", "blue");</xmp>
+                            <xmp>}</xmp>
+					</details>
+				</td>
+			</tr>
+            <tr>
+				<td><xmp>text()</xmp></td>
+				<td>
+                    <cite title="&lt;cite&gt;отримує або встановлює текстовий вміст&lt;/cite&gt;">
+                        отримує або встановлює текстовий вміст
+                    </cite>
+                </td>
+				<td>
+                    <button onclick="s_text()" title="button onclick=&quot;s_text()&quot;>Подивитися результат">Подивитися результат</button>
+                </td>
+				<td>
+					<details>
+						<summary>Подивитися текст коду</summary>
+                        <xmp>function s_text(){</xmp>
+							<xmp>   const text = d3.select("cite").text();</xmp>
+                            <xmp>  const svg = document.getElementById("svgC");</xmp>
+                            <xmp>  svg.innerHTML = "<text x=\"5\" y=\"30\">"+text+"</text>"</xmp>
+                            <xmp>  d3.select("cite").text("ось так");</xmp>
+                            <xmp>}</xmp>
+					</details>
+				</td>
+			</tr>
+            <tr>
+				<td><xmp>html()</xmp></td>
+				<td>отримує або встановлює html-код елемента</td>
+				<td>
+                    <button onclick="s_html()" title="button onclick=&quot;s_html()&quot;>Подивитися результат">Подивитися результат</button>
+                </td>
+				<td>
+					<details>
+						<summary>Подивитися текст коду</summary>
+                        <xmp>function s_html(){</xmp>
+                        <xmp>   const text = d3.select("cite").html();</xmp>
+                        <xmp>   const svg = document.getElementById("svgC");</xmp>
+                        <xmp>   svg.innerHTML = "<text x=\"5\" y=\"30\">"+text+"</text>"</xmp>
+                        <xmp>}</xmp>
+					</details>
+				</td>
+			</tr>
+            <tr>
+				<td><xmp>append("selector")</xmp></td>
+				<td>додає новий елемент, тег якого передається в метод як параметр, в кінець вибраного елементу</td>
+				<td>
+                    <button onclick="s_append()" title="button onclick=&quot;s_append()&quot;>Подивитися результат">Подивитися результат внизу сторінки</button>
+                </td>
+				<td>
+					<details>
+						<summary>Подивитися текст коду</summary>
+                        <xmp>function s_append(){</xmp>
+                        <xmp>   d3.select("body").append("h2").text("Приклад використання оператора append()");</xmp>
+                        <xmp>}</xmp>
+					</details>
+				</td>
+			</tr>
+            <tr>
+				<td><xmp>insert("selector1", "selector2")</xmp></td>
+				<td>додає новий елемент selector1 перед існуючим елементом selector2</td>
+				<td>
+                    <button onclick="s_insert()" title="button onclick=&quot;s_insert()&quot;>Подивитися результат">Подивитися результат вверху сторінки</button>
+                </td>
+				<td>
+					<details>
+						<summary>Подивитися текст коду</summary>
+                        <xmp>function s_insert(){</xmp>
+                        <xmp>   d3.select("table").insert("h2", "table").text("Приклад використання оператора insert()");</xmp>
+                        <xmp>}</xmp>
+					</details>
+				</td>
+			</tr>
+            <tr>
+				<td><xmp>remove()</xmp></td>
+				<td>видаляє елемент</td>
+				<td>
+                    <button onclick="s_remove()" title="button onclick=&quot;s_remove()&quot;>Подивитися результат">Подивитися результат</button>
+                </td>
+				<td>
+					<details>
+						<summary>Подивитися текст коду</summary>
+                        <xmp>function s_remove(){</xmp>
+                        <xmp>   d3.select("cite").remove();</xmp>
+                        <xmp>}</xmp>
+					</details>
+				</td>
+			</tr>
+        </table>
+
+        <table border="1">
+            <tr>
+				<th colspan="4" align="center" id="A7">7. Прив'язка даних</th>
+			</tr>
+            <tr>
+				<td>1. <xmp>data(variable)</xmp></td>
+				<td>отримує через параметр variable дані</td>
+				<td rowspan="2">
+                    <button onclick="s_data()" title="button onclick=&quot;s_data()&quot;>Приклад 1">Приклад 1</button><br><br>
+                    <button onclick="s_dataDia()" title="button onclick=&quot;s_data()&quot;>Приклад 2">Приклад 2</button>
+                </td>
+				<td rowspan="2">
+					<details>
+						<summary>Код прикладу 1</summary>
+                        <xmp>function s_remove(){</xmp>
+                        <xmp>   const langs = ["JavaScript", "TypeScript",</xmp>
+                        <xmp>                  "Python", "Dart"];</xmp>
+                        <xmp>  d3.select("ul").selectAll("li").data(langs)</xmp>
+                        <xmp>              .join("li").text(item=>item);</xmp>
+                        <xmp>}</xmp>
+					</details>
+                    <details>
+						<summary>Код прикладу 2</summary>
+                        <xmp>function s_dataDia(){</xmp>
+                        <xmp>    // Дані рейтингу мов програмування TIOBE за березень 2025</xmp>
+                        <xmp>    const data = [</xmp>
+                        <xmp>        {id:1, lang: "Python", rate: 23.85}, </xmp>
+                        <xmp>        {id:2, lang: "C++", rate: 11.08}, </xmp>
+                        <xmp>        {id:3, lang: "Java", rate: 10.36}, </xmp>
+                        <xmp>        {id:4, lang: "JavaScript", rate: 3.46}, </xmp>
+                        <xmp>        {id:5, lang: "Go", rate: 2.78}, </xmp>
+                        <xmp>   ]</xmp>
+                        <xmp> </xmp>
+                        <xmp>    const barHeight = 18;</xmp>
+                        <xmp>    d3.select("svg")</xmp>
+                        <xmp>    .selectAll("rect")</xmp>
+                        <xmp>    .data(data)</xmp>
+                        <xmp>    .join("rect")</xmp>
+                        <xmp>    .attr("y", d => d.id * (barHeight + 10) - (barHeight + 10))</xmp>
+                        <xmp>    .attr("width", d => d.rate * 8)</xmp>
+                        <xmp>    .attr("height", barHeight)</xmp>
+                        <xmp>    .attr("fill", "steelblue");</xmp>
+                        <xmp> </xmp>
+                        <xmp>    d3.select("svg")</xmp>
+                        <xmp>    .selectAll("text")</xmp>
+                        <xmp>    .data(data)</xmp>
+                        <xmp>    .join("text")</xmp>
+                        <xmp>    .attr("y", d => d.id * (barHeight + 10) - (barHeight + 10)/2 )</xmp>
+                        <xmp>    .attr("x", d => d.rate * 8 + 10)</xmp>
+                        <xmp>    .text(d => `${d.lang} (${d.rate}%)`);</xmp>
+                        <xmp>}</xmp>
+					</details>
+				</td>
+			</tr>
+            <tr>
+				<td>2. <xmp>join("selector")</xmp></td>
+				<td>
+                    додає html-елементи "selector" на веб-сторінку
+                    ("selector" - найменування об'єкту; ".selector" - доступ по класу; "#selector" - доступ по ID)
+                </td>
+			</tr>
+            <tr>
+				<td><xmp>d3.min(data)</xmp></td>
+				<td>повертає мінімальне значення у масиві data</td>
+				<td>
+                    <button onclick="s_d_min()" title="button onclick=&quot;s_d_min()&quot;>Подивитися результат">Подивитися результат</button>
+                </td>
+				<td>
+					<details>
+						<summary>Подивитися текст коду</summary>
+                        <xmp>function s_d_min(){</xmp>
+                        <xmp>   const data = [3, 8, 21, 13, 1, 2, 5];</xmp>
+                        <xmp>   const result = d3.min(data);</xmp>
+                        <xmp>   const svg = document.getElementById("svgC");</xmp>
+                        <xmp>   svg.innerHTML = "<text x="50" y="30">"+data+"</text>";</xmp>
+                        <xmp>   + "<text x="10" y="50">Мінімальне значення: "+result+"</text>";</xmp>
+                        <xmp>}</xmp>
+					</details>
+				</td>
+			</tr>
+            <tr>
+				<td><xmp>d3.max(data)</xmp></td>
+				<td>повертає максимальне значення у масиві data</td>
+				<td>
+                    <button onclick="s_d_max()" title="button onclick=&quot;s_d_max()&quot;>Подивитися результат">Подивитися результат</button>
+                </td>
+				<td>
+					<details>
+						<summary>Подивитися текст коду</summary>
+                        <xmp>function s_d_max(){</xmp>
+                        <xmp>   const data = [3, 8, 21, 13, 1, 2, 5];</xmp>
+                        <xmp>   const result = d3.max(data);</xmp>
+                        <xmp>   const svg = document.getElementById("svgC");</xmp>
+                        <xmp>   svg.innerHTML = "<text x="50" y="30">"+data+"</text>";</xmp>
+                        <xmp>   + "<text x="10" y="50">Максимальне значення: "+result+"</text>";</xmp>
+                        <xmp>}</xmp>
+					</details>
+				</td>
+			</tr>
+            <tr>
+				<td><xmp>d3.extent(data)</xmp></td>
+				<td>повертає мінімальне та максимальне значення у вигляді масиву з двох елементів</td>
+				<td>
+                    <button onclick="s_d_extent()" title="button onclick=&quot;s_d_extent()&quot;>Подивитися результат">Подивитися результат</button>
+                </td>
+				<td>
+					<details>
+						<summary>Подивитися текст коду</summary>
+                        <xmp>function s_d_extent(){</xmp>
+                        <xmp>   const data = [3, 8, 21, 13, 1, 2, 5];</xmp>
+                        <xmp>   const result = d3.extent(data);</xmp>
+                        <xmp>   const svg = document.getElementById("svgC");</xmp>
+                        <xmp>   svg.innerHTML = "<text x="50" y="30">"+data+"</text>";</xmp>
+                        <xmp>   + "<text x="10" y="50">Макс. і мін. значення: "+result+"</text>";</xmp>
+                        <xmp>}</xmp>
+					</details>
+				</td>
+			</tr>
+            <tr>
+				<td><xmp>d3.sum(data)</xmp></td>
+				<td>повертає суму всіх елементів масиву</td>
+				<td>
+                    <button onclick="s_d_sum()" title="button onclick=&quot;s_d_sum()&quot;>Подивитися результат">Подивитися результат</button>
+                </td>
+				<td>
+					<details>
+						<summary>Подивитися текст коду</summary>
+                        <xmp>function s_d_sum(){</xmp>
+                        <xmp>   const data = [3, 8, 21, 13, 1, 2, 5];</xmp>
+                        <xmp>   const result = d3.sum(data);</xmp>
+                        <xmp>   const svg = document.getElementById("svgC");</xmp>
+                        <xmp>   svg.innerHTML = "<text x="50" y="30">"+data+"</text>";</xmp>
+                        <xmp>   + "<text x="10" y="50">Сума всіх елементів: "+result+"</text>";</xmp>
+                        <xmp>}</xmp>
+					</details>
+				</td>
+			</tr>
+            <tr>
+				<td><xmp>d3.median(data)</xmp></td>
+				<td>повертає медіану масиву</td>
+				<td>
+                    <button onclick="s_d_median()" title="button onclick=&quot;s_d_median()&quot;>Подивитися результат">Подивитися результат</button>
+                </td>
+				<td>
+					<details>
+						<summary>Подивитися текст коду</summary>
+                        <xmp>function s_d_median(){</xmp>
+                        <xmp>   const data = [3, 8, 21, 13, 1, 2, 5];</xmp>
+                        <xmp>   const result = d3.median(data);</xmp>
+                        <xmp>   const svg = document.getElementById("svgC");</xmp>
+                        <xmp>   svg.innerHTML = "<text x="50" y="30">"+data+"</text>";</xmp>
+                        <xmp>   + "<text x="10" y="50">Медіана масиву: "+result+"</text>";</xmp>
+                        <xmp>}</xmp>
+					</details>
+				</td>
+			</tr>
+            <tr>
+				<td><xmp>d3.mean(data)</xmp></td>
+				<td>повертає середнє значення</td>
+				<td>
+                    <button onclick="s_d_mean()" title="button onclick=&quot;s_d_mean()&quot;>Подивитися результат">Подивитися результат</button>
+                </td>
+				<td>
+					<details>
+						<summary>Подивитися текст коду</summary>
+                        <xmp>function s_d_mean(){</xmp>
+                        <xmp>   const data = [3, 8, 21, 13, 1, 2, 5];</xmp>
+                        <xmp>   const result = d3.mean(data);</xmp>
+                        <xmp>   const svg = document.getElementById("svgC");</xmp>
+                        <xmp>   svg.innerHTML = "<text x="50" y="30">"+data+"</text>";</xmp>
+                        <xmp>   + "<text x="10" y="50">Середнє значення: "+result+"</text>";</xmp>
+                        <xmp>}</xmp>
+					</details>
+				</td>
+			</tr>
+            <tr>
+				<td>
+                    <xmp>data.sort(d3.ascending)</xmp>
+                    <xmp>data.sort(d3.descending)</xmp>
+                </td>
+				<td>
+                    впорядкування масиву за зростанням / за спаданням<br>
+                    можна також задати власну функцію сортування
+                </td>
+				<td>
+                    <button onclick="s_d_asc()" title="button onclick=&quot;s_d_asc()&quot;>Подивитися результат">Подивитися результат</button>
+                </td>
+				<td>
+					<details>
+						<summary>Подивитися текст коду</summary>
+                        <xmp>function s_d_asc(){</xmp>
+                        <xmp>   const data = [3, 8, 21, 13, 1, 2, 5];</xmp>
+                        <xmp>   const result = data.sort(d3.ascending);</xmp>
+                        <xmp>   const svg = document.getElementById("svgC");</xmp>
+                        <xmp>   svg.innerHTML = "<text x="50" y="30">"+data+"</text>";</xmp>
+                        <xmp>   + "<text x="10" y="50">Сортування за зростанням: "+result+"</text>";</xmp>
+                        <xmp>}</xmp>
+					</details>
+				</td>
+			</tr>
+            <tr>
+				<td><xmp>d3.quantile(data.sort(d3.ascending), 0.25)</xmp></td>
+				<td>повертає квантиль елементів масиву, відсортованого за зростанням</td>
+				<td>
+                    <button onclick="s_d_quant()" title="button onclick=&quot;s_d_quant()&quot;>Подивитися результат">Подивитися результат</button>
+                </td>
+				<td>
+					<details>
+						<summary>Подивитися текст коду</summary>
+                        <xmp>function s_d_quant(){</xmp>
+                        <xmp>   const data = [3, 8, 21, 13, 1, 2, 5];</xmp>
+                        <xmp>   const result = d3.quantile(data.sort(d3.ascending), 0.25);</xmp>
+                        <xmp>   const svg = document.getElementById("svgC");</xmp>
+                        <xmp>   svg.innerHTML = "<text x="50" y="30">"+data+"</text>";</xmp>
+                        <xmp>   + "<text x="10" y="50">Квантиль елементів масиву: "+result+"</text>";</xmp>
+                        <xmp>}</xmp>
+					</details>
+				</td>
+			</tr>
+            <tr>
+				<td><xmp>d3.bisect(data.sort(d3.ascending), 11)</xmp></td>
+				<td>функція, яка повертає позицію у відсортованому масиві, куди можна помістити певний об'єкт, не порушуючи порядку зростання</td>
+				<td>
+                    <button onclick="s_d_bis()" title="button onclick=&quot;s_d_bis()&quot;>Подивитися результат">Подивитися результат</button>
+                </td>
+				<td>
+					<details>
+						<summary>Подивитися текст коду</summary>
+                        <xmp>function s_d_bis(){</xmp>
+                        <xmp>   const data = [3, 8, 21, 13, 1, 2, 5];</xmp>
+                        <xmp>   const result = d3.bisect(data.sort(d3.ascending), 11);</xmp>
+                        <xmp>   const svg = document.getElementById("svgC");</xmp>
+                        <xmp>   svg.innerHTML = "<text x="50" y="30">"+data+"</text>";</xmp>
+                        <xmp>   + "<text x="10" y="50">d3.bisect: "+result+"</text>";</xmp>
+                        <xmp>}</xmp>
+					</details>
+				</td>
+			</tr>
+            <tr>
+				<td><xmp>filter()</xmp></td>
+				<td>фільтрація даних</td>
+				<td>див. <a href="https://metanit.com/web/d3js/2.3.php">приклад на Metanit.com</a></td>
+				<td>
+					<details>
+						<summary>Подивитися текст коду</summary>
+                        <xmp></xmp>
+					</details>
+				</td>
+			</tr>
+            <tr>
+				<td>
+                    <xmp>d3.csv("filename.csv")</xmp>
+                    <xmp>     .then(function(data){...});</xmp>
+                    <xmp>d3.tsv("filename.txt")</xmp>
+                    <xmp>     .then(function(data){...});</xmp>
+                    <xmp>d3.dsv(";", "filename.csv")</xmp>
+                    <xmp>     .then(function(data){...});</xmp>
+                </td>
+				<td>
+                    завантаження даних із серверу:<br>
+                    - d3.csv: дільник - кома (,)<br>
+                    - d3.tsv: дільник - табуляція( )<br>
+                    - d3.dsv: заданий дільник<br>
+                    можна завантажувати також із файлів формату .txt, .dat і т.п.
+                </td>
+				<td>
+                    <button onclick="d_load()" title="button onclick=&quot;d_load()&quot;>Подивитися результат">Подивитися результат</button>
+                </td>
+				<td>
+					<details>
+						<summary>Подивитися текст коду</summary>
+                        <xmp>function d_load(){</xmp>
+                        <xmp>   d3.csv("script/data.csv")</xmp>
+                        <xmp>      .then(function(data) {</xmp>
+                        <xmp>         const div = </xmp>
+                        <xmp>            document.getElementById("svg-container");</xmp>
+                        <xmp>         const ul = div.lastElementChild;</xmp>
+                        <xmp>         ul.innerHTML = "";</xmp>
+                        <xmp>         data.forEach(function(item) {</xmp>
+                        <xmp>             const li = document.createElement("li");</xmp>
+                        <xmp>             li.textContent = item.name </xmp>
+                        <xmp>                 +" (" + item.age + " років)";</xmp>
+                        <xmp>             ul.appendChild(li);</xmp>
+                        <xmp>         });</xmp>
+                        <xmp>      })</xmp>
+                        <xmp>      .catch(function(error) {</xmp>
+                        <xmp>        console.error("Помилка читання CSV:",error);</xmp>
+                        <xmp>      });</xmp>
+                        <xmp>}</xmp>
+					</details>
+				</td>
+			</tr>
+            <tr>
+				<td><xmp></xmp></td>
+				<td></td>
+				<td>
+                    <button onclick="" title="button onclick=&quot;&quot;>Подивитися результат">Подивитися результат</button>
+                </td>
+				<td>
+					<details>
+						<summary>Подивитися текст коду</summary>
+                        <xmp></xmp>
+					</details>
+				</td>
+			</tr>
+            <tr>
+				<td><xmp></xmp></td>
+				<td></td>
+				<td>
+                    <button onclick="" title="button onclick=&quot;&quot;>Подивитися результат">Подивитися результат</button>
+                </td>
+				<td>
+					<details>
+						<summary>Подивитися текст коду</summary>
+                        <xmp></xmp>
+					</details>
+				</td>
+			</tr>
+            <tr>
+				<td><xmp></xmp></td>
+				<td></td>
+				<td>
+                    <button onclick="" title="button onclick=&quot;&quot;>Подивитися результат">Подивитися результат</button>
+                </td>
+				<td>
+					<details>
+						<summary>Подивитися текст коду</summary>
+                        <xmp></xmp>
+					</details>
+				</td>
+			</tr>
+		</table>
+
+	
+	</div>	
+	<p>&nbsp;</p>
+	<footer>По матеріалам сайту <a href="https://metanit.com/web/d3js/1.3.php">metanit.com</a></footer>
+
+</body>
+</html>

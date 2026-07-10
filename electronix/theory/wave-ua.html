@@ -1,0 +1,1306 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Коливання і хвилі</title>
+	<link rel="stylesheet" type="text/css" href="../css/theoryStyle.css">
+    <!-- Підтримка формул: -->
+    <link rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script defer
+        src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js">
+    </script>
+    <!-- Рендер тексту із формулами: -->
+    <script defer src="../script/math-renderer.js"></script>
+    
+    <style>
+
+        .label{
+            font-size:16px;
+        }
+    /*    #content{
+            font-size: 18px;
+        }
+        .math{
+            font-size: 16px;
+        } */
+    </style> 
+</head>
+<body>
+	<div id="content">
+		<font size="6"><center>Коливання і хвилі</center></font>
+		<nav>Розділи:
+            <ul>
+                <li>
+                    <a href="#A1">Коливання</a> -  вільні, гармонійні, рівняння, амплітуда <span class="math">A</span>, 
+                    фаза <span class="math">ωt+φ</span>, початкова фаза <span class="math">φ</span>, 
+                    циклічна частота <span class="math">ω</span>, період <span class="math">T</span>, 
+                    частота <span class="math">ν</span>, квазіпружні сили, диференціальне рівняння, 
+                    енергія гармонічних коливань.
+                <li>
+                    <a href="#A2">Складання гармонічних коливань</a> - коливання одного напрямку, коливання у фазі, протифазні, 
+                    биття, векторний метод, взаємноперпендикулярні коливання, фігури Ліссажу.
+                </li>
+                <li>
+                    <a href="#A3">Електромагнітні коливання</a> - коливальний контур Томпсона (LC-контур), 
+                    енергія коливального контуру, виведення диференціального рівняння, вимушені електромагнітні коливання, 
+                    індуктивний <span class="math">X_L</span> і ємнісний <span class="math">X_C</span> опори, 
+                    імпеданс <span class="math">Z</span>
+                </li>
+                <li>
+                    <a href="#A4">Резонанс у колах змінного струму</a> - умова резонансу, резонанс напруг і струмів
+                </li>
+                <li>
+                    <a href="#A5">Хвилі</a>, хвильове поле, основні характеристики хвилі (<span class="math">A, T, ν, λ</span>), 
+                    промінь, фронт хвилі, хвильова поверхня, плоска, сферична і циліндрична хвилі, пружні хвилі, 
+                    поперечні і поздовжні хвилі, гармонічні хвилі, фазова швидкість <span class="math">v</span>.
+                </li>
+                <li>
+                    <a href="#A6">Біжуча хвиля</a>, рівняння біжучої плоскої і сферичної хвиль, хвильове число <span class="math">k</span>, 
+                    енергія хвиль, густина енергії <span class="math">w</span>, потік енергії <span class="math">Φ</span>, 
+                    густина потоку енергії <span class="math">j</span>, вектор Умова <span class="math">\vec j</span>, 
+                    інтенсивність хвилі <span class="math">I</span>.
+                </li>
+                <li>
+                    <a href="#A7">Інтерференція хвиль</a>, максимум і мінімум інтерференції, когерентні, монохроматичні хвилі, 
+                    різниця ходу хвиль <span class="math">Δx</span>, інтерференційна картина.
+                </li>
+                <li>
+                    <a href="#A8">Стоячі хвилі</a> - особливий випадок інтерференції, вузли і пучності, енергія стоячої хвилі, 
+                    відбиття хвилі від межі середовищ.
+                </li>
+                <li>
+                    <a href="#A9">Електромагнітна хвиля</a> - хвильові рівняння, особливості, швидкість електромагнітної хвилі, 
+                    густина енергії електромагнітної хвилі <span class="math">w</span>, вектор Пойнтінга <span class="math">\vec S</span>, 
+                    потік енергії <span class="math">Φ</span>, світловий тиск.
+                </li>
+            </ul>
+        </nav>
+         <div class="article">
+            <div class="border">
+                <h3 id="A1">Коливання</h3>
+                <p>
+                    <b>Коливання</b> — це процес, при якому фізична величина періодично 
+                    змінюється навколо свого рівноважного значення (рух вантажу на пружині, 
+                    коливання маятника, змінний електричний струм, коливання електричного 
+                    заряду в коливальному контурі). Коливання є однією з найпоширеніших 
+                    форм руху систем поблизу положення рівноваги.
+                </p>
+                <p>
+                    За фізичною природою розрізняють:
+                    <ul>
+                        <li>механічні (маятник, пружина);</li>
+                        <li>електромагнітні (струм, напруга);</li>
+                        <li>електромеханічні;</li>
+                        <li>акустичні та інші.</li>
+                    </ul>
+                </p>
+                <p>
+                    <b>Вільні (власні) коливання</b> — це коливання системи, яку вивели з положення 
+                    рівноваги і надалі залишили саму собі (розтягнули пружину, відпустили - система 
+                    коливається без зовнішнього впливу).
+                </p>
+                <p>
+                    <b>Гармонічні коливання</b> — це періодичні зміни фізичної величини (або стану системи), 
+                    які відбуваються з плином часу за законом синуса або косинуса. Це найпростіший, 
+                    фундаментальний тип коливального руху. Рівняння гармонічних коливань:
+                    <div class="border-formul">
+                        <div class="math-display">x(t)=Acos(ωt+φ) ,</div>
+                    </div>
+                    де:
+                    <ul>
+                        <li><span class="math">x</span> — зміщення від положення рівноваги;</li>
+                        <li>
+                            <span class="math">A</span> — амплітуда - максимальне відхилення від положення рівноваги.
+                        </li>
+                        <li>
+                            <span class="math">ωt+φ</span> — фаза коливання - визначає поточний стан системи в даний момент часу;
+                        </li>
+                        <li><span class="math">φ</span> — початкова фаза;</li>
+                        <li>
+                            <span class="math">ω</span> [рад/с] — циклічна частота - показує швидкість зміни фази коливань:
+                            <div class="math-display">ω=2πν=\frac {2π}{T} ,</div>
+                            де <span class="math">T</span> [с] - період - час одного повного коливання, 
+                            <span class="math">ν</span> [Гц] - показує кількість коливань за секунду (<span class="math">ν = 1/T</span>).
+                        </li>
+                    </ul>
+                </p>
+            </div>
+            <div class="border">
+                <h3>Виведення диференціального рівняння коливань</h3>
+                <p>
+                    Розглянемо модель пружинного маятника: вантаж масою m, закріплений на пружині жорсткістю k. Після відхилення на величину x виникає сила пружності. 
+                    За законом Гука:
+                    <div class="math-display">F = -kx ,</div>
+                    де:
+                    <ul>
+                        <li><span class="math">k</span> — коефіцієнт жорсткості пружини;</li>
+                        <li><span class="math">x</span> — зміщення;</li>
+                        <li>знак «−» означає, що сила завжди спрямована до положення рівноваги.</li>
+                    </ul>
+                    Для виникнення гармонічних коливань не обов'язково потрібна саме пружина. 
+                    Достатньо, щоб повертаюча сила мала вигляд <span class="math">F= -kx</span>. 
+                    Такі сили називають <b>квазіпружними</b>. Саме тому однакові рівняння описують і механічні коливання, 
+                    і електричні кола.
+                </p>
+                <p>
+                    Сила, яка спричиняє відхилення маятника:
+                    <div class="math-display">F = ma ,</div>
+                    де прискорення:
+                    <div class="math-display">a = \frac {d^2x}{dt^2} .</div>
+                    За другим законом Ньютона:
+                    <div class="math-display">ma = - kx</div>
+                    <div class="math-display"> m \frac {d^2x}{dt^2} = -kx</div>
+                    <div class="math-display">\frac {d^2x}{dt^2} + \frac {k}{m}x = 0 .</div>
+                    Позначимо:
+                    <div class="math-display">ω^2 = \frac {k}{m} ,</div>
+                    тоді:
+                    <div class="border-formul">
+                        <div class="math-display">\frac {d^2x}{dt^2} + ω^2x = 0 .</div>
+                    </div>
+                    Це <u>диференціальне рівняння вільних незатухаючих гармонічних коливань</u>. 
+                    Розв'язком є функція:
+                    <div class="border-formul">
+                        <div class="math-display">x = Acos(ωt+φ) .</div>
+                    </div>    
+                    Тут <span class="math">ω</span> - <b>власна частота коливань системи</b>:
+                    <div class="border-formul">
+                        <div class="math-display">
+                            ω = \sqrt {\frac{k}{m}} .
+                        </div>
+                    </div>
+                        Звідси видно:
+                    <ul>
+                        <li>жорсткіша пружина → швидші коливання;</li>
+                        <li>більша маса → повільніші коливання.</li>
+                    </ul>
+                </p>
+                <p>
+                    Щоб визначити, як швидко рухається тіло і де кінетична енергія найбільша, 
+                    знайдемо <b>швидкість коливань</b>:
+                    <div class="math-display">v = \frac {dx}{dt}</div>
+                    <div class="math-display">v = -Aωsin(ωt+φ)</div>
+                    <div class="math-display">v=Aωcos(ωt+φ+ \frac {π}{2})</div>
+                    Таким чином, максимальне значення: <span class="math">v_{max}= Aω</span> - 
+                    положення рівноваги, у якому рух найшвидший. У крайніх положеннях 
+                    <span class="math">v = 0</span> і тіло зупиняється та змінює напрямок руху.
+                </p>
+                <p>
+                    Щоб визначити, яка сила діє на систему і як змінюється рух, знайдемо <b>прискорення</b>:
+                    <div class="math-display">a = \frac {dv}{dt}</div>
+                    <div class="math-display">a= -Aω^2cos(ωt+φ)</div>
+                    <div class="math-display">a = Aω^2cos(ωt+φ+π) .</div>
+                    Оскільки
+                    <div class="math-display">x=Acos(ωt+φ) ,</div>
+                    то <span class="math">a=-ω^2x</span>, тобто прискорення пропорційне зміщенню і 
+                    завжди спрямоване до положення рівноваги. Саме ця властивість і породжує гармонічні коливання.
+                </p>
+            </div>
+            <div class="border">
+                <h3>Енергія гармонічних коливань</h3>
+                <p>
+                    У вільних незатухаючих коливаннях:
+                    <div class="math-display">W=Wk+Wp=const</div>
+                    Кінетична енергія:
+                    <div class="math-display">W_k = \frac {mv^2}{2} = \frac {mA^2ω^2}{2} sin^2(ωt + φ) .</div>
+                    Потенціальна енергія для пружини:
+                    <div class="math-display">W_p = \frac {kx^2}{2}.</div>
+                    Оскільки <span class="math">k=mω^2</span>:
+                    <div class="math-display">W_p = \frac {mA^2ω^2}{2} cos^2(ωt + φ) .</div>
+                    Тоді повна енергія:
+                    <div class="math-display">W = \frac {mA^2ω^2}{2}(sin^2(ωt + φ) + cos^2(ωt + φ)) .</div>
+                    Оскільки:
+                    <div class="math-display">sin^2α+cos^2α=1</div>
+                    одержуємо:
+                    <div class="border-formul">
+                        <div class="math-display">W = \frac {mA^2ω^2}{2} = \frac {kA^2}{2}</div>
+                    </div>
+                    </p>
+            </div>
+        </div>
+        <div class="article">
+            <div class="border">
+                <h3 id="A2">Складання гармонічних коливань</h3>
+                <p>
+                    У реальних системах часто одночасно діє кілька коливальних процесів. Наприклад:
+                    <ul>
+                        <li>на струну можуть діяти кілька звукових хвиль;</li>
+                        <li>у колі змінного струму можуть одночасно існувати сигнали різних джерел;</li>
+                        <li>точка може брати участь у кількох коливаннях одночасно.</li>
+                    </ul>
+                    Тому виникає задача: якщо відомі окремі коливання, як знайти результуюче?
+                </p>
+                <h3>Складання коливань одного напрямку</h3>
+                <p>
+                    Нехай маємо два коливання вздовж однієї прямої:
+                    <div class="math-display">x_1=A_1cos(ωt+φ_1)</div>
+                    <div class="math-display">x_2=A_2cos(ωt+φ_2)</div>
+                    і нехай
+                    <div class="math-display">ω_1 = ω_2 = ω.</div>
+                    Тоді результуюче зміщення:
+                    <div class="math-display">x=x_1 + x_2 .</div>
+                </p>
+                <p>
+                    Будь-яке гармонічне коливання можна подати у вигляді вектора (фазора) довжиною A, 
+                    який обертається з кутовою швидкістю ω. Його проєкція на вісь x і є миттєвим значенням 
+                    коливної величини. Оскільки кожному коливанню відповідає вектор <span class="math">\vec {A_1}</span> 
+                    і <span class="math">\vec {A_2}</span>, результуючий вектор:
+                    <div class="math-display">\vec {A} = \vec {A_1} + \vec {A_2} .</div>
+                    Оскільки всі вектори обертаються з однаковою швидкістю ω, результуючий вектор теж обертається з цією ж швидкістю. 
+                    Тому результуючий рух залишається гармонічним коливанням:
+                    <div class="math-display">x=Acos(ωt+φ) ,</div>
+                    тобто форма коливань не змінюється — змінюються лише амплітуда і початкова фаза.
+                </p>
+                <svg id="vector" width="1000" height="500">
+                    <!-- ліва частина -->
+                    <line x1="250" y1="0" x2="250" y2="500" stroke="#ddd"/>
+                    <!-- центр обертання -->
+                    <circle cx="250" cy="250" r="4" fill="black"/>
+                    <!-- коло -->
+                    <circle cx="250" cy="250" r="120"
+                            fill="none"
+                            stroke="#ddd"/>
+                    <!-- вектори -->
+                    <line id="a1" stroke="blue" stroke-width="4"/>
+                    <line id="a2" stroke="green" stroke-width="4"/>
+                    <line id="sum" stroke="red" stroke-width="5"/>
+                    <!-- підписи -->
+                    <text x="30" y="30" fill="blue" class="label">A₁</text>
+                    <text x="30" y="55" fill="green" class="label">A₂</text>
+                    <text x="30" y="80" fill="red" class="label">A = A₁ + A₂</text>
+                    <!-- права область графіка -->
+                    <line x1="520" y1="250" x2="980" y2="250"
+                        stroke="black"/>
+                    <line x1="520" y1="100" x2="520" y2="400"
+                        stroke="black"/>
+                    <path id="wave"
+                        fill="none"
+                        stroke="red"
+                        stroke-width="3"/>
+                </svg>
+                <p>
+                    Амплітуда результуючого коливання за теоремою косинусів:
+                    <div class="math-display">A = \sqrt {A_1^2 + A_2^2 + 2A_1A_2cos(φ_2 - φ_1)}</div>
+                    Початкова фаза результуючого коливання:
+                    <div class="math-display">tanφ = \frac {A_1sinφ_1 + A_2sinφ_2}{A_1cosφ_1 + A_2cosφ_2}</div>
+                    Ця формула дозволяє знайти фазу результуючого коливання.
+                </p>
+                <svg id="phase-addition" width="700" height="250"></svg>
+                <script>
+                    const svg = document.getElementById("phase-addition");
+                    let p1="", p2="", psum="";
+                    for(let i=0;i<=600;i++){
+                        const t=i/60;
+                        const x=i+40;
+                        const y1=70-40*Math.cos(t);
+                        const y2=70-40*Math.cos(t+Math.PI/2);
+                        const ys=70-40*(Math.cos(t)+Math.cos(t+Math.PI/2));
+                        p1+=(i===0?"M":"L")+x+" "+y1+" ";
+                        p2+=(i===0?"M":"L")+x+" "+y2+" ";
+                        psum+=(i===0?"M":"L")+x+" "+ys+" ";
+                    }
+                    svg.innerHTML=`
+                    <path d="${p1}" stroke="blue" fill="none"/>
+                    <path d="${p2}" stroke="green" fill="none"/>
+                    <path d="${psum}" stroke="red" stroke-width="2" fill="none"/>
+                    <text x="20" y="130">Синій: x₁ = cos t</text>
+                    <text x="20" y="150">Зелений: x₂ = cos(t+π/2)</text>
+                    <text x="20" y="170">Червоний: x₁ + x₂</text>
+                    `;
+                </script>
+                <p>
+                    <strong>Для коливань у фазі</strong>:
+                    <div class="math-display">Δφ = φ_2 - φ_1 = 2πn</div>
+                    <div class="math-display">cosΔφ=1</div>
+                    Тоді:
+                    <div class="math-display">A = A_1 + A_2</div>
+                    В даному випадку максимуми обох коливань збігаються і вони <b>підсилюють</b> одне одного.
+                </p>
+                <p>
+                    <strong>Для протифазних коливань</strong>:
+                    <div class="math-display">Δφ=(2n+1)π</div>
+                    <div class="math-display">cosΔφ = -1.</div>
+                    <div class="math-display">A= |A_1 - A_2|.</div>
+                    В даному випадку, коли одне коливання досягає максимуму, інше досягає мінімуму. 
+                    Якщо <span class="math">A_1 = A_2</span>, <span class="math">A = 0</span> - 
+                    коливання <b>гасять</b> одне одного (повне взаємне погашення).
+                </p>
+                <p>
+                    Якщо коливання мають однаковий напрямок і близькі (але не однакові) частоти 
+                    (<span class="math">ω_1 ≈ ω_2</span>), то виникають <b>биття</b>. Наприклад:
+                    <div class="math-display">x_1 = Acos(ω_1t)</div>
+                    <div class="math-display">x_2 = Acos(ω_2t)</div>
+                    Результуюче коливання має швидкі коливання і повільну зміну амплітуди, тобто 
+                    звук то посилюється, то слабшає. Система практично почергово переходить від 
+                    майже повного підсилення до майже повного погашення. Це використовують при настроюванні 
+                    музичних інструментів: коли дві струни звучать майже однаково, чути характерне 
+                    «пульсування» звуку. Музикант підтягує струну доти, поки биття не зникнуть.
+                </p>
+                <svg id="beats" width="900" height="250"></svg>
+                <script>
+                    const svg2=document.getElementById("beats");
+                    let path="";
+                    for(let i=0;i<=800;i++){
+                        const t=i/40;
+                        const y=120-60*(Math.cos(10*t)+Math.cos(10.5*t));
+                        const x=i+30;
+                        path+=(i===0?"M":"L")+x+" "+y+" ";
+                    }
+                    svg2.innerHTML=`
+                    <path d="${path}"
+                    stroke="red"
+                    stroke-width="2"
+                    fill="none"/>
+                    <text x="260" y="40">Биття</text>
+                    `;
+                </script>
+            </div>
+            <div class="border">
+                <h3>Складання взаємно перпендикулярних коливань</h3>
+                <p>
+                    <b>Взаємно перпендикулярні коливання</b> - це коливання вздовж двох 
+                    взаємно перпендикулярних осей. Наприклад, вздовж осей ох і оу:
+                    <div class="math-display">x = A_1cos(ωt + φ_1)</div>
+                    <div class="math-display">y = A_2cos(ωt + φ_2)</div>
+                    Точка одночасно бере участь у двох незалежних коливаннях. 
+                    Тому її траєкторія вже не пряма, а деяка крива на площині.
+                </p>
+                <p>
+                    Для знаходження траекторії, необхідно виключити параметр часу 
+                    <span class="math">t</span> із системи. Після перетворень отримують:
+                    <div class="math-display">\frac {x^2}{A_1^2} + \frac {y^2}{A_2^2} - \frac {2xy}{A_1A_2}cos(Δφ) = sin^2(Δφ) ,</div>
+                    де:
+                    <div class="math-display">Δφ = φ_2 - φ_1</div>
+                    Головний висновок: при однакових частотах результуюча траєкторія завжди є еліпсом. 
+                    Його форма залежить від амплітуд і різниці фаз.
+                </p>
+                <p>
+                    <strong>Якщо різницяфаз дорівнює нулю</strong>:
+                    <div class="math-display">Δφ=0 або Δφ=2πn</div>
+                    <div class="math-display">cosΔφ = 1, sinΔφ = 0 .</div>
+                    Рівняння траєкторії:
+                    <div class="math-display">(\frac {x}{A_1} - \frac{y}{A_2})^2 = 0</div>
+                    <div class="math-display">y = \frac{A_2}{A_1}x</div>
+                    Траєкторія — <b>пряма лінія</b>. Точка рухається вперед-назад уздовж цієї прямої.
+                </p>
+                <p>
+                    <strong>Якщо різницяфаз дорівнює ±π/2</strong>:
+                    <div class="math-display">Δφ = ± \frac {π}{2}</div>
+                    <div class="math-display">cosΔφ = 0, sinΔφ = 1 .</div>
+                    Рівняння траєкторії:
+                    <div class="math-display">\frac {x^2}{A_1^2} + \frac{y^2}{A_2^2} = 1</div>
+                    Траєкторія — <b>еліпс</b>. Його осі збігаються з координатними осями. Якщо додатково 
+                    <span class="math">A_1 = A_2 = R</span>, то:
+                    <div class="math-display">\frac {x^2}{R^2} + \frac{y^2}{R^2} = 1</div>
+                    <div class="math-display">x^2 + y^2 = R^2</div>
+                    Точка рухається по <b>колу</b>. Фактично це рівномірний рух по колу, 
+                    розкладений на дві гармонічні проєкції. Саме звідси історично виникло поняття 
+                    гармонічних коливань.
+                </p>
+                <p>
+                    <strong>Якщо частоти різні</strong> (<span class="math">ω_1 ≠ ω_2</span>), то 
+                    траєкторія стає складною кривою. Такі криві називають <b>фігурами Ліссажу</b>. 
+                    Їх використовують для вимірювання невідомих частот, порівняння частот двох сигналів, 
+                    визначення фазового зсуву, роботи з осцилографами, дослідження коливальних процесів.
+                </p>
+                <p>
+                    x = A cos(ωt)<br>
+                    y = A cos(ωt + Δφ)
+                </p>
+                <div class="controls">
+                    <label>
+                        Δφ = <span id="phaseValue">0°</span>
+                    </label>
+                    <br><br>
+                    <input id="phaseSlider" type="range" min="0" max="360" value="0" step="1" style="width:500px;">
+                </div>
+                <svg id="lissajous" width="600" height="600"></svg>
+                <script src="../script//lissajous.js"></script>
+            </div>
+        </div>
+        <div class="article">
+            <div class="border">
+                <h3 id="A3">Електромагнітні коливання</h3>
+                <p>
+                    Більшість формул для змінного струму — це просто аналоги 
+                    формул для пружинного маятника:
+                    <table>
+                        <tr>
+                            <td>Механіка</td>
+                            <td>Електрика</td>
+                        </tr>
+                        <tr>
+                            <td>зміщення <span class="math">x</span></td>
+                            <td>заряд <span class="math">q</span></td>
+                        </tr>
+                        <tr>
+                            <td>швидкість <span class="math">v</span></td>
+                            <td>струм <span class="math">I = dq/dt</span></td>
+                        </tr>
+                        <tr>
+                            <td>маса <span class="math"></span>m</td>
+                            <td>індуктивність<span class="math">L</span></td>
+                        </tr>
+                        <tr>
+                            <td>жорсткість <span class="math">k</span></td>
+                            <td>конденсатор <span class="math">1/C</span></td>
+                        </tr>
+                        <tr>
+                            <td>кінетична енергія</td>
+                            <td>енергія магнітного поля</td>
+                        </tr>
+                        <tr>
+                            <td>потенціальна енергія</td>
+                            <td>енергія електричного поля</td>
+                        </tr>
+                    </table>
+                </p>
+                <p>
+                    Аналогом механічного коливального контуру є <b>коливальний контур Томсона</b> 
+                    (LC-контур) — це електричне коло, яке складається з послідовно увімкнених 
+                    конденсатора C, котушки індуктивності L і ключа, який замикає коло. 
+                    У теоретичному (ідеальному) контурі опір <span class="math">R = 0</span>.
+                    <ul>
+                        <li>
+                            В <strong>початковому стані</strong> ключ розімкнений, конденсатор заряджений 
+                            <span class="math">q_C = q_{max}, U_C = U_{max}</span>, струму немає 
+                            <span class="math">I = 0</span>. Вся енергія знаходиться в електричному полі конденсатора.
+                        </li>
+                        <li>
+                            Після <strong>замикання кола</strong> конденсатор починає розряджатися, у колі виникає струм, 
+                            у котушці створюється магнітне поле. Енергія починає переходити <span class="math">W_C → W_L</span>
+                        </li>
+                        <li>
+                            у певний момент настає <strong>стан рівноваги</strong>: конденсатор повністю розряджений 
+                            <span class="math">q_C = 0, U_C = 0</span>, струм максимальний 
+                            <span class="math">I = I_{max}</span>. Вся енергія зосереджена в магнітному полі котушки.
+                        </li>
+                        <li>
+                            Струм не може миттєво зникнути через явище <a href="magnetic-ua.html#A10">самоіндукції</a>. 
+                            Тому він продовжує текти та заряджає конденсатор з протилежною полярністю. Процес повторюється циклічно.
+                        </li>
+                    </ul>
+                </p>
+                <h3>Енергія коливального контуру</h3>
+                <p>
+                    <a href="elektrostatic-ua.html#A5">Енергія конденсатора</a>:
+                    <div class="math-display">W_C = \frac {CU^2} {2} = \frac {q^2}{2C}</div>
+                    <a href="magnetic-ua.html#A10">Енергія магнітного поля котушки</a>:
+                    <div class="math-display">W_L = \frac {LI^2}{2}</div>
+                    Повна енергія:
+                    <div class="math-display">W = W_C + W_L</div>
+                </p>
+                <h3>Виведення диференціального рівняння</h3>
+                <p>
+                    За другим законом Кірхгофа для ідеального контуру:
+                    <div class="math-display">U_C + U_L = 0 .</div>
+                    <a href="elektrostatic-ua.html#A5">Напруга на конденсаторі</a>:
+                    <div class="math-display">U_C = \frac {q}{C}</div>
+                    <a href="magnetic-ua.html#A10">Напруга самоіндукції</a>:
+                    <div class="math-display">U_L = L \frac {dI}{dt}</div>
+                    <div class="math-display">\frac {q}{C} + L \frac {dI}{dt} = 0</div>
+                    <a href="elektrostatic-ua.html#A6">Оскільки</a>
+                    <div class="math-display">I = \frac {dq}{dt}, \frac {dI}{dt} = \frac {d^2q}{dt^2}</div>
+                    Тоді:
+                    <div class="math-display">L \frac {d^2q}{dt^2} + \frac {q}{C} = 0</div>
+                    <div class="math-display">\frac{d^2q}{dt^2} + \frac {1}{LC}q = \frac {d^2q}{dt^2} + ω_0^2q = 0 .</div>
+                    Тут:
+                    <div class="border-formul">
+                        <div class="math-display">ω_0 = \frac {1}{\sqrt{LC}}</div>
+                    </div>
+                    — <b>власна частота контуру</b>.<br>
+                    Для періоду:
+                    <div class="math-display">T = 2π \sqrt {LC}</div>
+                    Для частоти:
+                    <div class="math-display">ν = \frac {1} {2π \sqrt {LC}}</div>
+                    Заряд:
+                    <div class="math-display">q = q_m cos(ω_0t + φ) .</div>
+                    Струм:
+                    <div class="math-display">I = \frac {dq}{dt} = -ω_0q_ms in(ω_0 t + φ) .</div>
+                    Амплітуда струму:
+                    <div class="math-display">I_m = ω_0q_m .</div>
+                    Напруга на конденсаторі:
+                    <div class="math-display">U = \frac {q}{C}</div>
+                    Тому вона також змінюється гармонічно.
+                </p>
+            </div>
+        </div>
+        <div class="article">
+            <div class="border">
+                <h3>Вимушені електромагнітні коливання</h3>
+                <p>
+                    Вільні коливання існують лише в ідеальному контурі. У реальному колі є опір 
+                    <span class="math">R>0</span>, тому коливання затухають. Щоб підтримувати їх постійно, 
+                    потрібне зовнішнє джерело змінної ЕРС. Наприклад:
+                    <div class="math-display">E(t) = E_0cos(ωt) .</div>
+                    Тоді виникають <b>вимушені електромагнітні коливання</b>, тобто коливання, які 
+                    підтримуються зовнішнім джерелом.
+                </p>
+                <p>
+                    Розглянемо електричний контур, у якому послідовно увімкнені конденсатор, котушка 
+                    індуктивності, опір, джерело ЕРС і ключ, який замикає цей контур (опір ключа дорівнює нулю). 
+                    Із рівняння Кірхгофа для RLC-контуру:
+                    <div class="math-display">U_R + U_L + U_C = E_0cos(ωt) ,</div>
+                    де напруга на <a href="elektrostatic-ua.html#A7">резисторі</a>, <a href="magnetic-ua.html#A10">котушці</a> і 
+                    <a href="elektrostatic-ua.html#A5">конденсаторі</a>, а також <a href="elektrostatic-ua.html#A6">струм у контурі</a>:
+                    <div class="math-display">U_R = RI, U_L = L \frac {dI}{dt}, U_C = \frac {q}{C}, I = \frac {dq}{dt}</div>
+                    Тоді:
+                    <div class="math-display">L \frac {d^2q}{dt^2} + R \frac {dq}{dt} + \frac {q}{C} = E_0cos(ωt)</div>
+                    <div class="math-display">\frac {d^2q}{dt^2} + \frac {R}{L} \frac {dq}{dt} + \frac {1}{LC}q = E_0cos(ωt)</div>
+                    Рівняння вимушених коливань для RLC-контуру:
+                    <div class="math-display">\frac {d^2q}{dt^2} + 2β \frac {dq}{dt} + ω_0^2q = \frac {E_0}{L}cos(ωt) ,</div>
+                    де <span class="math">2β</span> — коефіцієнт затухання:
+                    <div class="math-display">2β = \frac {R}{L} ,</div>
+                    <span class="math">ω_0</span> — власна частота контуру:
+                    <div class="border-formul">
+                        <div class="math-display">ω_0 = \frac {1} {\sqrt{LC}}</div>
+                    </div>
+                </p>
+            </div>
+            <div class="border">
+                <p>
+                    Через деякий час система починає коливатися з <u>частотою зовнішнього джерела</u> 
+                    <span class="math">ω</span> і настає <b>стаціонарний режим</b>:
+                    <div class="math-display">q = q_Acos(ωt+φ).</div>
+                    Тоді струм у контурі:
+                    <div class="math-display">I = \frac {dq}{dt} = -q_A ωsin(ωt - φ) = q_A ω cos(ωt - φ + \frac {π}{2}) ,</div>
+                    звідки амплітуда струму:
+                    <div class="math-display">I_A = q_A ω</div>
+                </p>
+            </div>
+            <div class="border">
+                <p>     
+                    Нехай струм гармонічний:
+                    <div class="math-display">I = I_0 cos(ωt)</div>
+                    <div class="math-display">\frac {dI}{dt} = -ω I_0 sin(ωt) = ωI_0cos(ωt + \frac {π}{2})</div>
+                    Для індуктивності:
+                    <div class="math-display">U_L = L \frac {dI}{dt} = ωLI_0cos(ωt + \frac {π}{2})</div>
+                    Тобто напруга <u>випереджає струм на 90°</u>. Амплітуда напруги:
+                    <div class="math-display">U_{L0} = ωLI_0 = X_LI_0, </div>
+                    де <span class="math">X_L</span> - <b>індуктивний опір</b> - показує, як зі збільшенням частоти коливань 
+                    <span class="math">ω</span> котушка "заважає" струму:
+                    <div class="border-formul">
+                        <div class="math-display">X_L = ωL</div>
+                    </div>
+                </p>
+            </div>
+            <div class="border">
+                <p>
+                    Нехай напруга в контурі змінюється гармонічно:
+                    <div class="math-display">U = U_0cos(ωt) .</div>
+                    Для конденсатора:
+                    <div class="math-display">U = \frac {q}{C} → q = UC</div>
+                    <div class="math-display">q = CU_0cos(ωt)</div>
+                    <div class="math-display">I = \frac {dq}{dt} = - ωCU_0sin(ωt) = ωCU_0cos(ωt + \frac {π}{2})</div>
+                    Тобто струм випереджає напругу на 90°. Амплітуда струму:
+                    <div class="math-display">I_0 = ωCU_0 → U_0 = \frac {I_0}{ωC} = X_CU_0 ,</div>
+                    де <span class="math">X_C </span> - <b>ємнісний опір</b> - показує, що зі збільшенням частоти 
+                    <span class="math">ω</span> конденсатор не встигає перезаряджатися і легше пропускає струм:
+                    <div class="border-formul">
+                        <div class="math-display">X_C = \frac {1}{ωC}</div>
+                    </div>
+                    
+                </p>
+            </div>
+            <div class="border">
+                <p>
+                    Для врахування зсуву фаз струму на котушці і напруги на конденсаторі зручно використовувати 
+                    теорему Ейлера, де множення на:
+                    <div class="math-display">i = e^{iπ/2}</div>
+                    означає поворот вектора на 90°. Тобто <span class="math">cos(ωt+2π) = icos(ωt)</span>.
+                </p>
+                <p>
+                    Для гармонічного сигналу вводять комплексний опір - <b>імпеданс</b>:
+                    <div class="math-display">Z = R + iX ,</div>
+                    що фактично означає, що <u>повний опір</u> = <u>амплітуда</u> + <u>інформація про фазу</u>.
+                    <div class="math-display">X = ωL - \frac {1}{ωC} ,</div>
+                    <div class="border-formul">
+                        <div class="math-display">Z = R + iωL - \frac {i}{ωC} = R + i(ωL - \frac{1}{ωC})</div>
+                    </div>
+                </p>
+                <p>
+                    Вектор Z на комплексній площині має кут:
+                    <div class="math-display">θ = arctan \frac {R}{X} ,</div>
+                    Звідки:
+                    <div class="border-formul">
+                        <div class="math-display">tanθ = \frac {X_C - X_L}{R} = \frac { \frac{1}{ωC} - ωL}{R}</div>
+                    </div>                    
+                    або 
+                    <div class="math-display">tanθ = \frac {ωL - \frac{1}{ωC}}{R} .</div>
+                    де <span class="math">θ</span> - кут між струмом і прикладеною ЕРС,<br><span class="math">tan θ</span> - 
+                    різниця фаз між струмом та ЕРС.<br>Якщо <span class="math">X_C > X_L</span> - 
+                    струм випереджає напругу, якщо <span class="math">X_L > X_C</span> - струм відстає.
+                </p>
+                <p>
+                    Модуль імпедансу:
+                    <div class="math-display">|Z| = \sqrt {R^2 + (ωL - \frac {1}{ωC})^2}</div>
+                    Із закону Ома знайдемо амплітуду струму:
+                    <div class="math-display">I_A = \frac {E_0}{|Z|} = \frac {E_0}{\sqrt {R^2 + (ωL - \frac {1}{ωC})^2}}</div>
+                    Амплітуда заряду:
+                    <div class="math-display">q_A = \frac {I_A}{ω} = \frac {E_0}{ω\sqrt {R^2 + (ωL - \frac {1}{ωC})^2}}</div>
+                </p>
+            </div>
+        </div>
+        <div class="article">
+            <div class="border">
+                <h3 id="A4">Резонанс у колах змінного струму</h3>
+                <p>
+                    <b>Резонанс</b> виникає тоді, коли частота зовнішнього джерела збігається з власною 
+                    частотою системи <span class="math">ω = ω_0</span>. Тоді система найефективніше отримує енергію від джерела.
+                </p>
+                <p>
+                    Умова резонансу:
+                    <div class="math-display">X_L = X_C</div>
+                    <div class="border-formul">
+                        <div class="math-display">ωL = \frac {1}{ωC}</div>
+                    </div>
+                    Звідси можна знайти значення резонансної частоти:
+                    <div class="border-formul">
+                        <div class="math-display">ω_R = \frac {1}{\sqrt {LC}}</div>
+                    </div>
+                </p>
+            </div>
+            <div class="border">
+                <h3>Резонанс напруг</h3>
+                <p>
+                    При резонансі у послідовному RLC-контурі <span class="math">X_L = X_C</span>, тоді повний опір 
+                    мінімальний (<span class="math">Z = R</span>), отже струм досягає максимального значення:
+                    <div class="math-display">I_A = \frac {E_0}{R}</div>
+                    Напруги на котушці та конденсаторі:
+                    <div class="math-display">U_L = IX_L</div>
+                    <div class="math-display">U_C = IX_C</div>
+                    можуть бути значно більшими за напругу джерела. Але вони протилежні за фазою і взаємно компенсуються. 
+                    Тому цей режим називають <b>резонанс напруг</b>.
+                </p>
+                <p>
+                    Ознаки резонансу напруг:
+                    <ul>
+                        <li><span class="math">X_L = X_C</span>;</li>
+                        <li><span class="math">Z=R</span>;</li>
+                        <li><span class="math">φ = 0</span>;</li>
+                        <li>струм максимальний;</li>
+                        <li>струм і ЕРС збігаються за фазою.</li>
+                    </ul>
+                </p>
+            </div>
+            <div class="border">
+                <h3>Резонанс струмів</h3>
+                <p>
+                    Виникає переважно у паралельному LC або RLC-контурі. Через гілку з котушкою проходить великий струм. 
+                    Через гілку з конденсатором також проходить великий струм. Але вони протилежні за фазою. 
+                    Тому в зовнішньому колі вони майже компенсуються. В результаті:
+                    <ul>
+                        <li>струми всередині контуру великі;</li>
+                        <li><span class="math">Z → max</span></li>
+                        <li>струм від джерела малий.</li>
+                    </ul>
+                </p>
+            </div>
+        </div>
+        <div class="article">
+            <div class="border">
+                <h3 id="A5">Хвилі</h3>
+                <p>
+                    <b>Хвиля</b> — це процес поширення коливань у просторі з перенесенням енергії без перенесення речовини 
+                    на великі відстані. Наприклад, хвиля на натягнутій струні, звукова хвиля в повітрі, хвиля на поверхні 
+                    води, електромагнітна хвиля.
+                </p>
+                <p>
+                    Припустимо, що ми відхилили одну частинку середовища від положення рівноваги. Завдяки взаємодії між сусідніми 
+                    частинками її коливання передаються далі. У результаті кожна частинка коливається і коливання поширюється 
+                    по середовищу. Саме цей процес і називається хвилею.
+                </p>
+                <p>
+                    <b>Важлива особливість хвиль</b>: вони переносять енергію, але не речовину.
+                </p>
+                <p>
+                    Сукупність усіх точок середовища, що беруть участь у хвильовому процесі, називають <b>хвильовим полем</b>. 
+                    Для кожної точки хвильового поля можна визначити:
+                    <div class="math-display">ψ(x,y,z,t) ,</div>
+                    де <span class="math">ψ</span> — зміщення точки від положення рівноваги.
+                </p>
+                <p>
+                    Основні характеристики хвилі:
+                    <ul>
+                        <li><span class="math">A</span> — амплітуда — максимальне зміщення частинки середовища;</li>
+                        <li><span class="math">T</span> — період — час одного повного коливання;</li>
+                        <li><span class="math">ν</span> — частота — кількість коливань за секунду;</li>
+                        <li><span class="math">λ</span> — довжина хвилі — відстань між найближчими точками, 
+                            що коливаються в однаковій фазі або відстань, яку проходить одна хвиля за період 
+                            <span class="math">λ = vT</span> (<span class="math">v</span> - швидкість поширення хвилі).
+                        </li>
+                    </ul>
+                </p>
+            </div>
+            <div class="border">
+                <p>
+                    <b>Промінь хвилі</b> — це лінія, вздовж якої поширюється хвиля та переноситься енергія. 
+                    Напрям променя збігається з напрямом швидкості поширення хвилі.
+                </p>
+                <p>
+                    <b>Фронт хвилі</b> - це уявна поверхня у просторі, до якої на даний момент часу дійшли коливання. 
+                    Вона чітко розмежовує частину середовища, яка вже бере участь у хвильовому процесі, і ту 
+                    область, до якої коливання ще не дійшли. Лінії, які вказують напрямок поширення хвилі (промені), 
+                    завжди розташовані строго перпендикулярно до хвильового фронту.
+                </p>
+                <p>
+                    <b>Хвильова поверхня</b> — це поверхня, усі точки якої коливаються в однаковій фазі (для 
+                    точкового джерела — сфера, для плоскої хвилі — площина).
+                </p>
+                <p>
+                    <u>Залежно від форми джерела</u> розрізняють плоскі, циліндричні і точкові хвильові поверхні.
+                </p>
+                    <ul>
+                        <li>
+                            <b>Плоска хвиля</b> — це хвиля, у якої хвильовий фронт (поверхня однакової фази) являє собою набір 
+                            паралельних площин. Усі точки, що лежать на такій площині, коливаються синфазно — 
+                            з однаковою амплітудою та в один і той самий момент часу. Всі плоскі хвилі поширюються строго в одному напрямку, 
+                            перпендикулярно до площин хвильового фронту і в ідеалі не затухають з відстанню в середовищі без втрат, оскільки 
+                            її енергія не розподіляється по зростаючій площі (на відміну від сферичної хвилі).
+                        </li>
+                        <li>
+                            <b>Сферична хвиля</b> — це хвиля, що поширюється від точкового джерела в усі боки з однаковою швидкістю. 
+                            Її фронти мають форму концентричних сфер, а напрямок поширення збігається з радіусами цих сфер.
+                        </li>
+                        <li>
+                            <b>Циліндрична хвиля</b> — це хвильовий процес, у якому фронт хвилі має форму циліндра. Вона виникає тоді, 
+                            коли джерело збурення розташоване вздовж прямої лінії (наприклад, довга нитка, що коливається, або антена), 
+                            і поширюється радіально в усі боки.
+                        </li>
+                    </ul>
+                </p>
+            </div>
+            <div class="border">
+                <p>
+                    <b>Пружні хвилі</b> — хвилі, що поширюються в пружному середовищі завдяки силам пружності (звук у повітрі, 
+                    хвиля в металі, хвиля в струні). Пружні хвилі здатні виникати лише в середовищах, які чинять опір деформації 
+                    (стисканню, розтягуванню або зсуву). Вони поділяються на поздовжні і поперечні.
+                </p>
+                <p>
+                    Якщо кожна точка середовища здійснює гармонічні коливання, то така хвиля називається 
+                    <b>гармонічною (синусоїдальною)</b>.
+                </p>
+                <p>
+                    У гармонічній хвилі особливе значення має швидкість поширення однакової фази (наприклад, 
+                    максимумів, мінімумів, гребенів). Ця швидкість називається <b>фазовою швидкістю</b>.
+                </p>
+                <p>
+                    У <b>поперечній хвилі</b> частинки коливаються перпендикулярно до напрямку поширення хвилі (наприклад, 
+                    коливання відбуваються вгору-вниз, а хвиля рухається вправо):
+                    <ul>
+                        <li><i>Напрям коливань</i>: ↑ ↓ ↑ ↓ ↑</li>
+                        <li><i>Поширення хвилі</i>: →</li>
+                    </ul> Виникають у твердих тілах, на поверхні рідини, в електромагнітних хвилях.
+                </p>
+                <p>
+                    Швидкість поширення поперечних хвиль:
+                    <div class="math-display">v = \sqrt {\frac {G}{ρ}} ,</div>
+                    де
+                    <ul>
+                        <li>
+                            <span class="math">E</span> — модуль зсуву - є мірою жорсткості матеріалу і 
+                            визначає пружні властивості тіла при деформаціях зсуву;
+                        </li>
+                        <li><span class="math">ρ</span> — густина.</li>
+                    </ul>
+                </p>
+                <p>
+                    У <b>поздовжній хвилі</b> частинки коливаються вздовж напрямку поширення хвилі. Наприклад:
+                    <ul>
+                        <li>→ ← → ← → ←</li>
+                        <li>або</li>
+                        <li><i>стискання</i>: ||||||</li>
+                        <li><i>розрідження</i>: | &nbsp;&nbsp;| &nbsp;&nbsp;| &nbsp;&nbsp;|</li>
+                    </ul>
+                    Наприклад, зхвукова хвиля в повітрі: молекули рухаються вперед-назад уздовж напрямку поширення звуку.
+                </p>
+                <p>
+                    Швидкість поширення поздовжніх хвиль:
+                    <div class="math-display">v = \sqrt {\frac {E}{ρ}} ,</div>
+                    де
+                    <ul>
+                        <li>
+                            <span class="math">E</span> — модуль Юнга - є мірою жорсткості матеріалу і 
+                            характеризує його здатність опиратися пружній деформації (розтягу або стисненню); 
+                            розраховується як відношення механічного напруження до відносного видовження;
+                        </li>
+                        <li><span class="math">ρ</span> — густина.</li>
+                    </ul>
+                </p>
+            </div>
+        </div>
+        <div class="article">
+            <div class="border">
+                <h3 id="A6">Біжуча хвиля</h3>
+                <p>
+                    <b>Біжуча хвиля</b> — це хвиля, яка поширюється в необмеженому середовищі без відбиттів 
+                    (тобто енергія рухається лише в одному напрямку).
+                            <!-- <b>стоячі</b> — хвилі, які не поширюються у просторі, а виникають як результат накладання 
+                            (інтерференції) двох біжучих хвиль однакової частоти та амплітуди, що рухаються назустріч 
+                            одна одній (наприклад, пряма та відбита від перешкоди хвилі). -->
+                </p>
+                <p>
+                    Хвильове рівняння біжучої хвилі <span class="math">ψ(x,t)</span> описує, як локальна деформація середовища 
+                    <span class="math">∂^2ψ/dx^2</span> викликає сили, що змушують сусідні точки рухатися, унаслідок чого збурення 
+                    поширюється простором <span class="math">∂^2ψ/dt^2</span> зі сталою швидкістю:
+                    <div class="math-display">\frac {∂^2ψ}{dx^2} = \frac {1}{v^2} \frac {∂^2ψ}{dt^2} ,</div>
+                    або у тривимірному просторі:
+                    <div class="math-display">∇^2ψ = \frac {1}{v^2} \frac {∂^2ψ}{dt^2} ,</div>
+                    де:
+                    <ul>
+                        <li>
+                            <span class="math">ψ(x,y,z,t)</span> (або <span class="math">ψ(x,t)</span>, якщо хвиля поширюється 
+                            вздовж осі ох) -  — зміщення, тиск, напруженість електричного поля або інша величина, що коливається;
+                        </li>
+                        <li>
+                            <span class="math">∇^2</span> — оператор Лапласа:
+                            <div class="math-display">∇^2 = \frac {∂^2}{∂x^2} + \frac {∂^2}{∂y^2} + \frac {∂^2}{∂z^2}</div>
+                        </li>
+                        <li>
+                            <span class="math">v</span>— швидкість поширення хвилі; <span class="math">1/v</span> показує, 
+                            наскільки швидко середовище передає збурення.
+                        </li>
+                    </ul>
+                </p>
+                <p>
+                    Нехай джерело здійснює гармонічні коливання:
+                    <div class="math-display">ψ(0,t)=Acos(ωt).</div>
+                    Якщо швидкість поширення хвилі <span class="math">v</span>, то для проходження відстані x потрібен час 
+                    <span class="math">τ = x/v</span>:
+                    <div class="math-display">ψ(x,t) = Acos[ω(t - τ)] = Acos[ω(t - \frac {x}{v})]</div>
+                    Тобто всі точки коливаються однаково, але із запізненням. Розкриємо дужки:
+                    <div class="math-display">ψ = Acos(ωt - \frac {ω}{v}x)</div>
+                    Тоді рівняння біжучої хвилі вздовж осі ох:
+                    <div class="border-formul">
+                        <div class="math-display">ψ = Acos(ωt - kx) ,</div>
+                    </div>
+                    де <span class="math">k</span> — <b>хвильове число</b>:
+                    <div class="border-formul">
+                        <div class="math-display">k = \frac {ω}{v} = 2πν \frac {T}{λ} = \frac {2πν}{λν} = \frac {2π}{λ}</div>
+                    </div>
+                    В реальному просторі хвиля може поширюватися в будь-якому напрямку. Тоді потрібно вказати не тільки, 
+                    скільки фази накопичується на метр, а й у якому напрямку вона накопичується. Саме тому вводять хвильовий вектор:
+                    <div class="math-display">\vec k = k \vec n ,</div>
+                    де <span class="math">\vec n</span> — одиничний вектор у напрямку поширення хвилі. Тоді 
+                    рівняння біжучої хвилі в загальному вигляді:
+                    <div class="border-formul">
+                        <div class="math-display">ψ = Acos(ωt - \vec k \vec r) ,</div>
+                    </div>    
+                    де:
+                    <ul>
+                        <li><span class="math">A</span> — амплітуда;</li>
+                        <li><span class="math">ω</span> — циклічна частота;</li>
+                        <li><span class="math">\vec k</span> — хвильовий вектор — вказує напрямок руху хвилі;</li>
+                        <li><span class="math">\vec r</span> — радіус-вектор точки — задає поточну координату;</li>
+                        <li>
+                            <span class="math">\vec k⋅\vec r</span> — показує, наскільки далеко ми просунулися 
+                            вздовж напрямку поширення хвилі.
+                        </li>
+                    </ul>
+                </p>
+            </div>
+            <div class="border">
+                <h3>Сферична хвиля</h3>
+                <p>
+                    Якщо джерело точкове, хвиля поширюється у всі боки зі зменшенням амплітуди за законом <span class="math">1/r</span>:
+                    <div class="math-display">ψ = \frac {A}{r}cos(ωt - \vec k \vec r)</div>
+                </p>
+            </div>
+            <div class="border">
+                <h3>Енергія хвиль</h3>
+                <p>
+                    Кожна частинка середовища має швидкість і деформацію, а отже володіє кінетичною і 
+                    потенціальною енергією (енергія деформації). Ця енергія передається від частинки до частинки:
+                    <div class="math-display">W = W_k + W_p</div>
+                    Кінетична енергія:
+                    <div class="math-display">W_k = \frac {mv^2}{2}</div>
+                    Виділимо елемент середовища:
+                    <div class="math-display">dV = S dx ,</div>
+                    де
+                    <ul>
+                        <li><span class="math">S</span> - площа перерізу</li>
+                        <li><span class="math">dx</span> - змішення</li>
+                    </ul>
+                    Швидкість — це похідна зміщення за часом:
+                    <div class="math-display">v = \frac {∂ψ}{∂t} = -Aωsin(ωt-kx) .</div>
+                    Маса цього елемента:
+                    <div class="math-display">dm = ρ dV ,</div>
+                    де <span class="math">ρ</span> - густина середовища.<br>
+                    Тоді кінетична енергія:
+                    <div class="math-display">dW_k = \frac {1}{2} dm v^2 = \frac {1}{2} ρ dV A^2ω^2sin^2(ωt-kx) .</div>
+                </p>
+                <p>
+                    Пружна енергія виникає тому, що середовище деформується. Ступінь деформації:
+                    <div class="math-display">ε = \frac {∂ψ}{∂x} = Ak sin (ωt-kx) .</div>
+                    Густина потенціальної енергії пружної деформації:
+                    <div class="math-display">w_p = \frac {1}{2} Eε^2 = \frac {1}{2} E A^2k^2 sin^2 (ωt-kx) ,</div>
+                    де E — модуль Юнга. Із формули швидкості поздовжньої хвилі:
+                    <div class="math-display">v = \sqrt {\frac {E}{ρ}} ,</div>
+                    <div class="math-display">E = ρv^2 ,</div>
+                    <div class="math-display">Ek^2 = ρv^2 ⋅ \frac {ω^2}{v^2} = ρω^2 ,</div>
+                    отже:
+                    <div class="math-display">w_p = \frac {1}{2} A^2 ρω^2 sin^2 (ωt-kx) ,</div>
+                    А енергія елемента:
+                    <div class="math-display">dW_p = \frac {1}{2} A^2 ρω^2 sin^2 (ωt-kx) dV</div>
+                </p>
+                <p>
+                    Тоді <b>повна енергія хвилі</b>:
+                    <div class="border-formul">
+                        <div class="math-display">W = A^2 ρω^2 sin^2 (ωt-kx) dV</div>
+                    </div>
+                    <b>Густина енергії</b> <span class="math">w</span> — це енергія, що припадає на одиницю об'єму:
+                    <div class="border-formul">
+                        <div class="math-display">w = \frac {dW}{dV} = A^2 ρω^2 sin^2 (ωt-kx) .</div>
+                    </div>
+                </p>
+                <p>
+                    <b>Потік енергії</b> <span class="math">[Φ] = Вт</span> — це енергія, яка проходить через поверхню за одиницю часу:
+                    <div class="border-formul">
+                        <div class="math-display">Φ = \frac {dW}{dt} .</div>
+                    </div>
+                </p>
+                <p>
+                    <b>Густина потоку енергії</b> <span class="math">[j] = Вт/м^2</span> - показує, 
+                    яка потужність проходить через одиницю площі:
+                    <div class="border-formul">
+                        <div class="math-display">j = \frac {ΔW}{ΔSΔt} .</div>
+                    </div>
+                </p>
+                <p>
+                    Напрям перенесення енергії і потужність, що переноситься через одиницю площі, 
+                    задається <b>вектором Умова</b>:
+                    <div class="border-formul">
+                        <div class="math-display">\vec j = w \vec v ,</div>
+                    </div>
+                    де:
+                    <ul>
+                        <li><span class="math">w</span> — густина енергії;</li>
+                        <li><span class="math">\vec v</span> — швидкість хвилі.</li>
+                    </ul>
+                    Оскільки густина енергії змінюється з часом, зазвичай використовують 
+                    середнє значення — <b>інтенсивність хвилі</b>:
+                    <div class="math-display">I = ⟨j⟩ .</div>
+                </p>
+                <p>
+                    Повний потік енергії через довільну поверхню S:
+                    <div class="math-display">Φ = ∫_S \vec j ⋅ d\vec S</div>
+                </p>
+            </div>
+        </div>
+        <div class="article">
+            <div class="border">
+                <h3 id="A7">Інтерференція хвиль</h3>
+                <p>
+                    <b>Інтерференція хвиль</b> — це явище посилення або послаблення коливань у різних точках простору 
+                    внаслідок накладання когерентних хвиль.
+                </p>
+                <p>
+                    <b>Когерентні хвилі</b> — це такі, для яких різниця фаз залишається сталою в часі: 
+                    <span class="math">Δφ=const</span>.
+                </p>
+                <p>
+                    Щоб бути когерентними, хвилі мають бути також <b>монохроматичними</b>, тобто мати однакову частоту 
+                    (або довжину): <span class="math">ν_1 = ν_2</span> або <span class="math">λ_1 = λ_2</span>.
+                </p>
+                <p>
+                    Основою теорії інтерференції є <b>принцип суперпозиції</b>: якщо в середовищі 
+                    одночасно поширюється кілька хвиль, то кожна з них поширюється так, 
+                    ніби інших хвиль не існує. У будь-якій точці простору результуюче зміщення 
+                    дорівнює сумі зміщень від усіх хвиль:
+                    <div class="math-display">ψ = ψ_1 + ψ_2 + …</div>
+                    Саме завдяки цьому можливе накладання хвиль.
+                </p>
+                <p>
+                    Нехай маємо дві гармонічні хвилі:
+                    <div class="math-display">ψ_1 = A_1 cos(ωt-\frac {2π}{λ}x_1)</div>
+                    <div class="math-display">ψ_2 = A_2 cos(ωt-\frac {2π}{λ}x_2)</div>
+                    Тоді їх сума також буде гармонічною:
+                    <div class="math-display">ψ = ψ_1 + ψ_2 = A cos(ωt-φ)</div>
+                    Амплітуда результуючої хвилі:
+                    <div class="math-display">A = \sqrt {A_1^2 + A_2^2 + 2A_1A_2cosΔφ} .</div>
+                    Амплітуда залежить не лише від <u>амплітуд хвиль</u>, але й від <u>різниці фаз</u> 
+                    <span class="math">Δφ = φ_2 - φ_1</span>. Саме тому в одних точках хвилі підсилюють одна одну, 
+                    а в інших — послаблюють.
+                </p>
+                <p>
+                    Для монохроматичних хвиль різниця фаз:
+                    <div class="math-display">Δφ = \frac {2π}{λ}Δx ,</div>
+                    де <span class="math">Δx = x_2 - x_1</span> — <b>різниця ходу хвиль</b> — різниця відстаней, 
+                    які пройшли хвилі до даної точки. Одна довжина хвилі відповідає зміні фази на 
+                    <span class="math">2π</span>, тому будь-яка різниця шляху автоматично породжує різницю фаз.
+                </p>
+                <p>
+                    Умова <b>максимуму інтерференції:</b>
+                    <div class="border-formul" style="display: inline-block;">
+                        <div class="math-display">Δφ = 2πn, n = 0, 1, 2, …</div>
+                    </div>
+                    або
+                    <div class="border-formul" style="display: inline-block;">
+                        <div class="math-display">Δx=nλ</div>
+                    </div>
+                    <br>Тоді:
+                    <div class="math-display">A = \sqrt {A_1^2 + A_2^2 + 2A_1A_2cos(2πn)} = 
+                        \sqrt {A_1^2 + A_2^2 + 2A_1A_2} = \sqrt {(A_1 + A_2)^2} = A_1 + A_2.</div>
+                    Якщо <span class="math">A_1 = A_2</span>, то амплітуда збільшується вдвічі. Оскільки енергія 
+                    пропорційна квадрату амплітуди <span class="math">W ∝ A^2</span>, то енергія збільшується в 4 рази.
+
+                </p>
+                <p>
+                    Умова <b>мінімуму інтерференції:</b>
+                    <div class="border-formul" style="display: inline-block;">
+                        <div class="math-display">Δφ = (2n+1)π, n = 0, 1, 2, …</div>
+                    </div>
+                    або
+                    <div class="border-formul" style="display: inline-block;">
+                        <div class="math-display">Δx=(2n+1)\frac {λ}{2}</div>
+                    </div>
+                    <br>Тоді:
+                    <div class="math-display">A = \sqrt {A_1^2 + A_2^2 + 2A_1A_2cos((2n+1)π)} = 
+                        \sqrt {A_1^2 + A_2^2 - 2A_1A_2} = \sqrt {(A_1 - A_2)^2} = |A_1 - A_2|.</div>
+                    Якщо <span class="math">A_1 = A_2</span>, то коливання повністю гасяться.
+                </p>
+                <p>
+                    Через чергування максимумів і мінімумів при накладанні енергія хвиль розподіляється нерівномірно. 
+                    У просторі виникає система:
+                    <ul>
+                        <li>світлих і темних смуг (для світла);</li>
+                        <li>зон підсилення і послаблення звуку;</li>
+                        <li>областей великих і малих амплітуд.</li>
+                    </ul>
+                    Це називають <b>інтерференційною картиною</b>.
+                </p>
+            </div>
+        </div>
+        <div class="article">
+            <div class="border">
+                <h3 id="A8">Стоячі хвилі</h3>
+                <p>
+                    <b>Стояча хвиля</b> — це особливий випадок інтерференції, який виникає внаслідок накладання двох 
+                    когерентних хвиль однакової частоти й амплітуди, що поширюються назустріч одна одній. Найчастіше 
+                    при накладанні падаючої хвилі і хвилі, відбитої від перешкоди.
+                </p>
+                <p>
+                    На відміну від біжучої хвилі, у стоячій хвилі максимуми і мінімуми не переміщуються у просторі, 
+                    а залишаються завжди нерухомими. Тому здається, ніби хвиля «стоїть» на місці.
+                </p>
+                <p>
+                    Нехай вздовж осі Ox поширюються дві хвилі. Падаюча хвиля:
+                    <div class="math-display">ψ_1 = A cos(ωt - kx) .</div>
+                    Відбита хвиля:
+                    <div class="math-display">ψ_2 = A cos(ωt + kx) .</div>
+                    При їх складанні після використання тригонометричної формули для складання косинусів:
+                    <div class="border-formul">
+                        <div class="math-display">ψ = ψ_1 + ψ_2 = 2A cos(ωt)cos(kx) = 2Acos(ωt)cos(\frac {2πx}{λ}).</div>
+                    </div>
+                    Амплітуда стоячої хвилі:
+                    <div class="math-display">B = 2A|cos(kx)| .</div>
+                    Амплітуда залежить від координати x, отже різні точки середовища коливаються з різними амплітудами.
+                </p>
+                <p>
+                    Точку стоячої хвилі, яка не коливається (<span class="math">B=0</span>) називають <b>вузлом</b>.
+                    <div class="math-display">2Acos(kx) = 0</div>
+                    <div class="math-display">cos(kx)=0</div>
+                    <div class="math-display">kx = \frac {π}{2} + πn</div>
+                    <div class="math-display">\frac {2π}{λ}x = \frac {π}{2} + πn</div>
+                    <div class="math-display">x = ±(2n+1) \frac {λ}{4}</div>
+                    Координати вузлів:
+                    <div class="border-formul">
+                        <div class="math-display">x = ±\frac {λ}{4}, ±\frac {3λ}{4}, ±\frac {5λ}{4}, ...</div>
+                    </div>
+                    Відстань між сусідніми вузлами:
+                    <div class="math-display">x_2 - x_1 = \frac {λ}{2}</div>
+                    При переході через вузол <u>фаза змінюється</u> на <span class="math">π</span>
+                </p>
+                <p>
+                    Точку стоячої хвилі з максимальною амплітудою називають <b>пучністю</b>. Умова максимуму:
+                    <div class="math-display">cos(kx)=1</div>
+                    <div class="math-display">kx = πn</div>
+                    <div class="math-display">x = ±n \frac {λ}{2}</div>
+                    Координати пучностей:
+                    <div class="border-formul">
+                        <div class="math-display">x = 0, ±\frac {λ}{2}, ±λ, ±\frac {3λ}{2}, ...</div>
+                    </div>
+                    Відстань між сусідніми пучностями:
+                    <div class="math-display">x_2 - x_1 = \frac {λ}{2}</div>
+                    Так як <span class="math">cos(kx)=1</span>, то <span class="math">B_{max} = 2A</span>, тобто 
+                    <u>амплітуда</u> пучності <u>удвічі більша</u> за амплітуду кожної окремої хвилі.
+                </p>
+                <h3>Енергія стоячої хвилі</h3>
+                <p>
+                    У стоячої хвилі передача енергії відсутня. Енергія лише періодично переходить від кінетичної форми 
+                    до потенціальної у межах кожної ділянки між вузлами. Тому густина потоку енергії:
+                    <div class="math-display">⟨\vec j⟩ = 0</div>
+                </p>
+                <h3>Відбиття хвилі від межі середовищ</h3>
+                <p>
+                    <ul>
+                        <li>
+                            При відбитті <strong>від густішого середовища</strong> (наприклад, мотузка → закріплений кінець) відбита 
+                            Відбита хвиля змінює фазу на <span class="math">π</span>. Це називають втратою півхвилі. 
+                            Оскільки <span class="math">Δφ = π</span>, то <span class="math">Δx = \frac {λ}{2}</span> 
+                            → у місці відбиття утворюється<u>вузол</u>.
+                        </li>
+                        <li>
+                            При відбитті <strong>від менш густого середовища</strong> (наприклад, мотузка → вільний кінець) фаза 
+                            не змінюється → у місці відбиття утворюється<u>пучність</u>.
+                        </li>
+                    </ul>
+                </p>
+            </div>
+        </div>
+        <div class="article">
+            <div class="border">
+                <h3 id="A9">Електромагнітна хвиля</h3>
+                <p>
+                    Електромагнітна хвиля породжується <u>прискореним рухом зарядів</u> або іншими словами 
+                    <u>змінним електричним струмом</u>: змінне електричне поле <span class="math">E ↑↓↑↓↑↓</span> 
+                    створює магнітне поле <span class="math">H ⟳</span> → змінне магнітне поле створює електричне поле → 
+                    цей процес взаємного породження поширюється у просторі. 
+                </p>
+                <p>
+                    Згідно з <a href="magnetic-ua.html#A12">положеннями Максвелла</a> для кожної точки простору:
+                    <div class="math-display">∇^2 \vec E = εμ \frac {∂^2 \vec E}{∂t^2}</div>
+                    <div class="math-display">∇^2 \vec H = εμ \frac {∂^2 \vec H}{∂t^2}</div>
+                    Це типові хвильові рівняння:
+                    <div class="math-display">∇^2ψ = \frac {1} {v^2} \frac {∂^2ψ}{dt^2} ,</div>
+                    Вони показують, що електричне поле <span class="math">\vec E</span> і 
+                    магнітне поле <span class="math">\vec H</span> поширюються як хвилі.
+                </p>
+                <p>
+                    Тут <a href="elektrostatic-ua.html#A10">абсолютна електрична проникність</a>:
+                    <div class="math-display">ε = ε_0ε_r</div>
+                    <a href="magnetic-ua.html#A7">Абсолютна магнітна проникність</a>:
+                    <div class="math-display">μ = μ_0μ_r</div>
+                    Для вакууму <span class="math">ε_r = 1</span>, <span class="math">μ_r = 1</span>. Тоді:
+                    <div class="math-display">∇^2 \vec E = ε_0μ_0 \frac {∂^2 \vec E}{∂t^2} = \frac {1} {v^2} \frac {∂^2 \vec E}{∂t^2}</div>
+                    <div class="math-display">∇^2 \vec H = ε_0μ_0 \frac {∂^2 \vec H}{∂t^2} = \frac {1} {v^2} \frac {∂^2 \vec H}{∂t^2}</div>
+                    Звідси:
+                    <div class="math-display">ε_0μ_0 = \frac {1} {v^2}</div>
+                    <div class="math-display">v = \frac {1} {\sqrt {ε_0μ_0}}</div>
+                    Якщо підставити значення констант <span class="math">ε_0 = 8.854⋅10^{-12} Ф/м</span>, 
+                    <span class="math">μ_0 = 4π⋅10^{-7} Гн/м</span>, то отримаємо <span class="math">v ≈ 3⋅10^8 м/с</span>, 
+                    що є значенням швидкості світла у вакуумі:
+                    <div class="border-formul">
+                        <div class="math-display">c = \frac {1} {\sqrt {ε_0μ_0}}</div>
+                    </div>
+                    Тоді коефіцієнт перед похідною по часу у хвильовому рівнянні 
+                    можна записати у вигляді:
+                    <div class="math-display">εμ = \frac {ε_rμ_r} {c^2}</div>
+                    Пілся чого хвильові рівняння для електричного і магнітного полів набувають вигляду:
+                    <div class="math-display">∇^2 \vec E = \frac {ε_rμ_r} {c^2} \frac {∂^2 \vec E}{∂t^2}</div>
+                    <div class="math-display">∇^2 \vec H = \frac {ε_rμ_r} {c^2} \frac {∂^2 \vec H}{∂t^2}</div>
+                    А швидкість електромагнітної хвилі можна розрахувати:
+                    <div class="border-formul">
+                        <div class="math-display">v = \frac {c}{\sqrt {ε_rμ_r}} = \frac {1}{\sqrt {ε_0ε_rμ_0μ_r}}</div>
+                    </div>
+                </p>
+                <p>
+                    <b>Електромагнітна хвиля</b> — це процес поширення у просторі взаємопов'язаних 
+                    електричного та магнітного полів. Її особливості:
+                    <ul>
+                        <li>
+                            Коливання <span class="math">\vec E</span> і <span class="math">\vec H</span> 
+                            відбуваються синфазно, тобто <span class="math">Δφ=0</span>, максимуми та мінімуми 
+                            електричного і магнітного полів виникають одночасно.
+                        </li>
+                        <li>
+                            Вектори <span class="math">\vec E</span>, <span class="math">\vec H</span> 
+                            і <span class="math">\vec v</span>утворюють взаємно перпендикулярну трійку:
+                            <div class="math-display">\vec E ⊥ \vec H; \vec E ⊥ \vec v; \vec H ⊥ \vec v</div>
+                        </li>
+                    </ul>
+                    Нехай плоска монохроматична електромагнітна хвиля поширюється вздовж осі Ox. Тоді:
+                    <div class="math-display">E_y = E_m cos(ωt-kx)</div>
+                    <div class="math-display">H_z = H_m cos(ωt-kx)</div>
+                    Зв'язок між амплітудами:
+                    <div class="border-formul">
+                        <div class="math-display">\sqrt {ε_0ε_r}E_m = \sqrt {μ_0μ_r}H_m</div>
+                    </div>
+                    Це співвідношення показує, що амплітуди електричного і магнітного полів у плоскій електромагнітній хвилі 
+                    не є незалежними. Якщо відома амплітуда одного поля, то амплітуда другого однозначно 
+                    визначається властивостями середовища.
+                </p>
+                <h3>Енергія електромагнітної хвилі</h3>
+                <p>
+                    Густину енергії електромагнітної хвилі (енергія на одиницю об'єму) можна розрахувати як
+                    суму густин енергії електричного <span class="math">w_E</span> і магнітного <span class="math">w_H</span> 
+                    полів:
+                    <div class="math-display">w = \frac {dW}{dV} = w_E + w_H .</div>
+                    <a href="magnetic-ua.html#A11">Густина енергії магнітного поля</a>:
+                    <div class="math-display">w_H = \frac {μ_0μ_rH^2}{2} .</div>
+                    Максвелл показав, що енергія електричного поля зберігається не в самих зарядах, а в електричному полі, 
+                    яке заповнює простір між пластинами конденсатора. Енергія електричного поля пропорційна 
+                    <a href="elektrostatic-ua.html#A3">роботі по перенесенню заряда</a>:
+                    <div class="math-display">dA = U dq = \frac {q}{C} dq</div>
+                    Повна робота:
+                    <div class="math-display">A = ∫_0^Q \frac {q}{C} dq = \frac {1}{C}∫_0^Q qdq = \frac {Q^2}{2C} = \frac {1}{2}CU^2</div>
+                    Підставимо значення <a href="elektrostatic-ua.html#A5">ємності</a> і залежності напруги від 
+                    <a href="">напруженості однорідного електричного поля</a>:
+                    <div class="math-display">C = \frac {ε_0ε_rS}{d}</div>
+                    <div class="math-display">E = \frac {F}{q} → F = qE</div>
+                    <div class="math-display">A = F d = qEd ,</div>
+                    де <span class="math">d</span> — відстань між обкладками конденсатора.
+                    <div class="math-display">U = \frac {A}{q} = \frac {qEd}{q} = Ed</div>
+                    <div class="math-display">W = \frac {1}{2}CU^2 = \frac {1}{2} \frac {ε_0ε_rS}{d} (Ed)^2 = \frac {1}{2}ε_0ε_rE^2Sd = \frac {1}{2}ε_0ε_rE^2V ,</div>
+                    де <span class="math">V = Sd</span>. 
+                    Звідси <b>густина енергії електричного поля</b>:
+                    <div class="math-display">w_E = \frac {W}{V} = \frac {\frac {1}{2}ε_0ε_rE^2V}{V} = \frac {ε_0ε_rE^2}{2}</div>
+                </p>
+                <p>
+                    Для електромагнітної хвилі, так як амплітуди електричного і магнітного полів 
+                    <span class="math">\sqrt {ε_0ε_r}E_m = \sqrt {μ_0μ_r}H_m</span>:
+                    <div class="math-display">w_E = w_H</div>
+                    Тому <b>густина енергії електромагнітної хвилі</b>:
+                    <div class="border-formul">
+                        <div class="math-display">w = ε_0ε_rE^2 = μ_0μ_rH^2</div>
+                    </div>
+                    Враховуючи, що <span class="math">v = \frac {1}{\sqrt {ε_0ε_rμ_0μ_r}}</span>:
+                    <div class="border-formul">
+                        <div class="math-display">w = \frac {EH}{2}</div>
+                    </div>
+                </p>
+                <p>
+                    Для опису перенесення енергії використовують <b>вектор Пойнтінга</b>. Він показує напрям перенесення енергії 
+                    і потужність, що переноситься через одиницю площі:
+                    <div class="math-display">\vec S = \vec E × \vec H .</div>
+                    <div class="math-display">[\vec S] = Вт/м^2 .</div>
+                    Оскільки <span class="math">\vec E ⊥ \vec H</span>, то
+                    <div class="math-display">|\vec S| = EH .</div>
+                </p>
+                <p>
+                    <b>Потік енергії</b> через поверхню S:
+                    <div class="math-display">Φ = ∫_S \vec S ⋅ d\vec S</div>
+                </p>
+                <p>
+                    Оскільки електромагнітна хвиля переносить імпульс, вона здатна чинити тиск на поверхні. 
+                    Це явище називають <b>світловим тиском</b>. Його існування теоретично передбачив Максвелл, 
+                    а експериментально довів Петро Лебедєв у 1900 році.
+                </p>
+            </div>
+            <div class="border">
+                <p></p>
+                <p></p>
+                <p></p>
+                <p></p>
+                <p></p>
+            </div>
+            <div class="border">
+                <p></p>
+                <p></p>
+                <p></p>
+                <p></p>
+                <p></p>
+            </div>
+            <div class="border">
+                <p></p>
+                <p></p>
+                <p></p>
+                <p></p>
+                <p></p>
+            </div>
+        </div>
+    </div>	
+	<p>&nbsp;</p>
+	<footer>По матеріалам чату GPT і конспектів із універу</footer>
+    <script src="../script/wave.js"></script>
+</body>
+</html>

@@ -4,6 +4,14 @@
   <meta charset="utf-8">
 	<title>Шпори по Електроніці</title>
 	<link rel="stylesheet" type="text/css" href="css/elMainStyle.css">
+	<!-- Підтримка формул: -->
+    <link rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script defer
+        src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js">
+    </script>
+    <!-- Рендер тексту із формулами: -->
+    <script defer src="script/math-renderer.js"></script>
 </head>
 <body>
 	<header>
@@ -15,23 +23,65 @@
 		<div class="event">
 				<h3>Шпори по Електроніці</h3>
 				<h4>Електронні компоненти</h4>
-				<a href="components/сonductors-ua.html" class="def" title="сonductors-ua.html">Провідники</a>, 
-				<a href="components/resistor-ua.html" class="def" title="resistor-ua.html">Резистори, Термістори, Варистори</a>, 
-				<a href="components/capacitor-ua.html" class="def" title="capacitor-ua.html">Конденсатори</a>, 
-				<a href="components/inductor-ua.html" class="def" title="inductor-ua.html">Котушки індуктивності (дросселі)</a>, 
-				<a href="components/diode-ua.html" class="def" title="inductor-ua.html">Діоди</a>, 
-				<br>
-				<a href="components/comutation-ua.html" class="def" title="comutation-ua.html">Комутаційні елементи</a> - кнопки, реле, оптрон
+				<p>Принцип роботи - Де використовують - Параметри - Класифікація - Вибір під задачу</p>
+				<p>
+					<a href="components/сonductors-ua.html" class="def" title="сonductors-ua.html">Провідники</a>,
+				</p>
+				<p> 
+					<a href="components/resistor-ua.html" class="def" title="resistor-ua.html">Резистори</a> - резистор, термістор, варистор, фото-, магніто-, газо-, п'єзо-, тензорезистор, гігроскопічний, змінний, підстроювальний резистор.
+				</p>
+				<p> 
+					<a href="components/capacitor-ua.html" class="def" title="capacitor-ua.html">Конденсатори</a>.
+				</p>
+				<p>
+					<a href="components/inductor-ua.html" class="def" title="inductor-ua.html">Котушки індуктивності</a> - котушка індуктивності, дросель, феритова бусина, імпульсний трансформатор.
+				</p>
+				<p>
+					<a href="components/diode-ua.html" class="def" title="inductor-ua.html">Діоди</a>, 
+				</p>
+				<p>
+					<a href="components/comutation-ua.html" class="def" title="comutation-ua.html">Комутаційні елементи</a> - кнопка, тумблер, перемикач, кінцевий вимикач, реле постійного та змінного струму, поляризоване, бістабільне, герконове, твердотільне, контактор, оптрон, MEMS-перемикач.
 				<br>
 		</div>
 		<div class="event">
 				<h3>Теорія</h3>
-				<a href="theory/elektrostatic.html" class="def" title="elektrostatic.html">Основи електростатики і вплив електричного поля на різні матеріали</a> - 
-				електричний заряд, закон Кулона, електричний потенціал і напруга, електроємність, струм, опір, закон Ома, електропровідність, 
-				рух електронів під дією електричного поля в різних матеріалах, легування напівпровідників.
-				<br>
-				<a href="theory/pnjunction-ua.html" class="def" title="pnjunction-ua.html">p-n-перехід</a> - визначення, як формується ВАХ напівпровідників, пробої, паразитні явища, перехідні процеси, контакт метал-напівпровідник.
-				<br> 
+				<p>
+					<a href="theory/elektrostatic-ua.html" class="def" title="elektrostatic-ua.html">Основи електростатики</a> - електричний заряд, закон Кулона, електричний потенціал <span class="math">φ</span> і напруга 
+					<span class="math">U</span>, електроємність <span class="math">C</span>, струм <span class="math">I</span>, опір <span class="math">R</span>, закон Ома, електропровідність <span class="math">σ</span>, 
+					питомий опір <span class="math">ρ</span>, електрична індукція <span class="math">\vec D</span>, електрична стала <span class="math">ε_0</span>, відносна діелектрична проникність <span class="math">ε_r</span>, 
+					вплив електричного поля на діелектрики, природа електричного струму в різних середовищах.
+				</p>
+				<p>
+					<a href="theory/magnetic-ua.html" class="def" title="magnetic-ua.html">Магнетизм, електромагнетизм</a> - виникнення магнітного поля, магнітна індукція <span class="math">\vec B</span>, сила Лоренца, сила Ампера, 
+					закон Біо-Савара-Лапласа, магнітний момент <span class="math">p_m</span>, обертальний момент <span class="math">M</span>, магнітний потік <span class="math">Φ</span>, намагніченість <span class="math">\vec M</span>, 
+					магнітна сприйнятливість <span class="math">χ</span>, магнітна проникність <span class="math">μ_r</span>, напруженість магнітного поля <span class="math">\vec H</span>, електромагнітна індукція (закон Фарадея) 
+					<span class="math">E</span>, самоіндукція, взаємоіндукція, індуктивність <span class="math">L</span>, рівняння Максвелла, вихрове електричне поле, струми Фуко, струм зміщення.
+				</p>
+				<p>
+					<a href="theory/wave-ua.html" class="def" title="wave-ua.html">Коливання та хвилі</a> - види коливань і хвиль, їх рівняння і характеристики, складання коливань, фігури Лісажу, електромагнітні коливання, 
+					коливальний контур Томпсона, індуктивний <span class="math">X_C</span> і ємнісний <span class="math">X_L</span> опори, імпеданс <span class="math">Z</span>, резонанс у колах змінного струму, біжучі і стоячі хвилі, 
+					інтерференція хвиль, електромагнітна хвиля, енергія, густина енергії <span class="math">w</span>, потік енергії <span class="math">Φ</span>, густина потоку енергії <span class="math">j</span>, 
+					вектор Умова <span class="math">\vec j</span>, вектор Пойнтінга <span class="math">\vec S</span>.
+				</p>
+				<p>
+					<a href="theory/quant-ua.html" class="def" title="quant-ua.html">Квантова механіка</a> - структура атома, модель Резерфорда, спектральний аналіз квантових частинок, теорія Бора, квантованість енергій, 
+					корпускулярно-хвильовий дуалізм де Бройля, умова стаціонарності орбіти, принцип невизначеності Гейзенберга, хвильова функція і її статистична інтерпретація, рівняння Шредингера, 
+					розв'язання квантових задач для вільної частинки, потенційна яма, тунельний ефект, лінійний гармонійний осцилятор, нульові коливання, воднеподібні атоми, діаграма енергетичних станів, електронна хмара, 
+					квантові числа (головне <span class="math">n</span>, азимутальне <span class="math">l</span>, магнітне <span class="math">m</span>, спінове <span class="math">s</span>), збудження атома, фотон, 
+					вироджені енергетичні рівні, ефект Зеємана, спін, орієнтація спіна, повний момент електрона, парамагнітний резонанс, 
+					неспарений електрон, ферміони і бозони, принцип Паулі, оболонки, підоболонки, орбіталі.
+				</p>
+				<p>
+					<a href="theory/krystall-ph-ua.html" class="def" title="krystall-ph-ua.html">Фізика твердого тіла</a> - статистика Максвелла-Больцмана, Фермі-Дірака і Бозе-Ейнштейна, ефективна маса електрона 
+					<span class="math">m^*</span>, адіабатичне наближення, зонна теорія твердого тіла, зона провідності, <span class="math">E_c</span>, валентна зона, <span class="math">E_v</span>, заборонена зона 
+					<span class="math">E_g</span>, рівень Фермі <span class="math">E_f</span>, власні та домішкові напівпровідники n- та p-типу, дірки, електронний газ у напівпровідниках (невироджений) і металах (вироджений), 
+					донорний <span class="math">E_D</span> і акцепторний <span class="math">E_A</span>енергетичні рівні, енергія іонізації, генерація носіїв заряду (теплова, польова, оптична), лавинний пробій, тунельний пробій, 
+					ефект Зінера, ефект Френкеля, електропровідність, дрейф, довжина вільного пробігу <span class="math">​λ</span>, рухливість <span class="math">μ</span>, питома електропровідність <span class="math">σ</span>, 
+					ефект Холла, дифузія, рекомбінація, час життя носія заряду, робота виходу, термоелектронна емісія, польова емісія, зовнішній і внутрішній фотоефекти.
+				</p>
+				<p>
+					<a href="theory/pnjunction-ua.html" class="def" title="pnjunction-ua.html">p-n-перехід</a> - визначення, як формується ВАХ напівпровідників, пробої, паразитні явища, перехідні процеси, контакт метал-напівпровідник.
+				</p>
 		</div>
 	</div>
 </body>

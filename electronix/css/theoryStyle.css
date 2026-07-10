@@ -27,6 +27,16 @@
 			padding: 0px 5px 0px 15px;
 			margin: 5px 0px 5px 0px;
 		}
+		.border-formul {
+			width: fit-content;
+			margin: 10px auto;
+			padding: 8px 16px;
+			border: 1px solid #888;
+			border-radius: 6px;
+			background: rgba(79,240,232,.1);
+		}
+
+		
 		#formdiv{
 			float: right;
 			padding-right: 10px;
@@ -62,6 +72,7 @@
 		}
 		a{
 			text-decoration: none;
+			font-weight: bold;
 			color: MidnightBlue;
 		}
 		table{
@@ -88,7 +99,7 @@
 			font-style: italic;
 			margin: 3px;
 		}*/
-		b{	color: Purple;
+		b{	color: rgb(94, 0, 94);
 		}
 		h3{
 			margin: 5px;

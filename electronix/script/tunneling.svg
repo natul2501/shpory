@@ -1,0 +1,102 @@
+<svg width="900" height="420" viewBox="0 0 900 420"
+     xmlns="http://www.w3.org/2000/svg">
+
+    <!-- Стилі -->
+    <style>
+        .axis { stroke:black; stroke-width:2; }
+        .barrier { fill:#dcdcdc; stroke:#666; stroke-width:1; }
+        .wave { fill:none; stroke:#0066cc; stroke-width:3; }
+        .label { font-size:18px; font-family:Arial; }
+        .small { font-size:15px; font-family:Arial; }
+    </style>
+
+    <!-- Осі -->
+    <line x1="70" y1="350" x2="850" y2="350" class="axis"/>
+    <line x1="70" y1="50"  x2="70"  y2="350" class="axis"/>
+
+    <!-- Стрілки -->
+    <polygon points="850,350 840,345 840,355" fill="black"/>
+    <polygon points="70,50 65,60 75,60" fill="black"/>
+
+    <!-- Підписи осей -->
+    <text x="860" y="356" class="label">x</text>
+    <text x="55" y="40" class="label">ψ(x)</text>
+
+    <!-- Потенціальний бар'єр -->
+    <rect x="330" y="90" width="180" height="260" class="barrier"/>
+
+    <!-- Межі -->
+    <line x1="330" y1="80" x2="330" y2="350"
+          stroke="#888" stroke-dasharray="6,4"/>
+
+    <line x1="510" y1="80" x2="510" y2="350"
+          stroke="#888" stroke-dasharray="6,4"/>
+
+    <!-- Підписи областей -->
+    <text x="170" y="75" class="label">I</text>
+    <text x="415" y="75" class="label">II</text>
+    <text x="680" y="75" class="label">III</text>
+
+    <!-- x=0 -->
+    <text x="322" y="372" class="small">0</text>
+
+    <!-- x=l -->
+    <text x="503" y="372" class="small">l</text>
+
+    <!-- Хвиля до бар'єру -->
+    <path class="wave"
+          d="
+          M 80 200
+          C 100 140,120 140,140 200
+          C 160 260,180 260,200 200
+          C 220 140,240 140,260 200
+          C 280 260,300 260,320 200
+          " />
+
+    <!-- Затухання всередині бар'єру -->
+    <path class="wave"
+          d="
+          M 330 200
+          C 360 170,390 175,420 190
+          C 450 198,480 202,510 205
+          " />
+
+    <!-- Хвиля після бар'єру -->
+    <path class="wave"
+          d="
+          M 510 205
+          C 530 185,550 185,570 205
+          C 590 225,610 225,630 205
+          C 650 185,670 185,690 205
+          C 710 225,730 225,750 205
+          C 770 185,790 185,810 205
+          " />
+
+    <!-- Підписи функцій -->
+    <text x="110" y="120" class="small">
+        ψ₁ = e^(ikx) + R·e^(-ikx)
+    </text>
+
+    <text x="350" y="140" class="small">
+        ψ₂ = A·e^(κx) + B·e^(-κx)
+    </text>
+
+    <text x="590" y="120" class="small">
+        ψ₃ = T·e^(ikx)
+    </text>
+
+    <!-- Підпис бар'єру -->
+    <text x="375" y="110" class="small">
+        U = U₀
+    </text>
+
+    <!-- Підпис зовнішніх областей -->
+    <text x="180" y="330" class="small">
+        U = 0
+    </text>
+
+    <text x="670" y="330" class="small">
+        U = 0
+    </text>
+
+</svg>

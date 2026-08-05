@@ -220,7 +220,6 @@ field.addEventListener("blur", i_blur);
 /*------- 2. ПРИ ПЕРЕХОДІ ЗА ПОСИЛАННЯМ НА СТОРІНКУ ---------- */
 let articleId;
 document.addEventListener("DOMContentLoaded", async () => {
-    console.log("DOMContentLoaded, populateUserList");
     const urlParams = new URLSearchParams(window.location.search);
     articleId = urlParams.get("id");
     const form = document.getElementById("newArticle");

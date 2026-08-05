@@ -15,6 +15,7 @@
     		margin: 0;
 			background-image : url(../media/background2.jpg);
 			background-size: 100%;
+			font-style: ;
 		}
 		*,*::after, *::before{
 		    box-sizing: inherit;
@@ -143,14 +144,6 @@
 		#menuTagsMob{
 			display: none;
 		}
-		/*@media (max-width: 1400px) {
-			#menuTags{
-				display: none;
-			}
-			#menuTagsMob{
-				display: block;
-			}
-		}*/
 		.tagLink{
 			text-decoration: none;
 			font-weight: bold;

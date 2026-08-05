@@ -120,6 +120,15 @@
 		}
 		applyStyles();// Запускаємо при завантаженні
 		window.addEventListener("resize", applyStyles);// Пере-перевірка при зміні розміру вікна
+
+		document.addEventListener("DOMContentLoaded", function () {
+		const images = document.querySelectorAll('.gallery-item img');
+		images.forEach(img => {
+			img.addEventListener('load', () => {
+				img.classList.add('loaded');
+			});
+		});
+	});
 	</script>
 </body>
 </html>

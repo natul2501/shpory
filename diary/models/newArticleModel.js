@@ -20,7 +20,7 @@ const articleSchema = new mongoose.Schema({
     content: { type: String, required: true },          //текст запису
     comments: [commentSchema],                          //архів коментарів
     reactions: { type: mongoose.Schema.Types.Mixed },   //архів реакцій
-    mood: { type: String },                             //посилання на фонову музику
+    mood: { type: mongoose.Schema.Types.Mixed },                             //посилання на фонову музику
     show:{ type: mongoose.Schema.Types.Mixed },         //показує, статтю видно всім читачам чи лише автору
     viewers: { type: mongoose.Schema.Types.Mixed }      //архів вибраних користувачів, яким видно статтю (якщо show = userlist)
 });

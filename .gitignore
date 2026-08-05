@@ -3,7 +3,7 @@ node_modules
 
 *.log
 
-*.env
+
 
 .vscode/
 .idea/

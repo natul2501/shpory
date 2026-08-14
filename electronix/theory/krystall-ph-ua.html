@@ -87,7 +87,10 @@
                 </li>
                 <li>
                     <a href="#A33">Робота виходу</a>, <a href="#A34">термоелектронна емісія</a>, <a href="#A35">польова емісія</a>, 
-                    <a href="#A36">зовнішній і внутрішній фотоефект</a>, червона межа фотоефекту.
+                    <a href="#A36">зовнішній і внутрішній фотоефект</a>, червона межа фотоефекту;
+                </li>
+                <li>
+                    <a href="#A37">Константи</a>.
                 </li>
             </ul>
         </nav>
@@ -127,7 +130,7 @@
                     </ol>
                 </p>
                 <p>
-                    У 1860 році Максвелл показав, що швидкість молекул не одинакова і вивів <b>закон розподілу швидкостей молекул</b>:
+                    У 1860 році Максвелл показав, що швидкість молекул не одинакова і вивів <b id="A1F">закон розподілу швидкостей молекул</b>:
                     <div class="math-display">F(v) = 4π(\frac {m}{2πkT})^{3/2}v^2e^{-(mv^2)/(2kT)} ,</div>
                     де:
                     <ul>
@@ -137,17 +140,17 @@
                         <li><span class="math">v</span> — швидкість молекули;</li>
                         <li><span class="math">m</span> — маса однієї молекули;</li>
                         <li><span class="math">T</span> — абсолютна температура (К);</li>
-                        <li><span class="math">k</span> — стала Больцмана <span class="math">1.38⋅10^23 Дж/К</span>.</li>
+                        <li><span class="math">k</span> — стала Больцмана <span class="math">k = 1,38⋅10^23 Дж/К</span>.</li>
                     </ul>
                     Дана формула дозволяє розрахувати, скільки молекул рухається з певною швидкістю і як крива розподілу швидкостей 
                     залежить від температури.
-                    Найбільша кількість молекул має найімовірнішу швидкість, яку використовують при аналізі 
+                    Найбільша кількість молекул має <b id="A1Vo">найімовірнішу швидкість</b>, яку використовують при аналізі 
                     розподілу Максвелла, молекулярних пучків, випаровування, дифузії:
                     <div class="math-display">v_0 = \sqrt {\frac {2kT}{m}}</div>
-                    Середньоарифметична (середня) швидкість використовують для розрахунку середньої довжини 
+                    <b id="A1Vs">Середньоарифметична (середня) швидкість</b> використовують для розрахунку середньої довжини 
                     вільного пробігу, дифузії, в'язкості, теплопровідності:
                     <div class="math-display">\vec v = \sqrt {\frac {8kT}{πm}}</div>
-                    Середньоквадратична швидкість використовується при виведенні тиску газу, температури і середньої енергії:
+                    <b id="A1Vq">Середньоквадратична швидкість</b> використовується при виведенні тиску газу, температури і середньої енергії:
                     <div class="math-display">v_{кв} = \sqrt {\frac {3kT}{m}}</div>
                 </p>
             </div>
@@ -158,7 +161,7 @@
                     <div class="math-display">\vec W = \frac {3}{2}kT</div>
                 </p>
                 <p>
-                    Кожен удар молекули об стінку посудини в сумі спричиняє <b>тиск</b>:
+                    Кожен удар молекули об стінку посудини в сумі спричиняє <b id="A2P">тиск</b>:
                     <div class="math-display">p = \frac {1}{3}mn \vec v^2 = nkT ,</div>
                     де <span class="math">n</span> — концентрація молекул
                 </p>
@@ -182,7 +185,7 @@
                             ефективний діаметр молекули;
                         </li>
                         <li><span class="math">T</span> — абсолютна температура (К);</li>
-                        <li><span class="math">k</span> — стала Больцмана <span class="math">1.38⋅10^23 Дж/К</span>;</li>
+                        <li><span class="math">k = 1,38⋅10^23 Дж/К</span> — стала Больцмана;</li>
                         <li>
                             <span class="math">A_s</span> — ефективний переріз зіткнення — умовна площа, 
                             в межах якої дві молекули обов'язково зіткнуться: 
@@ -252,7 +255,7 @@
                     Саме це описує статистична фізика.
                 </p>
                 <p>
-                    <b>Повна функція розподілу</b> показує кількість частинок <span class="math">dn</span>, що припадає 
+                    <b id="A6N">Повна функція розподілу</b> показує кількість частинок <span class="math">dn</span>, що припадає 
                     на одиничний інтервал енергії (1 еВ):
                     <div class="math-display">N(E) = \frac {dn}{dE} ,</div>
                     де <span class="math">dE</span> — інтервал енергій від <span class="math">E</span> до <span class="math">E+dE</span>.
@@ -261,7 +264,7 @@
                     Кількість електронів на одиницю енергії <span class="math">N(E)</span> визначається двома чинниками:
                     <div class="math-display">N(E)=f(E)g(E) ,</div>
                     <ul>
-                        <li><span class="math">g(E)</span> — <b>густина станів</b> — скільки існує енергетичних станів поблизу енергії E;</li>
+                        <li><span class="math">g(E)</span> — <b id="A6g">густина станів</b> — скільки існує енергетичних станів поблизу енергії E;</li>
                         <li><span class="math">f(E)</span> — <b>функція розподілу</b> — яка частка цих станів заповнена.</li>
                     </ul>
                 </p>
@@ -271,8 +274,8 @@
                     <ul>
                         <li><span class="math">g(E)</span> — густина станів;</li>
                         <li><span class="math">m</span> — маса електрона;</li>
-                        <li><span class="math">E</span> — енергія;</li>
-                        <li><span class="math">s</span> — спін частинки;</li>
+                        <li><span class="math">E</span> — <a href="quant-ua.html#A2W">енергія</a>;</li>
+                        <li><span class="math">s</span> — <a href="quant-ua.html#A14">спін частинки</a>;</li>
                         <li><span class="math">2s+1</span> — кількість можливих спінових станів.</li>
                     </ul>
                 </p>
@@ -281,24 +284,24 @@
                     <div class="math-display">\frac {N}{σ} ,</div>
                     <ul>
                         <li><span class="math">N</span> — кількість частинок;</li>
-                        <li><span class="math">σ</span> — кількість доступних квантових станів.</li>
+                        <li><span class="math">σ</span> — кількість доступних <a href="quant-ua.html#A11">квантових станів</a>.</li>
                     </ul>
                     Випадки:
                     <ol>
                         <li>
                             <span class="math">N/σ≪1</span> — більшість станів вільна і частинки 
-                            майже не впливають одна на одну — використовується класична <b>статистика Максвелла-Больцмана</b> 
+                            майже не впливають одна на одну — використовується класична <b id="A6fMB">статистика Максвелла-Больцмана</b> 
                             (розріджені гази, атмосфера):
                             <div class="math-display">f(E) = \frac {1}{e^{(E-μ)/(kT)}}</div>
                         </li>
                         <li>
                             <span class="math">N/σ≳1</span> — багато станів уже зайнято і необхідно враховувати квантову 
-                            природу частинок — застосовують статистику <b>Фермі-Дірака</b> для металів, напівпровідників 
+                            природу частинок — застосовують статистику <b id="A6fFD">Фермі-Дірака</b> для металів, напівпровідників 
                             або електронного газу:
                             <div class="border-formul">
                                 <div class="math-display">f(E) = \frac {1}{e^{(E-μ)/(kT)}+1}</div>
                             </div>
-                            або статистику <b>Бозе-Ейнштейна</b> для фотонів, фононів, бозонів:
+                            або статистику <b id="A6fBE">Бозе-Ейнштейна</b> для фотонів, фононів, бозонів:
                             <div class="math-display">f(E) = \frac {1}{e^{(E-μ)/(kT)}-1}</div>
                         </li>
                     </ol>
@@ -318,10 +321,10 @@
                     <div class="math-display">v = \frac {dE}{dp} = \frac {1}{ℏ} \frac {dE}{dk} ,</div>
                     де:
                     <ul>
-                        <li><span class="math">E</span> — енергія електрона;</li>
-                        <li><span class="math">k</span> — хвильове число;</li>
+                        <li><span class="math">E</span> — <a href="quant-ua.html#A2W">енергія електрона</a>;</li>
+                        <li><span class="math">k</span> — <a href="wave-ua.html#A6K">хвильове число</a>;</li>
                         <li><span class="math">dE/dk</span> — швидкість зміни енергії при зміні хвильового числа;</li>
-                        <li><span class="math">ℏ</span> — зведена стала Планка.</li>
+                        <li><span class="math">ℏ</span> — <a href="quant-ua.html#A1hp">зведена стала Планка</a>.</li>
                     </ul>
                 </p>
                 <p>
@@ -334,9 +337,11 @@
                     Використовуючи попередні співвідношення, отримують значення прискорення електрона в кристалі 
                     під дією зовнішньої сили:
                     <div class="math-display">a = \frac {F}{m*} ,</div>
-                    де <span class="math">m*</span> — <b>ефективна маса електрона</b>, яка враховує 
+                    де <span class="math">m*</span> — <b id="A7M">ефективна маса електрона</b>, яка враховує 
                     вплив кристалічної ґратки:
-                    <div class="math-display">m* = \frac {ℏ^2}{(d^2E)/(dk^2)}</div>
+                    <div class="border-formul">
+                        <div class="math-display">m* = \frac {ℏ^2}{(d^2E)/(dk^2)}</div>
+                    </div>
                     Формула демонструє, що ефективна маса визначається кривизною енергетичної зони:
                     <ul>
                         <li>
@@ -565,7 +570,9 @@
                 <p>
                     <b>Рівень Фермі</b> <span class="math">E_f</span> — це енергія, яка визначає, які квантові стани зайняті електронами, а які — ні. 
                     При температурі абсолютного нуля 0 К це практично останній енергетичний рівень, зайнятий електронами:
-                    <div class="math-display">E_f(0) = \frac {ℏ^2}{2m*}(3π^2n)^{2/3} ,</div>
+                    <div class="border-formul">
+                        <div class="math-display">E_f(0) = \frac {ℏ^2}{2m*}(3π^2n)^{2/3} ,</div>
+                    </div>
                     де <span class="math">n</span> — це концентрація електронів (кількість електронів N у одиниці об’єму V), 
                     <span class="math">n [м^{-3}]</span>.
                     
@@ -1101,9 +1108,9 @@
                     відповідно електричний струм у рівновазі відсутній.
                 </p>
                 <p>
-                    <u>Середня теплова швидкість електронів у металах</u>:
+                    <u id="A23M">Середня теплова швидкість електронів у металах</u>:
                     <div class="math-display">v_m = \sqrt {\frac {6E_F}{5m^*}} ≈ 10^6 м/с</div>
-                    <u>Середня теплова швидкість електронів у напівпровідниках</u>:
+                    <u id="A23P">Середня теплова швидкість електронів у напівпровідниках</u>:
                     <div class="math-display">v_m = \sqrt { \frac {3kT}{m^*}} ≈ 10^5 м/с</div>
                 </p>
             </div>
@@ -1133,7 +1140,7 @@
                     де:
                     <ul>
                         <li><span class="math">τ</span> — середній час релаксації;</li>
-                        <li><span class="math">v_m</span> — теплова швидкість.</li>
+                        <li><span class="math">v_m</span> — <a href="#A23M">теплова швидкість</a>.</li>
                     </ul>
                 </p>
                 <p>
@@ -1153,7 +1160,14 @@
                     <b id="A27">Рухливість</b> <span class="math">μ</span> — це фізична величина, що показує, якої дрейфової 
                     швидкості <span class="math">v_{др}</span> набуває носій заряду під дією електричного поля 
                     одиничної напруженості <span class="math">E</span>:
-                    <div class="math-display">μ = \frac {|v_{др}|}{E} = \frac {qτ}{m^*}</div>
+                    <div class="math-display">μ = \frac {|v_{др}|}{E} = \frac {qτ}{m^*}, </div>
+                    де
+                    <ul>
+                        <li><span class="math">q</span> — <a href="#c1">заряд носія</a>;</li>
+                        <li><span class="math">τ</span> — час релаксації;</li>
+                        <li><span class="math">m*</span> — <a href="#A7M">ефективна маса</a>;</li>
+                        <li><span class="math">v_{др}</span> — <a href="#A26">швидкість дрейфу</a>.</li>
+                    </ul>
                     <div class="math-display">[ μ ] = \frac {м^2}{В⋅с​}</div>
                 </p>
             </div>
@@ -1163,8 +1177,11 @@
                     <div class="math-display">j = env_{др} = enμE = σE ,</div>
                     де:
                     <ul>
-                        <li><span class="math">n</span> — концентрація електронів;</li>
-                        <li><span class="math">e</span> — заряд електрона;</li>
+                        <li><span class="math">n</span> — <a href="#A14">концентрація електронів</a>;</li>
+                        <li><span class="math">e</span> — <a href="#c1">заряд електрона</a>;</li>
+                        <li><span class="math">μ</span> — <a href="#A27">рухливість</a>;</li>
+                        <li><span class="math">v_{др}</span> — <a href="#A26">швидкість дрейфу</a>;</li>
+                        <li><span class="math">E</span> — <a href="elektrostatic-ua.html#A2">напруженість електричного поля</a>;</li>
                         <li>
                             <span class="math">σ</span> — <b id="A28">питома електропровідність</b>:
                             <div class="border-formul">
@@ -1178,11 +1195,11 @@
                     </div>
                     де:
                     <ul>
-                        <li><span class="math">q</span> — заряд електрона;</li>
-                        <li><span class="math">n</span> — концентрація електронів;</li>
-                        <li><span class="math">p</span> — концентрація дірок;</li>
-                        <li><span class="math">μ_n</span> — рухливість електронів;</li>
-                        <li><span class="math">μ_p</span> — рухливість дірок.</li>
+                        <li><span class="math">q</span> — <a href="#c1">заряд електрона</a>;</li>
+                        <li><span class="math">n</span> — <a href="#A15">концентрація електронів</a>;</li>
+                        <li><span class="math">p</span> — <a href="#A15">концентрація дірок</a>;</li>
+                        <li><span class="math">μ_n</span> — <a href="#A27">рухливість</a> електронів;</li>
+                        <li><span class="math">μ_p</span> — <a href="#A27">рухливість</a> дірок.</li>
                     </ul>
                 </p>
                 <h3>Електропровідність чистих металів</h3>
@@ -1276,12 +1293,12 @@
                             де <span class="math">a</span> — ширина пластини.
                         </li>
                     </ul>
-                    Швидкість дрейфу визначають із сили струму:
+                    <b id="A29V">Швидкість дрейфу</b> визначають із сили струму <span class="math">I</span>:
                     <div class="math-display">v = \frac {I}{qnad} ,</div>
                     де:
                     <ul>
-                        <li><span class="math">n</span> — концентрація носіїв;</li>
-                        <li><span class="math">q</span> — заряд;</li>
+                        <li><span class="math">n</span> — <a href="#A14">концентрація носіїв</a>;</li>
+                        <li><span class="math">q</span> — <a href="#c1">заряд</a>;</li>
                         <li><span class="math">a</span> — ширина пластини;</li>
                         <li><span class="math">d</span> — товщина пластини.</li>
                     </ul>
@@ -1289,7 +1306,7 @@
                     <div class="border-formul">
                         <div class="math-display">U_H = \frac {IB}{qnd} = R_H \frac {IB}{d} ,</div>
                     </div>
-                    де <span class="math">R_H</span> — <b>коефіцієнт Холла</b> — характеризує реакцію матеріалу 
+                    де <span class="math">R_H</span> — <b id="A29R">коефіцієнт Холла</b> — характеризує реакцію матеріалу 
                     на одночасну дію електричного струму та магнітного поля. За допомогою коефіцієнта Холла 
                     можна визначити концентрацію носіїв, тип провідності, знак заряду, рухливість носіїв. 
                     Його знак показує:
@@ -1315,14 +1332,14 @@
                     <div class="math-display">\vec v_{диф} = -D \frac {1}{n}∇n ,</div>
                     де:
                     <ul>
-                        <li><span class="math">n</span> — концентрація;</li>
+                        <li><span class="math">n</span> — <a href="#A14">концентрація</a>;</li>
                         <li><span class="math">∇n</span> — градієнт концентрації;</li>
                         <li>
                             <span class="math">D</span> — <b>коефіцієнт дифузії</b> — здатність носіїв поширюватися 
                             всередині матеріалу:
                             <div class="math-display">D = \frac {1}{3}λv_m ,</div>
-                            де <span class="math">λ</span> — довжина вільного пробігу; 
-                            <span class="math">v_m</span> — теплова швидкість.
+                            де <span class="math">λ</span> — <a href="#A3">довжина вільного пробігу</a>; 
+                            <span class="math">v_m</span> — <a href="#A23M">теплова швидкість</a>.
                         </li>
                     </ul>
                 </p>
@@ -1348,7 +1365,14 @@
                 <p>
                     Співвідношення Ейнштейна:
                     <div class="math-display">D_n = \frac {μ_nkT}{q}</div>
-                    <div class="math-display">D_p = \frac {μ_pkT}{q}</div>
+                    <div class="math-display">D_p = \frac {μ_pkT}{q} ,</div>
+                    де:
+                    <ul>
+                        <li><span class="math">q</span> — <a href="#c1">заряд електрона</a>;</li>
+                        <li><span class="math">k</span> — <a href="#c8">стала Больцмана</a>.</li>
+                    </ul>
+                </p>
+                <p>
                     Співвідношення показує, що коефіцієнт дифузії прямо пропорційний рухливості <span class="math">μ</span>: 
                     чим легше електрон рухається під дією поля, тим швидше він поширюється завдяки дифузії.
                 </p>
@@ -1402,7 +1426,7 @@
                     Оже-рекомбінація проявляється при великих концентраціях носіїв. Особливо важлива для лазерних діодів, 
                     потужних світлодіодів, сонячних елементів.
                 </p>
-                <h3>Швидкість рекомбінації</h3>
+                <h3 id="A31V">Швидкість рекомбінації</h3>
                 
                 <p>
                     Швидкість рекомбінації електронів і дірок <span class="math">r</span>:
@@ -1410,8 +1434,8 @@
                     де:
                     <ul>
                         <li><span class="math">λ_r</span> — коефіцієнт рекомбінації;</li>
-                        <li><span class="math">n</span> — концентрація електронів;</li>
-                        <li><span class="math">p</span> — концентрація дірок.</li>
+                        <li><span class="math">n</span> — <a href="#A15">концентрація електронів</a>;</li>
+                        <li><span class="math">p</span> — <a href="#A15">концентрація дірок</a>.</li>
                     </ul>
                 </p>
                 <p>
@@ -1566,11 +1590,38 @@
                     Внутрішній фотоефект лежить у основі <a href="#A21">оптичної генерації носіїв заряду</a>.
                 </p>
             </div>
+        </div>
+        <div class="article">
             <div class="border">
-                <p></p>
-                <p></p>
-                <p></p>
-                <p></p>
+                <h3 id="A37">Константи</h3>
+                <p id="c1">
+                    <b><span class="math">e=q=1,6⋅10^{−19}  Кл</span></b> — заряд електрона;
+                </p>
+                <p id="c2">
+                    <b><span class="math">ε_0 = 8,85⋅10^{-12} Ф/м</span></b> — <a href="#A10">електрична стала</a>.
+                </p>
+                <p id="c3">
+                    <b><span class="math">μ_0 = 4π ⋅ 10^{-7} Гн/м ≈ 1,256×10^{-6} Гн/м</span></b> — магнітна стала — 
+                    показує, наскільки ефективно вакуум «передає» магнітну взаємодію.
+                </p>
+                <p id="c4">
+                    <b><span class="math">m = 9,11 ⋅ 10^{-31} кг = 0,51099895 МеВ = 5,49 ⋅ 10^{-4} а.о.м.</span></b> — 
+                    маса електрона.
+                </p>
+                <p id="c5">
+                    <b><span class="math">h ≈ 6.626×10^{−34} Дж/с</span></b> — стала Планка;
+                </p>
+                <p id="c6">
+                    <b><span class="math">c = 299 792 458 м/с ≈ 300 000 км/с</span></b> — 
+                    <a href="wave-ua.html#A9C">швидкість світла</a>;
+                </p>
+                <p id="c7">
+                    <b><span class="math">μ_B = \frac {eℏ}{2m_e} = 9.274 ×10^{-24} Дж/Тл</span></b> — 
+                    <a href="A13mb">магнетон Бора</a>;
+                </p>
+                <p id="c8">
+                    <b><span class="math">k = 1.38⋅10^23 Дж/К</span></b> — стала Больцмана;
+                </p>
             </div>
         </div>
      </div>	

@@ -12,6 +12,8 @@
     </script>
     <!-- Рендер тексту із формулами: -->
     <script defer src="../script/math-renderer.js"></script>
+    <!-- Зображення SVG: -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
 </head>
 <body>
 	<div id="content">
@@ -54,7 +56,10 @@
                     - <a href="#A12">перше рівняння</a> - змінне магнітне поле створює вихрове електричне поле (на практиці <u>струми Фуко</u> використовують в індукційних печах);<br>
                     - <a href="#A13">друге рівняння</a> - струм і вихрове електричне поле створюють магнітне поле (поняття <u>струму зміщення</u>);<br>
                     - <a href="#A14">третє рівняння</a> - заряди є джерелами електричного поля;<br>
-                    - <a href="#A15">четверте рівняння</a> - магнітних зарядів не існує.</li>
+                    - <a href="#A15">четверте рівняння</a> - магнітних зарядів не існує;</li>
+                <li>
+                    <a href="#A16">Константи</a>
+                </li>
             </ul>
         </nav>
         
@@ -74,7 +79,7 @@
                     <div class="math-display">I ⋅ d\vec l ,</div>
                     де
                     <ul>
-                        <li><span class="math">I</span> - сила струму</li>
+                        <li><span class="math">I</span> - <a href="elektrostatic-ua.html#A6">сила струму</a></li>
                         <li>
                             <span class="math">d\vec l</span> - вектор елемента провідника - математичний спосіб передати нескінченно малий елемент провідника, 
                             вектор якого вказує напрям струму (потрібно для опису створення магнітного поля та поведінки провідника в ньому).
@@ -90,11 +95,13 @@
                         <li>струми в одному напрямку притягуються;</li>
                         <li>струми в протилежних напрямках відштовхуються.</li>
                     </ul>
-                    <div class="math-display">F = \frac{μ_0}{2π} \frac{I_1 ⋅ I_2}{d} l ,</div>
-                    де <span class="math">I_1, I_2</span> - сили струмів, 
+                    <div class="border-formul">
+                        <div class="math-display">F = \frac{μ_0}{2π} \frac{I_1 ⋅ I_2}{d} l ,</div>
+                    </div>
+                    де <span class="math">I_1, I_2</span> - <a href="elektrostatic-ua.html#A6">сили струмів</a>, 
                     <span class="math">d</span> - відстань між провідниками, 
                     <span class="math">l</span> - довжина ділянки, 
-                    <span class="math">μ_0</span> - магнітна стала 
+                    <span class="math">μ_0</span> - <a href="#c3">магнітна стала</a> 
                     (<span class="math">4π ⋅ 10^{-7} Гн/м ≈1.256×10^{-6} Гн/м</span>) - 
                     показує, наскільки ефективно вакуум «передає» магнітну взаємодію.
                 </p>
@@ -112,12 +119,18 @@
         <div class="article">
             <div class="border">
                 <h3 id="A2">Магнітна індукція</h3>
+                <img  width="300px"
+                    src="https://www.uchmet.ru/upload/uchmet.ru/library/materials/result/505/151500/129630/129630.docx_html_m75dcd995.jpg"
+                    style="display: block; float: right; margin-top: 5px"
+                />
                 <p>
                     Магнітна індукція <span class="math">\vec B</span> — основна силова характеристика магнітного поля. 
                     Вона показує, наскільки сильно магнітне поле діє на струми або магнітні моменти і 
                     чисельно дорівнює силі, що діє на одиничний елемент струму:
-                    <div class="math-display">B = \frac{F_max}{I⋅l} ,</div>
-                    де <span class="math">I</span> - сила струму, <span class="math">l</span> - довжина провідника.
+                    <div class="border-formul">
+                        <div class="math-display">B = \frac{F_{max}}{I⋅l} ,</div>
+                    </div>
+                    де <span class="math">I</span> - <a href="elektrostatic-ua.html#A6">сила струму</a>, <span class="math">l</span> - довжина провідника.
                 </p>
                 <p>
                     Одиниця вимірювання:
@@ -133,15 +146,17 @@
                 <h3 id="mi1">Закон Біо-Савара-Лапласа. Векторна форма закону</h3>
                 <p>
                     Для малого елемента струму <span class="math">I ⋅ d\vec l</span>:
-                    <div class="math-display">d\vec B = \frac{μ_0}{4π} \frac{I(d\vec l × \vec r)}{r^3} ,</div>
+                    <div class="border-formul">
+                        <div class="math-display">d\vec B = \frac{μ_0}{4π} \frac{I(d\vec l × \vec r)}{r^3} ,</div>
+                    </div>
                     де:
                     <ul>
                         <li><span class="math">d\vec B</span> - внесок елемента струму в магнітне поле;</li>
-                        <li><span class="math">I</span> - сила струму;</li>
+                        <li><span class="math">I</span> - <a href="elektrostatic-ua.html#A6">сила струму</a>;</li>
                         <li><span class="math">d\vec l</span> - вектор елемента провідника;</li>
-                        <li><span class="math">\vec r</span> - вектор від елемента струму до точки спостереження;</li>
+                        <li><span class="math">\vec r</span> - вектор від елемента струму до точки спостереження <span class="math">A</span>;</li>
                         <li><span class="math">r</span> - довжина цього вектора;</li>
-                        <li><span class="math">μ_0</span> - магнітна стала.</li>
+                        <li><span class="math">μ_0</span> - <a href="#c3">магнітна стала</a>.</li>
                     </ul>
                     Векторна форма показує, що:
                     <ul>
@@ -155,6 +170,48 @@
                     </ul>
                 </p>
                 <h3 id="mi2">Закон Біо-Савара-Лапласа. Скалярна форма закону</h3>
+                <div width="20%" style="border: solid 1px gray; float: right;">
+                    <svg viewBox="0 0 200 100" width="100%">
+                        <pattern id="hatch"
+                            width="8"
+                            height="8"
+                            patternUnits="userSpaceOnUse"
+                            patternTransform="rotate(45)">
+                        <line x1="0"
+                            y1="0"
+                            x2="0"
+                            y2="8"
+                            stroke="gray"
+                            stroke-width="2"/>
+                        </pattern>
+                        <g fill="none" stroke="#000000">
+                            <path d="M50 55 C75 25, 104 40, 100 15" />
+                            <ellipse cx="100" cy="70" rx="40" ry="10" stroke-dasharray="8 3" />
+                            <line x1="130" y1="77" x2="90" y2="95" />
+                            <line x1="100" y1="32" x2="108" y2="30" />
+                            <line x1="85" y1="27" x2="70" y2="33" />
+                            
+                        </g>
+                        <g stroke="red" style="font-size:12px;">
+                            <text x="88" y="20">dl</text>
+                            <line x1="100" y1="15" x2="100" y2="26" stroke-width="2" />
+                        </g>
+                        <g stroke="#000000" fill="url(#hatch)">
+                            <polygon points="100 15 130 77 100 70" />
+                        </g>
+                        <g>
+                            <circle cx="130" cy="77" r="3" />
+                            <polygon points="93 88 90 95 100 96" />
+                            <polygon points="85 75 80 79 84 84" />
+                            <polygon points="75 27 70 33 78 33" />
+                            <text x="125" y="90">A</text>
+                            <text x="73" y="95">dB</text>
+                            <text x="120" y="45">r</text>
+                            <text x="102" y="43">α​</text>
+                            <text x="72" y="25">I​</text>
+                        </g>
+                    </svg>
+                </div>
                 <p>
                     Для модуля вектора:
                     <div class="math-display">dB = \frac{μ_0}{4π} \frac{I⋅dl⋅sin α​}{r^2} ,</div>
@@ -172,23 +229,35 @@
                 <h3 id="mi3">Поле нескінченно довгого прямого провідника</h3>
                 <p>
                     Після інтегрування закону Біо—Савара—Лапласа отримують:
-                    <div class="math-display">B = \frac{μ_0⋅I}{2⋅π⋅r} ,</div>
+                    <div class="border-formul">
+                        <div class="math-display">B = \frac{μ_0⋅I}{2⋅π⋅r} ,</div>
+                    </div>
                     де <span class="math">r</span> - відстань від провідника.
                 </p>
                 <h3 id="mi4">Поле в центрі кругового витка</h3>
+                <img width="100px"
+                    src="https://www.electronicsblog.ru/wp-content/uploads/%D0%9C%D0%B0%D0%B3%D0%BD%D0%B8%D1%82%D0%BD%D0%B0%D1%8F-%D0%B8%D0%BD%D0%B4%D1%83%D0%BA%D1%86%D0%B8%D1%8F-%D0%B2-%D1%86%D0%B5%D0%BD%D1%82%D1%80%D0%B5-%D0%BE%D0%BA%D1%80%D1%83%D0%B6%D0%BD%D0%BE%D1%81%D1%82%D0%B8.png"
+                    style="display: block; float: right; margin-top: 5px"
+                />
                 <p>
                     Для кругового контуру радіуса R:
-                    <div class="math-display">B = \frac{μ_0⋅I}{2⋅R}</div>
+                    <div class="border-formul">
+                        <div class="math-display">B = \frac{μ_0⋅I}{2⋅R}</div>
+                    </div>
                     Із формули видно, що маленька котушка створює сильніше поле ніж велика за того самого струму.
                 </p>
-                <h3>Закон повного струму</h3>
+                <h3 id="A2I">Закон повного струму</h3>
                 <p>
                     Використовують для симетричних систем (соленоїд, тороїд, прямий провідник).
                 </p>
                 <p>
-                    Циркуляція вектора магнітної індукції вздовж довільного замкнутого контуру дорівнює магнітній сталій, 
-                    помноженій на алгебраїчну суму струмів, охоплених цим контуром:
-                    <div class="math-display">∮ \vec B ⋅ d \vec l = μ_0 ∑ I_k</div>
+                    Циркуляція вектора магнітної індукції <span class="math">B</span> вздовж довільного замкнутого контуру 
+                    <span class="math">d \vec l</span> дорівнює <a href="#c3">магнітній сталій</a> <span class="math">μ_0</span>, 
+                    помноженій на алгебраїчну суму <a href="elektrostatic-ua.html#A6I">струмів</a> <span class="math">∑ I_k</span>, 
+                    охоплених цим контуром:
+                    <div class="border-formul">
+                        <div class="math-display">∮ \vec B ⋅ d \vec l = μ_0 ∑ I_k</div>
+                    </div>
                 </p>
                 <p>
                     <b>Що таке циркуляція?</b> Уявімо, що ми рухаємося вздовж замкненого контуру і в кожній точці враховуємо, 
@@ -198,7 +267,7 @@
             </div>
             <div class="border">
                 <img width="180px" src="https://webium.ru/media/wp-content/uploads/2022/03/image4-12.png" style="display: block; float: right; margin-top: 5px">
-                <h3>Силові лінії магнітної індукції</h3>
+                <h3 id="A2L">Силові лінії магнітної індукції</h3>
                 <p>
                     Силова лінія — це уявна крива, дотична до якої в кожній точці збігається з напрямком вектора <span class="math">\vec B</span>.
                 </p>
@@ -222,7 +291,7 @@
                     </ul>
                 </p>
                 <p>
-                    <b>Соленоїд</b> — це довга котушка з великої кількості витків (електромагніт, котушка реле, обмотка трансформатора).
+                    <b id="D11">Соленоїд</b> — це довга котушка з великої кількості витків (електромагніт, котушка реле, обмотка трансформатора).
                 </p>
                 <p>
                     <b>Чому поле соленоїда особливе?</b> Магнітні поля окремих витків додаються. У результаті:
@@ -234,9 +303,15 @@
                     Тому соленоїд є магнітним аналогом плоского конденсатора в електростатиці.
                 </p>
                 <h3 id="mi5">Індукція магнітного поля соленоїда</h3>
+                <img width="220px"
+                    src="https://static.multiurok.ru/multiurok/html/2020/02/09/s_5e3fcaddb056a/img2.jpg"
+                    style="display: block; float: right; margin-top: 5px"
+                />
                 <p>
-                    Із закону повного струму отримують:
-                    <div class="math-display">B = μ_0⋅n⋅I ,</div>
+                    Із <a href="#A2I">закону повного струму</a> отримують:
+                    <div class="border-formul">
+                        <div class="math-display">B = μ_0⋅n⋅I ,</div>
+                    </div>
                     де <span class="math">n</span> - число витків на одиницю довжини.<br>
                     Саме ця формула дозволяє розраховувати електромагніти, реле, котушки індуктивності, 
                     магнітно-резонансні томографи, прискорювачі частинок.
@@ -245,18 +320,20 @@
         </div>
         <div class="article">
             <div class="border">
-                <img width="200px" src="https://lessons.kz/assets/ent-physics/magnetic_field/10.png" style="display: block; float: right; margin-top: 5px;">
                 <h3 id="A3">Сила Ампера</h3>
+                <img width="200px" src="https://lessons.kz/assets/ent-physics/magnetic_field/10.png" style="display: block; float: right; margin-top: 5px;">
                 <p>
                     Якщо провідник зі струмом помістити в магнітне поле, на нього почне діяти сила, 
                     яка змушує провідник зі струмом рухатися або деформуватися під дією магнітного поля. 
                     Ця сила називається силою Ампера:
-                    <div class="math-display">d \vec F = I (d \vec l × \vec B)</div>
-                    <div class="math-display">F = I⋅l⋅B⋅sin α ,</div>
+                    <div class="border-formul">
+                        <div class="math-display">d \vec F = I (d \vec l × \vec B)</div>
+                        <div class="math-display">F = I⋅l⋅B⋅sin α ,</div>
+                    </div>
                     де
                     <ul>
-                        <li><span class="math">I</span> - сила струму;</li>
-                        <li><span class="math">B</span> - магнітна індукція;</li>
+                        <li><span class="math">I</span> - <a href="elektrostatic-ua.html#A6">сила струму</a>;</li>
+                        <li><span class="math">B</span> - <a href="#A2">магнітна індукція</a>;</li>
                         <li><span class="math">l</span> - довжина тієї частини провідника, яка перебуває в магнітному полі;</li>
                         <li><span class="math">α</span> - кут між напрямком струму та вектором <span class="math">\vec B</span>.</li>
                     </ul>
@@ -294,13 +371,15 @@
         </div>
         <div class="article">
             <div class="border">
-                <img width="200px" src="https://studref.com/htm/img/33/8141/833.png" style="display: block; float: right; margin-top: 5px;">
                 <h3 id="A4">Магнітний момент</h3>
+                <img width="200px" src="https://studref.com/htm/img/33/8141/833.png" style="display: block; float: right; margin-top: 5px;">
                 <p>
                     Коли контур зі струмом поміщають у магнітне поле, він прагне повернутися певним чином. 
                     Для опису цієї властивості вводять магнітний момент:
-                    <div class="math-display">p_m = I⋅S ,</div>
-                    де <span class="math">I</span> - сила струму, 
+                    <div class="border-formul">
+                        <div class="math-display">p_m = I⋅S ,</div>
+                    </div>
+                    де <span class="math">I</span> - <a href="elektrostatic-ua.html#A6">сила струму</a>, 
                     <span class="math">S</span> - площа контуру.
                 </p>
                 <p>
@@ -322,14 +401,16 @@
                 </p>
             </div>
             <div class="border">
-                <h3>Потенціальна енергія контуру зі струмом</h3>
+                <h3 id="A4W">Потенціальна енергія контуру зі струмом</h3>
                 <p>
                     Магнітне поле прагне повернути контур так, щоб його магнітний момент збігся з напрямком поля. 
                     Для повороту контуру потрібно виконати роботу. 
                     Ця робота накопичується у вигляді потенціальної енергії:
-                    <div class="math-display">W_p = - p_m⋅B⋅cos α ,</div>
-                    де <span class="math">p_m</span> - магнітний момент, 
-                    <span class="math">B</span> - магнітна індукція, 
+                    <div class="border-formul">
+                        <div class="math-display">W_p = - p_m⋅B⋅cos α ,</div>
+                    </div>
+                    де <span class="math">p_m</span> - <a href="#A4">магнітний момент</a>, 
+                    <span class="math">B</span> - <a href="#A2">магнітна індукція</a>, 
                     <span class="math">α</span> - кут між <span class="math">\vec p_m</span> і <span class="math">\vec B</span>.
                 </p>
                 <p>
@@ -347,11 +428,14 @@
             </div>
             <div class="border">
                 <h3>Обертальний момент</h3>
+                <img src="https://fizika.dp.ua/wp-content/uploads/2021/08/0%D1%8E.jpg" style="display: block; float: right; margin-top: 5px;">
                 <p>
                     Якщо провідник має форму рамки (контуру), то на різні сторони рамки сили Ампера діють у різних напрямках. 
-                    У результаті виникає обертальний момент, який повертає рамку так, щоб її магнітний момент збігся з напрямком магнітного поля:
-                    <div class="math-display">M = p_m⋅B⋅sin α ,</div>
-                    де <span class="math">p_m</span> - магнітний момент, <span class="math">B</span> - магнітна індукція, 
+                    У результаті виникає обертальний момент <span class="math">M</span>, який повертає рамку так, щоб її магнітний момент збігся з напрямком магнітного поля:
+                    <div class="border-formul">
+                        <div class="math-display">M = p_m⋅B⋅sin α ,</div>
+                    </div>
+                    де <span class="math">p_m</span> - <a href="#A4">магнітний момент</a>, <span class="math">B</span> - <a href="#A2">магнітна індукція</a>, 
                     <span class="math">α</span> - кут між <span class="math">\vec p_m</span> і <span class="math">\vec B</span>. 
                     Таким чином, максимльний момент виникає при <span class="math">α = 90°</span>.
                 </p>
@@ -379,12 +463,15 @@
                 <h3 id="A5">Магнітний потік</h3>
                 <p>
                     Магнітна індукція показує силу поля в певній точці. Але часто потрібно знати, 
-                    скільки магнітного поля проходить через певну поверхню. Для цього вводять поняття магнітного потоку.
+                    скільки магнітного поля проходить через певну поверхню. Для цього вводять поняття магнітного потоку 
+                    <span class="math">Φ</span>.
                 </p>
                 <p>
                     Для однорідного поля:
-                    <div class="math-display">Φ = B⋅S⋅cos α ,</div>
-                    де <span class="math">B</span> - магнітна індукція, <span class="math">S</span> - площа поверхні, 
+                    <div class="border-formul">
+                        <div class="math-display">Φ = B⋅S⋅cos α ,</div>
+                    </div>
+                    де <span class="math">B</span> - <a href="#A2">магнітна індукція</a>, <span class="math">S</span> - площа поверхні, 
                     <span class="math">α</span> - кут між вектором <span class="math">\vec B</span> і нормаллю до поверхні.
                     <div class="math-display">[ Φ ] = Вб (вебер)</div>
                 </p>
@@ -395,10 +482,12 @@
                 <p>
                     Якщо поле ковзає вздовж поверхні (<span class="math">α = 90°</span>), то (<span class="math">Φ = 0</span>).
                 </p>
-                <h3>Теорема Гаусса для магнітного поля</h3>
+                <h3 id="A5G">Теорема Гаусса для магнітного поля</h3>
                 <p>
                     Для будь-якої замкнутої поверхні:
-                    <div class="math-display">∮ \vec B ⋅ d \vec S = 0</div>
+                    <div class="border-formul">
+                        <div class="math-display">∮ \vec B ⋅ d \vec S = 0</div>
+                    </div>
                     Фізичний зміст: скільки магнітних ліній увійшло в замкнутий об'єм, стільки ж із нього вийшло.
                 </p>
             </div>
@@ -406,10 +495,12 @@
                 <h3>Робота при переміщенні контуру зі струмом</h3>
                 <p>
                     Якщо провідник перпендикулярний до поля і перемістився на відстань dx, виконується робота:
-                    <div class="math-display">dA = F_A⋅x = I⋅B⋅l⋅dx = I⋅B⋅dS = I⋅dΦ</div>
+                    <div class="math-display">dA = F_A⋅dx = I⋅B⋅l⋅dx = I⋅B⋅dS = I⋅dΦ</div>
                     Якщо переміщується або повертається весь контур зі струмом, то змінюється магнітний потік через нього. 
                     Тоді джерело струму виконує роботу:
-                    <div class="math-display">A = I (Φ_2 - Φ_1)</div>
+                    <div class="border-formul">
+                        <div class="math-display">A = I (Φ_2 - Φ_1)</div>
+                    </div>
                     Дана формула показує, скільки енергії потрібно для того, щоб:
                     <ul>
                         <li>перемістити рамку в полі;</li>
@@ -423,18 +514,24 @@
         <div class="article">
             <div class="border">
                 <h3 id="A6">Сила Лоренца</h3>
+                <img width="200px" src="https://profil.adu.by/pluginfile.php/3549/mod_book/chapter/9358/%D0%A0%D0%B8%D1%81.%20170.jpg" style="display: block; float: right; margin-top: 5px;">
                 <p>
                     Сила Лоренца - це сила, яка діє на окремий заряд, що рухається в магнітному полі:
-                    <div class="math-display">\vec F = q (\vec v × \vec B) ,</div>
-                    де <span class="math">q</span> - заряд частинки, 
-                    <span class="math">\vec v</span> - швидкість, <span class="math">\vec B</span> - магнітна індукція.
+                    <div class="border-formul">
+                        <div class="math-display">\vec F = q (\vec v × \vec B) ,</div>
+                    </div>
+                    де <span class="math">q</span> - <a href="#c1">заряд частинки</a>, 
+                    <span class="math">\vec v</span> - швидкість руху заряду, <span class="math">\vec B</span> - <a href="#A2">магнітна індукція</a>.
                 </p>
                 <p>
                     Модуль сили:
-                    <div class="math-display">F = q⋅v⋅B⋅sin α</div>
+                    <div class="border-formul">
+                        <div class="math-display">F = q⋅v⋅B⋅sin α</div>
+                    </div>
                     Магнітна складова сили Лоренца не змінює швидкість частинки, а лише змінює напрямок її руху 
                     (сила завжди перпендикулярна швидкості).
                 </p>
+                <img width="250px" src="https://studme.org/htm/img/33/1760/376.png" style="display: block; float: right; margin-top: 5px;">
                 <p>
                     Таким чином, якщо частинка летить уздовж поля (<span class="math">α = 0°</span>), то частинка рухається 
                     прямолінійно (<span class="math">F = 0</span>).
@@ -442,8 +539,8 @@
                 <p>
                     Якщо частинка летить перпендикулярно полю (<span class="math">α = 90°</span>), то сила максимальна і 
                     траєкторія стає коловою:
-                    <div class="math-display">\frac {m⋅v^2}{r} = q⋅v⋅B</div>
-                    Звідки:
+                    <div class="math-display">\frac {m⋅v^2}{r} = q⋅v⋅B ,</div>
+                    де <span class="math">m</span> - <a href="#c4">маса електрона</a>. Звідки:
                     <div class="math-display">r = \frac {m⋅v}{q⋅B}</div>
                 </p>
                 <p>
@@ -472,18 +569,22 @@
                 </p>
             </div>
             <div class="border">
-                <h3>Намагніченість речовини</h3>
+                <h3 id="D1">Намагніченість речовини</h3>
                 <p>
                     Якщо помістити речовину в зовнішнє поле, магнітні моменти частково впорядковуються 
                     і речовина створює власне магнітне поле. У результаті:
                     <div class="math-display">\vec B = \vec B_0 + \vec B' ,</div>
-                    де <span class="math">\vec B_0</span> - поле зовнішніх струмів, <span class="math">\vec B'</span> - поле самої речовини.
+                    де <span class="math">\vec B_0</span> - <a href="#A2">поле зовнішніх струмів</a>, 
+                    <span class="math">\vec B'</span> - <a href="#A2">поле самої речовини</a>.
                 </p>
                 <p>
                     Щоб описати, наскільки сильно речовина стала магнітом після внесення в зовнішнє поле, 
                     вводять намагніченість. <b>Намагніченість</b> - це магнітний момент одиниці об'єму речовини:
-                    <div class="math-display">\vec M = \frac {∑\vec p_m}{V}</div>
-                    Практично намагніченість показує кількість магнітного моменту в об'ємі.
+                    <div class="border-formul">
+                        <div class="math-display">\vec M = \frac {∑\vec p_m}{V}</div>
+                    </div>
+                    Практично намагніченість показує кількість <a href="#A4">магнітного моменту</a> <span class="math">p_m</span> 
+                    в об'ємі <span class="math">V</span>.
                 </p>
                 <p>
                     Таким чином, якщо М = 0, то магнітні моменти атомів повністю компенсуються. 
@@ -491,9 +592,9 @@
                 </p>
             </div>
             <div class="border">
-                <h3>Напруженість магнітного поля</h3>
+                <h3 id="D2">Напруженість магнітного поля</h3>
                 <p>
-                    В речовині магнітна індукція <span class="math">B</span> залежить від:
+                    В речовині <a href="#A2">магнітна індукція</a> <span class="math">B</span> залежить від:
                     <ul>
                         <li>зовнішніх струмів;</li>
                         <li>властивостей речовини.</li>
@@ -502,16 +603,20 @@
                 </p>
                 <p>
                     Зв'язок між величинами:
-                    <div class="math-display">\vec B = μ_0 (\vec H + \vec M)</div>
+                    <div class="border-formul">
+                        <div class="math-display">\vec B = μ_0 (\vec H + \vec M)</div>
+                    </div>
                 </p>
             </div>
             <div class="border">
-                <h3>Магнітна сприйнятливість</h3>
+                <h3 id="D3">Магнітна сприйнятливість</h3>
                 <p>
                     Різні речовини намагнічуються по-різному. Для характеристики цієї здатності 
                     вводять магнітну сприйнятливість <span class="math">χ</span>:
                     <div class="math-display">\vec M = χ⋅\vec H</div>
-                    <div class="math-display">B = μ_0(1 + χ)H</div>
+                    <div class="border-formul">
+                        <div class="math-display">B = μ_0(1 + χ)H</div>
+                    </div>
                 </p>
                 <p>
                     Якщо χ велика - речовина легко намагнічується (залізо, нікель, кобальт);
@@ -519,19 +624,28 @@
                 </p>
             </div>
             <div class="border">
-                <h3>Відносна магнітна проникність</h3>
+                <h3 id="D4">Відносна магнітна проникність</h3>
                 <p>
-                    Показує, у скільки разів поле в речовині сильніше або слабше, ніж у вакуумі:
-                    <div class="math-display">μ_r = 1 + χ</div>
-                    Наприклад, <span class="math">μr = 1000</span> означає: за тих самих зовнішніх струмів поле в речовині приблизно 
+                    Відносна магнітна проникність <span class="math">μ_r</span> показує, у скільки разів поле в речовині сильніше 
+                    або слабше, ніж у вакуумі:
+                    <div class="border-formul">
+                        <div class="math-display">μ_r = 1 + χ</div>
+                    </div>
+                    Наприклад, <span class="math">μ_r = 1000</span> означає: за тих самих зовнішніх струмів поле в речовині приблизно 
                     у 1000 разів сильніше, ніж у вакуумі.
                 </p>
             </div>
             <div class="border">
-                <h3>Абсолютна магнітна проникність</h3>
+                <h3 id="D5">Абсолютна магнітна проникність</h3>
                 <p>
                     Показує, який зв'язок існує між створеним полем B та зовнішнім полем H у конкретному середовищі:
-                    <div class="math-display">μ = \frac{B}{H} = μ_0 μ_r</div>
+                    <div class="border-formul">
+                        <div class="math-display">μ = \frac{B}{H} = μ_0 μ_r, </div>
+                    </div>
+                     де <span class="math">B</span> - <a href="#A2">магнітна індукція</a>, 
+                    <span class="math">H</span> - <a href="#D2">напруженість магнітного поля</a>, 
+                    <span class="math">μ_0</span> - <a href="#c3">магнітна стала</a>, 
+                    <span class="math">μ_r</span> - <a href="#D4">відносна магнітна проникність</a>.
                 </p>
             </div>
         </div>
@@ -539,7 +653,8 @@
             <div class="border">
                 <h3 id="A8">Електромагнітна індукція</h3>
                 <p>
-                    Якщо змінювати магнітний потік через замкнений контур, у ньому виникає електричний струм. 
+                    Якщо змінювати <a href="#A5">магнітний потік</a> <span class="math">Φ</span> через замкнений контур, 
+                    у ньому виникає електричний струм. 
                     Це явище називається <b>електромагнітною індукцією</b>.
                 </p>
                 <p>
@@ -554,7 +669,9 @@
                 </p>
                 <p>
                     Виникнення електромагнітної індукції описує закон Фарадея:
-                    <div class="math-display">E = -\frac{dΦ}{dt}</div>
+                    <div class="border-formul">
+                        <div class="math-display">E = -\frac{dΦ}{dt}</div>
+                    </div>
                     Мінус відображає закон Ленца: індукційний струм завжди виникає так, 
                     щоб протидіяти причині свого виникнення.
                 </p>
@@ -566,14 +683,19 @@
             <div class="border">
                 <h3 id="A9">Індуктивність</h3>
                 <p>
-                    Різні котушки при однаковому струмі створюють різний магнітний потік.
+                    Різні котушки при однаковому <a href="elektrostatic-ua.html#A6">струмі</a> 
+                    <span class="math">I</span> створюють різний <a href="#A5">магнітний потік</a> <span class="math">Φ</span>.
                 </p>
                 <p>
                     <b>Індуктивність</b> <span class="math">L</span> - величина, яка характеризує здатність провідника накопичувати магнітне поле:
-                    <div class="math-display">Φ = L⋅I</div>
+                    <div class="border-formul">
+                        <div class="math-display">Φ = L⋅I</div>
+                    </div>
                     Для багатовиткової котушки:
-                    <div class="math-display">Ψ = L⋅I ,</div>
-                    де <span class="math">Ψ</span> - потокозчеплення.
+                    <div class="border-formul">
+                        <div class="math-display">Ψ = L⋅I ,</div>
+                    </div>
+                    де <span class="math">Ψ</span> - <b id="D6">потокозчеплення</b>.
                 </p>
                 <p>
                     Чим більша індуктивність:
@@ -582,9 +704,13 @@
                         <li>тим важче змінити струм.</li>
                     </ul>
                     Для довгого соленоїда:
-                    <div class="math-display">L = μ_0⋅μ_r⋅n^2⋅V ,</div>
+                    <div class="border-formul">
+                        <div class="math-display">L = μ_0⋅μ_r⋅n^2⋅V ,</div>
+                    </div>
                     де <span class="math">n</span> - число витків на одиницю довжини, 
-                    <span class="math">V</span> - об'єм соленоїда, <span class="math">μ_r</span> - відносна магнітна проникність осердя.
+                    <span class="math">V</span> - об'єм соленоїда, <span class="math">μ_r</span> - 
+                    <a href="#D4">відносна магнітна проникність осердя</a>, <span class="math">μ_0</span> - 
+                    <a href="#c3">магнітна стала</a>.
                 </p>
                 <p>
                     Як збільшити індуктивність?
@@ -600,10 +726,10 @@
                 <p>
                     У колі з котушкою струм не може миттєво зрости від 0 до максимального значення. 
                     Самоіндукція цьому заважає. Закон наростання струму:
-                    <div class="math-display">I = I_0 (1 - e^{-\frac{Rt}{L}})</div>
+                    <div class="math-display">I = I_0 (1 - e^{-(Rt)/L})</div>
                     Коли джерело відключають, котушка не дозволяє струму миттєво зникнути. 
                     Вона починає сама підтримувати його за рахунок запасеної енергії:
-                    <div class="math-display">I = I_0 e^{-\frac{Rt}{L}}</div>
+                    <div class="math-display">I = I_0 e^{-(Rt)/L}</div>
                     Саме через це під час вимкнення реле або електромагніта часто виникають іскри. 
                     Котушка намагається зберегти струм і створює велику ЕРС самоіндукції.
                 </p>
@@ -630,10 +756,12 @@
             <div class="border">
                 <h3>ЕРС самоіндукції</h3>
                 <p>
-                    Оскільки
+                    <a href="#A9">Оскільки</a>
                     <div class="math-display">Φ = L⋅I</div>
-                    За законом Фарадея:
-                    <div class="math-display">E = -\frac{dΦ}{dt} = -L\frac{dI}{dt}</div>
+                    За законом Фарадея ЕРС самоіндукції <span class="math">E</span>:
+                    <div class="border-formul">
+                        <div class="math-display">E = -\frac{dΦ}{dt} = -L\frac{dI}{dt}</div>
+                    </div>
                 </p>
                 <p>
                     Таким чином, ЕРС самоіндукції тим більша:
@@ -652,15 +780,17 @@
                     <b>Взаємоіндукція</b> — виникнення ЕРС в одному контурі внаслідок зміни струму в іншому контурі.
                 </p>
                 <p>
-                    Для двох контурів вводять коефіцієнт взаємної індуктивності <span class="math">M</span>. Наприклад, 
-                    магнітний потік першого контуру:
+                    Для двох контурів вводять <b>коефіцієнт взаємної індуктивності</b> <span class="math">M</span>. Наприклад, 
+                    <a href="#A5">магнітний потік</a> першого контуру:
                     <div class="math-display">Φ_{21} = M I_1</div>
-                    ЕРС у другому контурі:
-                    <div class="math-display">E_{21} = -M\frac{dI_1}{dt}</div>
+                    <a href="#A10">ЕРС</a> у другому контурі:
+                    <div class="border-formul">
+                        <div class="math-display">E_{21} = -M\frac{dI_1}{dt}</div>
+                    </div>
                 </p>
             </div>
             <div class="border">
-                <h3>Власна енергія струму</h3>
+                <h3 id="A11W">Власна енергія струму</h3>
                 <p>
                     Коли ми вмикаємо котушку:
                     <ul>
@@ -671,19 +801,32 @@
                 </p>
                 <p>
                     Енергія магнітного поля:
-                    <div class="math-display">W_m = \frac{L I^2}{2}</div>
+                    <div class="border-formul">
+                        <div class="math-display">W_m = \frac{L I^2}{2} ,</div>
+                    </div>
+                    де <span class="math">L</span> - <a href="#A9">індуктивність</a>, 
+                    <span class="math">I</span> - <a href="elektrostatic-ua.html#A6">струм у контурі</a>.
                 </p>
                 <p>
                     Іноді важливо знати не загальну енергію, а її концентрацію в просторі. 
-                    Для цього вводять <b>об'ємну щільність енергії</b>:
-                    <div class="math-display">w_m = \frac{W_m}{V}</div>
+                    Для цього вводять <b id="D7">об'ємну щільність енергії</b>:
+                    <div class="border-formul">
+                        <div class="math-display">w_m = \frac{W_m}{V}</div>
+                    </div>
                     Для однорідного поля:
-                    <div class="math-display">w_m = \frac{B^2}{2 μ_0 μ_r} = \frac{μ_0 μ_r H^2}{2} = \frac{B H}{2}</div>
+                    <div class="border-formul">
+                        <div class="math-display">w_m = \frac{B^2}{2 μ_0 μ_r} = \frac{μ_0 μ_r H^2}{2} = \frac{B H}{2} ,</div>
+                    </div>
+                    де <span class="math">B</span> - <a href="#A2">магнітна індукція</a>, 
+                    <span class="math">H</span> - <a href="#D2">напруженість магнітного поля</a>, 
+                    <span class="math">μ_0</span> - <a href="#c3">магнітна стала</a>, 
+                    <span class="math">μ_r</span> - <a href="#D4">відносна магнітна проникність</a>.
                     Показує, скільки енергії міститься в одному кубічному метрі магнітного поля.
                 </p>
             </div>
         </div>
         <div class="article">
+            <div class="border-formul">
             <div class="border">
                 <h3>Теорія електромагнітного поля</h3>
                 <p>
@@ -691,12 +834,42 @@
                     то чи може електричне поле породжувати магнітне?
                 </p>
             </div>
+            </div>
             <div class="border">
                 <h3 id="A12">Перше рівняння Максвелла</h3>
                 <p>
+                    Циркуляція електричного поля вздовж замкненого контуру дорівнює зі знаком «мінус» швидкості зміни магнітного потоку 
+                    через поверхню, натягнуту на цей контур. 
                     Якщо магнітне поле змінюється з часом (<span class="math">B = B(t)</span>), то навколо нього виникає 
                     <u>вихрове</u> <a href="elektrostatic-ua.html#A2">електричне поле</a>:
-                    <div class="math-display">∮ \vec E⋅ d \vec l = -\frac{d}{dt} ∫_S \vec B ⋅ d \vec S</div>
+                    <div class="border-formul">
+                        <div class="math-display">∮ \vec E⋅ d \vec l = -\frac{d}{dt} ∫_S \vec B ⋅ d \vec S ,</div>
+                    </div>
+                    де
+                    <ul>
+                        <li>
+                            <span class="math">\vec E</span> — <a href="elektrostatic-ua.html#A2">напруженість електричного поля</a>; 
+                        </li>
+                        <li>
+                            <span class="math">d \vec l</span> — замкнений елемент контуру із напрямом руху вздовж контуру;
+                        </li>
+                        <li>
+                            <span class="math">\vec E⋅ d \vec l = E dl cos α.</span> — враховується лише та складова 
+                            <span class="math">E</span>, яка спрямована вздовж контуру;
+                        </li>
+                        <li>
+                            <span class="math">∮</span> — інтегрування по замкненому контуру;
+                        </li>
+                        <li>
+                            <span class="math">\vec B</span> — <a href="#A2">магнітна індукція</a>;
+                        </li>
+                        <li>
+                            <span class="math">d \vec S</span> — елемент поверхні, де вектор вказує напрямок і є нормаллю до поверхні;
+                        </li>
+                        <li>
+                            <span class="math">∫_S \vec B ⋅ d \vec S</span> — <a href="#A5">магнітний потік</a>.
+                        </li>
+                    </ul>
                 </p>
                 <p>
                     На відміну від <u>електростатичного</u> поля, яке:
@@ -714,7 +887,7 @@
                 <p>
                     Саме цей закон лежить у основі роботи генераторів електростанції.
                 </p>
-                <h3>Вихрові струми (струми Фуко)</h3>
+                <h3 id="D8">Вихрові струми (струми Фуко)</h3>
                 <p>
                     Якщо змінне магнітне поле діє на масивний металевий предмет → 
                     усередині металу виникає вихрове електричне поле → воно створює замкнені струми 
@@ -747,11 +920,14 @@
                 </p>
                 <p>
                     Максвелл показав, що змінне електричне поле поводиться так само, як звичайний струм. 
-                    Для цього він увів поняття <b>струм зміщення</b>: якщо змінюється електричне поле <span class="math">E = E(t)</span>, 
+                    Для цього він увів поняття <b id="D9">струм зміщення</b>: якщо змінюється <a href="elektrostatic-ua.html#A2">електричне поле</a> 
+                    <span class="math">E = E(t)</span>, 
                     то змінюється й <a href="elektrostatic-ua.html#A10">електрична індукція</a> <span class="math">D = D(t)</span> 
                     і ця зміна еквівалентна певному струму:
-                    <div class="math-display">I_{ЗМ} = \frac {dΦ_D}{dt} ,</div>
-                    де
+                    <div class="border-formul">
+                        <div class="math-display">I_{ЗМ} = \frac {dΦ_D}{dt} ,</div>
+                    </div>
+                    де <b id="D10">потік електричної індукції</b>:
                     <div class="math-display">Φ_D = ∫ \vec D⋅d\vec S </div>
                 </p>
                 <p>
@@ -763,8 +939,40 @@
                     </ul>
                 </p>
                 <p>
-                    <b>Друге рівняння Максвелла</b>:
-                    <div class="math-display">∮ \vec H⋅d \vec l = I + \frac{d}{dt} ∫_S \vec D ⋅ d \vec S</div>
+                    <b>Другий закон Максвелла</b> — циркуляція напруженості магнітного поля вздовж замкненого контуру дорівнює 
+                    сумі звичайного струму провідності та струму зміщення через поверхню, обмежену цим контуром (наприклад, 
+                    струмом зміщення між обкладками конденсатора):
+                    <div class="border-formul">
+                        <div class="math-display">∮ \vec H⋅d \vec l = I + \frac{d}{dt} ∫_S \vec D ⋅ d \vec S ,</div>
+                    </div>
+                    де
+                    <ul>
+                        <li>
+                            <span class="math">\vec H</span> — <a href="#D2">напруженість магнітного поля</a>; 
+                        </li>
+                        <li>
+                            <span class="math">d \vec l</span> — замкнений елемент контуру із напрямом руху вздовж контуру;
+                        </li>
+                        <li>
+                            <span class="math">\vec H⋅ d \vec l = H dl cos α.</span> — враховується лише та складова 
+                            <span class="math">H</span>, яка спрямована вздовж контуру;
+                        </li>
+                        <li>
+                            <span class="math">∮</span> — інтегрування по замкненому контуру;
+                        </li>
+                        <li>
+                            <span class="math">I</span> — <a href="elektrostatic-ua.html#A6">струм провідності</a>>;
+                        </li>
+                        <li>
+                            <span class="math">\vec D</span> — <a href="elektrostatic-ua.html#A10">електрична індукція</a>;
+                        </li>
+                        <li>
+                            <span class="math">d \vec S</span> — елемент поверхні, де вектор вказує напрямок і є нормаллю до поверхні;
+                        </li>
+                        <li>
+                            <span class="math">∫_S \vec D ⋅ d \vec S</span> — <a href="#D10">потік електричної індукції</a>.
+                        </li>
+                    </ul>
                 </p>
                 <p>
                     Саме це рівняння дозволило пояснити роботу конденсаторів у колах змінного струму, 
@@ -774,31 +982,48 @@
                     Після першого і другого рівнянь Максвелл дійшов висновку: електричне і магнітне поля не існують окремо. 
                     Вони безперервно породжують одне одного. Тому слід говорити про єдине електромагнітне поле.
                 </p>
-                <p></p>
-                <p></p>
             </div>
             <div class="border">
                 <h3 id="A14">Третє рівняння Максвелла</h3>
                 <p>(теорема Гаусса для електричного поля)</p>
                 <p>
-                    Потік електричного поля через замкнену поверхню визначається зарядом усередині цієї поверхні:
-                    <div class="math-display">∮_S \vec D⋅d \vec S = q</div>
-                    Простими словами: електричні силові лінії виходять із позитивних зарядів і входять у негативні.
+                    <a href="#D10">Потік електричного поля</a> через замкнену поверхню <span class="math">d \vec S</span> 
+                    визначається <a href="#c1">зарядом</a> усередині цієї поверхні:
+                    <div class="border-formul">
+                        <div class="math-display">∮_S \vec D⋅d \vec S = q</div>
+                    </div>
+                    Простими словами: <a href="elektrostatic-ua.html#A2">електричні силові лінії</a> виходять із позитивних зарядів і входять у негативні.
                 </p>
             </div>
             <div class="border">
                 <h3 id="A15">Четверте рівняння Максвелла</h3>
-                <p>(теорема Гаусса для магнітного поля)</p>
+                <p>або <a href="#A5">теорема Гаусса для магнітного поля</a></p>
                 <p>
-                    Магнітних зарядів (магнітних монополів) не існує, тому магнітні лінії завжди замкнені:
-                    <div class="math-display">∮_S \vec B⋅d \vec S = 0</div>
+                    Магнітних зарядів (магнітних монополів) не існує, тому магнітні лінії завжди замкнені. Або 
+                    іншими словами циркуляція вектора <a href="#A2">магнітної індукції</a> в замкнутому контурі дорівнює нулю:
+                    <div class="border-formul">
+                        <div class="math-display">∮_S \vec B⋅d \vec S = 0</div>
+                    </div>
                 </p>
             </div>
+        </div>
+        <div class="article">
             <div class="border">
-                <p></p>
-                <p></p>
-                <p></p>
-                <p></p>
+                <h3 id="A16">Константи</h3>
+                <p id="c1">
+                    <b><span class="math">e=q=1,6⋅10^{−19}  Кл</span></b> — заряд електрона;
+                </p>
+                <p id="c2">
+                    <b><span class="math">ε_0 = 8,85⋅10^{-12} Ф/м</span></b> — <a href="#A10">електрична стала</a>.
+                </p>
+                <p id="c3">
+                    <b><span class="math">μ_0 = 4π ⋅ 10^{-7} Гн/м ≈ 1,256×10^{-6} Гн/м</span></b> — магнітна стала — 
+                    показує, наскільки ефективно вакуум «передає» магнітну взаємодію.
+                </p>
+                <p id="c4">
+                    <b><span class="math">m = 9,11 ⋅ 10^{-31} кг = 0,51099895 МеВ = 5,49 ⋅ 10^{-4} а.о.м.</span></b> — 
+                    маса електрона.
+                </p>
             </div>
         </div>
     </div>
